@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/geo-quest/travel-bingo/compare/v1.0.0...v1.0.1) (2024-08-02)
+
+### Bug Fixes
+
+* **on-merge-main:** fixing dependecies ([d2dfb5c](https://github.com/geo-quest/travel-bingo/commit/d2dfb5c46be66dac9531eb023696b6d510399cb6))
+* **on-merge-main:** using actions/deploy-pages ([#7](https://github.com/geo-quest/travel-bingo/issues/7)) ([aa4ea12](https://github.com/geo-quest/travel-bingo/commit/aa4ea12943b7fb0378dba28de95e0654c3afb8ef))
+
 ## 1.0.0 (2024-08-02)
 
 ### Features

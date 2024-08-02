@@ -1,7 +1,7 @@
 {
   "name": "travel-bingo",
   "homepage": "https://geo-quest.github.io/travel-bingo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
