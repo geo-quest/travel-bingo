@@ -17,14 +17,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
       - run: npm ci
-      - name: Release
-        id: release
-        run: |
-          RELEASE_OUTPUT=$(npm release)
-          echo "$RELEASE_OUTPUT"
-          TAG=$(echo "$RELEASE_OUTPUT" | grep "tag:" | awk '{print $2}')
-          echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
+      - run: npm release
       - name: Deploy
         run: |
-          echo "Deploying with tag $RELEASE_TAG"
-          npm run deploy -- -m "Deploying version $RELEASE_TAG"
+          VERSION=$(node -p "require('./package.json').version")
+          npm run deploy -- -m "\"Deploying $VERSION\""
