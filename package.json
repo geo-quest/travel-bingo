@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@rpidanny/eslint-config-typescript": "^1.4.1",
     "husky": "^9.1.4"
   }
 }
