@@ -21,11 +21,15 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - run: npm ci
-      - run: BUILD_PATH='./out' npm run build
+      - run: |
+        npm run build
+        pwd
+        ls -la
+        ls -la dist/
       - run: npm test
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ env.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: ./dist
           commit_message: ${{ github.event.head_commit.message }}
