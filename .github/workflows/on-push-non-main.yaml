@@ -22,10 +22,10 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm ci
       - run: |
-        npm run build
-        pwd
-        ls -la
-        ls -la dist/
+          npm run build
+          pwd
+          ls -la
+          ls -la dist/
       - run: npm test
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
