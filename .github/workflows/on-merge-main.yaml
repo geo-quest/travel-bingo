@@ -1,20 +1,21 @@
-name: On Push Non Main
+name: On Merge to Main
 
 on:
   push:
-    branches-ignore:
+    branches:
       - "main"
 
 jobs:
-  build-and-test:
+  release-and-deploy:
     name: Build and Test
     runs-on: ubuntu-latest
     env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
 
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
       - run: npm ci
-      - run: npm run build
-      - run: npm test
+      - run: npm release
+      - run: npm deploy
