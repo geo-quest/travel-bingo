@@ -14,7 +14,9 @@ jobs:
       pages: write
     env:
       CI: true
+    environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - uses: actions/checkout@v4
