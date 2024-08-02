@@ -10,11 +10,11 @@ jobs:
     name: Build and Test
     runs-on: ubuntu-latest
     permissions:
-      contents: write
       id-token: write
       pages: write
     env:
       CI: true
+      name: github-pages
 
     steps:
       - uses: actions/checkout@v4
