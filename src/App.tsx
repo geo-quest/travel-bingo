@@ -7,6 +7,7 @@ function App() {
         <img
           src={process.env.PUBLIC_URL + "/travel-bingo-logo.png"}
           className="Travel Bingo"
+          alt="Travel Bingo"
         />
       </header>
     </div>
