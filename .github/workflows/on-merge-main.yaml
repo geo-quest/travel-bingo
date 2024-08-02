@@ -13,6 +13,9 @@ jobs:
       contents: write
       actions: write
       pages: write
+      deployments: write
+      issues: write
+      pull-requests: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
