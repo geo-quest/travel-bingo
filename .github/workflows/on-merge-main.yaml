@@ -16,6 +16,7 @@ jobs:
       deployments: write
       issues: write
       pull-requests: write
+      packages: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
