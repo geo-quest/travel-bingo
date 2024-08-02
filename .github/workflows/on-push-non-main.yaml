@@ -9,7 +9,10 @@ jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
     env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
 
     steps:
