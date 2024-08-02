@@ -6,8 +6,8 @@ on:
       - "main"
 
 jobs:
-  release-and-deploy:
-    name: Create release and Deploy
+  create-release:
+    name: Create release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -18,9 +18,7 @@ jobs:
       pull-requests: write
       packages: write
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,8 +26,28 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm ci
       - run: npm run release
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+
+  deploy:
+    name: Deploy
+    needs: create-release
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          publish_dir: ./build
-          commit_message: ${{ github.event.head_commit.message }}
+          node-version-file: ".nvmrc"
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: "build"
+      - uses: actions/deploy-pages@v4
