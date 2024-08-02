@@ -1,5 +1,6 @@
 {
   "name": "travel-bingo",
+  "homepage": "https://geo-quest.github.io/travel-bingo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,6 +24,8 @@
     "eject": "react-scripts eject",
     "lint": "npx eslint src",
     "lint:fix": "npx eslint src --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "prepare": "husky"
   },
   "eslintConfig": {
@@ -47,6 +50,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@rpidanny/eslint-config-typescript": "^1.4.1",
+    "gh-pages": "^6.1.1",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.7"
   }
