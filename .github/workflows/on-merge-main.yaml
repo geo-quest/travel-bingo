@@ -1,0 +1,24 @@
+name: On Merge to Main
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  release-and-deploy:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CI: true
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npm release
+      - name: Deploy
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          npm run deploy -- -m "\"Deploying $VERSION\""
