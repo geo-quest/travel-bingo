@@ -9,6 +9,10 @@ jobs:
   release-and-deploy:
     name: Create release and Deploy
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+      pages: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
