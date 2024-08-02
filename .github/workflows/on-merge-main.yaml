@@ -5,30 +5,39 @@ on:
     branches:
       - "main"
 
+permissions:
+  contents: write
+  actions: write
+  pages: write
+  deployments: write
+  issues: write
+  pull-requests: write
+  packages: write
+
 jobs:
-  release-and-deploy:
-    name: Create release and Deploy
+  release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      actions: write
-      pages: write
-      deployments: write
-      issues: write
-      pull-requests: write
-      packages: write
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
       - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build
       - run: npm run release
-      - name: Deploy
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          npm run deploy -- -m "\"Deploying $VERSION\""
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v3
