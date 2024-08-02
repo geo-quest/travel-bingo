@@ -12,7 +12,6 @@ jobs:
     permissions:
       contents: write
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       CI: true
 
     steps:
@@ -23,6 +22,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm test
-      - uses: JamesIves/github-pages-deploy-action@v4
+      - uses: actions/upload-pages-artifact@v4
         with:
-          folder: build
+          path: "build"
+      - uses: actions/deploy-pages@v4
