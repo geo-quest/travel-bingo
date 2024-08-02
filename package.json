@@ -21,6 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "npx eslint src",
+    "lint:fix": "npx eslint src --fix",
     "prepare": "husky"
   },
   "eslintConfig": {
