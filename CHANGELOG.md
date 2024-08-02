@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/geo-quest/travel-bingo/compare/v1.0.1...v1.0.2) (2024-08-02)
+
+### Bug Fixes
+
+* adding github token to release step ([1fd4c8e](https://github.com/geo-quest/travel-bingo/commit/1fd4c8e205ae7160833d8c444bb9fd7a4355f10d))
+* on-merge-main deploy step ([#8](https://github.com/geo-quest/travel-bingo/issues/8)) ([5cc19ba](https://github.com/geo-quest/travel-bingo/commit/5cc19ba603a19c25f19c12befad054735e9c74b0))
+
 ## [1.0.1](https://github.com/geo-quest/travel-bingo/compare/v1.0.0...v1.0.1) (2024-08-02)
 
 ### Bug Fixes
