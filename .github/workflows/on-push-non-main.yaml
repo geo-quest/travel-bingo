@@ -1,0 +1,21 @@
+name: On Push Non Main
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+        env:
+          CI: true
