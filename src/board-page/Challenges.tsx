@@ -1,9 +1,11 @@
 /* eslint-disable arrow-parens */
 import { PlayCircleOutlined } from "@ant-design/icons";
-import { Card, Modal, Typography } from "antd";
+import { Card, Typography } from "antd";
 import React, { useState } from "react";
 
-const { Title, Paragraph } = Typography;
+import ChallengeModal from "./ChallengeModal";
+
+const { Title } = Typography;
 
 interface Challenge {
   challenge: string;
@@ -57,20 +59,10 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
         ))}
       </div>
       {selectedChallenge && (
-        <Modal
-          title={selectedChallenge.challenge}
-          open={!!selectedChallenge}
-          onCancel={handleModalClose}
-          centered
-          footer={false}
-        >
-          <Paragraph>
-            <strong>Description:</strong> {selectedChallenge.description}
-          </Paragraph>
-          <Paragraph>
-            <strong>Points:</strong> {selectedChallenge.points}
-          </Paragraph>
-        </Modal>
+        <ChallengeModal
+          challenge={selectedChallenge}
+          onClose={handleModalClose}
+        />
       )}
     </>
   );
