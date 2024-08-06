@@ -1,3 +1,7 @@
+.board {
+    max-width: fit-content;
+}
+
 .board > div:first-child > div:first-child{
     border-radius: 25px 0 0 0 ;
 }
@@ -16,7 +20,7 @@
 
 .board .header-card,
 .board .card {
-    padding: 12px !important;
+    padding: 8px !important;
 }
 
 .header-card {

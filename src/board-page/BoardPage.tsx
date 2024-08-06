@@ -20,7 +20,7 @@ const BoardPage = ({ travelBingo }: Props) => {
         title={
           <div style={{ display: "flex", alignItems: "center" }}>
             <FlagTwoTone style={{ marginRight: 8, fontSize: "32px" }} />
-            <h1 style={{ margin: 0 }}>{travelBingo.title}</h1>
+            <h2 style={{ margin: 0 }}>{travelBingo.title}</h2>
           </div>
         }
       >
