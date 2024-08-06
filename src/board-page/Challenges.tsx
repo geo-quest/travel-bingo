@@ -1,3 +1,4 @@
+/* eslint-disable arrow-parens */
 import { PlayCircleOutlined } from "@ant-design/icons";
 import { Card, Modal, Typography } from "antd";
 import React, { useState } from "react";
@@ -33,19 +34,28 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
         <PlayCircleOutlined style={{ marginRight: 8 }} />
         Challenges
       </Title>
-      {challenges.map((row, rowIndex) => (
-        <div key={rowIndex} style={{ display: "flex" }}>
-          {row.map((item, colIndex) => (
-            <Card.Grid
-              key={colIndex}
-              style={{ width: "20%", cursor: "pointer" }}
-              onClick={() => handleCardClick(item)}
-            >
-              {item.challenge}
+      <div className="board">
+        <div style={{ display: "flex" }}>
+          {["B", "I", "N", "G", "O"].map((letter) => (
+            <Card.Grid key={letter} className="header-card" hoverable={false}>
+              {letter}
             </Card.Grid>
           ))}
         </div>
-      ))}
+        {challenges.map((row, rowIndex) => (
+          <div key={rowIndex} style={{ display: "flex" }}>
+            {row.map((item, colIndex) => (
+              <Card.Grid
+                key={colIndex}
+                className="card"
+                onClick={() => handleCardClick(item)}
+              >
+                {item.challenge}
+              </Card.Grid>
+            ))}
+          </div>
+        ))}
+      </div>
       {selectedChallenge && (
         <Modal
           title={selectedChallenge.challenge}

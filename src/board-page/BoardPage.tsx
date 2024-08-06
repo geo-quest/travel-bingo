@@ -1,3 +1,5 @@
+import "./BoardPage.css";
+
 import { FlagTwoTone } from "@ant-design/icons";
 import { Card, Space, Typography } from "antd";
 

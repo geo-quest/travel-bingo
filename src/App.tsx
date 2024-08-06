@@ -8,14 +8,7 @@ import challenge from "./challenge.json";
 function App() {
   setTwoToneColor("#89cdbe");
   return (
-    <div
-      style={{
-        maxWidth: "fit-content",
-        marginLeft: "auto",
-        marginRight: "auto",
-        marginTop: "20px",
-      }}
-    >
+    <div className="app-container">
       <BoardPage travelBingo={challenge} />
     </div>
   );
