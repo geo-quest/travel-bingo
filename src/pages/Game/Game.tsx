@@ -1,18 +1,18 @@
-import "./GameEdition.css";
+import "./Game.css";
 
 import { setTwoToneColor } from "@ant-design/icons";
 
-import BoardPage from "../../board-page/BoardPage";
 import challenge from "../../challenge.json";
+import NLAug24 from "../../games/NLAug24/NLAug24";
 
-function GameEdition() {
+function Game() {
   setTwoToneColor("#89cdbe");
 
   return (
     <div className="app-container">
-      <BoardPage travelBingo={challenge} />
+      <NLAug24 travelBingo={challenge} />
     </div>
   );
 }
 
-export default GameEdition;
+export default Game;

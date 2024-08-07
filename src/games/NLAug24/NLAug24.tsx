@@ -1,9 +1,9 @@
-import "./BoardPage.css";
+import "./NLAug24.css";
 
 import { FlagTwoTone } from "@ant-design/icons";
 import { Card, Space, Typography } from "antd";
 
-import { TravelBingo } from "../types/TravelBingo";
+import { TravelBingo } from "../../types/TravelBingo";
 import Challenges from "./Challenges";
 import Rules from "./Rules";
 
@@ -13,7 +13,7 @@ interface Props {
   travelBingo: TravelBingo;
 }
 
-const BoardPage = ({ travelBingo }: Props) => {
+const NLAug24 = ({ travelBingo }: Props) => {
   return (
     <Space direction="vertical" size={16}>
       <Card
@@ -33,4 +33,4 @@ const BoardPage = ({ travelBingo }: Props) => {
   );
 };
 
-export default BoardPage;
+export default NLAug24;

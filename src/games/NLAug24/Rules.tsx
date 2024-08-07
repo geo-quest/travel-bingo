@@ -3,7 +3,7 @@ import { UnorderedListOutlined } from "@ant-design/icons";
 import { List } from "antd";
 import React from "react";
 
-import ToggleCard from "../components/ToggleCard";
+import ToggleCard from "../../components/ToggleCard";
 
 interface RulesProps {
   rules: string[];

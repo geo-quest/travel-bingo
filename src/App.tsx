@@ -2,7 +2,7 @@ import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import GameEdition from "./pages/GameEdition/GameEdition";
+import Game from "./pages/Game/Game";
 import Home from "./pages/Home/Home";
 import NoPage from "./pages/NoPage/NoPage";
 
@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter basename={getBasename()}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/editions/:editionId" element={<GameEdition />} />
+        <Route path="/editions/:editionId" element={<Game />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>

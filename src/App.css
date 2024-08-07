@@ -1,6 +1,6 @@
 body {
   overlay: hidden;
-  background-color: #89cdbe;
+  /* background-color: #89cdbe; */
 }
 
 @media (max-width: 600px) {

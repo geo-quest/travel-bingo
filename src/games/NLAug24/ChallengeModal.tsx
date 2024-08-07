@@ -1,7 +1,7 @@
 import { Modal, Typography } from "antd";
 import React from "react";
 
-import { Challenge } from "../types/TravelBingo";
+import { Challenge } from "../../types/TravelBingo";
 
 const { Paragraph } = Typography;
 
