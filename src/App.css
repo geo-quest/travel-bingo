@@ -1,21 +1,11 @@
-.App {
-  text-align: center;
+body {
+  overlay: hidden;
+  /* background-color: #89cdbe; */
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (max-width: 600px) {
+  .some-class {
+    font-size: 14px;
+    /* Example for small screens */
+  }
 }
-
-.App-header img {
-  max-width: 500px;
-  min-width: 100px;
-  max-height: 500px;
-  min-height: 100px;
-}
-

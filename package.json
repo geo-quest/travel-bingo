@@ -4,6 +4,7 @@
   "version": "1.0.2",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^5.4.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^15.0.6",
     "@testing-library/user-event": "^13.5.0",
@@ -11,6 +12,7 @@
     "@types/node": "^16.18.104",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "antd": "^5.20.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -19,6 +21,7 @@
   },
   "scripts": {
     "prepare": "husky",
+    "start:local": "HOST=0.0.0.0 npm start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint": "npx eslint src",
@@ -27,7 +30,8 @@
     "eject": "react-scripts eject",
     "release": "semantic-release",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "serve": "npm run build && serve -s build"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +67,8 @@
     "gh-pages": "^6.1.1",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.7",
-    "semantic-release": "^24.0.0"
+    "react-router-dom": "^6.26.0",
+    "semantic-release": "^24.0.0",
+    "serve": "^14.2.3"
   }
 }

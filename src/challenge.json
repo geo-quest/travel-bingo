@@ -1,0 +1,146 @@
+{
+  "title": "Travel Bingo Netherlands",
+  "description": "A bingo card for a road trip through the Netherlands",
+  "rules": [
+    "The first person to get a row, column, or diagonal wins",
+    "The winner must shout 'Bingo!'",
+    "The winner must show their card to the other players to verify the win"
+  ],
+  "challenges": [
+    [
+      {
+        "challenge": "Spot a windmill",
+        "description": "Find a windmill in the Netherlands",
+        "points": 25
+      },
+      {
+        "challenge": "Spot a tulip field",
+        "description": "Find a field of tulips in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a bike",
+        "description": "Find a bike in the Netherlands",
+        "points": 5
+      },
+      {
+        "challenge": "Spot a canal",
+        "description": "Find a canal in the Netherlands",
+        "points": 5
+      },
+      {
+        "challenge": "Spot a cheese shop",
+        "description": "Find a shop that sells cheese in the Netherlands",
+        "points": 20
+      }
+    ],
+    [
+      {
+        "challenge": "Take pic with Van Gogh",
+        "description": "Take a picture with a Van Gogh painting",
+        "points": 50
+      },
+      {
+        "challenge": "Spot a wooden shoe",
+        "description": "Find a wooden shoe in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a windmill",
+        "description": "Find a windmill in the Netherlands",
+        "points": 25
+      },
+      {
+        "challenge": "Spot a tulip field",
+        "description": "Find a field of tulips in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a bike",
+        "description": "Find a bike in the Netherlands",
+        "points": 5
+      }
+    ],
+    [
+      {
+        "challenge": "Take pic with Van Gogh",
+        "description": "Take a picture with a Van Gogh painting",
+        "points": 50
+      },
+      {
+        "challenge": "Spot a wooden shoe",
+        "description": "Find a wooden shoe in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a windmill",
+        "description": "Find a windmill in the Netherlands",
+        "points": 25
+      },
+      {
+        "challenge": "Spot a tulip field",
+        "description": "Find a field of tulips in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a bike",
+        "description": "Find a bike in the Netherlands",
+        "points": 5
+      }
+    ],
+    [
+      {
+        "challenge": "Take pic with Van Gogh",
+        "description": "Take a picture with a Van Gogh painting",
+        "points": 50
+      },
+      {
+        "challenge": "Spot a wooden shoe",
+        "description": "Find a wooden shoe in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a windmill",
+        "description": "Find a windmill in the Netherlands",
+        "points": 25
+      },
+      {
+        "challenge": "Spot a tulip field",
+        "description": "Find a field of tulips in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a bike",
+        "description": "Find a bike in the Netherlands",
+        "points": 5
+      }
+    ],
+    [
+      {
+        "challenge": "Take pic with Van Gogh",
+        "description": "Take a picture with a Van Gogh painting",
+        "points": 50
+      },
+      {
+        "challenge": "Spot a wooden shoe",
+        "description": "Find a wooden shoe in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a windmill",
+        "description": "Find a windmill in the Netherlands",
+        "points": 25
+      },
+      {
+        "challenge": "Spot a tulip field",
+        "description": "Find a field of tulips in the Netherlands",
+        "points": 10
+      },
+      {
+        "challenge": "Spot a bike",
+        "description": "Find a bike in the Netherlands",
+        "points": 5
+      }
+    ]
+  ]
+}

@@ -6,4 +6,4 @@
 
 Experience the thrill of travel and competition. Complete location-based challenges, gather points, and see if you can outscore your friends.
 
-Online at: https://geo-quest.github.io/travel-bingo/
+Online at: https://geo-quest.github.io/travel-bingo
