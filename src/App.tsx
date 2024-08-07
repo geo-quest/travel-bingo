@@ -1,16 +1,21 @@
 import "./App.css";
 
-import { setTwoToneColor } from "@ant-design/icons";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import BoardPage from "./board-page/BoardPage";
-import challenge from "./challenge.json";
+import GameEdition from "./pages/GameEdition/GameEdition";
+import Home from "./pages/Home/Home";
+import NoPage from "./pages/NoPage/NoPage";
 
 function App() {
-  setTwoToneColor("#89cdbe");
+  const basename = process.env.PUBLIC_URL || "/travel-bingo";
   return (
-    <div className="app-container">
-      <BoardPage travelBingo={challenge} />
-    </div>
+    <BrowserRouter basename={basename}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/editions/:editionId" element={<GameEdition />} />
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

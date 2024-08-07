@@ -1,17 +1,11 @@
 body {
-  background-color: #89cdbe;
   overlay: hidden;
-}
-
-.app-container {
-  max-width: fit-content;
-  margin-left : auto;
-  margin-right: auto;
-  margin-top: 20px;
+  background-color: #89cdbe;
 }
 
 @media (max-width: 600px) {
   .some-class {
-    font-size: 14px; /* Example for small screens */
+    font-size: 14px;
+    /* Example for small screens */
   }
 }
