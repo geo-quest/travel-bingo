@@ -1,16 +1,23 @@
 import "./Game.css";
 
-import { setTwoToneColor } from "@ant-design/icons";
+import { useParams } from "react-router-dom";
 
-import challenge from "../../challenge.json";
-import NLAug24 from "../../games/NLAug24/NLAug24";
+import NoPage from "../../components/NoPage/NoPage";
+import TravelBingoGame from "../../components/TravelBingoGame/TravelBingoGame";
+import { TravelBingoGamesData } from "../../data/interfaces";
 
-function Game() {
-  setTwoToneColor("#89cdbe");
+interface Props {
+  data: TravelBingoGamesData;
+}
+
+function Game({ data }: Props) {
+  const { gameId } = useParams();
+
+  if (!gameId || !data[gameId]) return <NoPage />;
 
   return (
     <div className="app-container">
-      <NLAug24 travelBingo={challenge} />
+      <TravelBingoGame data={data[gameId]} />
     </div>
   );
 }

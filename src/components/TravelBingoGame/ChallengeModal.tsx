@@ -1,7 +1,8 @@
 import { Modal, Typography } from "antd";
 import React from "react";
+import Markdown from "react-markdown";
 
-import { Challenge } from "../../types/TravelBingo";
+import { Challenge } from "../../data/interfaces";
 
 const { Paragraph } = Typography;
 
@@ -18,17 +19,21 @@ const ChallengeModal: React.FC<ChallengeModalProps> = ({
 
   return (
     <Modal
-      title={challenge.challenge}
+      title={`${challenge.challenge} [${challenge.points} pts]`}
       open={!!challenge}
       onCancel={onClose}
       centered
       footer={false}
     >
       <Paragraph>
-        <strong>Description:</strong> {challenge.description}
-      </Paragraph>
-      <Paragraph>
-        <strong>Points:</strong> {challenge.points}
+        <Markdown>{challenge.description}</Markdown>
+        {challenge.image && (
+          <img
+            src={challenge.image}
+            alt={challenge.challenge}
+            style={{ width: "100%", marginTop: "10px" }}
+          />
+        )}
       </Paragraph>
     </Modal>
   );
