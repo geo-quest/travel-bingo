@@ -16,6 +16,7 @@ function Home({ data }: Props) {
 
     return (
       <Tag
+        key={key}
         icon={<DynamicIconComponent iconName={game.icon} />}
         color={game.color}
         onClick={() => {
