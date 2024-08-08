@@ -1,0 +1,17 @@
+.app-container {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.podium {
+  max-width: 600;
+  margin: auto;
+  text-align: center;
+}
+
+.podium .ant-row .ant-col {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}

@@ -1,5 +1,13 @@
+import "./Run.css";
+
+import Podium from "./Podium";
+
 function Run() {
-  return <h1>work in progress...</h1>;
+  return (
+    <div className="app-container">
+      <Podium />
+    </div>
+  );
 }
 
 export default Run;
