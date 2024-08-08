@@ -2,17 +2,16 @@ import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import gameData from "./data/index";
 import Game from "./pages/Game/Game";
 import Home from "./pages/Home/Home";
-import NoPage from "./pages/NoPage/NoPage";
 
 function App() {
   return (
     <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/editions/:editionId" element={<Game />} />
-        <Route path="*" element={<NoPage />} />
+        <Route path="/" element={<Home data={gameData} />} />
+        <Route path="/:gameId" element={<Game data={gameData} />} />
       </Routes>
     </BrowserRouter>
   );

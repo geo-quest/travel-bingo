@@ -2,19 +2,19 @@
     max-width: fit-content;
 }
 
-.board > div:first-child > div:first-child{
-    border-radius: 25px 0 0 0 ;
+.board>div:first-child>div:first-child {
+    border-radius: 25px 0 0 0;
 }
 
-.board > div:first-child > div:last-child{
+.board>div:first-child>div:last-child {
     border-radius: 0 25px 0 0;
 }
 
-.board > div:last-child > div:first-child {
+.board>div:last-child>div:first-child {
     border-radius: 0 0 0 25px;
 }
 
-.board > div:last-child > div:last-child {
+.board>div:last-child>div:last-child {
     border-radius: 0 0 25px 0;
 }
 
@@ -28,6 +28,7 @@
     text-align: center;
     font-size: 1.5em;
     font-weight: bold;
+    padding: 10px;
     background-color: #f0f0f0;
 }
 
@@ -36,4 +37,3 @@
     cursor: pointer;
     text-align: center;
 }
-

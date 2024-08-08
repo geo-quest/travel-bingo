@@ -3,15 +3,10 @@ import { PlayCircleOutlined } from "@ant-design/icons";
 import { Card, Typography } from "antd";
 import React, { useState } from "react";
 
+import { Challenge } from "../../data/interfaces";
 import ChallengeModal from "./ChallengeModal";
 
 const { Title } = Typography;
-
-interface Challenge {
-  challenge: string;
-  description: string;
-  points: number;
-}
 
 interface ChallengesProps {
   challenges: Challenge[][];
@@ -22,17 +17,9 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
     null,
   );
 
-  const handleCardClick = (challenge: Challenge) => {
-    setSelectedChallenge(challenge);
-  };
-
-  const handleModalClose = () => {
-    setSelectedChallenge(null);
-  };
-
   return (
     <>
-      <Title level={4} style={{ marginTop: "20px" }}>
+      <Title level={4} style={{ marginTop: 20 }}>
         <PlayCircleOutlined style={{ marginRight: 8 }} />
         Challenges
       </Title>
@@ -50,7 +37,7 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
               <Card.Grid
                 key={colIndex}
                 className="card"
-                onClick={() => handleCardClick(item)}
+                onClick={() => setSelectedChallenge(item)}
               >
                 {item.challenge}
               </Card.Grid>
@@ -61,7 +48,7 @@ const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
       {selectedChallenge && (
         <ChallengeModal
           challenge={selectedChallenge}
-          onClose={handleModalClose}
+          onClose={() => setSelectedChallenge(null)}
         />
       )}
     </>
