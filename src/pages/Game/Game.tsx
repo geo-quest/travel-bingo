@@ -1,10 +1,12 @@
 import "./Game.css";
 
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import NoPage from "../../components/NoPage/NoPage";
 import TravelBingoGame from "../../components/TravelBingoGame/TravelBingoGame";
 import { TravelBingoGamesData } from "../../data/interfaces";
+import { updateBodyStyle } from "../../utils/update-body-style";
 
 interface Props {
   data: TravelBingoGamesData;
@@ -15,9 +17,15 @@ function Game({ data }: Props) {
 
   if (!gameId || !data[gameId]) return <NoPage />;
 
+  const game = data[gameId];
+
+  useEffect(() => {
+    updateBodyStyle(game);
+  });
+
   return (
     <div className="app-container">
-      <TravelBingoGame data={data[gameId]} />
+      <TravelBingoGame data={game} />
     </div>
   );
 }

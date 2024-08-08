@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home data={gameData} />} />
         <Route path="/:gameId" element={<Game data={gameData} />} />
-        <Route path="/:gameId/:runId" element={<Run />} />
+        <Route path="/:gameId/:runId" element={<Run data={gameData} />} />
       </Routes>
     </BrowserRouter>
   );
