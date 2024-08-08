@@ -4,6 +4,7 @@ export default {
   title: "Travel Bingo Netherlands",
   icon: "FlagTwoTone",
   color: "#1890ff",
+  backgroundColor: "#e6f7ff",
   shortDescription: "A bingo card for a road trip through the Netherlands",
   gamePlay: `### How to Play
   
