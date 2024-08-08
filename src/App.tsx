@@ -6,16 +6,9 @@ import Game from "./pages/Game/Game";
 import Home from "./pages/Home/Home";
 import NoPage from "./pages/NoPage/NoPage";
 
-const getBasename = () => {
-  if (window.location.hostname === "geo-quest.github.io") {
-    return "/travel-bingo";
-  }
-  return "/";
-};
-
 function App() {
   return (
-    <BrowserRouter basename={getBasename()}>
+    <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/editions/:editionId" element={<Game />} />
