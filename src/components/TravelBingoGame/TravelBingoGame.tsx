@@ -1,7 +1,7 @@
 import "./TravelBingoGame.css";
 
-import { setTwoToneColor } from "@ant-design/icons";
-import { Button, Card, Space, Typography } from "antd";
+import { HomeOutlined, setTwoToneColor } from "@ant-design/icons";
+import { Breadcrumb, Card, Space, Typography } from "antd";
 import Markdown from "react-markdown";
 
 import { TravelBingoGameData } from "../../data/interfaces";
@@ -20,32 +20,41 @@ const TravelBingoGame = ({
   setTwoToneColor(color);
 
   return (
-    <Space direction="vertical" size={16}>
-      <Button
-        type="default"
-        onClick={() => {
-          window.location.href = "/";
-        }}
-        color="secondary"
-      >
-        Home
-      </Button>
-      <Card
-        title={
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <DynamicIconComponent
-              iconName={icon}
-              style={{ marginRight: 8, fontSize: "32px" }}
-            />
-            <h2 style={{ margin: 0 }}>{title}</h2>
-          </div>
-        }
-      >
-        <Paragraph strong>{shortDescription}</Paragraph>
-        <Challenges challenges={challenges} />
-        <Markdown>{gamePlay}</Markdown>
-      </Card>
-    </Space>
+    <div>
+      <Breadcrumb
+        items={[
+          {
+            href: "/",
+            title: <HomeOutlined />,
+          },
+          {
+            title: (
+              <>
+                <DynamicIconComponent iconName={icon} />
+                <span>{title}</span>
+              </>
+            ),
+          },
+        ]}
+      />
+      <Space direction="vertical" size={16}>
+        <Card
+          title={
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <DynamicIconComponent
+                iconName={icon}
+                style={{ marginRight: 8, fontSize: "32px" }}
+              />
+              <h2 style={{ margin: 0 }}>{title}</h2>
+            </div>
+          }
+        >
+          <Paragraph strong>{shortDescription}</Paragraph>
+          <Challenges challenges={challenges} />
+          <Markdown>{gamePlay}</Markdown>
+        </Card>
+      </Space>
+    </div>
   );
 };
 
