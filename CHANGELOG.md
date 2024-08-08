@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/geo-quest/travel-bingo/compare/v1.1.0...v1.2.0) (2024-08-08)
+
+### Features
+
+* add 404 redirect to index ([#11](https://github.com/geo-quest/travel-bingo/issues/11)) ([35a9aa6](https://github.com/geo-quest/travel-bingo/commit/35a9aa631f272bedd64396eba94277d829dddf34))
+
 ## [1.1.0](https://github.com/geo-quest/travel-bingo/compare/v1.0.2...v1.1.0) (2024-08-07)
 
 ### Features
