@@ -21,8 +21,8 @@
   },
   "scripts": {
     "prepare": "husky",
-    "start:local": "HOST=0.0.0.0 npm start",
-    "start": "react-scripts start",
+    "start:local": "PUBLIC_URL=/ HOST=0.0.0.0 npm start",
+    "start": "PUBLIC_URL=/ react-scripts start",
     "build": "react-scripts build",
     "lint": "npx eslint src",
     "lint:fix": "npx eslint src --fix",
