@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 
 import App from "./App";
 
-jest.mock("react-markdown", () => (props) => {
+jest.mock("react-markdown", () => (props: { children: any }) => {
   return <>{props.children}</>;
 });
 
