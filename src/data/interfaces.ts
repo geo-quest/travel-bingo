@@ -12,6 +12,7 @@ export interface TravelBingoGameData {
   title: string;
   icon: string;
   color: string;
+  backgroundColor: string;
   shortDescription: string;
   gamePlay: Markdown;
   challenges: Challenge[][];

@@ -1,6 +1,5 @@
 import "./TravelBingoGame.css";
 
-import { setTwoToneColor } from "@ant-design/icons";
 import { Card, Space, Typography } from "antd";
 import Markdown from "react-markdown";
 
@@ -15,10 +14,8 @@ interface Props {
 }
 
 const TravelBingoGame = ({
-  data: { title, icon, color, shortDescription, gamePlay, challenges },
+  data: { title, icon, shortDescription, gamePlay, challenges },
 }: Props) => {
-  setTwoToneColor(color);
-
   return (
     <div>
       <Space direction="vertical" size={16}>

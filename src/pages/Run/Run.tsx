@@ -1,5 +1,6 @@
 import "./Run.css";
 
+import { setTwoToneColor } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -24,6 +25,8 @@ function Run({ data }: Props) {
   useEffect(() => {
     updateBodyStyle(game);
   });
+
+  setTwoToneColor(game.color);
 
   return (
     <div className="app-container">
