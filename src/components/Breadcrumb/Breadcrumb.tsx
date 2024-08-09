@@ -28,6 +28,7 @@ export default ({ game, run }: Props) => {
         },
         ...(run ? [{ title: run }] : []),
       ]}
+      style={{ marginBottom: "8px" }}
     />
   );
 };

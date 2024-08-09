@@ -17,7 +17,7 @@ const TravelBingoGame = ({
   data: { title, icon, shortDescription, gamePlay, challenges },
 }: Props) => {
   return (
-    <div>
+    <>
       <Space direction="vertical" size={16}>
         <Card
           title={
@@ -32,10 +32,12 @@ const TravelBingoGame = ({
         >
           <Paragraph strong>{shortDescription}</Paragraph>
           <Challenges challenges={challenges} />
-          <Markdown>{gamePlay}</Markdown>
+          <div style={{ marginTop: "8px" }}>
+            <Markdown>{gamePlay}</Markdown>
+          </div>
         </Card>
       </Space>
-    </div>
+    </>
   );
 };
 

@@ -6,8 +6,8 @@ export default {
   color: "#1890ff",
   backgroundColor: "#e6f7ff",
   shortDescription: "A bingo card for a road trip through the Netherlands",
-  gamePlay: `### How to Play
-  
+  gamePlay: `## How to Play
+
 - The first person to get a row, column, or diagonal wins
 - The winner must shout 'Bingo!'
 - The winner must show their card to the other players to verify the win
