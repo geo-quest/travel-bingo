@@ -6,15 +6,12 @@ import { Challenge } from "../../data/interfaces";
 
 const { Paragraph } = Typography;
 
-interface ChallengeModalProps {
+interface Props {
   challenge: Challenge | null;
   onClose: () => void;
 }
 
-const ChallengeModal: React.FC<ChallengeModalProps> = ({
-  challenge,
-  onClose,
-}) => {
+const ChallengeModal: React.FC<Props> = ({ challenge, onClose }) => {
   if (!challenge) return null;
 
   return (

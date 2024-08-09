@@ -1,0 +1,119 @@
+.podium {
+  max-width: 600px; /* Fixed width for the podium */
+  margin: auto;
+  text-align: center;
+  margin-top: 24px;
+  padding-bottom: 20px; /* Space below the podium */
+}
+
+.podium .ant-row .ant-col {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+.podium-card {
+  height: 160px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+  cursor: pointer;
+}
+
+.podium-card.gold {
+  background: linear-gradient(135deg, #ffd700, #ffc700);
+  height: 210px;
+  transform: translateY(0);
+  opacity: 1;
+  animation: slideIn 0.7s ease forwards;
+  border: 2px solid #e5c100;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+}
+
+.podium-card.silver {
+  background: linear-gradient(135deg, #c0c0c0, #b0b0b0);
+  height: 180px;
+  margin-top: 30px;
+  transform: translateY(30px);
+  opacity: 1;
+  animation: slideIn 0.9s ease forwards;
+  border: 2px solid #a8a8a8;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.podium-card.bronze {
+  background: linear-gradient(135deg, #cd7f32, #b5651d);
+  height: 160px;
+  margin-top: 50px;
+  transform: translateY(50px);
+  opacity: 1;
+  animation: slideIn 1.1s ease forwards;
+  border: 2px solid #a0541d;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.podium-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+table tbody tr {
+  cursor: pointer;
+}
+
+.board {
+  max-width: fit-content;
+}
+
+.board > div:first-child > div:first-child {
+  border-radius: 25px 0 0 0;
+}
+
+.board > div:first-child > div:last-child {
+  border-radius: 0 25px 0 0;
+}
+
+.board > div:last-child > div:first-child {
+  border-radius: 0 0 0 25px;
+}
+
+.board > div:last-child > div:last-child {
+  border-radius: 0 0 25px 0;
+}
+
+.board .header-card,
+.board .card {
+  padding: 8px !important;
+}
+
+.header-card {
+  width: 20%;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.card {
+  width: 20% !important;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: clip;
+}

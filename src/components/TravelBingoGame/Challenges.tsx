@@ -1,5 +1,4 @@
 /* eslint-disable arrow-parens */
-import { PlayCircleOutlined } from "@ant-design/icons";
 import { Card, Typography } from "antd";
 import React, { useState } from "react";
 
@@ -8,19 +7,18 @@ import ChallengeModal from "./ChallengeModal";
 
 const { Title } = Typography;
 
-interface ChallengesProps {
+interface Props {
   challenges: Challenge[][];
 }
 
-const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
+const Challenges: React.FC<Props> = ({ challenges }) => {
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(
     null,
   );
 
   return (
     <>
-      <Title level={4} style={{ marginTop: 20 }}>
-        <PlayCircleOutlined style={{ marginRight: 8 }} />
+      <Title level={2} style={{ marginTop: 20 }}>
         Challenges
       </Title>
       <div className="board">

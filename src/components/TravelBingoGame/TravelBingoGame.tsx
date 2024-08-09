@@ -1,42 +1,23 @@
 import "./TravelBingoGame.css";
 
-import { HomeOutlined, setTwoToneColor } from "@ant-design/icons";
-import { Breadcrumb, Card, Space, Typography } from "antd";
+import { Card, Space, Typography } from "antd";
 import Markdown from "react-markdown";
 
 import { TravelBingoGameData } from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 import Challenges from "./Challenges";
+import Runs from "./Runs";
 
 const { Paragraph } = Typography;
 
 interface Props {
-  data: TravelBingoGameData;
+  game: TravelBingoGameData & { id: string };
 }
 
-const TravelBingoGame = ({
-  data: { title, icon, color, shortDescription, gamePlay, challenges },
-}: Props) => {
-  setTwoToneColor(color);
-
+const TravelBingoGame = ({ game }: Props) => {
+  const { icon, title, shortDescription, challenges, gamePlay } = game;
   return (
-    <div>
-      <Breadcrumb
-        items={[
-          {
-            href: "/",
-            title: <HomeOutlined />,
-          },
-          {
-            title: (
-              <>
-                <DynamicIconComponent iconName={icon} />
-                <span>{title}</span>
-              </>
-            ),
-          },
-        ]}
-      />
+    <>
       <Space direction="vertical" size={16}>
         <Card
           title={
@@ -51,10 +32,13 @@ const TravelBingoGame = ({
         >
           <Paragraph strong>{shortDescription}</Paragraph>
           <Challenges challenges={challenges} />
-          <Markdown>{gamePlay}</Markdown>
+          <div style={{ marginTop: "8px" }}>
+            <Markdown>{gamePlay}</Markdown>
+          </div>
+          <Runs game={game} />
         </Card>
       </Space>
-    </div>
+    </>
   );
 };
 
