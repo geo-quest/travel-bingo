@@ -3,6 +3,7 @@ import "./Game.css";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import NoPage from "../../components/NoPage/NoPage";
 import TravelBingoGame from "../../components/TravelBingoGame/TravelBingoGame";
 import { TravelBingoGamesData } from "../../data/interfaces";
@@ -25,6 +26,7 @@ function Game({ data }: Props) {
 
   return (
     <div className="app-container">
+      <Breadcrumb game={{ ...game, id: gameId }} />
       <TravelBingoGame data={game} />
     </div>
   );

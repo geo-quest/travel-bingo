@@ -3,6 +3,7 @@ import "./Run.css";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import NoPage from "../../components/NoPage/NoPage";
 import { TravelBingoGamesData } from "../../data/interfaces";
 import { updateBodyStyle } from "../../utils/update-body-style";
@@ -14,7 +15,7 @@ interface Props {
 }
 
 function Run({ data }: Props) {
-  const { gameId } = useParams();
+  const { gameId, runId } = useParams();
 
   if (!gameId || !data[gameId]) return <NoPage />;
 
@@ -26,6 +27,7 @@ function Run({ data }: Props) {
 
   return (
     <div className="app-container">
+      <Breadcrumb game={{ ...game, id: gameId }} run={runId} />
       <Podium />
       <LeaderBoard />
     </div>

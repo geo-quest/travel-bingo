@@ -1,7 +1,7 @@
 import "./TravelBingoGame.css";
 
-import { HomeOutlined, setTwoToneColor } from "@ant-design/icons";
-import { Breadcrumb, Card, Space, Typography } from "antd";
+import { setTwoToneColor } from "@ant-design/icons";
+import { Card, Space, Typography } from "antd";
 import Markdown from "react-markdown";
 
 import { TravelBingoGameData } from "../../data/interfaces";
@@ -21,22 +21,6 @@ const TravelBingoGame = ({
 
   return (
     <div>
-      <Breadcrumb
-        items={[
-          {
-            href: "/",
-            title: <HomeOutlined />,
-          },
-          {
-            title: (
-              <>
-                <DynamicIconComponent iconName={icon} />
-                <span>{title}</span>
-              </>
-            ),
-          },
-        ]}
-      />
       <Space direction="vertical" size={16}>
         <Card
           title={
