@@ -23,6 +23,7 @@ describe("calculateLeaderBoard", () => {
       ],
       name: "",
       date: "",
+      lastUpdate: "",
     };
 
     const challenges: Challenge[] = [
@@ -46,6 +47,7 @@ describe("calculateLeaderBoard", () => {
       teams: [],
       name: "",
       date: "",
+      lastUpdate: "",
     };
 
     const challenges: Challenge[] = [

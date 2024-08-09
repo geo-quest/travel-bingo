@@ -233,6 +233,7 @@ export default {
     "summer-edition": {
       name: "Summer Edition",
       date: "Aug 24",
+      lastUpdate: "13:01",
       teams: [
         {
           team: "Team A",
@@ -274,6 +275,7 @@ export default {
     "winter-edition": {
       name: "Winter Edition",
       date: "Feb 12",
+      lastUpdate: "17:23",
       teams: [
         {
           team: "Team A",

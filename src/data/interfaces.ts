@@ -14,6 +14,7 @@ export interface RunGameData {
   name: string;
   date: string;
   teams: Team[];
+  lastUpdate: string;
 }
 
 export interface Runs {
