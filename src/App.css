@@ -6,6 +6,9 @@ body {
   .app-container {
     max-width: 90% !important;
   }
+  body {
+    font-size: 2em;
+  }
 }
 
 .app-container {

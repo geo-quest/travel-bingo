@@ -17,9 +17,11 @@ interface Props {
 function Run({ data }: Props) {
   const { gameId, runId } = useParams();
 
-  if (!gameId || !data[gameId]) return <NoPage />;
+  if (!gameId || !runId || !data[gameId] || !data[gameId].runs[runId])
+    return <NoPage />;
 
   const game = data[gameId];
+  const run = data[gameId].runs[runId];
 
   useEffect(() => {
     updateBodyStyle(game);
@@ -29,7 +31,7 @@ function Run({ data }: Props) {
 
   return (
     <div className="app-container">
-      <Breadcrumb game={{ ...game, id: gameId }} run={runId} />
+      <Breadcrumb game={{ ...game, id: gameId }} run={run.name} />
       <GameLeaderBoard />
     </div>
   );

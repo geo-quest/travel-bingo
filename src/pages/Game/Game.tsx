@@ -30,7 +30,7 @@ function Game({ data }: Props) {
   return (
     <div className="app-container">
       <Breadcrumb game={{ ...game, id: gameId }} />
-      <TravelBingoGame data={game} />
+      <TravelBingoGame game={{ ...game, id: gameId }} />
     </div>
   );
 }

@@ -14,42 +14,19 @@ const Podium = () => {
     <div className="podium">
       <Row gutter={16}>
         <Col span={8}>
-          <Card
-            title={`2nd`}
-            bordered={false}
-            style={{
-              backgroundColor: "#C0C0C0",
-              height: 180,
-              transform: "translateY(30px)",
-            }}
-          >
+          <Card title={`2nd`} bordered={false} className="podium-card silver">
             <h3>{podiumData[0].name}</h3>
             <p>[{podiumData[0].score} pts]</p>
           </Card>
         </Col>
         <Col span={8}>
-          <Card
-            title={`1st`}
-            bordered={false}
-            style={{
-              backgroundColor: "#FFD700",
-              height: 210,
-            }}
-          >
+          <Card title={`1st`} bordered={false} className="podium-card gold">
             <h3>{podiumData[1].name}</h3>
             <p>[{podiumData[1].score} pts]</p>
           </Card>
         </Col>
         <Col span={8}>
-          <Card
-            title={`3rd`}
-            bordered={false}
-            style={{
-              backgroundColor: "#CD7F32",
-              height: 160,
-              transform: "translateY(50px)",
-            }}
-          >
+          <Card title={`3rd`} bordered={false} className="podium-card bronze">
             <h3>{podiumData[2].name}</h3>
             <p>[{podiumData[2].score} pts]</p>
           </Card>

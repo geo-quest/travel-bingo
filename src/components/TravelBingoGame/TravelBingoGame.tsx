@@ -6,16 +6,16 @@ import Markdown from "react-markdown";
 import { TravelBingoGameData } from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 import Challenges from "./Challenges";
+import Runs from "./Runs";
 
 const { Paragraph } = Typography;
 
 interface Props {
-  data: TravelBingoGameData;
+  game: TravelBingoGameData & { id: string };
 }
 
-const TravelBingoGame = ({
-  data: { title, icon, shortDescription, gamePlay, challenges },
-}: Props) => {
+const TravelBingoGame = ({ game }: Props) => {
+  const { icon, title, shortDescription, challenges, gamePlay } = game;
   return (
     <>
       <Space direction="vertical" size={16}>
@@ -35,6 +35,7 @@ const TravelBingoGame = ({
           <div style={{ marginTop: "8px" }}>
             <Markdown>{gamePlay}</Markdown>
           </div>
+          <Runs game={game} />
         </Card>
       </Space>
     </>

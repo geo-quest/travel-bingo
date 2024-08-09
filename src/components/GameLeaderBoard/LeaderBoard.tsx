@@ -68,7 +68,6 @@ const LeaderBoard = () => {
         columns={columns}
         dataSource={leaderBoardData}
         pagination={false}
-        bordered
       />
     </div>
   );
