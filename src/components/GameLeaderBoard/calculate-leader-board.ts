@@ -5,6 +5,7 @@ export interface TeamLeaderBoardData {
   name: string;
   score: number;
   rank: number;
+  challenges: string[];
 }
 
 export interface LeaderBoardData {
@@ -26,6 +27,7 @@ export function calculateLeaderBoard(
             );
             return result + (challengeData?.points || 0);
           }, 0),
+          challenges: team.challenges.map((c) => c.name),
         };
       })
       .sort((a, b) => b.score - a.score)

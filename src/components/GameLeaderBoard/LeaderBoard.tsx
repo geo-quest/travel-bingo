@@ -1,14 +1,16 @@
+/* eslint-disable arrow-parens */
 import "antd/dist/reset.css";
 
 import { Table, Tag } from "antd";
 
-import { LeaderBoardData } from "./calculate-leader-board";
+import { LeaderBoardData, TeamLeaderBoardData } from "./calculate-leader-board";
 
 interface Props {
   leaderBoard: LeaderBoardData;
+  onClick: (team: TeamLeaderBoardData) => void;
 }
 
-const LeaderBoard = ({ leaderBoard }: Props) => {
+const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
   const columns = [
     {
       title: "Rank",
@@ -46,6 +48,13 @@ const LeaderBoard = ({ leaderBoard }: Props) => {
         columns={columns}
         dataSource={leaderBoard.teams}
         pagination={false}
+        onRow={(team) => {
+          return {
+            onClick: () => {
+              onClick(team);
+            },
+          };
+        }}
       />
     </div>
   );

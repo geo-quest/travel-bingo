@@ -1,12 +1,18 @@
+/* eslint-disable arrow-parens */
 import "./GameLeaderBoard.css";
 
 import { Card, Space, Typography } from "antd";
+import { useState } from "react";
 
 import { RunGameData, TravelBingoGameData } from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
-import { calculateLeaderBoard } from "./calculate-leader-board";
+import {
+  calculateLeaderBoard,
+  TeamLeaderBoardData,
+} from "./calculate-leader-board";
 import LeaderBoard from "./LeaderBoard";
 import Podium from "./Podium";
+import TeamModal from "./TeamModal";
 
 const { Paragraph } = Typography;
 
@@ -17,6 +23,11 @@ interface Props {
 
 const GameLeaderBoard = ({ run, game }: Props) => {
   const leaderBoardData = calculateLeaderBoard(run, game.challenges.flat());
+
+  const [selectedTeam, setSelectedTeam] = useState<TeamLeaderBoardData | null>(
+    null,
+  );
+
   return (
     <>
       <Space direction="vertical" size={16} style={{ width: "100%" }}>
@@ -27,9 +38,7 @@ const GameLeaderBoard = ({ run, game }: Props) => {
                 iconName={game.icon}
                 style={{ marginRight: 8, fontSize: "24px" }}
               />
-              <h3 style={{ margin: 0 }}>
-                {game.title} | {run.name}
-              </h3>
+              <h3 style={{ margin: 0 }}>{run.name}</h3>
             </div>
           }
         >
@@ -41,9 +50,22 @@ const GameLeaderBoard = ({ run, game }: Props) => {
               Last leader board update: {run.lastUpdate}
             </Paragraph>
           </div>
-          <Podium leaderBoard={leaderBoardData} />
-          <LeaderBoard leaderBoard={leaderBoardData} />
+          <Podium
+            leaderBoard={leaderBoardData}
+            onClick={(team) => setSelectedTeam(team)}
+          />
+          <LeaderBoard
+            leaderBoard={leaderBoardData}
+            onClick={(team) => setSelectedTeam(team)}
+          />
         </Card>
+        {selectedTeam && (
+          <TeamModal
+            team={selectedTeam}
+            challenges={game.challenges}
+            onClose={() => setSelectedTeam(null)}
+          />
+        )}
       </Space>
     </>
   );

@@ -22,6 +22,7 @@
     background-color 0.3s ease;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+  cursor: pointer;
 }
 
 .podium-card.gold {
@@ -70,4 +71,49 @@
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+table tbody tr {
+  cursor: pointer;
+}
+
+.board {
+  max-width: fit-content;
+}
+
+.board > div:first-child > div:first-child {
+  border-radius: 25px 0 0 0;
+}
+
+.board > div:first-child > div:last-child {
+  border-radius: 0 25px 0 0;
+}
+
+.board > div:last-child > div:first-child {
+  border-radius: 0 0 0 25px;
+}
+
+.board > div:last-child > div:last-child {
+  border-radius: 0 0 25px 0;
+}
+
+.board .header-card,
+.board .card {
+  padding: 8px !important;
+}
+
+.header-card {
+  width: 20%;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.card {
+  width: 20% !important;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: clip;
 }
