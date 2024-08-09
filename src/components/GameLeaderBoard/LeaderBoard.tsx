@@ -1,7 +1,6 @@
 import "antd/dist/reset.css";
 
 import { Table, Tag } from "antd";
-import React from "react";
 
 import { LeaderBoardData } from "./calculate-leader-board";
 
@@ -15,32 +14,13 @@ const LeaderBoard = ({ leaderBoard }: Props) => {
       title: "Rank",
       dataIndex: "rank",
       key: "rank",
-      render: (
-        text:
-          | string
-          | number
-          | boolean
-          | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-          | Iterable<React.ReactNode>
-          | React.ReactPortal
-          | null
-          | undefined,
-        record: { rank: any },
-      ) => {
-        let color;
-        switch (record.rank) {
-          case 1:
-            color = "#FFD700";
-            break;
-          case 2:
-            color = "#C0C0C0";
-            break;
-          case 3:
-            color = "#CD7F32";
-            break;
-          default:
-            color = "black";
-        }
+      render: (text: string, record: { rank: number }) => {
+        const rankColors = new Map([
+          [1, "#FFD700"], // Gold
+          [2, "#C0C0C0"], // Silver
+          [3, "#CD7F32"], // Bronze
+        ]);
+        const color = rankColors.get(record.rank) || "black";
         return (
           <Tag color={color} style={{ fontWeight: "bold" }}>
             {text}
@@ -61,7 +41,7 @@ const LeaderBoard = ({ leaderBoard }: Props) => {
   ];
 
   return (
-    <div style={{ maxWidth: 600, margin: "auto", marginTop: 40 }}>
+    <div style={{ maxWidth: 600, margin: "auto" }}>
       <Table
         columns={columns}
         dataSource={leaderBoard.teams}
