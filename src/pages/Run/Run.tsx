@@ -32,7 +32,7 @@ function Run({ data }: Props) {
   return (
     <div className="app-container">
       <Breadcrumb game={{ ...game, id: gameId }} run={run.name} />
-      <GameLeaderBoard />
+      <GameLeaderBoard game={game} run={run} />
     </div>
   );
 }

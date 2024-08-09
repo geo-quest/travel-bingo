@@ -235,7 +235,7 @@ export default {
       date: "Aug 24",
       teams: [
         {
-          team: "Team One",
+          team: "Team A",
           challenges: [
             { name: "Discover a natural hot spring", date: "Aug 24" },
             { name: "Spot a wooden shoe", date: "Aug 24" },
@@ -243,7 +243,7 @@ export default {
           ],
         },
         {
-          team: "Team Two",
+          team: "Team B",
           challenges: [
             { name: "Capture a sunrise over the ocean", date: "Aug 24" },
             { name: "Find a famous monument", date: "Aug 24" },
@@ -251,11 +251,20 @@ export default {
           ],
         },
         {
-          team: "Team Three",
+          team: "Team C",
           challenges: [
             { name: "Spot a windmill", date: "Aug 24" },
             { name: "Take pic with Van Gogh", date: "Aug 24" },
             { name: "Capture a sunrise over the ocean", date: "Aug 24" },
+            { name: "Spot a rare animal in the wild", date: "Aug 24" },
+            { name: "Discover a hidden gem", date: "Aug 24" },
+          ],
+        },
+        {
+          team: "Team D",
+          challenges: [
+            { name: "Spot a windmill", date: "Aug 24" },
+            { name: "Take pic with Van Gogh", date: "Aug 24" },
             { name: "Spot a rare animal in the wild", date: "Aug 24" },
             { name: "Discover a hidden gem", date: "Aug 24" },
           ],
@@ -267,7 +276,7 @@ export default {
       date: "Feb 12",
       teams: [
         {
-          team: "Team One",
+          team: "Team A",
           challenges: [
             { name: "Discover a natural hot spring", date: "Feb 12" },
             { name: "Spot a wooden shoe", date: "Feb 12" },
@@ -275,7 +284,7 @@ export default {
           ],
         },
         {
-          team: "Team Two",
+          team: "Team B",
           challenges: [
             { name: "Locate a famous statue", date: "Aug 24" },
             { name: "Spot a windmill", date: "Aug 24" },
@@ -284,10 +293,24 @@ export default {
           ],
         },
         {
-          team: "Team Three",
+          team: "Team C",
           challenges: [
             { name: "Spot a rare animal in the wild", date: "Aug 24" },
             { name: "Discover a hidden gem", date: "Aug 24" },
+            { name: "Capture a sunrise over the ocean", date: "Aug 24" },
+            { name: "Find a famous monument", date: "Aug 24" },
+          ],
+        },
+        {
+          team: "Team D",
+          challenges: [
+            { name: "Spot a rare animal in the wild", date: "Aug 24" },
+          ],
+        },
+        {
+          team: "Team E",
+          challenges: [
+            { name: "Spot a rare animal in the wild", date: "Aug 24" },
             { name: "Capture a sunrise over the ocean", date: "Aug 24" },
             { name: "Find a famous monument", date: "Aug 24" },
           ],

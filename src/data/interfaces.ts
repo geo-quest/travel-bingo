@@ -10,14 +10,14 @@ export interface Team {
   challenges: TeamChallenge[];
 }
 
-export interface Run {
+export interface RunGameData {
   name: string;
   date: string;
   teams: Team[];
 }
 
 export interface Runs {
-  [name: string]: Run;
+  [name: string]: RunGameData;
 }
 
 export interface Challenge {

@@ -3,15 +3,13 @@ import "antd/dist/reset.css";
 import { Table, Tag } from "antd";
 import React from "react";
 
-const leaderBoardData = [
-  { key: "1", rank: 1, name: "Team 1", score: 100 },
-  { key: "2", rank: 2, name: "Team 2", score: 80 },
-  { key: "3", rank: 3, name: "Team 3", score: 70 },
-  { key: "4", rank: 4, name: "Team 4", score: 60 },
-  { key: "5", rank: 5, name: "Team 5", score: 50 },
-];
+import { LeaderBoardData } from "./calculate-leader-board";
 
-const LeaderBoard = () => {
+interface Props {
+  leaderBoard: LeaderBoardData;
+}
+
+const LeaderBoard = ({ leaderBoard }: Props) => {
   const columns = [
     {
       title: "Rank",
@@ -66,7 +64,7 @@ const LeaderBoard = () => {
     <div style={{ maxWidth: 600, margin: "auto", marginTop: 40 }}>
       <Table
         columns={columns}
-        dataSource={leaderBoardData}
+        dataSource={leaderBoard.teams}
         pagination={false}
       />
     </div>
