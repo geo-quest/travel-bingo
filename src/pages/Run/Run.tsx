@@ -5,11 +5,10 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import GameLeaderBoard from "../../components/GameLeaderBoard/GameLeaderBoard";
 import NoPage from "../../components/NoPage/NoPage";
 import { TravelBingoGamesData } from "../../data/interfaces";
 import { updateBodyStyle } from "../../utils/update-body-style";
-import LeaderBoard from "./LeaderBoard";
-import Podium from "./Podium";
 
 interface Props {
   data: TravelBingoGamesData;
@@ -31,8 +30,7 @@ function Run({ data }: Props) {
   return (
     <div className="app-container">
       <Breadcrumb game={{ ...game, id: gameId }} run={runId} />
-      <Podium />
-      <LeaderBoard />
+      <GameLeaderBoard />
     </div>
   );
 }
