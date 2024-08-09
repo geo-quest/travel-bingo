@@ -8,11 +8,11 @@ import ChallengeModal from "./ChallengeModal";
 
 const { Title } = Typography;
 
-interface ChallengesProps {
+interface Props {
   challenges: Challenge[][];
 }
 
-const Challenges: React.FC<ChallengesProps> = ({ challenges }) => {
+const Challenges: React.FC<Props> = ({ challenges }) => {
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(
     null,
   );
