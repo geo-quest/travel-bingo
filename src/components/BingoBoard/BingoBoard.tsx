@@ -30,8 +30,9 @@ const BingoBoard: React.FC<Props> = ({
                 defineCardClass ? defineCardClass(item) + " card" : "card"
               }
               onClick={() => onClick(item)}
+              style={{ width: `${100 / row.length}%` }}
             >
-              {item.challenge.substring(0, 20)}
+              {item.challenge}
             </Card.Grid>
           ))}
         </div>
