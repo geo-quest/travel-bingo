@@ -1,8 +1,8 @@
 import { setTwoToneColor } from "@ant-design/icons";
 import { useEffect } from "react";
 
-import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import NoPage from "../../components/NoPage/NoPage";
+import PageComponent from "../../components/PageComponent/PageComponent";
 import TeamResults from "../../components/TeamResults/TeamResults";
 import { TravelBingoGamesData } from "../../data/interfaces";
 import { getDataBasedOnParams } from "../../utils/get-data-based-on-params";
@@ -24,10 +24,9 @@ function Team({ data }: Props) {
   setTwoToneColor(game.color);
 
   return (
-    <div className="app-container">
-      <Breadcrumb game={game} run={run} team={team} />
+    <PageComponent game={game} run={run} team={team}>
       <TeamResults game={game} run={run} team={team} />
-    </div>
+    </PageComponent>
   );
 }
 

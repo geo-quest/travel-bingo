@@ -1,14 +1,10 @@
 import "./Game.css";
 
-import { setTwoToneColor } from "@ant-design/icons";
-import { useEffect } from "react";
-
-import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import NoPage from "../../components/NoPage/NoPage";
+import PageComponent from "../../components/PageComponent/PageComponent";
 import TravelBingoGame from "../../components/TravelBingoGame/TravelBingoGame";
 import { TravelBingoGamesData } from "../../data/interfaces";
 import { getDataBasedOnParams } from "../../utils/get-data-based-on-params";
-import { updateBodyStyle } from "../../utils/update-body-style";
 
 interface Props {
   data: TravelBingoGamesData;
@@ -16,20 +12,12 @@ interface Props {
 
 function Game({ data }: Props) {
   const { game } = getDataBasedOnParams(data);
-
   if (!game) return <NoPage />;
 
-  useEffect(() => {
-    updateBodyStyle(game);
-  });
-
-  setTwoToneColor(game.color);
-
   return (
-    <div className="app-container">
-      <Breadcrumb game={game} />
+    <PageComponent game={game}>
       <TravelBingoGame game={game} />
-    </div>
+    </PageComponent>
   );
 }
 

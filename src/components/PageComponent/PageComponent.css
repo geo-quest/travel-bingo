@@ -1,0 +1,15 @@
+@media (max-width: 600px) {
+  .app-container {
+    max-width: 90% !important;
+    min-width: fit-content;
+  }
+  body {
+    font-size: 2em;
+  }
+}
+
+.app-container {
+  padding-top: 20px;
+  margin: auto;
+  max-width: max-content;
+}
