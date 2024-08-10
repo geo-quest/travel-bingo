@@ -1,14 +1,18 @@
 import "./App.css";
 
+import { useTranslation } from "react-i18next";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import gameData from "./data/index";
+import getGameData from "./data/index";
 import Game from "./pages/Game/Game";
 import Home from "./pages/Home/Home";
 import Run from "./pages/Run/Run";
 import Team from "./pages/Team/Team";
 
 function App() {
+  const { i18n } = useTranslation();
+  const gameData = getGameData(i18n.language);
+
   return (
     <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
       <Routes>

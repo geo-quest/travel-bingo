@@ -4,6 +4,7 @@ import "./Home.css";
 import { Flex, Tag } from "antd";
 
 import { DynamicIconComponent } from "../../components/DynamicIcon/DynamicIcon";
+import LanguageSelector from "../../components/LanguageSelector/LanguageSelector";
 import { TravelBingoGamesData } from "../../data/interfaces";
 
 interface Props {
@@ -39,9 +40,10 @@ function Home({ data }: Props) {
           className="Travel Bingo"
           alt="Travel Bingo"
         />
-        <Flex gap="4px 0" wrap>
+        <Flex gap="4px 0" wrap style={{ marginBottom: "20px" }}>
           {gameTags}
         </Flex>
+        <LanguageSelector />
       </header>
     </div>
   );

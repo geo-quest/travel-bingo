@@ -1,0 +1,25 @@
+{
+  "language": "Idioma",
+  "challenges": "Desafios",
+  "how-to-play": "Como jogar",
+  "rank": "Classificação",
+  "team": "Equipe",
+  "score": "Pontuação",
+  "solved-at": "Resolvido em",
+  "run": {
+    "run-date": "Data de execução",
+    "updated-at": "Atualizado em"
+  },
+  "podium": {
+    "1st": "1º",
+    "2nd": "2º",
+    "3rd": "3º",
+    "pts": "pontos"
+  },
+  "no-page": {
+    "oops": "Ops!",
+    "something-went-wrong": "Algo deu errado",
+    "page-does-not-exist": "A página que você procura não existe.",
+    "go-back-home-page": "Voltar para a página inicial"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "challenges": "Uitdagingen",
+  "how-to-play": "Hoe te spelen",
+  "rank": "Rang",
+  "team": "Team",
+  "score": "Scoren",
+  "solved-at": "Opgelost bij",
+  "run": {
+    "run-date": "Datum uitvoeren",
+    "updated-at": "Bijgewerkt op"
+  },
+  "podium": {
+    "1st": "1e",
+    "2nd": "2e",
+    "3rd": "3e",
+    "pts": "punten"
+  },
+  "no-page": {
+    "oops": "Oeps!",
+    "something-went-wrong": "Er is iets misgegaan",
+    "page-does-not-exist": "De pagina die u zoekt bestaat niet.",
+    "go-back-home-page": "Ga terug naar de startpagina"
+  }
+}
