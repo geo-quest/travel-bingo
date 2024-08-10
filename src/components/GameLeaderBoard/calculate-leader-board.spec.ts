@@ -51,18 +51,21 @@ describe("calculateLeaderBoard", () => {
     expect(result).toEqual({
       teams: [
         {
+          key: "team-a",
           name: "Team A",
           score: 300,
           rank: 1,
           challenges: ["Challenge 1", "Challenge 2"],
         },
         {
+          key: "team-c",
           name: "Team C",
           score: 200,
           rank: 2,
           challenges: ["Challenge 2"],
         },
         {
+          key: "team-b",
           name: "Team B",
           score: 100,
           rank: 3,
