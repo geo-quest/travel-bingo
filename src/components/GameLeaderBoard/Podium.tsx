@@ -2,11 +2,12 @@ import "antd/dist/reset.css";
 
 import { Card, Col, Row } from "antd";
 
+import { KeyObject } from "../../data/interfaces";
 import { LeaderBoardData, TeamLeaderBoardData } from "./calculate-leader-board";
 
 interface Props {
   leaderBoard: LeaderBoardData;
-  onClick: (team: TeamLeaderBoardData) => void;
+  onClick: (team: TeamLeaderBoardData & KeyObject) => void;
 }
 
 const Podium = ({ leaderBoard, onClick }: Props) => {

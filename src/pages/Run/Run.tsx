@@ -15,13 +15,13 @@ interface Props {
 }
 
 function Run({ data }: Props) {
-  const { gameId, runId } = useParams();
+  const { gameKey, runKey } = useParams();
 
-  if (!gameId || !runId || !data[gameId] || !data[gameId].runs[runId])
+  if (!gameKey || !runKey || !data[gameKey] || !data[gameKey].runs[runKey])
     return <NoPage />;
 
-  const game = data[gameId];
-  const run = data[gameId].runs[runId];
+  const game = data[gameKey];
+  const run = data[gameKey].runs[runKey];
 
   useEffect(() => {
     updateBodyStyle(game);
@@ -31,8 +31,11 @@ function Run({ data }: Props) {
 
   return (
     <div className="app-container">
-      <Breadcrumb game={{ ...game, id: gameId }} run={run.name} />
-      <GameLeaderBoard game={game} run={run} />
+      <Breadcrumb game={{ ...game, id: gameKey }} run={run.name} />
+      <GameLeaderBoard
+        game={{ ...game, key: gameKey }}
+        run={{ ...run, key: runKey }}
+      />
     </div>
   );
 }

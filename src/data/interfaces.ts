@@ -1,5 +1,9 @@
 export type Markdown = string;
 
+export interface KeyObject {
+  key: string;
+}
+
 export interface TeamChallenge {
   name: string;
   date: string;

@@ -2,31 +2,22 @@
 import "./GameLeaderBoard.css";
 
 import { Card, Space, Typography } from "antd";
-import { useState } from "react";
 
 import { RunGameData, TravelBingoGameData } from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
-import {
-  calculateLeaderBoard,
-  TeamLeaderBoardData,
-} from "./calculate-leader-board";
+import { calculateLeaderBoard } from "./calculate-leader-board";
 import LeaderBoard from "./LeaderBoard";
 import Podium from "./Podium";
-import TeamModal from "./TeamModal";
 
 const { Paragraph } = Typography;
 
 interface Props {
-  run: RunGameData;
-  game: TravelBingoGameData;
+  run: RunGameData & { key: string };
+  game: TravelBingoGameData & { key: string };
 }
 
 const GameLeaderBoard = ({ run, game }: Props) => {
   const leaderBoardData = calculateLeaderBoard(run, game.challenges.flat());
-
-  const [selectedTeam, setSelectedTeam] = useState<TeamLeaderBoardData | null>(
-    null,
-  );
 
   return (
     <>
@@ -52,20 +43,17 @@ const GameLeaderBoard = ({ run, game }: Props) => {
           </div>
           <Podium
             leaderBoard={leaderBoardData}
-            onClick={(team) => setSelectedTeam(team)}
+            onClick={(team) =>
+              (window.location.href = `/${game.key}/${run.key}/${team.key}`)
+            }
           />
           <LeaderBoard
             leaderBoard={leaderBoardData}
-            onClick={(team) => setSelectedTeam(team)}
+            onClick={(team) =>
+              (window.location.href = `/${game.key}/${run.key}/${team.key}`)
+            }
           />
         </Card>
-        {selectedTeam && (
-          <TeamModal
-            team={selectedTeam}
-            challenges={game.challenges}
-            onClose={() => setSelectedTeam(null)}
-          />
-        )}
       </Space>
     </>
   );

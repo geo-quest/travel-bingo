@@ -2,6 +2,7 @@
 import { Challenge, RunGameData } from "../../data/interfaces";
 
 export interface TeamLeaderBoardData {
+  key: string;
   name: string;
   score: number;
   rank: number;
@@ -21,6 +22,7 @@ export function calculateLeaderBoard(
       .map((key) => {
         const team = run.teams[key];
         return {
+          key: key,
           name: team.name,
           score: team.challenges.reduce((result, teamChallenge) => {
             const challengeData = challenges.find(

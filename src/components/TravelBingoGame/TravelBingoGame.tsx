@@ -3,7 +3,7 @@ import "./TravelBingoGame.css";
 import { Card, Space, Typography } from "antd";
 import Markdown from "react-markdown";
 
-import { TravelBingoGameData } from "../../data/interfaces";
+import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 import Challenges from "./Challenges";
 import Runs from "./Runs";
@@ -11,7 +11,7 @@ import Runs from "./Runs";
 const { Paragraph } = Typography;
 
 interface Props {
-  game: TravelBingoGameData & { id: string };
+  game: TravelBingoGameData & KeyObject;
 }
 
 const TravelBingoGame = ({ game }: Props) => {

@@ -15,11 +15,11 @@ interface Props {
 }
 
 function Game({ data }: Props) {
-  const { gameId } = useParams();
+  const { gameKey } = useParams();
 
-  if (!gameId || !data[gameId]) return <NoPage />;
+  if (!gameKey || !data[gameKey]) return <NoPage />;
 
-  const game = data[gameId];
+  const game = data[gameKey];
 
   useEffect(() => {
     updateBodyStyle(game);
@@ -29,8 +29,8 @@ function Game({ data }: Props) {
 
   return (
     <div className="app-container">
-      <Breadcrumb game={{ ...game, id: gameId }} />
-      <TravelBingoGame game={{ ...game, id: gameId }} />
+      <Breadcrumb game={{ ...game, id: gameKey }} />
+      <TravelBingoGame game={{ ...game, key: gameKey }} />
     </div>
   );
 }

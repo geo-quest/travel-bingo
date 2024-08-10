@@ -1,10 +1,10 @@
 /* eslint-disable arrow-parens */
 import { Flex, Tag } from "antd";
 
-import { TravelBingoGameData } from "../../data/interfaces";
+import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
 
 interface Props {
-  game: TravelBingoGameData & { id: string };
+  game: TravelBingoGameData & KeyObject;
 }
 
 function Runs({ game }: Props) {
@@ -16,7 +16,7 @@ function Runs({ game }: Props) {
         key={key}
         color={game.color}
         onClick={() => {
-          window.location.href = `/${game.id}/${key}`;
+          window.location.href = `/${game.key}/${key}`;
         }}
         style={{
           cursor: "pointer",
