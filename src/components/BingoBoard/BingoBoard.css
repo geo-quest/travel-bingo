@@ -36,8 +36,18 @@
   width: 20% !important;
   cursor: pointer;
   text-align: center;
-  overflow: hidden;
-  text-overflow: clip;
   font-weight: 200;
-  white-space: unset;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 3;
+  max-width: 100px !important;
+}
+
+@media (max-width: 600px) {
+  .board .header-card,
+  .board .card {
+    max-width: 60px !important;
+  }
 }
