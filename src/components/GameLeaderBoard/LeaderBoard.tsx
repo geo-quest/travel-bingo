@@ -34,20 +34,18 @@ const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
   ];
 
   return (
-    <div style={{ maxWidth: 600, margin: "auto" }}>
-      <Table
-        columns={columns}
-        dataSource={leaderBoard.teams}
-        pagination={false}
-        onRow={(team) => {
-          return {
-            onClick: () => {
-              onClick(team);
-            },
-          };
-        }}
-      />
-    </div>
+    <Table
+      columns={columns}
+      dataSource={leaderBoard.teams}
+      pagination={false}
+      onRow={(team) => {
+        return {
+          onClick: () => {
+            onClick(team);
+          },
+        };
+      }}
+    />
   );
 };
 

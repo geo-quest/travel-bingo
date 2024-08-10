@@ -1,6 +1,6 @@
 import "./TravelBingoGame.css";
 
-import { Card, Space, Typography } from "antd";
+import { Card, Col, Row, Space, Typography } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
@@ -11,7 +11,7 @@ import {
   TravelBingoGameData,
 } from "../../data/interfaces";
 import BingoBoard from "../BingoBoard/BingoBoard";
-import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
+import PageTitle from "../PageTitle/PageTitle";
 import ChallengeModal from "./ChallengeModal";
 import Runs from "./Runs";
 
@@ -23,7 +23,7 @@ interface Props {
 
 const TravelBingoGame = ({ game }: Props) => {
   const { t } = useTranslation();
-  const { icon, title, shortDescription, challenges, gamePlay } = game;
+  const { shortDescription, challenges, gamePlay } = game;
 
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(
     null,
@@ -32,32 +32,40 @@ const TravelBingoGame = ({ game }: Props) => {
   return (
     <>
       <Space direction="vertical" size={16}>
-        <Card
-          title={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <DynamicIconComponent
-                iconName={icon}
-                style={{ marginRight: 8, fontSize: "32px" }}
+        <Card title={<PageTitle game={game} />}>
+          <Space direction="vertical">
+            <Row>
+              <Col span={24}>
+                <Runs game={game} />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Paragraph strong>{shortDescription}</Paragraph>
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Title level={2}>{t("challenges")}</Title>
+                <BingoBoard
+                  challenges={challenges}
+                  onClick={setSelectedChallenge}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Title level={2}>{t("how-to-play")}</Title>
+                <Markdown>{gamePlay}</Markdown>
+              </Col>
+            </Row>
+            {selectedChallenge && (
+              <ChallengeModal
+                challenge={selectedChallenge}
+                onClose={() => setSelectedChallenge(null)}
               />
-              <h2 style={{ margin: 0 }}>{title}</h2>
-            </div>
-          }
-        >
-          <Runs game={game} />
-          <Paragraph strong>{shortDescription}</Paragraph>
-          <Title level={2} style={{ marginTop: 20 }}>
-            {t("challenges")}
-          </Title>
-          <BingoBoard challenges={challenges} onClick={setSelectedChallenge} />
-          <div style={{ marginTop: "8px" }}>
-            <Markdown>{gamePlay}</Markdown>
-          </div>
-          {selectedChallenge && (
-            <ChallengeModal
-              challenge={selectedChallenge}
-              onClose={() => setSelectedChallenge(null)}
-            />
-          )}
+            )}
+          </Space>
         </Card>
       </Space>
     </>

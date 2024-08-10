@@ -1,7 +1,7 @@
 /* eslint-disable arrow-parens */
 import "./GameLeaderBoard.css";
 
-import { Card, Space, Typography } from "antd";
+import { Card, Col, Row, Space, Statistic } from "antd";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -11,11 +11,9 @@ import {
   TravelBingoGameData,
 } from "../../data/interfaces";
 import { calculateLeaderBoard } from "../../utils/calculate-leader-board";
-import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
+import PageTitle from "../PageTitle/PageTitle";
 import LeaderBoard from "./LeaderBoard";
 import Podium from "./Podium";
-
-const { Paragraph } = Typography;
 
 interface Props {
   run: RunGameData & KeyObject;
@@ -31,32 +29,30 @@ const GameLeaderBoard = ({ run, game }: Props) => {
   };
 
   return (
-    <>
-      <Space direction="vertical" size={16} style={{ width: "100%" }}>
-        <Card
-          title={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <DynamicIconComponent
-                iconName={game.icon}
-                style={{ marginRight: 8, fontSize: "24px" }}
-              />
-              <h3 style={{ margin: 0 }}>{run.name}</h3>
-            </div>
-          }
-        >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Paragraph style={{ margin: 0 }}>
-              <strong>{t("run.run-date")}:</strong> {run.date}
-            </Paragraph>
-            <Paragraph italic style={{ margin: 0 }}>
-              <strong>{t("run.updated-at")}</strong>: {run.lastUpdate}
-            </Paragraph>
-          </div>
-          <Podium leaderBoard={leaderBoardData} onClick={navigate} />
-          <LeaderBoard leaderBoard={leaderBoardData} onClick={navigate} />
-        </Card>
+    <Card title={<PageTitle game={game} run={run} />}>
+      <Space direction="vertical">
+        <Row>
+          <Col span={2}></Col>
+          <Col span={10} style={{ textAlign: "center" }}>
+            <Statistic title={t("run.run-date")} value={run.date} />
+          </Col>
+          <Col span={10} style={{ textAlign: "center" }}>
+            <Statistic title={t("run.updated-at")} value={run.lastUpdate} />
+          </Col>
+          <Col span={2}></Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <Podium leaderBoard={leaderBoardData} onClick={navigate} />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <LeaderBoard leaderBoard={leaderBoardData} onClick={navigate} />
+          </Col>
+        </Row>
       </Space>
-    </>
+    </Card>
   );
 };
 
