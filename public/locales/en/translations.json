@@ -1,0 +1,22 @@
+{
+  "challenges": "Challenges",
+  "run-date": "Run date",
+  "updated-at": "Updated at",
+  "leaderboard": {
+    "rank": "Rank",
+    "team": "Team",
+    "score": "Score"
+  },
+  "podium": {
+    "1st": "1st",
+    "2nd": "2nd",
+    "3rd": "3rd",
+    "pts": "pts"
+  },
+  "no-page": {
+    "oops": "Oops!",
+    "something-went-wrong": "Something went wrong",
+    "page-does-not-exist": "The page you're looking for doesn't exist.",
+    "go-back-home-page": "Go back to the homepage"
+  }
+}

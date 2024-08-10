@@ -19,6 +19,7 @@ function App() {
           path="/:gameKey/:runKey/:teamKey"
           element={<Team data={gameData} />}
         />
+        <Route path="locales/en/translation.json"></Route>
       </Routes>
     </BrowserRouter>
   );

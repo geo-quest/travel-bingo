@@ -1,6 +1,7 @@
 /* eslint-disable arrow-parens */
 import { Card, Typography } from "antd";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { Challenge } from "../../data/interfaces";
 import ChallengeModal from "./ChallengeModal";
@@ -12,6 +13,8 @@ interface Props {
 }
 
 const Challenges: React.FC<Props> = ({ challenges }) => {
+  const { t } = useTranslation();
+
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(
     null,
   );
@@ -19,7 +22,7 @@ const Challenges: React.FC<Props> = ({ challenges }) => {
   return (
     <>
       <Title level={2} style={{ marginTop: 20 }}>
-        Challenges
+        {t("challenges")}
       </Title>
       <div className="board">
         <div style={{ display: "flex" }}>

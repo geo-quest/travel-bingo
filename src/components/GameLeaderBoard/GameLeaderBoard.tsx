@@ -2,22 +2,35 @@
 import "./GameLeaderBoard.css";
 
 import { Card, Space, Typography } from "antd";
+import { useTranslation } from "react-i18next";
 
-import { RunGameData, TravelBingoGameData } from "../../data/interfaces";
+import {
+  KeyObject,
+  RunGameData,
+  TravelBingoGameData,
+} from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
-import { calculateLeaderBoard } from "./calculate-leader-board";
+import {
+  calculateLeaderBoard,
+  TeamLeaderBoardData,
+} from "./calculate-leader-board";
 import LeaderBoard from "./LeaderBoard";
 import Podium from "./Podium";
 
 const { Paragraph } = Typography;
 
 interface Props {
-  run: RunGameData & { key: string };
-  game: TravelBingoGameData & { key: string };
+  run: RunGameData & KeyObject;
+  game: TravelBingoGameData & KeyObject;
 }
 
 const GameLeaderBoard = ({ run, game }: Props) => {
+  const { t } = useTranslation();
   const leaderBoardData = calculateLeaderBoard(run, game.challenges.flat());
+
+  const navigate = function (team: TeamLeaderBoardData & KeyObject) {
+    window.location.href = `/${game.key}/${run.key}/${team.key}`;
+  };
 
   return (
     <>
@@ -34,25 +47,15 @@ const GameLeaderBoard = ({ run, game }: Props) => {
           }
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Paragraph strong style={{ margin: 0 }}>
-              Date: {run.date}
+            <Paragraph style={{ margin: 0 }}>
+              <strong>{t("run-date")}:</strong> {run.date}
             </Paragraph>
             <Paragraph italic style={{ margin: 0 }}>
-              Last leader board update: {run.lastUpdate}
+              <strong>{t("updated-at")}</strong>: {run.lastUpdate}
             </Paragraph>
           </div>
-          <Podium
-            leaderBoard={leaderBoardData}
-            onClick={(team) =>
-              (window.location.href = `/${game.key}/${run.key}/${team.key}`)
-            }
-          />
-          <LeaderBoard
-            leaderBoard={leaderBoardData}
-            onClick={(team) =>
-              (window.location.href = `/${game.key}/${run.key}/${team.key}`)
-            }
-          />
+          <Podium leaderBoard={leaderBoardData} onClick={navigate} />
+          <LeaderBoard leaderBoard={leaderBoardData} onClick={navigate} />
         </Card>
       </Space>
     </>

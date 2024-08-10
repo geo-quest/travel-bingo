@@ -1,6 +1,7 @@
 import "antd/dist/reset.css";
 
 import { Card, Col, Row } from "antd";
+import { useTranslation } from "react-i18next";
 
 import { KeyObject } from "../../data/interfaces";
 import { LeaderBoardData, TeamLeaderBoardData } from "./calculate-leader-board";
@@ -11,12 +12,13 @@ interface Props {
 }
 
 const Podium = ({ leaderBoard, onClick }: Props) => {
+  const { t } = useTranslation();
   return (
     <div className="podium">
       <Row gutter={16}>
         <Col span={8}>
           <Card
-            title={`2nd`}
+            title={t("podium.2nd")}
             bordered={false}
             className="podium-card silver"
             onClick={() => onClick(leaderBoard.teams[1])}
@@ -27,7 +29,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
         </Col>
         <Col span={8}>
           <Card
-            title={`1st`}
+            title={t("podium.1st")}
             bordered={false}
             className="podium-card gold"
             onClick={() => onClick(leaderBoard.teams[0])}
@@ -38,7 +40,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
         </Col>
         <Col span={8}>
           <Card
-            title={`3rd`}
+            title={t("podium.3rd")}
             bordered={false}
             className="podium-card bronze"
             onClick={() => onClick(leaderBoard.teams[2])}

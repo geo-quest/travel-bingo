@@ -2,6 +2,7 @@
 import "antd/dist/reset.css";
 
 import { Table, Tag } from "antd";
+import { useTranslation } from "react-i18next";
 
 import { LeaderBoardData, TeamLeaderBoardData } from "./calculate-leader-board";
 
@@ -11,9 +12,10 @@ interface Props {
 }
 
 const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
+  const { t } = useTranslation();
   const columns = [
     {
-      title: "Rank",
+      title: t("leaderboard.rank"),
       dataIndex: "rank",
       key: "rank",
       render: (text: string, record: { rank: number }) => {
@@ -31,12 +33,12 @@ const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
       },
     },
     {
-      title: "Team",
+      title: t("leaderboard.team"),
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "Score",
+      title: t("leaderboard.score"),
       dataIndex: "score",
       key: "score",
     },

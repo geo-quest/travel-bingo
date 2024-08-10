@@ -1,5 +1,6 @@
 import { Modal, Typography } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 
 import { Challenge } from "../../data/interfaces";
@@ -13,10 +14,11 @@ interface Props {
 
 const ChallengeModal: React.FC<Props> = ({ challenge, onClose }) => {
   if (!challenge) return null;
+  const { t } = useTranslation();
 
   return (
     <Modal
-      title={`${challenge.challenge} [${challenge.points} pts]`}
+      title={`${challenge.challenge} [${challenge.points} ${t("pts")}]`}
       open={!!challenge}
       onCancel={onClose}
       centered
