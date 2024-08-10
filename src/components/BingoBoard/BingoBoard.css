@@ -20,10 +20,10 @@
 
 .board .header-card,
 .board .card {
-  padding: 8px !important;
+  padding: 4px !important;
 }
 
-.header-card {
+.board .header-card {
   width: 20%;
   text-align: center;
   font-size: 1.5em;
@@ -32,10 +32,12 @@
   background-color: #f0f0f0;
 }
 
-.card {
+.board .card {
   width: 20% !important;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
   text-overflow: clip;
+  font-weight: 200;
+  white-space: unset;
 }

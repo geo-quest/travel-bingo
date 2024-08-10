@@ -31,7 +31,7 @@ const BingoBoard: React.FC<Props> = ({
               }
               onClick={() => onClick(item)}
             >
-              {item.challenge}
+              {item.challenge.substring(0, 20)}
             </Card.Grid>
           ))}
         </div>

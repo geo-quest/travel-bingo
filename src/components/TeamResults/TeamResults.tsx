@@ -30,7 +30,6 @@ const TeamResults = function ({ team, run, game }: Props) {
   if (!teamData) return <NoPage />;
   return (
     <>
-      <Space direction="vertical" size={16} style={{ width: "100%" }} />
       <Card
         title={
           <div style={{ display: "flex", alignItems: "center" }}>
@@ -42,30 +41,38 @@ const TeamResults = function ({ team, run, game }: Props) {
           </div>
         }
       >
-        <Row gutter={16}>
-          <Col span={12}>
-            <Statistic
-              title={t("rank")}
-              valueRender={() => <Rank rank={teamData.rank} />}
-            />
-          </Col>
-          <Col span={12}>
-            <Statistic title="Score" value={teamData.score} />
-          </Col>
-        </Row>
-        <Row gutter={16}>
-          <Col span={16}>
-            <BingoBoard
-              challenges={game.challenges}
-              onClick={(challenge: Challenge) => alert(challenge.challenge)}
-              defineCardClass={(challenge: Challenge) =>
-                teamData.challenges.find((c) => c === challenge.challenge)
-                  ? "card-done"
-                  : ""
-              }
-            />
-          </Col>
-        </Row>
+        <Space
+          direction="vertical"
+          size="middle"
+          style={{ width: "100%", display: "flex" }}
+        >
+          <Row>
+            <Col span={2} />
+            <Col span={10} style={{ textAlign: "center" }}>
+              <Statistic
+                title={t("rank")}
+                valueRender={() => <Rank rank={teamData.rank} />}
+              />
+            </Col>
+            <Col span={10} style={{ textAlign: "center" }}>
+              <Statistic title="Score" value={teamData.score} />
+            </Col>
+            <Col span={2} />
+          </Row>
+          <Row>
+            <Col span={24}>
+              <BingoBoard
+                challenges={game.challenges}
+                onClick={(challenge: Challenge) => alert(challenge.challenge)}
+                defineCardClass={(challenge: Challenge) =>
+                  teamData.challenges.find((c) => c === challenge.challenge)
+                    ? "card-done"
+                    : ""
+                }
+              />
+            </Col>
+          </Row>
+        </Space>
       </Card>
     </>
   );
