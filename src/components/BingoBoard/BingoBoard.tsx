@@ -10,9 +10,14 @@ import Header from "./Header";
 interface Props {
   challenges: Challenge[][];
   onClick: (challenge: Challenge) => void;
+  defineCardClass?: (challenge: Challenge) => string | undefined;
 }
 
-const BingoBoard: React.FC<Props> = ({ challenges, onClick }) => {
+const BingoBoard: React.FC<Props> = ({
+  challenges,
+  onClick,
+  defineCardClass,
+}) => {
   return (
     <div className="board">
       <Header />
@@ -21,7 +26,9 @@ const BingoBoard: React.FC<Props> = ({ challenges, onClick }) => {
           {row.map((item, colIndex) => (
             <Card.Grid
               key={colIndex}
-              className="card"
+              className={
+                defineCardClass ? defineCardClass(item) + " card" : "card"
+              }
               onClick={() => onClick(item)}
             >
               {item.challenge}

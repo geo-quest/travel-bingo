@@ -1,14 +1,18 @@
 /* eslint-disable arrow-parens */
+import "./TeamResults.css";
+
 import { Card, Col, Row, Space, Statistic } from "antd";
 import { useTranslation } from "react-i18next";
 
 import {
+  Challenge,
   KeyObject,
   RunGameData,
   TeamGameData,
   TravelBingoGameData,
 } from "../../data/interfaces";
 import { calculateLeaderBoard } from "../../utils/calculate-leader-board";
+import BingoBoard from "../BingoBoard/BingoBoard";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 import NoPage from "../NoPage/NoPage";
 import Rank from "../Rank/Rank";
@@ -47,6 +51,19 @@ const TeamResults = function ({ team, run, game }: Props) {
           </Col>
           <Col span={12}>
             <Statistic title="Score" value={teamData.score} />
+          </Col>
+        </Row>
+        <Row gutter={16}>
+          <Col span={16}>
+            <BingoBoard
+              challenges={game.challenges}
+              onClick={(challenge: Challenge) => alert(challenge.challenge)}
+              defineCardClass={(challenge: Challenge) =>
+                teamData.challenges.find((c) => c === challenge.challenge)
+                  ? "card-done"
+                  : ""
+              }
+            />
           </Col>
         </Row>
       </Card>
