@@ -2,6 +2,7 @@ import { TravelBingoGamesData } from "./interfaces";
 import testGame from "./test-game";
 import testGameNl from "./test-game.nl";
 import testGamePt from "./test-game.pt";
+import testGameZh from "./test-game.zh";
 
 export default (language: string) => {
   if (language.startsWith("pt")) {
@@ -23,6 +24,19 @@ export default (language: string) => {
       "test-game2": {
         ...testGameNl,
         title: "Utrechtse grachten",
+        icon: "BankTwoTone",
+        color: "#ffa500",
+        backgroundColor: "#ffffe0",
+      },
+    } as TravelBingoGamesData;
+  }
+
+  if (language.startsWith("zh")) {
+    return {
+      "test-game": testGameZh,
+      "test-game2": {
+        ...testGameZh,
+        title: "乌得勒支运河",
         icon: "BankTwoTone",
         color: "#ffa500",
         backgroundColor: "#ffffe0",

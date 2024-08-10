@@ -5,6 +5,7 @@ import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
 import nl from "javascript-time-ago/locale/nl.json";
 import pt from "javascript-time-ago/locale/pt.json";
+import zh from "javascript-time-ago/locale/zh.json";
 import { initReactI18next } from "react-i18next";
 
 i18n
@@ -25,5 +26,6 @@ i18n
 TimeAgo.addDefaultLocale(en);
 TimeAgo.addLocale(pt);
 TimeAgo.addLocale(nl);
+TimeAgo.addLocale(zh);
 
 export default i18n;

@@ -19,6 +19,7 @@ const LanguageSelector = () => {
       <Option value="en">English</Option>
       <Option value="pt">Português</Option>
       <Option value="nl">Nederlands</Option>
+      <Option value="zh">中文</Option>
     </Select>
   );
 };
