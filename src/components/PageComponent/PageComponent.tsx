@@ -10,6 +10,7 @@ import {
   TeamGameData,
   TravelBingoGameData,
 } from "../../data/interfaces";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import Breadcrumb from "./Breadcrumb";
 import PageTitle from "./PageTitle";
 
@@ -33,6 +34,9 @@ const PageComponent = ({ game, run, team, children }: Props) => {
       <Card title={<PageTitle game={game} run={run} team={team} />}>
         {children}
       </Card>
+      <div style={{ textAlign: "center", paddingBottom: "24px" }}>
+        <LanguageSelector />
+      </div>
     </div>
   );
 };
