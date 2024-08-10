@@ -1,11 +1,11 @@
 import { HomeOutlined } from "@ant-design/icons";
 import { Breadcrumb } from "antd";
 
-import { TravelBingoGameData } from "../../data/interfaces";
+import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 
 interface Props {
-  game: TravelBingoGameData & { id: string };
+  game: TravelBingoGameData & KeyObject;
   run?: string;
 }
 
@@ -18,7 +18,7 @@ export default ({ game, run }: Props) => {
           title: <HomeOutlined />,
         },
         {
-          href: run === undefined ? undefined : "/" + game.id,
+          href: run === undefined ? undefined : "/" + game.key,
           title: (
             <>
               <DynamicIconComponent iconName={game.icon} />

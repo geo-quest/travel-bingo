@@ -2,12 +2,12 @@ import "./Game.css";
 
 import { setTwoToneColor } from "@ant-design/icons";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import NoPage from "../../components/NoPage/NoPage";
 import TravelBingoGame from "../../components/TravelBingoGame/TravelBingoGame";
 import { TravelBingoGamesData } from "../../data/interfaces";
+import { getDataBasedOnParams } from "../../utils/get-data-based-on-params";
 import { updateBodyStyle } from "../../utils/update-body-style";
 
 interface Props {
@@ -15,11 +15,9 @@ interface Props {
 }
 
 function Game({ data }: Props) {
-  const { gameKey } = useParams();
+  const { game } = getDataBasedOnParams(data);
 
-  if (!gameKey || !data[gameKey]) return <NoPage />;
-
-  const game = data[gameKey];
+  if (!game) return <NoPage />;
 
   useEffect(() => {
     updateBodyStyle(game);
@@ -29,8 +27,8 @@ function Game({ data }: Props) {
 
   return (
     <div className="app-container">
-      <Breadcrumb game={{ ...game, id: gameKey }} />
-      <TravelBingoGame game={{ ...game, key: gameKey }} />
+      <Breadcrumb game={game} />
+      <TravelBingoGame game={game} />
     </div>
   );
 }

@@ -15,7 +15,10 @@ function App() {
         <Route path="/" element={<Home data={gameData} />} />
         <Route path="/:gameKey" element={<Game data={gameData} />} />
         <Route path="/:gameKey/:runKey" element={<Run data={gameData} />} />
-        <Route path="/:gameKey/:runKey/:teamKey" element={<Team />} />
+        <Route
+          path="/:gameKey/:runKey/:teamKey"
+          element={<Team data={gameData} />}
+        />
       </Routes>
     </BrowserRouter>
   );
