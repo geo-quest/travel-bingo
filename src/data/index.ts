@@ -1,14 +1,28 @@
 import { TravelBingoGamesData } from "./interfaces";
 import testGame from "./test-game";
-import testGamePtBr from "./test-game.pt-br";
+import testGameNl from "./test-game.nl";
+import testGamePt from "./test-game.pt";
 
 export default (language: string) => {
   if (language.startsWith("pt")) {
     return {
-      "test-game": testGamePtBr,
+      "test-game": testGamePt,
       "test-game2": {
-        ...testGamePtBr,
+        ...testGamePt,
         title: "Canais de Utrecht",
+        icon: "BankTwoTone",
+        color: "#ffa500",
+        backgroundColor: "#ffffe0",
+      },
+    } as TravelBingoGamesData;
+  }
+
+  if (language.startsWith("nl")) {
+    return {
+      "test-game": testGameNl,
+      "test-game2": {
+        ...testGameNl,
+        title: "Utrechtse grachten",
         icon: "BankTwoTone",
         color: "#ffa500",
         backgroundColor: "#ffffe0",
