@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/geo-quest/travel-bingo/compare/v1.3.0...v1.3.1) (2024-08-10)
+
+### Bug Fixes
+
+* homepage ([#28](https://github.com/geo-quest/travel-bingo/issues/28)) ([ad888ac](https://github.com/geo-quest/travel-bingo/commit/ad888ac7ba8e8b853b08a3069994e9101f3d7d06))
+
 ## [1.3.0](https://github.com/geo-quest/travel-bingo/compare/v1.2.1...v1.3.0) (2024-08-10)
 
 ### Features
