@@ -1,3 +1,9 @@
+## [1.3.0](https://github.com/geo-quest/travel-bingo/compare/v1.2.1...v1.3.0) (2024-08-10)
+
+### Features
+
+* **leaderboard:** first version ([#19](https://github.com/geo-quest/travel-bingo/issues/19)) ([22ff038](https://github.com/geo-quest/travel-bingo/commit/22ff0383cf2fd034552d22de387fd9b5448fd739)), closes [#14](https://github.com/geo-quest/travel-bingo/issues/14) [#16](https://github.com/geo-quest/travel-bingo/issues/16)
+
 ## [1.2.1](https://github.com/geo-quest/travel-bingo/compare/v1.2.0...v1.2.1) (2024-08-08)
 
 ## [1.2.0](https://github.com/geo-quest/travel-bingo/compare/v1.1.0...v1.2.0) (2024-08-08)
