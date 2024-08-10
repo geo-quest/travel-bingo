@@ -1,5 +1,6 @@
 .board {
   max-width: fit-content;
+  margin: auto;
 }
 
 .board > div:first-child > div:first-child {

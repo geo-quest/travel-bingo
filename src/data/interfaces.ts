@@ -8,6 +8,7 @@ export interface TeamChallenge {
   name: string;
   date: string;
   comment?: Markdown;
+  image?: string;
 }
 
 export interface TeamGameData {

@@ -4,6 +4,7 @@
   "rank": "Rank",
   "team": "Team",
   "score": "Score",
+  "solved-at": "Solved at",
   "run": {
     "run-date": "Run date",
     "updated-at": "Updated at"
