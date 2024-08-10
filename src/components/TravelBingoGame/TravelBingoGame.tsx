@@ -1,5 +1,3 @@
-import "./TravelBingoGame.css";
-
 import { Col, Row, Space, Typography } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -11,7 +9,7 @@ import {
   TravelBingoGameData,
 } from "../../data/interfaces";
 import BingoBoard from "../BingoBoard/BingoBoard";
-import ChallengeModal from "./ChallengeModal";
+import ChallengeModal from "../ChallengeModal.tsx/ChallengeModal";
 import Runs from "./Runs";
 
 const { Paragraph, Title } = Typography;

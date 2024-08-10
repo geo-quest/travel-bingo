@@ -7,6 +7,7 @@ export interface KeyObject {
 export interface TeamChallenge {
   name: string;
   date: string;
+  comment?: Markdown;
 }
 
 export interface TeamGameData {
@@ -57,7 +58,7 @@ export interface TeamLeaderBoardData {
   name: string;
   score: number;
   rank: number;
-  challenges: string[];
+  challenges: TeamChallenge[];
 }
 
 export interface LeaderBoardData {

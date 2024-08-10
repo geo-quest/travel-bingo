@@ -8,12 +8,11 @@ import { Challenge } from "../../data/interfaces";
 const { Paragraph } = Typography;
 
 interface Props {
-  challenge: Challenge | null;
+  challenge: Challenge;
   onClose: () => void;
 }
 
 const ChallengeModal: React.FC<Props> = ({ challenge, onClose }) => {
-  if (!challenge) return null;
   const { t } = useTranslation();
 
   return (

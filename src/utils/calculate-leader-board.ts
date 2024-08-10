@@ -18,7 +18,7 @@ export function calculateLeaderBoard(
             );
             return result + (challengeData?.points || 0);
           }, 0),
-          challenges: team.challenges.map((c) => c.name),
+          challenges: team.challenges,
         };
       })
       .sort((a, b) => b.score - a.score)

@@ -3,3 +3,16 @@
   color: white;
   font-weight: 200;
 }
+
+.selected-card-done {
+  background-color: #00aa00;
+  color: white;
+  font-weight: 400 !important;
+}
+
+.solved-challenge {
+  background-color: #f3f3f3;
+  border-radius: 25px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
