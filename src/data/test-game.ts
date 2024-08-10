@@ -234,25 +234,25 @@ export default {
       name: "Summer Edition",
       date: "Aug 24",
       lastUpdate: "13:01",
-      teams: [
-        {
-          team: "Team A",
+      teams: {
+        "team-a": {
+          name: "Team A",
           challenges: [
             { name: "Discover a natural hot spring", date: "Aug 24" },
             { name: "Spot a wooden shoe", date: "Aug 24" },
             { name: "Try a traditional dish", date: "Aug 24" },
           ],
         },
-        {
-          team: "Team B",
+        "team-b": {
+          name: "Team B",
           challenges: [
             { name: "Capture a sunrise over the ocean", date: "Aug 24" },
             { name: "Find a famous monument", date: "Aug 24" },
             { name: "Locate a famous statue", date: "Aug 24" },
           ],
         },
-        {
-          team: "Team C",
+        "team-c": {
+          name: "Team C",
           challenges: [
             { name: "Spot a windmill", date: "Aug 24" },
             { name: "Take pic with Van Gogh", date: "Aug 24" },
@@ -261,8 +261,8 @@ export default {
             { name: "Discover a hidden gem", date: "Aug 24" },
           ],
         },
-        {
-          team: "Team D",
+        "team-d": {
+          name: "Team D",
           challenges: [
             { name: "Spot a windmill", date: "Aug 24" },
             { name: "Take pic with Van Gogh", date: "Aug 24" },
@@ -270,23 +270,23 @@ export default {
             { name: "Discover a hidden gem", date: "Aug 24" },
           ],
         },
-      ],
+      },
     },
     "winter-edition": {
       name: "Winter Edition",
       date: "Feb 12",
       lastUpdate: "17:23",
-      teams: [
-        {
-          team: "Team A",
+      teams: {
+        "team-a": {
+          name: "Team A",
           challenges: [
             { name: "Discover a natural hot spring", date: "Feb 12" },
             { name: "Spot a wooden shoe", date: "Feb 12" },
             { name: "Try a traditional dish", date: "Feb 12" },
           ],
         },
-        {
-          team: "Team B",
+        "team-b": {
+          name: "Team B",
           challenges: [
             { name: "Locate a famous statue", date: "Aug 24" },
             { name: "Spot a windmill", date: "Aug 24" },
@@ -294,8 +294,8 @@ export default {
             { name: "Capture a sunrise over the ocean", date: "Aug 24" },
           ],
         },
-        {
-          team: "Team C",
+        "team-c": {
+          name: "Team C",
           challenges: [
             { name: "Spot a rare animal in the wild", date: "Aug 24" },
             { name: "Discover a hidden gem", date: "Aug 24" },
@@ -303,21 +303,21 @@ export default {
             { name: "Find a famous monument", date: "Aug 24" },
           ],
         },
-        {
-          team: "Team D",
+        "team-d": {
+          name: "Team D",
           challenges: [
             { name: "Spot a rare animal in the wild", date: "Aug 24" },
           ],
         },
-        {
-          team: "Team E",
+        "team-e": {
+          name: "Team E",
           challenges: [
             { name: "Spot a rare animal in the wild", date: "Aug 24" },
             { name: "Capture a sunrise over the ocean", date: "Aug 24" },
             { name: "Find a famous monument", date: "Aug 24" },
           ],
         },
-      ],
+      },
     },
   },
 } as TravelBingoGameData;

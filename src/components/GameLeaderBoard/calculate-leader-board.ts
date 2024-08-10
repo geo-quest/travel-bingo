@@ -17,10 +17,11 @@ export function calculateLeaderBoard(
   challenges: Challenge[],
 ): LeaderBoardData {
   return {
-    teams: run.teams
-      .map((team) => {
+    teams: Object.keys(run.teams)
+      .map((key) => {
+        const team = run.teams[key];
         return {
-          name: team.team,
+          name: team.name,
           score: team.challenges.reduce((result, teamChallenge) => {
             const challengeData = challenges.find(
               (c) => c.challenge === teamChallenge.name,

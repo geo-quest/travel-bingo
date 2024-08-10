@@ -5,16 +5,20 @@ export interface TeamChallenge {
   date: string;
 }
 
-export interface Team {
-  team: string;
+export interface TeamGameData {
+  name: string;
   challenges: TeamChallenge[];
+}
+
+export interface Teams {
+  [name: string]: TeamGameData;
 }
 
 export interface RunGameData {
   name: string;
-  date: string;
-  teams: Team[];
-  lastUpdate: string;
+  date?: string;
+  lastUpdate?: string;
+  teams: Teams;
 }
 
 export interface Runs {
@@ -23,10 +27,10 @@ export interface Runs {
 
 export interface Challenge {
   challenge: string;
-  description: Markdown;
-  image?: string;
   points: number;
-  type: string;
+  description?: Markdown;
+  image?: string;
+  type?: string;
 }
 
 export interface TravelBingoGameData {
