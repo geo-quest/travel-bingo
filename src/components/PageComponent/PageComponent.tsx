@@ -34,7 +34,13 @@ const PageComponent = ({ game, run, team, children }: Props) => {
       <Card title={<PageTitle game={game} run={run} team={team} />}>
         {children}
       </Card>
-      <div style={{ textAlign: "center", paddingBottom: "24px" }}>
+      <div
+        style={{
+          textAlign: "center",
+          paddingBottom: "24px",
+          paddingTop: "24px",
+        }}
+      >
         <LanguageSelector />
       </div>
     </div>
