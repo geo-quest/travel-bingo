@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 
 import { TeamChallenge } from "../../data/interfaces";
+import FormattedDate from "../Date/FormattedDate";
 
 interface Props {
   challenge: TeamChallenge;
@@ -16,8 +17,8 @@ function SolvedChallenge({ challenge }: Props) {
     <div className="solved-challenge">
       <Title level={3}>{challenge.name}</Title>
       <Paragraph>
-        <strong>{t("solved-at")}:</strong>
-        {challenge.date}
+        <strong>{t("solved-at")}:</strong>&nbsp;
+        <FormattedDate date={challenge.date} showTime />
       </Paragraph>
       <Markdown>{challenge.comment}</Markdown>
       {challenge.image && (

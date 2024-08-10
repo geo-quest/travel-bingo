@@ -11,6 +11,8 @@ import {
   TravelBingoGameData,
 } from "../../data/interfaces";
 import { calculateLeaderBoard } from "../../utils/calculate-leader-board";
+import FormattedDate from "../Date/FormattedDate";
+import RelativeDate from "../Date/RelativeDate";
 import LeaderBoard from "./LeaderBoard";
 import Podium from "./Podium";
 
@@ -32,10 +34,18 @@ const GameLeaderBoard = ({ run, game }: Props) => {
       <Row>
         <Col span={2}></Col>
         <Col span={10} style={{ textAlign: "center" }}>
-          <Statistic title={t("run.run-date")} value={run.date} />
+          <Statistic
+            valueStyle={{ fontSize: "16px" }}
+            title={t("run.run-date")}
+            valueRender={() => <FormattedDate date={run.date} />}
+          />
         </Col>
         <Col span={10} style={{ textAlign: "center" }}>
-          <Statistic title={t("run.updated-at")} value={run.lastUpdate} />
+          <Statistic
+            valueStyle={{ fontSize: "16px" }}
+            title={t("run.updated-at")}
+            valueRender={() => <RelativeDate date={run.date} />}
+          />
         </Col>
         <Col span={2}></Col>
       </Row>

@@ -231,27 +231,27 @@ export default {
   runs: {
     "summer-edition": {
       name: "Summer Edition",
-      date: "Aug 24",
-      lastUpdate: "13:01",
+      date: "2024-08-24T12:00:00",
+      lastUpdate: "2024-08-24T12:00:00",
       teams: {
         "team-a": {
           name: "Team A",
           challenges: [
             {
               name: "Discover a natural hot spring",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-3.gif",
             },
             {
               name: "Spot a wooden shoe",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-2.gif",
             },
             {
               name: "Try a traditional dish",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-1.gif",
             },
@@ -262,19 +262,19 @@ export default {
           challenges: [
             {
               name: "Capture a sunrise over the ocean",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-5.gif",
             },
             {
               name: "Find a famous monument",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-4.gif",
             },
             {
               name: "Locate a famous statue",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-3.gif",
             },
@@ -285,31 +285,31 @@ export default {
           challenges: [
             {
               name: "Spot a windmill",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-2.gif",
             },
             {
               name: "Take pic with Van Gogh",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-1.gif",
             },
             {
               name: "Capture a sunrise over the ocean",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-5.gif",
             },
             {
               name: "Spot a rare animal in the wild",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-4.gif",
             },
             {
               name: "Discover a hidden gem",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-3.gif",
             },
@@ -320,25 +320,25 @@ export default {
           challenges: [
             {
               name: "Spot a windmill",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-2.gif",
             },
             {
               name: "Take pic with Van Gogh",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-1.gif",
             },
             {
               name: "Spot a rare animal in the wild",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-5.gif",
             },
             {
               name: "Discover a hidden gem",
-              date: "Aug 24",
+              date: "2024-08-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-4.gif",
             },
@@ -348,27 +348,27 @@ export default {
     },
     "winter-edition": {
       name: "Winter Edition",
-      date: "Feb 12",
-      lastUpdate: "17:23",
+      date: "2024-02-24T12:00:00",
+      lastUpdate: "2024-02-24T12:00:00",
       teams: {
         "team-a": {
           name: "Team A",
           challenges: [
             {
               name: "Discover a natural hot spring",
-              date: "Feb 12 14:56",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-3.gif",
             },
             {
               name: "Spot a wooden shoe",
-              date: "Feb 12 13:31",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-2.gif",
             },
             {
               name: "Try a traditional dish",
-              date: "Feb 12 13:31",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-1.gif",
             },
@@ -379,19 +379,23 @@ export default {
           challenges: [
             {
               name: "Locate a famous statue",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `Solved!!!`,
             },
-            { name: "Spot a windmill", date: "Aug 24", comment: `Solved!!!` },
+            {
+              name: "Spot a windmill",
+              date: "2024-02-24T12:00:00",
+              comment: `Solved!!!`,
+            },
             {
               name: "Take pic with Van Gogh",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-5.gif",
             },
             {
               name: "Capture a sunrise over the ocean",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-4.gif",
             },
@@ -402,25 +406,25 @@ export default {
           challenges: [
             {
               name: "Spot a rare animal in the wild",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-3.gif",
             },
             {
               name: "Discover a hidden gem",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-2.gif",
             },
             {
               name: "Capture a sunrise over the ocean",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-1.gif",
             },
             {
               name: "Find a famous monument",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-5.gif",
             },
@@ -431,7 +435,7 @@ export default {
           challenges: [
             {
               name: "Spot a rare animal in the wild",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-4.gif",
             },
@@ -442,19 +446,19 @@ export default {
           challenges: [
             {
               name: "Spot a rare animal in the wild",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-3.gif",
             },
             {
               name: "Capture a sunrise over the ocean",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-2.gif",
             },
             {
               name: "Find a famous monument",
-              date: "Aug 24",
+              date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
               image: "/images/clapping-1.gif",
             },
