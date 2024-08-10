@@ -1,0 +1,66 @@
+/* eslint-disable arrow-parens */
+import "./GameLeaderBoard.css";
+
+import { Col, Row, Space, Statistic } from "antd";
+import { useTranslation } from "react-i18next";
+
+import {
+  KeyObject,
+  RunGameData,
+  TeamLeaderBoardData,
+  TravelBingoGameData,
+} from "../../data/interfaces";
+import { calculateLeaderBoard } from "../../utils/calculate-leader-board";
+import FormattedDate from "../Date/FormattedDate";
+import RelativeDate from "../Date/RelativeDate";
+import LeaderBoard from "./LeaderBoard";
+import Podium from "./Podium";
+
+interface Props {
+  run: RunGameData & KeyObject;
+  game: TravelBingoGameData & KeyObject;
+}
+
+const GameLeaderBoard = ({ run, game }: Props) => {
+  const { t } = useTranslation();
+  const leaderBoardData = calculateLeaderBoard(run, game.challenges);
+
+  const navigate = function (team: TeamLeaderBoardData & KeyObject) {
+    window.location.href = `/${game.key}/${run.key}/${team.key}`;
+  };
+
+  return (
+    <Space direction="vertical">
+      <Row>
+        <Col span={2}></Col>
+        <Col span={10} style={{ textAlign: "center" }}>
+          <Statistic
+            valueStyle={{ fontSize: "16px" }}
+            title={t("run.run-date")}
+            valueRender={() => <FormattedDate date={run.date} />}
+          />
+        </Col>
+        <Col span={10} style={{ textAlign: "center" }}>
+          <Statistic
+            valueStyle={{ fontSize: "16px" }}
+            title={t("run.updated-at")}
+            valueRender={() => <RelativeDate date={run.date} />}
+          />
+        </Col>
+        <Col span={2}></Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Podium leaderBoard={leaderBoardData} onClick={navigate} />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <LeaderBoard leaderBoard={leaderBoardData} onClick={navigate} />
+        </Col>
+      </Row>
+    </Space>
+  );
+};
+
+export default GameLeaderBoard;

@@ -8,5 +8,6 @@ export default {
     title: "Utrecht Canals",
     icon: "BankTwoTone",
     color: "#ffa500",
+    backgroundColor: "#ffffe0",
   },
 } as TravelBingoGamesData;

@@ -1,6 +1,6 @@
 import NoPage from "../../components/NoPage/NoPage";
 import PageComponent from "../../components/PageComponent/PageComponent";
-import TravelBingoGame from "../../components/TravelBingoGame/TravelBingoGame";
+import TeamResults from "../../components/TeamResults/TeamResults";
 import { TravelBingoGamesData } from "../../data/interfaces";
 import { getDataBasedOnParams } from "../../utils/get-data-based-on-params";
 
@@ -8,15 +8,15 @@ interface Props {
   data: TravelBingoGamesData;
 }
 
-function Game({ data }: Props) {
-  const { game } = getDataBasedOnParams(data);
-  if (!game) return <NoPage />;
+function Team({ data }: Props) {
+  const { game, run, team } = getDataBasedOnParams(data);
+  if (!game || !run || !team) return <NoPage />;
 
   return (
-    <PageComponent game={game}>
-      <TravelBingoGame game={game} />
+    <PageComponent game={game} run={run} team={team}>
+      <TeamResults game={game} run={run} team={team} />
     </PageComponent>
   );
 }
 
-export default Game;
+export default Team;

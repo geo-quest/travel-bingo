@@ -1,60 +1,62 @@
-import "./TravelBingoGame.css";
-
-import { HomeOutlined, setTwoToneColor } from "@ant-design/icons";
-import { Breadcrumb, Card, Space, Typography } from "antd";
+import { Col, Row, Space, Typography } from "antd";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 
-import { TravelBingoGameData } from "../../data/interfaces";
-import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
-import Challenges from "./Challenges";
+import {
+  Challenge,
+  KeyObject,
+  TravelBingoGameData,
+} from "../../data/interfaces";
+import BingoBoard from "../BingoBoard/BingoBoard";
+import ChallengeModal from "../ChallengeModal/ChallengeModal";
+import Runs from "./Runs";
 
-const { Paragraph } = Typography;
+const { Paragraph, Title } = Typography;
 
 interface Props {
-  data: TravelBingoGameData;
+  game: TravelBingoGameData & KeyObject;
 }
 
-const TravelBingoGame = ({
-  data: { title, icon, color, shortDescription, gamePlay, challenges },
-}: Props) => {
-  setTwoToneColor(color);
+const TravelBingoGame = ({ game }: Props) => {
+  const { t } = useTranslation();
+  const { shortDescription, challenges, gamePlay } = game;
+
+  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(
+    null,
+  );
 
   return (
-    <div>
-      <Breadcrumb
-        items={[
-          {
-            href: "/",
-            title: <HomeOutlined />,
-          },
-          {
-            title: (
-              <>
-                <DynamicIconComponent iconName={icon} />
-                <span>{title}</span>
-              </>
-            ),
-          },
-        ]}
-      />
-      <Space direction="vertical" size={16}>
-        <Card
-          title={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <DynamicIconComponent
-                iconName={icon}
-                style={{ marginRight: 8, fontSize: "32px" }}
-              />
-              <h2 style={{ margin: 0 }}>{title}</h2>
-            </div>
-          }
-        >
+    <Space direction="vertical">
+      <Row>
+        <Col span={24}>
+          <Runs game={game} />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
           <Paragraph strong>{shortDescription}</Paragraph>
-          <Challenges challenges={challenges} />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Title level={2}>{t("challenges")}</Title>
+          <BingoBoard challenges={challenges} onClick={setSelectedChallenge} />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Title level={2}>{t("how-to-play")}</Title>
           <Markdown>{gamePlay}</Markdown>
-        </Card>
-      </Space>
-    </div>
+        </Col>
+      </Row>
+      {selectedChallenge && (
+        <ChallengeModal
+          challenge={selectedChallenge}
+          onClose={() => setSelectedChallenge(null)}
+        />
+      )}
+    </Space>
   );
 };
 
