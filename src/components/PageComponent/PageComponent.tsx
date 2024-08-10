@@ -10,7 +10,6 @@ import {
   TeamGameData,
   TravelBingoGameData,
 } from "../../data/interfaces";
-import { updateBodyStyle } from "../../utils/update-body-style";
 import Breadcrumb from "./Breadcrumb";
 import PageTitle from "./PageTitle";
 
@@ -23,7 +22,7 @@ interface Props {
 
 const PageComponent = ({ game, run, team, children }: Props) => {
   useEffect(() => {
-    updateBodyStyle(game);
+    document.body.style.backgroundColor = game.backgroundColor;
   });
 
   setTwoToneColor(game.color);

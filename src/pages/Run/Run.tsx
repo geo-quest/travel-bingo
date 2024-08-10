@@ -1,5 +1,3 @@
-import "./Run.css";
-
 import GameLeaderBoard from "../../components/GameLeaderBoard/GameLeaderBoard";
 import NoPage from "../../components/NoPage/NoPage";
 import PageComponent from "../../components/PageComponent/PageComponent";

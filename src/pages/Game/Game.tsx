@@ -1,5 +1,3 @@
-import "./Game.css";
-
 import NoPage from "../../components/NoPage/NoPage";
 import PageComponent from "../../components/PageComponent/PageComponent";
 import TravelBingoGame from "../../components/TravelBingoGame/TravelBingoGame";
