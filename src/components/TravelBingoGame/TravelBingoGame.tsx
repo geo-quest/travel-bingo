@@ -9,7 +9,7 @@ import {
   TravelBingoGameData,
 } from "../../data/interfaces";
 import BingoBoard from "../BingoBoard/BingoBoard";
-import ChallengeModal from "../ChallengeModal.tsx/ChallengeModal";
+import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import Runs from "./Runs";
 
 const { Paragraph, Title } = Typography;

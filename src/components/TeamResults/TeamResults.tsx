@@ -15,7 +15,7 @@ import {
 } from "../../data/interfaces";
 import { calculateLeaderBoard } from "../../utils/calculate-leader-board";
 import BingoBoard from "../BingoBoard/BingoBoard";
-import ChallengeModal from "../ChallengeModal.tsx/ChallengeModal";
+import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import NoPage from "../NoPage/NoPage";
 import Rank from "../Rank/Rank";
 import Score from "../Score/Score";
