@@ -3,8 +3,11 @@ import "antd/dist/reset.css";
 import { Card, Col, Row } from "antd";
 import { useTranslation } from "react-i18next";
 
-import { KeyObject } from "../../data/interfaces";
-import { LeaderBoardData, TeamLeaderBoardData } from "./calculate-leader-board";
+import {
+  KeyObject,
+  LeaderBoardData,
+  TeamLeaderBoardData,
+} from "../../data/interfaces";
 
 interface Props {
   leaderBoard: LeaderBoardData;

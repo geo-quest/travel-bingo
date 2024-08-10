@@ -1,11 +1,11 @@
 {
   "challenges": "Challenges",
-  "run-date": "Run date",
-  "updated-at": "Updated at",
-  "leaderboard": {
-    "rank": "Rank",
-    "team": "Team",
-    "score": "Score"
+  "rank": "Rank",
+  "team": "Team",
+  "score": "Score",
+  "run": {
+    "run-date": "Run date",
+    "updated-at": "Updated at"
   },
   "podium": {
     "1st": "1st",

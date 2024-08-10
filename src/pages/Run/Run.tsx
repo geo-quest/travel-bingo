@@ -27,7 +27,7 @@ function Run({ data }: Props) {
 
   return (
     <div className="app-container">
-      <Breadcrumb game={game} run={run.name} />
+      <Breadcrumb game={game} run={run} />
       <GameLeaderBoard game={game} run={run} />
     </div>
   );

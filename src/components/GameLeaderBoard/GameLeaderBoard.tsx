@@ -7,13 +7,11 @@ import { useTranslation } from "react-i18next";
 import {
   KeyObject,
   RunGameData,
+  TeamLeaderBoardData,
   TravelBingoGameData,
 } from "../../data/interfaces";
+import { calculateLeaderBoard } from "../../utils/calculate-leader-board";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
-import {
-  calculateLeaderBoard,
-  TeamLeaderBoardData,
-} from "./calculate-leader-board";
 import LeaderBoard from "./LeaderBoard";
 import Podium from "./Podium";
 
@@ -48,10 +46,10 @@ const GameLeaderBoard = ({ run, game }: Props) => {
         >
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Paragraph style={{ margin: 0 }}>
-              <strong>{t("run-date")}:</strong> {run.date}
+              <strong>{t("run.run-date")}:</strong> {run.date}
             </Paragraph>
             <Paragraph italic style={{ margin: 0 }}>
-              <strong>{t("updated-at")}</strong>: {run.lastUpdate}
+              <strong>{t("run.updated-at")}</strong>: {run.lastUpdate}
             </Paragraph>
           </div>
           <Podium leaderBoard={leaderBoardData} onClick={navigate} />

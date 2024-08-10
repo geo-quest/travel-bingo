@@ -1,4 +1,4 @@
-import { Challenge, RunGameData } from "../../data/interfaces";
+import { Challenge, RunGameData } from "../data/interfaces";
 import { calculateLeaderBoard } from "./calculate-leader-board";
 
 describe("calculateLeaderBoard", () => {

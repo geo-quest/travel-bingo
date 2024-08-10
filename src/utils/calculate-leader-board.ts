@@ -1,17 +1,5 @@
 /* eslint-disable arrow-parens */
-import { Challenge, RunGameData } from "../../data/interfaces";
-
-export interface TeamLeaderBoardData {
-  key: string;
-  name: string;
-  score: number;
-  rank: number;
-  challenges: string[];
-}
-
-export interface LeaderBoardData {
-  teams: TeamLeaderBoardData[];
-}
+import { Challenge, LeaderBoardData, RunGameData } from "../data/interfaces";
 
 export function calculateLeaderBoard(
   run: RunGameData,

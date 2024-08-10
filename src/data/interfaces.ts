@@ -51,3 +51,15 @@ export interface TravelBingoGameData {
 export interface TravelBingoGamesData {
   [name: string]: TravelBingoGameData;
 }
+
+export interface TeamLeaderBoardData {
+  key: string;
+  name: string;
+  score: number;
+  rank: number;
+  challenges: string[];
+}
+
+export interface LeaderBoardData {
+  teams: TeamLeaderBoardData[];
+}

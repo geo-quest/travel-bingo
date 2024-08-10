@@ -1,15 +1,21 @@
 import { HomeOutlined } from "@ant-design/icons";
 import { Breadcrumb } from "antd";
 
-import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
+import {
+  KeyObject,
+  RunGameData,
+  TeamGameData,
+  TravelBingoGameData,
+} from "../../data/interfaces";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 
 interface Props {
   game: TravelBingoGameData & KeyObject;
-  run?: string;
+  run?: RunGameData & KeyObject;
+  team?: TeamGameData & KeyObject;
 }
 
-export default ({ game, run }: Props) => {
+export default ({ game, run, team }: Props) => {
   return (
     <Breadcrumb
       items={[
@@ -18,7 +24,7 @@ export default ({ game, run }: Props) => {
           title: <HomeOutlined />,
         },
         {
-          href: run === undefined ? undefined : "/" + game.key,
+          href: run === undefined ? undefined : `/${game.key}`,
           title: (
             <>
               <DynamicIconComponent iconName={game.icon} />
@@ -26,7 +32,16 @@ export default ({ game, run }: Props) => {
             </>
           ),
         },
-        ...(run ? [{ title: run }] : []),
+        ...(run
+          ? [
+              {
+                href:
+                  team === undefined ? undefined : `/${game.key}/${run.key}`,
+                title: run.name,
+              },
+            ]
+          : []),
+        ...(team ? [{ title: team.name }] : []),
       ]}
       style={{ marginBottom: "8px" }}
     />
