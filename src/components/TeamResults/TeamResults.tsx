@@ -18,6 +18,7 @@ import BingoBoard from "../BingoBoard/BingoBoard";
 import ChallengeModal from "../ChallengeModal.tsx/ChallengeModal";
 import NoPage from "../NoPage/NoPage";
 import Rank from "../Rank/Rank";
+import Score from "../Score/Score";
 import SolvedChallenge from "./SolvedChallenge";
 
 interface Props {
@@ -28,7 +29,7 @@ interface Props {
 
 const TeamResults = function ({ team, run, game }: Props) {
   const { t } = useTranslation();
-  const leaderBoardData = calculateLeaderBoard(run, game.challenges.flat());
+  const leaderBoardData = calculateLeaderBoard(run, game.challenges);
   const teamData = leaderBoardData.teams.find((t) => t.key === team.key);
 
   if (!teamData) return <NoPage />;
@@ -56,7 +57,10 @@ const TeamResults = function ({ team, run, game }: Props) {
             />
           </Col>
           <Col span={10} style={{ textAlign: "center" }}>
-            <Statistic title="Score" value={teamData.score} />
+            <Statistic
+              title="Score"
+              valueRender={() => <Score team={teamData} />}
+            />
           </Col>
           <Col span={2} />
         </Row>

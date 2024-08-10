@@ -8,6 +8,7 @@ import {
   LeaderBoardData,
   TeamLeaderBoardData,
 } from "../../data/interfaces";
+import Score from "../Score/Score";
 
 interface Props {
   leaderBoard: LeaderBoardData;
@@ -27,7 +28,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
             onClick={() => onClick(leaderBoard.teams[1])}
           >
             <h3>{leaderBoard.teams[1].name}</h3>
-            <p>[{leaderBoard.teams[1].score} pts]</p>
+            <Score team={leaderBoard.teams[1]} />
           </Card>
         </Col>
         <Col span={8}>
@@ -38,7 +39,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
             onClick={() => onClick(leaderBoard.teams[0])}
           >
             <h3>{leaderBoard.teams[0].name}</h3>
-            <p>[{leaderBoard.teams[0].score} pts]</p>
+            <Score team={leaderBoard.teams[0]} />
           </Card>
         </Col>
         <Col span={8}>
@@ -49,7 +50,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
             onClick={() => onClick(leaderBoard.teams[2])}
           >
             <h3>{leaderBoard.teams[2].name}</h3>
-            <p>[{leaderBoard.teams[2].score} pts]</p>
+            <Score team={leaderBoard.teams[2]} />
           </Card>
         </Col>
       </Row>

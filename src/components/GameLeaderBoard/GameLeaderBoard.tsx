@@ -21,7 +21,7 @@ interface Props {
 
 const GameLeaderBoard = ({ run, game }: Props) => {
   const { t } = useTranslation();
-  const leaderBoardData = calculateLeaderBoard(run, game.challenges.flat());
+  const leaderBoardData = calculateLeaderBoard(run, game.challenges);
 
   const navigate = function (team: TeamLeaderBoardData & KeyObject) {
     window.location.href = `/${game.key}/${run.key}/${team.key}`;

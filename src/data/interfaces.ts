@@ -59,6 +59,7 @@ export interface TeamLeaderBoardData {
   score: number;
   rank: number;
   challenges: TeamChallenge[];
+  bingos: number;
 }
 
 export interface LeaderBoardData {

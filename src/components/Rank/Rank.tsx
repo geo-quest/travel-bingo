@@ -1,7 +1,7 @@
 import { Tag } from "antd";
 
 interface Props {
-  rank: string | number;
+  rank: number;
 }
 
 function Rank({ rank }: Props) {

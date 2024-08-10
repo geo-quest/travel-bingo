@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 
 import { LeaderBoardData, TeamLeaderBoardData } from "../../data/interfaces";
 import Rank from "../Rank/Rank";
+import Score from "../Score/Score";
 
 interface Props {
   leaderBoard: LeaderBoardData;
@@ -19,7 +20,9 @@ const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
       title: t("rank"),
       dataIndex: "rank",
       key: "rank",
-      render: (text: string) => <Rank rank={text} />,
+      render: (_text: string, team: TeamLeaderBoardData) => (
+        <Rank rank={team.rank} />
+      ),
     },
     {
       title: t("team"),
@@ -30,6 +33,9 @@ const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
       title: t("score"),
       dataIndex: "score",
       key: "score",
+      render: (_text: string, team: TeamLeaderBoardData) => (
+        <Score team={team} />
+      ),
     },
   ];
 
