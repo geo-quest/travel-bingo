@@ -21,7 +21,7 @@
     box-shadow 0.3s ease,
     background-color 0.3s ease;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -32,7 +32,7 @@
   opacity: 1;
   animation: slideIn 0.7s ease forwards;
   border: 2px solid #e5c100;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .podium-card.silver {
@@ -59,7 +59,7 @@
 
 .podium-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes slideIn {
