@@ -6,7 +6,11 @@ export default () => {
     "test-game": testGame,
     "test-game2": {
       ...testGame,
-      title: { en: "Utrecht Canals" },
+      title: {
+        en: "Utrecht Canals",
+        pt: "Canais de Utrecht",
+        nl: "Utrechtse grachten",
+      },
       icon: "BankTwoTone",
       color: "#ffa500",
       backgroundColor: "#ffffe0",
