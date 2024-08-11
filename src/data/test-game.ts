@@ -17,26 +17,146 @@ export default {
     zh: "一个荷兰公路旅行的宾果卡",
   },
   gamePlay: {
-    en: `
-- The first person to get a row, column, or diagonal wins
-- The winner must shout 'Bingo!'
-- The winner must show their card to the other players to verify the win
+    en: `### Objective
+
+- Complete as many challenges as possible to earn points.
+- Complete a full row, column, or diagonal on your bingo board for bonus points.
+- Visit new cities for additional points.
+
+### Points System
+
+- **Challenges**: Each challenge on the bingo board has a specific point value. Complete the challenge to earn those points.
+- **Bonus Points**:
+    - **Full Row/Column/Diagonal**: Earn extra points for completing a full row, column, or diagonal on the bingo board.
+    - **New Cities**: Earn extra points for each new city your team visits.
+
+### Curses
+
+- **Twist**: Some challenges on the bingo board are curses. Attempt these to hinder other teams.
+- **Success**: If your team successfully completes a curse, the next challenge completed by other teams will earn them only half points.
+- **Failure**: If your team fails a curse, your team will lose half the points on your next completed challenge.
+
+### Game Rules
+
+1. **Challenge Verification**: After completing a challenge, send proof (photo/video) in your team’s WhatsApp group. The game master will verify and confirm if it’s acceptable.
+2. **Bingo Board Release**: The bingo board will be released at 10:00 AM via the web app.
+3. **Travel**: Teams are free to travel anywhere in the Netherlands. Points are awarded for each new city visited.
+4. **Game End**: The game ends at 6:00 PM. All challenges and travel must be completed and submitted by this time.
+5. **Winner**: The team with the highest points at the end wins the game.
+
+### Strategy Tips
+
+- Prioritize challenges with higher points, but don’t ignore the easy wins.
+- Be strategic with curses; they can turn the tide of the game.
+- Plan your travel route to maximize city visits and challenge completion.
+- Communicate with your team and coordinate to cover as much ground as possible.
 `,
-    pt: `
-- A primeira pessoa a obter uma linha, coluna ou diagonal vence"
-- O vencedor deve gritar 'Bingo!'
-- O vencedor deve mostrar seu cartão aos outros jogadores para verificar a vitória
+    pt: `### Objetivo
+
+- Complete o máximo de desafios possível para ganhar pontos.
+- Complete uma linha, coluna ou diagonal completa no seu tabuleiro de bingo para ganhar pontos de bônus.
+- Visite novas cidades para ganhar pontos adicionais.
+
+### Sistema de pontos
+
+- **Desafios**: Cada desafio no tabuleiro de bingo tem um valor de ponto específico. Complete o desafio para ganhar esses pontos.
+- **Pontos de bônus**:
+- **Linha/coluna/diagonal completa**: Ganhe pontos extras por completar uma linha, coluna ou diagonal completa no tabuleiro de bingo.
+- **Novas cidades**: Ganhe pontos extras para cada nova cidade que sua equipe visitar.
+
+### Maldições
+
+- **Twist**: Alguns desafios no tabuleiro de bingo são maldições. Tente fazer isso para atrapalhar outras equipes.
+- **Sucesso**: Se sua equipe completar uma maldição com sucesso, o próximo desafio concluído por outras equipes renderá apenas metade dos pontos.
+- **Falha**: Se sua equipe falhar em uma maldição, ela perderá metade dos pontos no próximo desafio concluído.
+
+### Regras do jogo
+
+1. **Verificação do desafio**: Após concluir um desafio, envie uma prova (foto/vídeo) no grupo do WhatsApp da sua equipe. O mestre do jogo verificará e confirmará se é aceitável.
+2. **Lançamento do quadro de bingo**: O quadro de bingo será lançado às 10:00 da manhã pelo aplicativo da web.
+3. **Viagem**: As equipes podem viajar para qualquer lugar da Holanda. Os pontos são concedidos para cada nova cidade visitada.
+4. **Fim do jogo**: O jogo termina às 18:00. Todos os desafios e viagens devem ser concluídos e enviados até esse horário.
+5. **Vencedor**: A equipe com a maior pontuação no final vence o jogo.
+
+### Dicas de estratégia
+
+- Priorize os desafios com mais pontos, mas não ignore as vitórias fáceis.
+- Seja estratégico com as maldições; elas podem mudar o rumo do jogo.
+- Planeje sua rota de viagem para maximizar as visitas à cidade e a conclusão do desafio.
+- Comunique-se com sua equipe e coordene-se para cobrir o máximo de terreno possível.
 `,
-    nl: `
-- De eerste persoon die een rij, kolom of diagonaal krijgt, wint
-- De winnaar moet 'Bingo!' roepen
-- De winnaar moet zijn kaart aan de andere spelers laten zien om de winst te verifiëren,
-  `,
-    zh: `
-- 第一个完成一行、一列或对角线的人获胜
-- 获胜者必须喊'宾果！'
-- 获胜者必须向其他玩家展示他们的卡片以验证胜利
-  `,
+    nl: `### Doel
+
+- Voltooi zoveel mogelijk uitdagingen om punten te verdienen.
+- Voltooi een volledige rij, kolom of diagonaal op je bingobord voor bonuspunten.
+- Bezoek nieuwe steden voor extra punten.
+
+### Puntensysteem
+
+- **Uitdagingen**: Elke uitdaging op het bingobord heeft een specifieke puntwaarde. Voltooi de uitdaging om die punten te verdienen.
+- **Bonuspunten**:
+- **Volledige rij/kolom/diagonaal**: Verdien extra punten voor het voltooien van een volledige rij, kolom of diagonaal op het bingobord.
+- **Nieuwe steden**: Verdien extra punten voor elke nieuwe stad die je team bezoekt.
+
+### Vloeken
+
+- **Twist**: Sommige uitdagingen op het bingobord zijn vloeken. Probeer deze om andere teams te hinderen.
+- **Succes**: Als je team een ​​vloek succesvol voltooit, levert de volgende uitdaging die door andere teams wordt voltooid hen slechts halve punten op. - **Mislukking**: Als je team een ​​vloek niet haalt, verliest je team de helft van de punten bij je volgende voltooide uitdaging.
+
+### Spelregels
+
+1. **Uitdagingverificatie**: Stuur na het voltooien van een uitdaging bewijs (foto/video) in de WhatsApp-groep van je team. De spelleider zal verifiëren en bevestigen of het acceptabel is.
+2. **Bingobord vrijgeven**: Het bingobord wordt om 10:00 uur vrijgegeven via de webapp.
+3. **Reizen**: Teams mogen overal in Nederland reizen. Punten worden toegekend voor elke nieuwe stad die wordt bezocht.
+4. **Speleinde**: Het spel eindigt om 18:00 uur. Alle uitdagingen en reizen moeten vóór deze tijd zijn voltooid en ingediend.
+5. **Winnaar**: Het team met de hoogste punten aan het einde wint het spel.
+
+### Strategietips
+
+- Geef prioriteit aan uitdagingen met hogere punten, maar negeer de gemakkelijke overwinningen niet.
+- Wees strategisch met vloeken; ze kunnen het tij van het spel keren. - Plan je reisroute om stadsbezoeken te maximaliseren en uitdagingen te voltooien.
+- Communiceer met je team en coördineer om zoveel mogelijk terrein te bestrijken.
+`,
+    zh: `### 目标
+
+- 完成尽可能多的挑战以获得积分。
+
+- 完成宾果板上的整行、整列或整对角线以获得奖励积分。
+
+- 访问新城市以获得额外积分。
+
+### 积分系统
+
+- **挑战**：宾果板上的每个挑战都有特定的分值。完成挑战以获得这些积分。
+
+- **奖励积分**：
+
+- **整行/整列/整对角线**：完成宾果板上的整行、整列或整对角线可获得额外积分。
+
+- **新城市**：您的团队访问的每个新城市可获得额外积分。
+
+### 诅咒
+
+- **扭曲**：宾果板上的一些挑战是诅咒。尝试使用这些来阻碍其他团队。
+
+- **成功**：如果您的团队成功完成诅咒，其他团队完成的下一个挑战将只为他们赢得一半的积分。
+- **失败**：如果您的团队未能完成诅咒，您的团队将在下一次完成的挑战中失去一半的分数。
+
+### 游戏规则
+
+1. **挑战验证**：完成挑战后，在您团队的 WhatsApp 群组中发送证明（照片/视频）。游戏管理员将验证并确认是否可以接受。
+2. **宾果板发布**：宾果板将于上午 10:00 通过网络应用程序发布。
+3. **旅行**：团队可以自由前往荷兰的任何地方。每访问一个新城市都会获得积分。
+4. **游戏结束**：游戏于下午 6:00 结束。所有挑战和旅行必须在此时完成并提交。
+5. **获胜者**：最后得分最高的团队赢得游戏。
+
+### 策略提示
+
+- 优先考虑得分较高的挑战，但不要忽视容易获胜的挑战。
+- 使用诅咒要有策略；他们可以扭转游戏的局势。
+- 规划您的旅行路线，以最大限度地访问城市和完成挑战。
+- 与您的团队沟通并协调以覆盖尽可能多的地面。
+`,
   },
   challenges: [
     [
