@@ -8,6 +8,7 @@ import {
   LeaderBoardData,
   TeamLeaderBoardData,
 } from "../../data/interfaces";
+import t2 from "../../utils/t2";
 import Score from "../Score/Score";
 
 interface Props {
@@ -27,7 +28,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
             className="podium-card silver"
             onClick={() => onClick(leaderBoard.teams[1])}
           >
-            <h3>{leaderBoard.teams[1].name}</h3>
+            <h3>{t2(leaderBoard.teams[1].name)}</h3>
             <Score team={leaderBoard.teams[1]} />
           </Card>
         </Col>
@@ -38,7 +39,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
             className="podium-card gold"
             onClick={() => onClick(leaderBoard.teams[0])}
           >
-            <h3>{leaderBoard.teams[0].name}</h3>
+            <h3>{t2(leaderBoard.teams[0].name)}</h3>
             <Score team={leaderBoard.teams[0]} />
           </Card>
         </Col>
@@ -49,7 +50,7 @@ const Podium = ({ leaderBoard, onClick }: Props) => {
             className="podium-card bronze"
             onClick={() => onClick(leaderBoard.teams[2])}
           >
-            <h3>{leaderBoard.teams[2].name}</h3>
+            <h3>{t2(leaderBoard.teams[2].name)}</h3>
             <Score team={leaderBoard.teams[2]} />
           </Card>
         </Col>

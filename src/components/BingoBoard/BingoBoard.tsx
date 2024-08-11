@@ -5,6 +5,7 @@ import { Card } from "antd";
 import React from "react";
 
 import { Challenge } from "../../data/interfaces";
+import t2 from "../../utils/t2";
 import Header from "./Header";
 
 interface Props {
@@ -32,7 +33,7 @@ const BingoBoard: React.FC<Props> = ({
               onClick={() => onClick(item)}
               style={{ width: `${100 / row.length}%` }}
             >
-              {item.challenge}
+              {t2(item.challenge)}
             </Card.Grid>
           ))}
         </div>
