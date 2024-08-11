@@ -7,6 +7,7 @@ import {
   TeamGameData,
   TravelBingoGameData,
 } from "../../data/interfaces";
+import t2 from "../../utils/t2";
 import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 
 interface Props {
@@ -28,7 +29,7 @@ export default ({ game, run, team }: Props) => {
           title: (
             <>
               <DynamicIconComponent iconName={game.icon} />
-              <span>{game.title}</span>
+              <span>{t2(game.title)}</span>
             </>
           ),
         },
@@ -37,11 +38,11 @@ export default ({ game, run, team }: Props) => {
               {
                 href:
                   team === undefined ? undefined : `/${game.key}/${run.key}`,
-                title: run.name,
+                title: t2(run.name),
               },
             ]
           : []),
-        ...(team ? [{ title: team.name }] : []),
+        ...(team ? [{ title: t2(team.name) }] : []),
       ]}
       style={{ marginBottom: "8px" }}
     />

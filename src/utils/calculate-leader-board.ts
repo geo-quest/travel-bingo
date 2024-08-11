@@ -10,20 +10,20 @@ export function calculateLeaderBoard(
 
   const isRowSolved = (row: number, teamChallenges: string[]): boolean =>
     challenges[row].every((challenge) =>
-      teamChallenges.includes(challenge.challenge),
+      teamChallenges.includes(challenge.key),
     );
 
   const isColSolved = (col: number, teamChallenges: string[]): boolean =>
-    challenges.every((row) => teamChallenges.includes(row[col].challenge));
+    challenges.every((row) => teamChallenges.includes(row[col].key));
 
   const isMainDiagonalSolved = (teamChallenges: string[]): boolean =>
     challenges.every((_row, i) =>
-      teamChallenges.includes(challenges[i][i].challenge),
+      teamChallenges.includes(challenges[i][i].key),
     );
 
   const isSecondaryDiagonalSolved = (teamChallenges: string[]): boolean =>
     challenges.every((_row, i) =>
-      teamChallenges.includes(challenges[i][numCols - 1 - i].challenge),
+      teamChallenges.includes(challenges[i][numCols - 1 - i].key),
     );
 
   return {
@@ -31,7 +31,7 @@ export function calculateLeaderBoard(
       .map((key) => {
         const team = run.teams[key];
         const teamChallenges = team.challenges.map(
-          (challenge) => challenge.name,
+          (challenge) => challenge.key,
         );
 
         let bingos = 0;
@@ -51,7 +51,7 @@ export function calculateLeaderBoard(
           score: team.challenges.reduce((result, teamChallenge) => {
             const challengeData = challenges
               .flat()
-              .find((c) => c.challenge === teamChallenge.name);
+              .find((c) => c.key === teamChallenge.key);
             return result + (challengeData?.points || 0);
           }, 0),
           challenges: team.challenges,

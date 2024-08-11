@@ -1,18 +1,30 @@
-export type Markdown = string;
+type Markdown = string;
+type Date = string;
+type Url = string;
+type Icon = string;
+type Color = string;
+
+export interface LocalizedString {
+  [lang: string]: string;
+}
+
+export interface LocalizedMarkdown {
+  [lang: string]: Markdown;
+}
 
 export interface KeyObject {
   key: string;
 }
 
 export interface TeamChallenge {
-  name: string;
-  date: string;
-  comment?: Markdown;
-  image?: string;
+  key: string;
+  date: Date;
+  comment?: LocalizedMarkdown;
+  image?: Url;
 }
 
 export interface TeamGameData {
-  name: string;
+  name: LocalizedString;
   challenges: TeamChallenge[];
 }
 
@@ -21,9 +33,9 @@ export interface Teams {
 }
 
 export interface RunGameData {
-  name: string;
-  date?: string;
-  lastUpdate?: string;
+  name: LocalizedString;
+  date?: Date;
+  lastUpdate?: Date;
   teams: Teams;
 }
 
@@ -32,20 +44,21 @@ export interface Runs {
 }
 
 export interface Challenge {
-  challenge: string;
+  key: string;
+  challenge: LocalizedString;
   points: number;
-  description?: Markdown;
-  image?: string;
+  description?: LocalizedMarkdown;
+  image?: Url;
   type?: string;
 }
 
 export interface TravelBingoGameData {
-  title: string;
-  icon: string;
-  color: string;
-  backgroundColor: string;
-  shortDescription: string;
-  gamePlay: Markdown;
+  title: LocalizedString;
+  icon: Icon;
+  color: Color;
+  backgroundColor: Color;
+  shortDescription: LocalizedString;
+  gamePlay: LocalizedMarkdown;
   challenges: Challenge[][];
   runs: Runs;
 }
@@ -56,11 +69,11 @@ export interface TravelBingoGamesData {
 
 export interface TeamLeaderBoardData {
   key: string;
-  name: string;
+  name: LocalizedString;
   score: number;
   rank: number;
-  challenges: TeamChallenge[];
   bingos: number;
+  challenges: TeamChallenge[];
 }
 
 export interface LeaderBoardData {

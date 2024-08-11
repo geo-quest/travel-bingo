@@ -6,6 +6,7 @@ import { Flex, Tag } from "antd";
 import { DynamicIconComponent } from "../../components/DynamicIcon/DynamicIcon";
 import LanguageSelector from "../../components/LanguageSelector/LanguageSelector";
 import { TravelBingoGamesData } from "../../data/interfaces";
+import t2 from "../../utils/t2";
 
 interface Props {
   data: TravelBingoGamesData;
@@ -28,7 +29,7 @@ function Home({ data }: Props) {
           marginBottom: "4px",
         }}
       >
-        {game.title}
+        {t2(game.title)}
       </Tag>
     );
   });

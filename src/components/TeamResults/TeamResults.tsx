@@ -36,8 +36,8 @@ const TeamResults = function ({ team, run, game }: Props) {
 
   if (!teamData) return <NoPage />;
 
-  const getSolved = (challenge: string) => {
-    return teamData.challenges.find((c) => c.name === challenge);
+  const getSolved = (challengeKey: string) => {
+    return teamData.challenges.find((c) => c.key === challengeKey);
   };
 
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(
@@ -71,24 +71,24 @@ const TeamResults = function ({ team, run, game }: Props) {
           <BingoBoard
             challenges={game.challenges}
             onClick={(challenge: Challenge) => {
-              const solved = getSolved(challenge.challenge);
+              const solved = getSolved(challenge.key);
               if (!solved) {
                 setSelectedChallenge(challenge);
                 setSelectedSolvedChallenge(null);
               } else {
                 setSelectedSolvedChallenge(
-                  challenge.challenge === selectedSolvedChallenge?.name
+                  challenge.key === selectedSolvedChallenge?.key
                     ? null
                     : solved,
                 );
               }
             }}
             defineCardClass={(challenge: Challenge) =>
-              getSolved(challenge.challenge)
-                ? challenge.challenge === selectedSolvedChallenge?.name
+              getSolved(challenge.key) === undefined
+                ? ""
+                : challenge.key === selectedSolvedChallenge?.key
                   ? "selected-card-done"
                   : "card-done"
-                : ""
             }
           />
         </Col>
@@ -96,7 +96,12 @@ const TeamResults = function ({ team, run, game }: Props) {
       <Row>
         <Col span={24}>
           {selectedSolvedChallenge && (
-            <SolvedChallenge challenge={selectedSolvedChallenge} />
+            <SolvedChallenge
+              teamChallenge={selectedSolvedChallenge}
+              challenge={game.challenges
+                .flat()
+                .find((c) => c.key === selectedSolvedChallenge.key)}
+            />
           )}
         </Col>
       </Row>

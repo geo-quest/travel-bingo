@@ -2,6 +2,7 @@
 import { Flex, Tag } from "antd";
 
 import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
+import t2 from "../../utils/t2";
 
 interface Props {
   game: TravelBingoGameData & KeyObject;
@@ -23,7 +24,7 @@ function Runs({ game }: Props) {
           marginBottom: "4px",
         }}
       >
-        {run.name}
+        {t2(run.name)}
       </Tag>
     );
   });

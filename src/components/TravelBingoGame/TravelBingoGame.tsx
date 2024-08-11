@@ -8,6 +8,7 @@ import {
   KeyObject,
   TravelBingoGameData,
 } from "../../data/interfaces";
+import t2 from "../../utils/t2";
 import BingoBoard from "../BingoBoard/BingoBoard";
 import ChallengeModal from "../ChallengeModal/ChallengeModal";
 import Runs from "./Runs";
@@ -35,7 +36,7 @@ const TravelBingoGame = ({ game }: Props) => {
       </Row>
       <Row>
         <Col span={24}>
-          <Paragraph strong>{shortDescription}</Paragraph>
+          <Paragraph strong>{t2(shortDescription)}</Paragraph>
         </Col>
       </Row>
       <Row>
@@ -47,7 +48,7 @@ const TravelBingoGame = ({ game }: Props) => {
       <Row>
         <Col span={24}>
           <Title level={2}>{t("how-to-play")}</Title>
-          <Markdown>{gamePlay}</Markdown>
+          <Markdown>{t2(gamePlay)}</Markdown>
         </Col>
       </Row>
       {selectedChallenge && (
