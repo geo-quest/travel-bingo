@@ -1,3 +1,9 @@
+## [1.6.0](https://github.com/geo-quest/travel-bingo/compare/v1.5.0...v1.6.0) (2024-08-11)
+
+### Features
+
+* update gameplay ([#33](https://github.com/geo-quest/travel-bingo/issues/33)) ([73f40b4](https://github.com/geo-quest/travel-bingo/commit/73f40b415c0504d7c5fa03440e8fb90b189e76ef))
+
 ## [1.5.0](https://github.com/geo-quest/travel-bingo/compare/v1.4.0...v1.5.0) (2024-08-11)
 
 ### Features
