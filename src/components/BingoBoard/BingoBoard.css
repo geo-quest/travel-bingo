@@ -34,7 +34,6 @@
 }
 
 .board .card {
-  width: 20% !important;
   cursor: pointer;
   text-align: center;
   font-weight: 200;
