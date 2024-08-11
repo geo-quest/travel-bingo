@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/geo-quest/travel-bingo/compare/v1.3.1...v1.4.0) (2024-08-11)
+
+### Features
+
+* **bingo-board:** board supporting dynamic col size ([96a22b3](https://github.com/geo-quest/travel-bingo/commit/96a22b3380cbe422e25fec7928e8ef05aacc4d82))
+
 ## [1.3.1](https://github.com/geo-quest/travel-bingo/compare/v1.3.0...v1.3.1) (2024-08-10)
 
 ### Bug Fixes
