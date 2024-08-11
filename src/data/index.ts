@@ -10,6 +10,7 @@ export default () => {
         en: "Utrecht Canals",
         pt: "Canais de Utrecht",
         nl: "Utrechtse grachten",
+        zh: "乌得勒支运河",
       },
       icon: "BankTwoTone",
       color: "#ffa500",
