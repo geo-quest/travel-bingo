@@ -1,9 +1,9 @@
 .podium {
-  max-width: 600px; /* Fixed width for the podium */
+  max-width: 600px;
   margin: auto;
   text-align: center;
   margin-top: 24px;
-  padding-bottom: 20px; /* Space below the podium */
+  padding-bottom: 20px;
 }
 
 .podium .ant-row .ant-col {

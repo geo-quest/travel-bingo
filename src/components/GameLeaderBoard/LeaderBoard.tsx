@@ -4,13 +4,13 @@ import "antd/dist/reset.css";
 import { Table } from "antd";
 import { useTranslation } from "react-i18next";
 
-import { LeaderBoardData, TeamLeaderBoardData } from "../../data/interfaces";
+import { TeamLeaderBoardData } from "../../data/interfaces";
 import t2 from "../../utils/t2";
 import Rank from "../Rank/Rank";
 import Score from "../Score/Score";
 
 interface Props {
-  leaderBoard: LeaderBoardData;
+  teams: TeamLeaderBoardData[];
   onClick: (team: TeamLeaderBoardData) => void;
 }
 
@@ -22,7 +22,7 @@ const TeamCell = ({ team }: TeamCellProps) => {
   return <span>{t2(team.name)}</span>;
 };
 
-const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
+const LeaderBoard = ({ teams, onClick }: Props) => {
   const { t } = useTranslation();
   const columns = [
     {
@@ -54,7 +54,7 @@ const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
   return (
     <Table
       columns={columns}
-      dataSource={leaderBoard.teams}
+      dataSource={teams}
       pagination={false}
       onRow={(team) => {
         return {
