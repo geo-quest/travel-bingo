@@ -36,6 +36,7 @@ export interface RunGameData {
   name: LocalizedString;
   date?: Date;
   lastUpdate?: Date;
+  finished: boolean;
   teams: Teams;
 }
 
