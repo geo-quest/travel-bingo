@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/geo-quest/travel-bingo/compare/v1.7.0...v1.7.1) (2024-08-11)
+
+### Bug Fixes
+
+* **podium:** supporting less than 3 teams ([#39](https://github.com/geo-quest/travel-bingo/issues/39)) ([9a5364f](https://github.com/geo-quest/travel-bingo/commit/9a5364f20a52f01817fc666513a3af1890fa133e))
+
 ## [1.7.0](https://github.com/geo-quest/travel-bingo/compare/v1.6.0...v1.7.0) (2024-08-11)
 
 ### Features
