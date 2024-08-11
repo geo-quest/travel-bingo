@@ -70,12 +70,12 @@ const GameLeaderBoard = ({ run, game }: Props) => {
       {renderHeaderRow(run)}
       <Row>
         <Col span={24}>
-          <Podium leaderBoard={leaderBoardData} onClick={navigate} />
+          <Podium teams={leaderBoardData.teams} onClick={navigate} />
         </Col>
       </Row>
       <Row>
         <Col span={24}>
-          <LeaderBoard leaderBoard={leaderBoardData} onClick={navigate} />
+          <LeaderBoard teams={leaderBoardData.teams} onClick={navigate} />
         </Col>
       </Row>
     </Space>
