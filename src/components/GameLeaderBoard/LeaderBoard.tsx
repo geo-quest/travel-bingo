@@ -5,6 +5,7 @@ import { Table } from "antd";
 import { useTranslation } from "react-i18next";
 
 import { LeaderBoardData, TeamLeaderBoardData } from "../../data/interfaces";
+import t2 from "../../utils/t2";
 import Rank from "../Rank/Rank";
 import Score from "../Score/Score";
 
@@ -12,6 +13,14 @@ interface Props {
   leaderBoard: LeaderBoardData;
   onClick: (team: TeamLeaderBoardData) => void;
 }
+
+interface TeamCellProps {
+  team: TeamLeaderBoardData;
+}
+
+const TeamCell = ({ team }: TeamCellProps) => {
+  return <span>{t2(team.name)}</span>;
+};
 
 const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
   const { t } = useTranslation();
@@ -26,8 +35,11 @@ const LeaderBoard = ({ leaderBoard, onClick }: Props) => {
     },
     {
       title: t("team"),
-      dataIndex: "name",
-      key: "name",
+      dataIndex: "key",
+      key: "key",
+      render: (_text: string, team: TeamLeaderBoardData) => (
+        <TeamCell team={team} />
+      ),
     },
     {
       title: t("score"),

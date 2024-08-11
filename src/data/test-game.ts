@@ -1,12 +1,13 @@
 import { TravelBingoGameData } from "./interfaces";
 
 export default {
-  title: { en: "Travel Bingo Netherlands" },
+  title: { en: "Travel Bingo Netherlands", pt: "Bingo de viagens na Holanda" },
   icon: "FlagTwoTone",
   color: "#1890ff",
   backgroundColor: "#e6f7ff",
   shortDescription: {
     en: "A bingo card for a road trip through the Netherlands",
+    pt: "Um cartão de bingo para uma viagem pela Holanda",
   },
   gamePlay: {
     en: `
@@ -14,13 +15,21 @@ export default {
 - The winner must shout 'Bingo!'
 - The winner must show their card to the other players to verify the win
 `,
+    pt: `
+- A primeira pessoa a obter uma linha, coluna ou diagonal vence"
+- O vencedor deve gritar 'Bingo!'
+- O vencedor deve mostrar seu cartão aos outros jogadores para verificar a vitória
+`,
   },
   challenges: [
     [
       {
         key: "Spot a windmill",
-        challenge: { en: "Spot a windmill" },
-        description: { en: "Find a windmill in the Netherlands" },
+        challenge: { en: "Spot a windmill", pt: "Descubra um moinho de vento" },
+        description: {
+          en: "Find a windmill in the Netherlands",
+          pt: "Encontre um moinho de vento na Holanda",
+        },
         points: 25,
         type: "normal",
         image:
@@ -28,8 +37,14 @@ export default {
       },
       {
         key: "Spot a tulip field",
-        challenge: { en: "Spot a tulip field" },
-        description: { en: "Find a field of tulips in the Netherlands" },
+        challenge: {
+          en: "Spot a tulip field",
+          pt: "Descubra um campo de tulipas",
+        },
+        description: {
+          en: "Find a field of tulips in the Netherlands",
+          pt: "Encontre um campo de tulipas na Holanda",
+        },
         points: 10,
         type: "normal",
         image:
@@ -37,8 +52,11 @@ export default {
       },
       {
         key: "Spot a bike",
-        challenge: { en: "Spot a bike" },
-        description: { en: "Find a bike in the Netherlands" },
+        challenge: { en: "Spot a bike", pt: "Localize uma bicicleta" },
+        description: {
+          en: "Find a bike in the Netherlands",
+          pt: "Encontre uma bicicleta na Holanda",
+        },
         points: 5,
         type: "normal",
         image:
@@ -46,8 +64,11 @@ export default {
       },
       {
         key: "Spot a canal",
-        challenge: { en: "Spot a canal" },
-        description: { en: "Find a canal in the Netherlands" },
+        challenge: { en: "Spot a canal", pt: "Descubra um canal" },
+        description: {
+          en: "Find a canal in the Netherlands",
+          pt: "Encontre um canal na Holanda",
+        },
         image:
           "https://canalsofamsterdam.com/wp-content/uploads/2022/07/Canals-of-Amsterdam-scaled.jpg",
         points: 5,
@@ -55,8 +76,14 @@ export default {
       },
       {
         key: "Spot a cheese shop",
-        challenge: { en: "Spot a cheese shop" },
-        description: "Find a shop that sells cheese in the Netherlands",
+        challenge: {
+          en: "Spot a cheese shop",
+          pt: "Encontre uma loja de queijos",
+        },
+        description: {
+          en: "Find a shop that sells cheese in the Netherlands",
+          pt: "Encontre uma loja que venda queijo na Holanda",
+        },
         points: 20,
         type: "normal",
         image:
@@ -66,8 +93,14 @@ export default {
     [
       {
         key: "Take pic with Van Gogh",
-        challenge: { en: "Take pic with Van Gogh" },
-        description: { en: "Take a picture with a Van Gogh painting" },
+        challenge: {
+          en: "Take pic with Van Gogh",
+          pt: "Tire uma foto com Van Gogh",
+        },
+        description: {
+          en: "Take a picture with a Van Gogh painting",
+          pt: "Tire uma foto com uma pintura de Van Gogh",
+        },
         points: 50,
         type: "normal",
         image:
@@ -75,8 +108,14 @@ export default {
       },
       {
         key: "Spot a wooden shoe",
-        challenge: { en: "Spot a wooden shoe" },
-        description: { en: "Find a wooden shoe in the Netherlands" },
+        challenge: {
+          en: "Spot a wooden shoe",
+          pt: "Identifique um sapato de madeira",
+        },
+        description: {
+          en: "Find a wooden shoe in the Netherlands",
+          pt: "Encontre um sapato de madeira na Holanda",
+        },
         points: 10,
         type: "normal",
         image:
@@ -84,9 +123,13 @@ export default {
       },
       {
         key: "Take a photo of a local market",
-        challenge: { en: "Take a photo of a local market" },
+        challenge: {
+          en: "Take a photo of a local market",
+          pt: "Tire uma foto de um mercado local",
+        },
         description: {
           en: "Visit a local market and capture the bustling atmosphere",
+          pt: "Visite um mercado local e capture a atmosfera movimentada",
         },
         points: 20,
         type: "normal",
@@ -95,9 +138,13 @@ export default {
       },
       {
         key: "Find a famous monument",
-        challenge: { en: "Find a famous monument" },
+        challenge: {
+          en: "Find a famous monument",
+          pt: "Encontre um monumento famoso",
+        },
         description: {
           en: "Locate and photograph a well-known monument in the city",
+          pt: "Localize e fotografe um monumento conhecido na cidade",
         },
         points: 30,
         type: "normal",
@@ -106,9 +153,13 @@ export default {
       },
       {
         key: "Spot a traditional dance performance",
-        challenge: { en: "Spot a traditional dance performance" },
+        challenge: {
+          en: "Spot a traditional dance performance",
+          pt: "Assista a uma apresentação de dança tradicional",
+        },
         description: {
           en: "Watch and document a traditional dance in its country of origin",
+          pt: "Assista e documente uma dança tradicional em seu país de origem",
         },
         points: 35,
         type: "normal",
@@ -119,8 +170,14 @@ export default {
     [
       {
         key: "Capture a sunrise over the ocean",
-        challenge: { en: "Capture a sunrise over the ocean" },
-        description: { en: "Photograph a beautiful sunrise at the beach" },
+        challenge: {
+          en: "Capture a sunrise over the ocean",
+          pt: "Capture um nascer do sol sobre o oceano",
+        },
+        description: {
+          en: "Photograph a beautiful sunrise at the beach",
+          pt: "Fotografe um lindo nascer do sol na praia",
+        },
         points: 40,
         type: "normal",
         image:
@@ -128,9 +185,13 @@ export default {
       },
       {
         key: "Photograph a local street artist",
-        challenge: { en: "Photograph a local street artist" },
+        challenge: {
+          en: "Photograph a local street artist",
+          pt: "Fotografe um artista de rua local",
+        },
         description: {
           en: "Find and take a picture of a street artist at work",
+          pt: "Encontre e tire uma foto de um artista de rua trabalhando",
         },
         points: 15,
         type: "normal",
@@ -139,8 +200,14 @@ export default {
       },
       {
         key: "Find a historic castle",
-        challenge: { en: "Find a historic castle" },
-        description: { en: "Visit and photograph a historic castle" },
+        challenge: {
+          en: "Find a historic castle",
+          pt: "Encontre um castelo histórico",
+        },
+        description: {
+          en: "Visit and photograph a historic castle",
+          pt: "Visite e fotografe um castelo histórico",
+        },
         points: 50,
         type: "normal",
         image:
@@ -148,9 +215,13 @@ export default {
       },
       {
         key: "Try a traditional dish",
-        challenge: { en: "Try a traditional dish" },
+        challenge: {
+          en: "Try a traditional dish",
+          pt: "Experimente um prato tradicional",
+        },
         description: {
           en: "Taste and review a traditional dish from the region",
+          ot: "Prove e avalie um prato tradicional da região",
         },
         points: 25,
         type: "normal",
@@ -159,8 +230,14 @@ export default {
       },
       {
         key: "Locate a famous statue",
-        challenge: { en: "Locate a famous statue" },
-        description: { en: "Find and take a picture of a renowned statue" },
+        challenge: {
+          en: "Locate a famous statue",
+          pt: "Localize uma estátua famosa",
+        },
+        description: {
+          en: "Find and take a picture of a renowned statue",
+          pt: "Encontre e tire uma foto de uma estátua famosa",
+        },
         points: 30,
         type: "normal",
         image:
@@ -170,9 +247,13 @@ export default {
     [
       {
         key: "Spot a rare animal in the wild",
-        challenge: { en: "Spot a rare animal in the wild" },
+        challenge: {
+          en: "Spot a rare animal in the wild",
+          pt: "Descubra um animal raro na natureza",
+        },
         description: {
           en: "Photograph a rare or exotic animal in its natural habitat",
+          pt: "Fotografe um animal raro ou exótico em seu habitat natural",
         },
         points: 60,
         type: "normal",
@@ -181,9 +262,13 @@ export default {
       },
       {
         key: "Find a street with colorful houses",
-        challenge: { en: "Find a street with colorful houses" },
+        challenge: {
+          en: "Find a street with colorful houses",
+          pt: "Encontre uma rua com casas coloridas",
+        },
         description: {
           en: "Locate a street known for its colorful houses and capture its beauty",
+          pt: "Localize uma rua conhecida por suas casas coloridas e capture sua beleza",
         },
         points: 20,
         type: "normal",
@@ -192,9 +277,13 @@ export default {
       },
       {
         key: "Attend a local festival",
-        challenge: { en: "Attend a local festival" },
+        challenge: {
+          en: "Attend a local festival",
+          pt: "Participe de um festival local",
+        },
         description: {
           en: "Join in on a local festival and document your experience",
+          pt: "Participe de um festival local e documente sua experiência",
         },
         points: 50,
         type: "normal",
@@ -203,16 +292,28 @@ export default {
       },
       {
         key: "Take a photo of a lighthouse",
-        challenge: { en: "Take a photo of a lighthouse" },
-        description: { en: "Find and capture the grandeur of a lighthouse" },
+        challenge: {
+          en: "Take a photo of a lighthouse",
+          pt: "Tire uma foto de um farol",
+        },
+        description: {
+          en: "Find and capture the grandeur of a lighthouse",
+          pt: "Encontre e capture a grandiosidade de um farol",
+        },
         points: 25,
         type: "normal",
         image: "https://live.staticflickr.com/8199/8242635034_076174c1be_b.jpg",
       },
       {
         key: "Spot a famous bridge",
-        challenge: { en: "Spot a famous bridge" },
-        description: { en: "Locate and photograph a world-famous bridge" },
+        challenge: {
+          en: "Spot a famous bridge",
+          pt: "Descubra uma ponte famosa",
+        },
+        description: {
+          en: "Locate and photograph a world-famous bridge",
+          pt: "Localize e fotografe uma ponte mundialmente famosa",
+        },
         points: 30,
         type: "normal",
         image:
@@ -222,9 +323,13 @@ export default {
     [
       {
         key: "Discover a hidden gem",
-        challenge: { en: "Discover a hidden gem" },
+        challenge: {
+          en: "Discover a hidden gem",
+          pt: "Descubra uma joia escondida",
+        },
         description: {
           en: "Find a lesser-known but stunning location and document it",
+          pt: "Encontre um local menos conhecido, mas impressionante, e documente-o",
         },
         points: 35,
         type: "normal",
@@ -233,8 +338,14 @@ export default {
       },
       {
         key: "Capture a mountain peak",
-        challenge: { en: "Capture a mountain peak" },
-        description: { en: "Photograph the summit of a prominent mountain" },
+        challenge: {
+          en: "Capture a mountain peak",
+          pt: "Capture o pico de uma montanha",
+        },
+        description: {
+          en: "Photograph the summit of a prominent mountain",
+          pt: "Fotografe o cume de uma montanha proeminente",
+        },
         points: 40,
         type: "normal",
         image:
@@ -242,9 +353,13 @@ export default {
       },
       {
         key: "Visit a botanical garden",
-        challenge: { en: "Visit a botanical garden" },
+        challenge: {
+          en: "Visit a botanical garden",
+          pt: "Visite um jardim botânico",
+        },
         description: {
           en: "Explore and take photos of a botanical garden's diverse flora",
+          pt: "Explore e tire fotos da flora diversificada de um jardim botânico",
         },
         points: 20,
         type: "normal",
@@ -253,9 +368,13 @@ export default {
       },
       {
         key: "Find a local wildlife sanctuary",
-        challenge: { en: "Find a local wildlife sanctuary" },
+        challenge: {
+          en: "Find a local wildlife sanctuary",
+          pt: "Encontre um santuário de vida selvagem local",
+        },
         description: {
           en: "Visit a wildlife sanctuary and capture the animals in their natural environment",
+          pt: "Visite um santuário de vida selvagem e capture os animais em seu ambiente natural",
         },
         points: 45,
         type: "normal",
@@ -264,8 +383,14 @@ export default {
       },
       {
         key: "Discover a natural hot spring",
-        challenge: { en: "Discover a natural hot spring" },
-        description: { en: "Find and photograph a natural hot spring" },
+        challenge: {
+          en: "Discover a natural hot spring",
+          pt: "Descubra uma fonte termal natural",
+        },
+        description: {
+          en: "Find and photograph a natural hot spring",
+          pt: "Encontre e fotografe uma fonte termal natural",
+        },
         points: 40,
         type: "normal",
         image:
@@ -275,116 +400,116 @@ export default {
   ],
   runs: {
     "summer-edition": {
-      name: { en: "Summer Edition" },
+      name: { en: "Summer Edition", pt: "Edição de verão" },
       date: "2024-08-24T12:00:00",
       lastUpdate: "2024-08-24T12:00:00",
       teams: {
         "team-a": {
-          name: { en: "Team A" },
+          name: { en: "Team A", pt: "Equipe A" },
           challenges: [
             {
               key: "Discover a natural hot spring",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-3.gif",
             },
             {
               key: "Spot a wooden shoe",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-2.gif",
             },
             {
               key: "Try a traditional dish",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-1.gif",
             },
           ],
         },
         "team-b": {
-          name: { en: "Team B" },
+          name: { en: "Team B", pt: "Equibe B" },
           challenges: [
             {
               key: "Capture a sunrise over the ocean",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-5.gif",
             },
             {
               key: "Find a famous monument",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-4.gif",
             },
             {
               key: "Locate a famous statue",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-3.gif",
             },
           ],
         },
         "team-c": {
-          name: { en: "Team C" },
+          name: { en: "Team C", pt: "Equibe C" },
           challenges: [
             {
               key: "Spot a windmill",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-2.gif",
             },
             {
               key: "Take pic with Van Gogh",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-1.gif",
             },
             {
               key: "Capture a sunrise over the ocean",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-5.gif",
             },
             {
               key: "Spot a rare animal in the wild",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-4.gif",
             },
             {
               key: "Discover a hidden gem",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-3.gif",
             },
           ],
         },
         "team-d": {
-          name: { en: "Team D" },
+          name: { en: "Team D", pt: "Equibe D" },
           challenges: [
             {
               key: "Spot a windmill",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-2.gif",
             },
             {
               key: "Take pic with Van Gogh",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-1.gif",
             },
             {
               key: "Spot a rare animal in the wild",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-5.gif",
             },
             {
               key: "Discover a hidden gem",
               date: "2024-08-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-4.gif",
             },
           ],
@@ -397,30 +522,30 @@ export default {
       lastUpdate: "2024-02-24T12:00:00",
       teams: {
         "team-a": {
-          name: { en: "Team A" },
+          name: { en: "Team A", pt: "Equibe A" },
           challenges: [
             {
               key: "Discover a natural hot spring",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-3.gif",
             },
             {
               key: "Spot a wooden shoe",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-2.gif",
             },
             {
               key: "Try a traditional dish",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-1.gif",
             },
           ],
         },
         "team-b": {
-          name: { en: "Team B" },
+          name: { en: "Team B", pt: "Equibe B" },
           challenges: [
             {
               key: "Locate a famous statue",
@@ -441,70 +566,70 @@ export default {
             {
               key: "Capture a sunrise over the ocean",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-4.gif",
             },
           ],
         },
         "team-c": {
-          name: { en: "Team C" },
+          name: { en: "Team C", pt: "Equibe C" },
           challenges: [
             {
               key: "Spot a rare animal in the wild",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-3.gif",
             },
             {
               key: "Discover a hidden gem",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-2.gif",
             },
             {
               key: "Capture a sunrise over the ocean",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-1.gif",
             },
             {
               key: "Find a famous monument",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-5.gif",
             },
           ],
         },
         "team-d": {
-          name: { en: "Team D" },
+          name: { en: "Team D", pt: "Equibe D" },
           challenges: [
             {
               key: "Spot a rare animal in the wild",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-4.gif",
             },
           ],
         },
         "team-e": {
-          name: { en: "Team E" },
+          name: { en: "Team E", pt: "Equibe E" },
           challenges: [
             {
               key: "Spot a rare animal in the wild",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-3.gif",
             },
             {
               key: "Capture a sunrise over the ocean",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-2.gif",
             },
             {
               key: "Find a famous monument",
               date: "2024-02-24T12:00:00",
-              comment: { en: `_Great job_!!!` },
+              comment: { en: `_Great job_!!!`, pt: "_Ótimo trabalho_!!!" },
               image: "/images/clapping-1.gif",
             },
           ],

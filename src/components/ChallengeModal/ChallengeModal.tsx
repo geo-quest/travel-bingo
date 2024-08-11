@@ -18,7 +18,7 @@ const ChallengeModal: React.FC<Props> = ({ challenge, onClose }) => {
 
   return (
     <Modal
-      title={`${challenge.challenge} [${challenge.points} ${t("pts")}]`}
+      title={`${t2(challenge.challenge)} [${challenge.points} ${t("pts")}]`}
       open={!!challenge}
       onCancel={onClose}
       centered
