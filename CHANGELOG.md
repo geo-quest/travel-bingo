@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/geo-quest/travel-bingo/compare/v1.4.0...v1.5.0) (2024-08-11)
+
+### Features
+
+* localized data model ([#31](https://github.com/geo-quest/travel-bingo/issues/31)) ([3a75aaf](https://github.com/geo-quest/travel-bingo/commit/3a75aafc60eba5e41bf6d31a1343a435329d2756))
+
 ## [1.4.0](https://github.com/geo-quest/travel-bingo/compare/v1.3.1...v1.4.0) (2024-08-11)
 
 ### Features
