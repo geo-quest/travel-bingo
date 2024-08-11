@@ -29,8 +29,21 @@ const GameLeaderBoard = ({ run, game }: Props) => {
     window.location.href = `/${game.key}/${run.key}/${team.key}`;
   };
 
-  return (
-    <Space direction="vertical">
+  const renderHeaderRow = (run: RunGameData) => {
+    if (run.finished)
+      return (
+        <Row>
+          <Col span={24} style={{ textAlign: "center" }}>
+            <Statistic
+              valueStyle={{ fontSize: "16px" }}
+              title={t("run.run-date")}
+              valueRender={() => <FormattedDate date={run.date} />}
+            />
+          </Col>
+        </Row>
+      );
+
+    return (
       <Row>
         <Col span={2}></Col>
         <Col span={10} style={{ textAlign: "center" }}>
@@ -49,6 +62,12 @@ const GameLeaderBoard = ({ run, game }: Props) => {
         </Col>
         <Col span={2}></Col>
       </Row>
+    );
+  };
+
+  return (
+    <Space direction="vertical">
+      {renderHeaderRow(run)}
       <Row>
         <Col span={24}>
           <Podium leaderBoard={leaderBoardData} onClick={navigate} />

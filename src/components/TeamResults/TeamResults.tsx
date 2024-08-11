@@ -97,6 +97,7 @@ const TeamResults = function ({ team, run, game }: Props) {
         <Col span={24}>
           {selectedSolvedChallenge && (
             <SolvedChallenge
+              run={run}
               teamChallenge={selectedSolvedChallenge}
               challenge={game.challenges
                 .flat()

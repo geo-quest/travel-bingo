@@ -17,6 +17,7 @@ describe("calculateLeaderBoard", () => {
     const run: RunGameData = {
       teams: {},
       name: { en: "game-1" },
+      finished: true,
     };
 
     const result = calculateLeaderBoard(run, challenges);
@@ -29,6 +30,7 @@ describe("calculateLeaderBoard", () => {
   it("should correctly calculate the leader board with ranks", () => {
     const run: RunGameData = {
       name: { en: "Summer edition" },
+      finished: false,
       teams: {
         "team-a": {
           name: { en: "Team A" },

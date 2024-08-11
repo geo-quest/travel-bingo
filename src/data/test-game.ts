@@ -532,6 +532,7 @@ export default {
         nl: "Zomer editie",
         zh: "夏季版",
       },
+      finished: false,
       date: "2024-08-24T12:00:00",
       lastUpdate: "2024-08-24T12:00:00",
       teams: {
@@ -729,6 +730,7 @@ export default {
         nl: "Wintereditie",
         zh: "冬季版",
       },
+      finished: true,
       date: "2024-02-24T12:00:00",
       lastUpdate: "2024-02-24T12:00:00",
       teams: {

@@ -2,18 +2,19 @@ import { Image, Typography } from "antd";
 import { useTranslation } from "react-i18next";
 import Markdown from "react-markdown";
 
-import { Challenge, TeamChallenge } from "../../data/interfaces";
+import { Challenge, RunGameData, TeamChallenge } from "../../data/interfaces";
 import t2 from "../../utils/t2";
 import FormattedDate from "../Date/FormattedDate";
 
 interface Props {
   teamChallenge: TeamChallenge;
   challenge: Challenge | undefined;
+  run: RunGameData;
 }
 
 const { Title, Paragraph } = Typography;
 
-function SolvedChallenge({ teamChallenge, challenge }: Props) {
+function SolvedChallenge({ teamChallenge, challenge, run }: Props) {
   const { t } = useTranslation();
   return (
     <div className="solved-challenge">
@@ -23,7 +24,7 @@ function SolvedChallenge({ teamChallenge, challenge }: Props) {
         <FormattedDate date={teamChallenge.date} showTime />
       </Paragraph>
       <Markdown>{t2(teamChallenge.comment)}</Markdown>
-      {teamChallenge.image && (
+      {run.finished && teamChallenge.image && (
         <Image
           src={teamChallenge.image}
           alt={t2(challenge?.challenge)}
