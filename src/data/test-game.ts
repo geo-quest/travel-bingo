@@ -694,18 +694,26 @@ export default {
             {
               key: "Locate a famous statue",
               date: "2024-02-24T12:00:00",
-              comment: { en: `Solved!!!` },
+              comment: {
+                en: `_Great job_!!!`,
+                pt: "_Ótimo trabalho_!!!",
+                nl: "_Geweldig gedaan_!!!",
+              },
             },
             {
               key: "Spot a windmill",
               date: "2024-02-24T12:00:00",
-              comment: { en: `Solved!!!` },
+              comment: {
+                en: `_Great job_!!!`,
+                pt: "_Ótimo trabalho_!!!",
+                nl: "_Geweldig gedaan_!!!",
+              },
             },
             {
               key: "Take pic with Van Gogh",
               date: "2024-02-24T12:00:00",
               comment: `_Great job_!!!`,
-              image: { en: "/images/clapping-5.gif" },
+              image: "/images/clapping-5.gif",
             },
             {
               key: "Capture a sunrise over the ocean",
