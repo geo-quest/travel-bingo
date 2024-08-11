@@ -1,3 +1,9 @@
+## [1.7.0](https://github.com/geo-quest/travel-bingo/compare/v1.6.0...v1.7.0) (2024-08-11)
+
+### Features
+
+* finished prop on run-game-data ([#34](https://github.com/geo-quest/travel-bingo/issues/34)) ([107022e](https://github.com/geo-quest/travel-bingo/commit/107022e012be61e1a4ac8d77ce3f2725926f14ae))
+
 ## [1.6.0](https://github.com/geo-quest/travel-bingo/compare/v1.5.0...v1.6.0) (2024-08-11)
 
 ### Features
