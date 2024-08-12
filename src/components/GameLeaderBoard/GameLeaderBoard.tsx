@@ -9,7 +9,7 @@ import {
   TeamLeaderBoardData,
   TravelBingoGameData,
 } from '../../data/interfaces'
-import { calculateLeaderBoard } from '../../utils/calculate-leader-board'
+import { calculateScore } from '../../engine/calculate-score'
 import FormattedDate from '../Date/FormattedDate'
 import RelativeDate from '../Date/RelativeDate'
 import LeaderBoard from './LeaderBoard'
@@ -22,7 +22,7 @@ interface Props {
 
 const GameLeaderBoard = ({ run, game }: Props) => {
   const { t } = useTranslation()
-  const leaderBoardData = calculateLeaderBoard(run, game.challenges)
+  const leaderBoardData = calculateScore(run, game.challenges)
 
   const navigate = function (team: TeamLeaderBoardData & KeyObject) {
     window.location.href = `/${game.key}/${run.key}/${team.key}`

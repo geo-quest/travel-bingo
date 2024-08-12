@@ -1,5 +1,5 @@
 import { Challenge, RunGameData } from '../data/interfaces'
-import { calculateLeaderBoard } from './calculate-leader-board'
+import { calculateScore } from './calculate-score'
 
 const challenges: Challenge[][] = [
   [
@@ -20,7 +20,7 @@ describe('calculateLeaderBoard', () => {
       finished: true,
     }
 
-    const result = calculateLeaderBoard(run, challenges)
+    const result = calculateScore(run, challenges)
 
     expect(result).toEqual({
       teams: [],
@@ -70,7 +70,7 @@ describe('calculateLeaderBoard', () => {
       ],
     ]
 
-    const result = calculateLeaderBoard(run, challenges)
+    const result = calculateScore(run, challenges)
 
     expect(result).toEqual({
       teams: [

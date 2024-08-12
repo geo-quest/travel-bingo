@@ -1,6 +1,6 @@
 import { Challenge, LeaderBoardData, RunGameData } from '../data/interfaces'
 
-export function calculateLeaderBoard(run: RunGameData, challenges: Challenge[][]): LeaderBoardData {
+export function calculateScore(run: RunGameData, challenges: Challenge[][]): LeaderBoardData {
   const numRows = challenges.length
   const numCols = challenges[0].length
 

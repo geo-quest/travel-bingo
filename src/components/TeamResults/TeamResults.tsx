@@ -12,7 +12,7 @@ import {
   TeamGameData,
   TravelBingoGameData,
 } from '../../data/interfaces'
-import { calculateLeaderBoard } from '../../utils/calculate-leader-board'
+import { calculateScore } from '../../engine/calculate-score'
 import BingoBoard from '../BingoBoard/BingoBoard'
 import ChallengeModal from '../ChallengeModal/ChallengeModal'
 import NoPage from '../NoPage/NoPage'
@@ -30,7 +30,7 @@ interface Props {
 
 const TeamResults = function ({ team, run, game }: Props) {
   const { t } = useTranslation()
-  const leaderBoardData = calculateLeaderBoard(run, game.challenges)
+  const leaderBoardData = calculateScore(run, game.challenges)
   const teamData = leaderBoardData.teams.find(t => t.key === team.key)
 
   if (!teamData) return <NoPage />
