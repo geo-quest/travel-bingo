@@ -1,3 +1,9 @@
+## [1.8.0](https://github.com/geo-quest/travel-bingo/compare/v1.7.2...v1.8.0) (2024-08-12)
+
+### Features
+
+* add falling emoji when run has finished ([#44](https://github.com/geo-quest/travel-bingo/issues/44)) ([c25affa](https://github.com/geo-quest/travel-bingo/commit/c25affad11419561b7941af56c91b375ffa2b14d))
+
 ## [1.7.2](https://github.com/geo-quest/travel-bingo/compare/v1.7.1...v1.7.2) (2024-08-12)
 
 ### Bug Fixes
