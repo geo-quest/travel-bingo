@@ -8,7 +8,7 @@
   "solved-at": "Resolvido em",
   "run": {
     "run-date": "Data de execução",
-    "updated-at": "Atualizado em"
+    "last-update": "Ultima atualização"
   },
   "podium": {
     "1st": "1º",

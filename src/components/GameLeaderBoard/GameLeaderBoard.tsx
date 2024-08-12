@@ -45,22 +45,20 @@ const GameLeaderBoard = ({ run, game }: Props) => {
 
     return (
       <Row>
-        <Col span={2}></Col>
-        <Col span={10} style={{ textAlign: "center" }}>
+        <Col span={12} style={{ textAlign: "center" }}>
           <Statistic
             valueStyle={{ fontSize: "16px" }}
             title={t("run.run-date")}
             valueRender={() => <FormattedDate date={run.date} />}
           />
         </Col>
-        <Col span={10} style={{ textAlign: "center" }}>
+        <Col span={12} style={{ textAlign: "center" }}>
           <Statistic
             valueStyle={{ fontSize: "16px" }}
-            title={t("run.updated-at")}
-            valueRender={() => <RelativeDate date={run.date} />}
+            title={t("run.last-update")}
+            valueRender={() => <RelativeDate date={run.lastUpdate} />}
           />
         </Col>
-        <Col span={2}></Col>
       </Row>
     );
   };

@@ -1,5 +1,16 @@
 import { TravelBingoGameData } from "./interfaces";
 
+function addMinutesToNow(minutes: number): string {
+  const futureDate = new Date(Date.now() + minutes * 60_000);
+  return futureDate.toISOString();
+}
+
+function getTodayMidnight(): string {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.toISOString();
+}
+
 export default {
   title: {
     en: "Magic Netherlands",
@@ -653,8 +664,8 @@ export default {
         zh: "夏季版",
       },
       finished: false,
-      date: "2024-08-24T12:00:00",
-      lastUpdate: "2024-08-24T12:00:00",
+      date: getTodayMidnight(),
+      lastUpdate: addMinutesToNow(-5),
       teams: {
         "team-a": {
           name: { en: "Team A", pt: "Equipe A", nl: "Team A", zh: "A队" },
