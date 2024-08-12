@@ -1,5 +1,5 @@
 /* eslint-disable arrow-parens */
-import { Button, Col, Flex, Row } from "antd";
+import { Button, Col, Row, Space } from "antd";
 
 import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
 import t2 from "../../utils/t2";
@@ -9,12 +9,13 @@ interface Props {
   game: TravelBingoGameData & KeyObject;
 }
 
-function Runs({ game }: Props) {
-  const gameTags = Object.keys(game.runs).map((key) => {
-    const run = game.runs[key];
-
+const Runs = ({ game }: Props) => {
+  const runs = Object.keys(game.runs).map((key) => {
     return (
-      <Row style={{ paddingBottom: "16px" }} key={key}>
+      <Row
+        style={{ paddingBottom: "16px", width: "100%", textAlign: "center" }}
+        key={key}
+      >
         <Col span={24}>
           <Button
             icon={
@@ -32,17 +33,17 @@ function Runs({ game }: Props) {
               width: 300,
             }}
           >
-            {t2(run.name)}
+            {t2(game.runs[key].name)}
           </Button>
         </Col>
       </Row>
     );
   });
   return (
-    <Flex gap="4px 0" wrap>
-      {gameTags}
-    </Flex>
+    <Space direction="vertical" style={{ width: "100%" }}>
+      {runs}
+    </Space>
   );
-}
+};
 
 export default Runs;
