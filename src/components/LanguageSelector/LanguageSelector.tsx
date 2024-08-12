@@ -13,7 +13,6 @@ const LanguageSelector = () => {
     <Select
       id="language-select"
       defaultValue={i18n.language}
-      style={{ width: 120 }}
       onChange={handleChange}
     >
       <Option value="en">English</Option>

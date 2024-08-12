@@ -1,38 +1,49 @@
 /* eslint-disable arrow-parens */
-import { Flex, Tag } from "antd";
+import { Button, Col, Row, Space } from "antd";
 
 import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
 import t2 from "../../utils/t2";
+import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 
 interface Props {
   game: TravelBingoGameData & KeyObject;
 }
 
-function Runs({ game }: Props) {
-  const gameTags = Object.keys(game.runs).map((key) => {
-    const run = game.runs[key];
-
+const Runs = ({ game }: Props) => {
+  const runs = Object.keys(game.runs).map((key) => {
     return (
-      <Tag
+      <Row
+        style={{ paddingBottom: "16px", width: "100%", textAlign: "center" }}
         key={key}
-        color={game.color}
-        onClick={() => {
-          window.location.href = `/${game.key}/${key}`;
-        }}
-        style={{
-          cursor: "pointer",
-          marginBottom: "4px",
-        }}
       >
-        {t2(run.name)}
-      </Tag>
+        <Col span={24}>
+          <Button
+            icon={
+              <DynamicIconComponent iconName={game.icon} color={game.color} />
+            }
+            onClick={() => {
+              window.location.href = `/${game.key}/${key}`;
+            }}
+            style={{
+              backgroundColor: game.backgroundColor,
+              color: game.color,
+              fontSize: "16px",
+              fontWeight: "bold",
+              fontVariant: "all-petite-caps",
+              width: 300,
+            }}
+          >
+            {t2(game.runs[key].name)}
+          </Button>
+        </Col>
+      </Row>
     );
   });
   return (
-    <Flex gap="4px 0" wrap>
-      {gameTags}
-    </Flex>
+    <Space direction="vertical" style={{ width: "100%" }}>
+      {runs}
+    </Space>
   );
-}
+};
 
 export default Runs;

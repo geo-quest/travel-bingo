@@ -2,13 +2,13 @@
   "language": "Idioma",
   "challenges": "Desafios",
   "how-to-play": "Como jogar",
-  "rank": "Classificação",
+  "rank": "Ranking",
   "team": "Equipe",
   "score": "Pontuação",
   "solved-at": "Resolvido em",
   "run": {
     "run-date": "Data de execução",
-    "updated-at": "Atualizado em"
+    "last-update": "Ultima atualização"
   },
   "podium": {
     "1st": "1º",

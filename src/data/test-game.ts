@@ -1,11 +1,22 @@
 import { TravelBingoGameData } from "./interfaces";
 
+function addMinutesToNow(minutes: number): string {
+  const futureDate = new Date(Date.now() + minutes * 60_000);
+  return futureDate.toISOString();
+}
+
+function getTodayMidnight(): string {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.toISOString();
+}
+
 export default {
   title: {
-    en: "Travel Bingo Netherlands",
-    pt: "Bingo de viagens na Holanda",
-    nl: "Reisbingo Nederland",
-    zh: "旅行宾果荷兰",
+    en: "Magic Netherlands",
+    pt: "Holanda Mágica",
+    nl: "Magisch Nederland",
+    zh: "神奇荷兰",
   },
   icon: "FlagTwoTone",
   color: "#1890ff",
@@ -653,8 +664,8 @@ export default {
         zh: "夏季版",
       },
       finished: false,
-      date: "2024-08-24T12:00:00",
-      lastUpdate: "2024-08-24T12:00:00",
+      date: getTodayMidnight(),
+      lastUpdate: addMinutesToNow(-5),
       teams: {
         "team-a": {
           name: { en: "Team A", pt: "Equipe A", nl: "Team A", zh: "A队" },
@@ -695,7 +706,7 @@ export default {
           ],
         },
         "team-b": {
-          name: { en: "Team B", pt: "Equibe B", nl: "Team B", zh: "B队" },
+          name: { en: "Team B", pt: "Equipe B", nl: "Team B", zh: "B队" },
           challenges: [
             {
               key: "Capture a sunrise over the ocean",
@@ -733,7 +744,7 @@ export default {
           ],
         },
         "team-c": {
-          name: { en: "Team C", pt: "Equibe C", nl: "Team C", zh: "C队" },
+          name: { en: "Team C", pt: "Equipe C", nl: "Team C", zh: "C队" },
           challenges: [
             {
               key: "Spot a windmill",
@@ -793,7 +804,7 @@ export default {
           ],
         },
         "team-d": {
-          name: { en: "Team D", pt: "Equibe D", nl: "Team D", zh: "D队" },
+          name: { en: "Team D", pt: "Equipe D", nl: "Team D", zh: "D队" },
           challenges: [
             {
               key: "Spot a windmill",
@@ -855,7 +866,7 @@ export default {
       lastUpdate: "2024-02-24T12:00:00",
       teams: {
         "team-a": {
-          name: { en: "Team A", pt: "Equibe A", nl: "Team A", zh: "A队" },
+          name: { en: "Team A", pt: "Equipe A", nl: "Team A", zh: "A队" },
           challenges: [
             {
               key: "Discover a natural hot spring",
@@ -893,7 +904,7 @@ export default {
           ],
         },
         "team-b": {
-          name: { en: "Team B", pt: "Equibe B", nl: "Team B", zh: "B队" },
+          name: { en: "Team B", pt: "Equipe B", nl: "Team B", zh: "B队" },
           challenges: [
             {
               key: "Locate a famous statue",
