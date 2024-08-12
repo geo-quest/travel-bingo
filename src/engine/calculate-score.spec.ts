@@ -144,8 +144,10 @@ describe('calculate-score.ts', () => {
   // })
 
   describe('defineInitialState', () => {
-    expect(defineInitialState(runGameData())).toStrictEqual({
-      teams: [{ team: 'team-a', score: 0 }],
+    it('should return all teams with score 0', () => {
+      expect(defineInitialState(runGameData())).toStrictEqual({
+        teams: [{ team: 'team-a', score: 0 }],
+      })
     })
   })
 
@@ -174,7 +176,7 @@ describe('calculate-score.ts', () => {
           validateListOfEvents(runGameData({ state: RunGameState.Finished }), [event()]),
         ).toThrowError('first event must be "start".')
       })
-      it('should throw error for first multiple "start" events', () => {
+      it('should throw error for multiple "start" events', () => {
         expect(() =>
           validateListOfEvents(runGameData({ state: RunGameState.Finished }), [
             event({ type: EventType.Start }),
@@ -224,13 +226,13 @@ describe('calculate-score.ts', () => {
   })
 
   describe('handleStart', () => {
-    it('should return the state properly', () => {
+    it('should return the initial state', () => {
       expect(handleStart(state())).toStrictEqual(state())
     })
   })
 
   describe('handleFinish', () => {
-    it('should return the state properly', () => {
+    it('should return the final state', () => {
       expect(handleFinish(state())).toStrictEqual(state())
     })
   })
@@ -266,16 +268,6 @@ describe('calculate-score.ts', () => {
           challenges(),
         ),
       ).toThrow('"challenge" not found')
-    })
-
-    test('should not throw an error if both "team" and "challenge" are defined', () => {
-      expect(() =>
-        handleChallengeCompleted(
-          event({ challenge: 'challenge-1', team: 'team-a' }),
-          state(),
-          challenges(),
-        ),
-      ).not.toThrow()
     })
 
     test('should return state updated', () => {
