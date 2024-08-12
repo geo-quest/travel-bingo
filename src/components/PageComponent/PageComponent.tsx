@@ -1,7 +1,7 @@
 import "./PageComponent.css";
 
 import { setTwoToneColor } from "@ant-design/icons";
-import { Card } from "antd";
+import { Card, Col, Row, Space } from "antd";
 import { useEffect } from "react";
 
 import {
@@ -30,19 +30,34 @@ const PageComponent = ({ game, run, team, children }: Props) => {
 
   return (
     <div className="app-container">
-      <Breadcrumb game={game} run={run} team={team} />
-      <Card title={<PageTitle game={game} run={run} team={team} />}>
-        {children}
-      </Card>
-      <div
-        style={{
-          textAlign: "center",
-          paddingBottom: "24px",
-          paddingTop: "24px",
-        }}
-      >
-        <LanguageSelector />
-      </div>
+      <Space direction="vertical">
+        <Row>
+          <Col span={1}></Col>
+          <Col span={16}>
+            <Breadcrumb game={game} run={run} team={team} />
+          </Col>
+          <Col span={6} style={{ textAlign: "right" }}>
+            <LanguageSelector />
+          </Col>
+          <Col span={1}></Col>
+        </Row>
+        <Row>
+          <Col span={1}></Col>
+          <Col span={22}>
+            <Card title={<PageTitle game={game} run={run} team={team} />}>
+              {children}
+            </Card>
+          </Col>
+          <Col span={1}></Col>
+        </Row>
+        <Row>
+          <Col span={1}></Col>
+          <Col span={22} style={{ textAlign: "center", paddingBottom: "16px" }}>
+            Travel Bingo <i>Turn travel into a game</i>
+          </Col>
+          <Col span={1}></Col>
+        </Row>
+      </Space>
     </div>
   );
 };
