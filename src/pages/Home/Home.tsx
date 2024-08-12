@@ -1,7 +1,7 @@
 /* eslint-disable arrow-parens */
 import "./Home.css";
 
-import { Flex, Tag } from "antd";
+import { Button, Col, Row } from "antd";
 
 import { DynamicIconComponent } from "../../components/DynamicIcon/DynamicIcon";
 import { TravelBingoGamesData } from "../../data/interfaces";
@@ -12,24 +12,33 @@ interface Props {
 }
 
 function Home({ data }: Props) {
-  const gameTags = Object.keys(data).map((key) => {
+  const gameLinks = Object.keys(data).map((key) => {
     const game = data[key];
 
     return (
-      <Tag
-        key={key}
-        icon={<DynamicIconComponent iconName={game.icon} />}
-        color={game.color}
-        onClick={() => {
-          window.location.href = `/${key}`;
-        }}
-        style={{
-          cursor: "pointer",
-          marginBottom: "4px",
-        }}
-      >
-        {t2(game.title)}
-      </Tag>
+      <Row style={{ paddingTop: "16px" }}>
+        <Col span={24}>
+          <Button
+            key={key}
+            icon={
+              <DynamicIconComponent iconName={game.icon} color={game.color} />
+            }
+            onClick={() => {
+              window.location.href = `/${key}`;
+            }}
+            style={{
+              backgroundColor: game.backgroundColor,
+              color: game.color,
+              fontSize: "16px",
+              fontWeight: "bold",
+              fontVariant: "all-petite-caps",
+              width: 300,
+            }}
+          >
+            {t2(game.title)}
+          </Button>
+        </Col>
+      </Row>
     );
   });
   return (
@@ -40,9 +49,7 @@ function Home({ data }: Props) {
           className="Travel Bingo"
           alt="Travel Bingo"
         />
-        <Flex gap="4px 0" wrap style={{ marginBottom: "20px" }}>
-          {gameTags}
-        </Flex>
+        {gameLinks}
       </header>
     </div>
   );

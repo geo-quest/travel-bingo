@@ -2,10 +2,10 @@ import { TravelBingoGameData } from "./interfaces";
 
 export default {
   title: {
-    en: "Travel Bingo Netherlands",
-    pt: "Bingo de viagens na Holanda",
-    nl: "Reisbingo Nederland",
-    zh: "旅行宾果荷兰",
+    en: "Magic Netherlands",
+    pt: "Holanda Mágica",
+    nl: "Magisch Nederland",
+    zh: "神奇荷兰",
   },
   icon: "FlagTwoTone",
   color: "#1890ff",

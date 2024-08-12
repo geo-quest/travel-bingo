@@ -33,10 +33,10 @@ const PageComponent = ({ game, run, team, children }: Props) => {
       <Space direction="vertical">
         <Row>
           <Col span={1}></Col>
-          <Col span={16}>
+          <Col span={14}>
             <Breadcrumb game={game} run={run} team={team} />
           </Col>
-          <Col span={6} style={{ textAlign: "right" }}>
+          <Col span={8} style={{ textAlign: "right" }}>
             <LanguageSelector />
           </Col>
           <Col span={1}></Col>
