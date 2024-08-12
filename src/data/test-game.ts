@@ -695,7 +695,7 @@ export default {
           ],
         },
         "team-b": {
-          name: { en: "Team B", pt: "Equibe B", nl: "Team B", zh: "B队" },
+          name: { en: "Team B", pt: "Equipe B", nl: "Team B", zh: "B队" },
           challenges: [
             {
               key: "Capture a sunrise over the ocean",
@@ -733,7 +733,7 @@ export default {
           ],
         },
         "team-c": {
-          name: { en: "Team C", pt: "Equibe C", nl: "Team C", zh: "C队" },
+          name: { en: "Team C", pt: "Equipe C", nl: "Team C", zh: "C队" },
           challenges: [
             {
               key: "Spot a windmill",
@@ -793,7 +793,7 @@ export default {
           ],
         },
         "team-d": {
-          name: { en: "Team D", pt: "Equibe D", nl: "Team D", zh: "D队" },
+          name: { en: "Team D", pt: "Equipe D", nl: "Team D", zh: "D队" },
           challenges: [
             {
               key: "Spot a windmill",
@@ -855,7 +855,7 @@ export default {
       lastUpdate: "2024-02-24T12:00:00",
       teams: {
         "team-a": {
-          name: { en: "Team A", pt: "Equibe A", nl: "Team A", zh: "A队" },
+          name: { en: "Team A", pt: "Equipe A", nl: "Team A", zh: "A队" },
           challenges: [
             {
               key: "Discover a natural hot spring",
@@ -893,7 +893,7 @@ export default {
           ],
         },
         "team-b": {
-          name: { en: "Team B", pt: "Equibe B", nl: "Team B", zh: "B队" },
+          name: { en: "Team B", pt: "Equipe B", nl: "Team B", zh: "B队" },
           challenges: [
             {
               key: "Locate a famous statue",
