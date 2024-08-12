@@ -1,82 +1,82 @@
-type Markdown = string;
-type Date = string;
-type Url = string;
-type Icon = string;
-type Color = string;
+type Markdown = string
+type Date = string
+type Url = string
+type Icon = string
+type Color = string
 
 export interface LocalizedString {
-  [lang: string]: string;
+  [lang: string]: string
 }
 
 export interface LocalizedMarkdown {
-  [lang: string]: Markdown;
+  [lang: string]: Markdown
 }
 
 export interface KeyObject {
-  key: string;
+  key: string
 }
 
 export interface TeamChallenge {
-  key: string;
-  date: Date;
-  comment?: LocalizedMarkdown;
-  image?: Url;
+  key: string
+  date: Date
+  comment?: LocalizedMarkdown
+  image?: Url
 }
 
 export interface TeamGameData {
-  name: LocalizedString;
-  challenges: TeamChallenge[];
+  name: LocalizedString
+  challenges: TeamChallenge[]
 }
 
 export interface Teams {
-  [name: string]: TeamGameData;
+  [name: string]: TeamGameData
 }
 
 export interface RunGameData {
-  name: LocalizedString;
-  date?: Date;
-  lastUpdate?: Date;
-  finished: boolean;
-  teams: Teams;
+  name: LocalizedString
+  date?: Date
+  lastUpdate?: Date
+  finished: boolean
+  teams: Teams
 }
 
 export interface Runs {
-  [name: string]: RunGameData;
+  [name: string]: RunGameData
 }
 
 export interface Challenge {
-  key: string;
-  challenge: LocalizedString;
-  points: number;
-  description?: LocalizedMarkdown;
-  image?: Url;
-  type?: string;
+  key: string
+  challenge: LocalizedString
+  points: number
+  description?: LocalizedMarkdown
+  image?: Url
+  type?: string
 }
 
 export interface TravelBingoGameData {
-  title: LocalizedString;
-  icon: Icon;
-  color: Color;
-  backgroundColor: Color;
-  shortDescription: LocalizedString;
-  gamePlay: LocalizedMarkdown;
-  challenges: Challenge[][];
-  runs: Runs;
+  title: LocalizedString
+  icon: Icon
+  color: Color
+  backgroundColor: Color
+  shortDescription: LocalizedString
+  gamePlay: LocalizedMarkdown
+  challenges: Challenge[][]
+  runs: Runs
 }
 
 export interface TravelBingoGamesData {
-  [name: string]: TravelBingoGameData;
+  [name: string]: TravelBingoGameData
 }
 
 export interface TeamLeaderBoardData {
-  key: string;
-  name: LocalizedString;
-  score: number;
-  rank: number;
-  bingos: number;
-  challenges: TeamChallenge[];
+  key: string
+  name: LocalizedString
+  score: number
+  rank: number
+  bingos: number
+  challenges: TeamChallenge[]
 }
 
 export interface LeaderBoardData {
-  teams: TeamLeaderBoardData[];
+  teams: TeamLeaderBoardData[]
 }

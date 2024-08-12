@@ -1,26 +1,26 @@
-import "antd/dist/reset.css";
+import 'antd/dist/reset.css'
 
-import { Card, Col, Row } from "antd";
-import { useTranslation } from "react-i18next";
+import { Card, Col, Row } from 'antd'
+import { useTranslation } from 'react-i18next'
 
-import { TeamLeaderBoardData } from "../../data/interfaces";
-import t2 from "../../utils/t2";
-import Score from "../Score/Score";
+import { TeamLeaderBoardData } from '../../data/interfaces'
+import t2 from '../../utils/t2'
+import Score from '../Score/Score'
 
 interface Props {
-  teams: TeamLeaderBoardData[];
-  onClick: (team: TeamLeaderBoardData) => void;
+  teams: TeamLeaderBoardData[]
+  onClick: (team: TeamLeaderBoardData) => void
 }
 
 const Podium = ({ teams, onClick }: Props) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <div className="podium">
       <Row gutter={16}>
         {teams.length >= 2 && (
           <Col span={teams.length == 2 ? 12 : 8}>
             <Card
-              title={t("podium.2nd")}
+              title={t('podium.2nd')}
               bordered={false}
               className="podium-card silver"
               onClick={() => onClick(teams[1])}
@@ -32,7 +32,7 @@ const Podium = ({ teams, onClick }: Props) => {
         )}
         <Col span={teams.length == 1 ? 24 : teams.length == 2 ? 12 : 8}>
           <Card
-            title={t("podium.1st")}
+            title={t('podium.1st')}
             bordered={false}
             className="podium-card gold"
             onClick={() => onClick(teams[0])}
@@ -44,7 +44,7 @@ const Podium = ({ teams, onClick }: Props) => {
         {teams.length >= 3 && (
           <Col span={8}>
             <Card
-              title={t("podium.3rd")}
+              title={t('podium.3rd')}
               bordered={false}
               className="podium-card bronze"
               onClick={() => onClick(teams[2])}
@@ -56,7 +56,7 @@ const Podium = ({ teams, onClick }: Props) => {
         )}
       </Row>
     </div>
-  );
-};
+  )
+}
 
-export default Podium;
+export default Podium

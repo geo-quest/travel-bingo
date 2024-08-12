@@ -1,31 +1,25 @@
-import { Col, Row, Space, Typography } from "antd";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import Markdown from "react-markdown";
+import { Col, Row, Space, Typography } from 'antd'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import Markdown from 'react-markdown'
 
-import {
-  Challenge,
-  KeyObject,
-  TravelBingoGameData,
-} from "../../data/interfaces";
-import t2 from "../../utils/t2";
-import BingoBoard from "../BingoBoard/BingoBoard";
-import ChallengeModal from "../ChallengeModal/ChallengeModal";
-import Runs from "./Runs";
+import { Challenge, KeyObject, TravelBingoGameData } from '../../data/interfaces'
+import t2 from '../../utils/t2'
+import BingoBoard from '../BingoBoard/BingoBoard'
+import ChallengeModal from '../ChallengeModal/ChallengeModal'
+import Runs from './Runs'
 
-const { Paragraph, Title } = Typography;
+const { Paragraph, Title } = Typography
 
 interface Props {
-  game: TravelBingoGameData & KeyObject;
+  game: TravelBingoGameData & KeyObject
 }
 
 const TravelBingoGame = ({ game }: Props) => {
-  const { t } = useTranslation();
-  const { shortDescription, challenges, gamePlay } = game;
+  const { t } = useTranslation()
+  const { shortDescription, challenges, gamePlay } = game
 
-  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(
-    null,
-  );
+  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
 
   return (
     <Space direction="vertical">
@@ -36,13 +30,13 @@ const TravelBingoGame = ({ game }: Props) => {
       </Row>
       <Row>
         <Col span={24}>
-          <Title level={2}>{t("challenges")}</Title>
+          <Title level={2}>{t('challenges')}</Title>
           <BingoBoard challenges={challenges} onClick={setSelectedChallenge} />
         </Col>
       </Row>
       <Row>
         <Col span={24}>
-          <Title level={2}>{t("how-to-play")}</Title>
+          <Title level={2}>{t('how-to-play')}</Title>
           <Markdown>{t2(gamePlay)}</Markdown>
         </Col>
       </Row>
@@ -52,13 +46,10 @@ const TravelBingoGame = ({ game }: Props) => {
         </Col>
       </Row>
       {selectedChallenge && (
-        <ChallengeModal
-          challenge={selectedChallenge}
-          onClose={() => setSelectedChallenge(null)}
-        />
+        <ChallengeModal challenge={selectedChallenge} onClose={() => setSelectedChallenge(null)} />
       )}
     </Space>
-  );
-};
+  )
+}
 
-export default TravelBingoGame;
+export default TravelBingoGame

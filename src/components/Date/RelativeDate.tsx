@@ -1,15 +1,13 @@
-import TimeAgo from "javascript-time-ago";
-import { useTranslation } from "react-i18next";
+import TimeAgo from 'javascript-time-ago'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
-  date: string | undefined;
+  date: string | undefined
 }
 
 const RelativeDate = ({ date }: Props) => {
-  const { i18n } = useTranslation();
-  return (
-    <span>{new TimeAgo(i18n.language).format(Date.parse(date || ""))}</span>
-  );
-};
+  const { i18n } = useTranslation()
+  return <span>{new TimeAgo(i18n.language).format(Date.parse(date || ''))}</span>
+}
 
-export default RelativeDate;
+export default RelativeDate
