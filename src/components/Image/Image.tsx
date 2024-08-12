@@ -1,6 +1,5 @@
 /* eslint-disable arrow-parens */
 import {
-  DownloadOutlined,
   UndoOutlined,
   ZoomInOutlined,
   ZoomOutOutlined,
@@ -14,21 +13,6 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const onDownload = (imgUrl: string) => {
-  fetch(imgUrl)
-    .then((response) => response.blob())
-    .then((blob) => {
-      const url = URL.createObjectURL(new Blob([blob]));
-      const link = document.createElement<"a">("a");
-      link.href = url;
-      link.download = "image.png";
-      document.body.appendChild(link);
-      link.click();
-      URL.revokeObjectURL(url);
-      link.remove();
-    });
-};
-
 export default function ({ src, alt, style }: Props) {
   return (
     <Image
@@ -38,14 +22,9 @@ export default function ({ src, alt, style }: Props) {
       preview={{
         toolbarRender: (
           _,
-          {
-            image: { url },
-            transform: { scale },
-            actions: { onZoomOut, onZoomIn, onReset },
-          },
+          { transform: { scale }, actions: { onZoomOut, onZoomIn, onReset } },
         ) => (
           <Space size={12} className="toolbar-wrapper">
-            <DownloadOutlined onClick={() => onDownload(url)} />
             <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
             <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
             <UndoOutlined onClick={onReset} />
