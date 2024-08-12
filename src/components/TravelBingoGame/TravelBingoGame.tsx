@@ -31,11 +31,6 @@ const TravelBingoGame = ({ game }: Props) => {
     <Space direction="vertical">
       <Row>
         <Col span={24}>
-          <Runs game={game} />
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
           <Paragraph strong>{t2(shortDescription)}</Paragraph>
         </Col>
       </Row>
@@ -49,6 +44,11 @@ const TravelBingoGame = ({ game }: Props) => {
         <Col span={24}>
           <Title level={2}>{t("how-to-play")}</Title>
           <Markdown>{t2(gamePlay)}</Markdown>
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Runs game={game} />
         </Col>
       </Row>
       {selectedChallenge && (
