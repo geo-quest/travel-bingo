@@ -59,7 +59,7 @@ const TeamResults = function ({ team, run, game }: Props) {
         </Col>
         <Col span={10} style={{ textAlign: "center" }}>
           <Statistic
-            title="Score"
+            title={t("score")}
             valueRender={() => <Score team={teamData} />}
           />
         </Col>

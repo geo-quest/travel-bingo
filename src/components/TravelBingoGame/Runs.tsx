@@ -1,8 +1,9 @@
 /* eslint-disable arrow-parens */
-import { Flex, Tag } from "antd";
+import { Button, Col, Flex, Row } from "antd";
 
 import { KeyObject, TravelBingoGameData } from "../../data/interfaces";
 import t2 from "../../utils/t2";
+import { DynamicIconComponent } from "../DynamicIcon/DynamicIcon";
 
 interface Props {
   game: TravelBingoGameData & KeyObject;
@@ -13,19 +14,28 @@ function Runs({ game }: Props) {
     const run = game.runs[key];
 
     return (
-      <Tag
-        key={key}
-        color={game.color}
-        onClick={() => {
-          window.location.href = `/${game.key}/${key}`;
-        }}
-        style={{
-          cursor: "pointer",
-          marginBottom: "4px",
-        }}
-      >
-        {t2(run.name)}
-      </Tag>
+      <Row style={{ paddingBottom: "16px" }} key={key}>
+        <Col span={24}>
+          <Button
+            icon={
+              <DynamicIconComponent iconName={game.icon} color={game.color} />
+            }
+            onClick={() => {
+              window.location.href = `/${game.key}/${key}`;
+            }}
+            style={{
+              backgroundColor: game.backgroundColor,
+              color: game.color,
+              fontSize: "16px",
+              fontWeight: "bold",
+              fontVariant: "all-petite-caps",
+              width: 300,
+            }}
+          >
+            {t2(run.name)}
+          </Button>
+        </Col>
+      </Row>
     );
   });
   return (

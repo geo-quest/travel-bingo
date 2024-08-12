@@ -16,10 +16,9 @@ function Home({ data }: Props) {
     const game = data[key];
 
     return (
-      <Row style={{ paddingTop: "16px" }}>
+      <Row style={{ paddingTop: "16px" }} key={key}>
         <Col span={24}>
           <Button
-            key={key}
             icon={
               <DynamicIconComponent iconName={game.icon} color={game.color} />
             }
