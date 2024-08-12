@@ -1,3 +1,4 @@
+import FallingEmojis from "../../components/FallingEmojis/FallingEmojis";
 import GameLeaderBoard from "../../components/GameLeaderBoard/GameLeaderBoard";
 import NoPage from "../../components/NoPage/NoPage";
 import PageComponent from "../../components/PageComponent/PageComponent";
@@ -14,6 +15,12 @@ function Run({ data }: Props) {
 
   return (
     <PageComponent game={game} run={run}>
+      {run.finished && (
+        <FallingEmojis
+          emojiList={["🎉", "🥳", "👏", "🎊", "🥂", "🍻", "🙌"]}
+          milliseconds={7_000}
+        />
+      )}
       <GameLeaderBoard game={game} run={run} />
     </PageComponent>
   );
