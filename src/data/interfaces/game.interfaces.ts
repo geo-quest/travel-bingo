@@ -1,5 +1,4 @@
-import { Runs } from './run.interfaces'
-import { Color, Icon, LocalizedMarkdown, LocalizedString, Url } from './types'
+import { Color, Icon, LocalizedMarkdown, LocalizedString, Runs, Url } from './'
 
 export interface Challenge {
   key: string

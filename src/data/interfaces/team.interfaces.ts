@@ -1,4 +1,4 @@
-import { Date, LocalizedMarkdown, LocalizedString, Url } from './types'
+import { Date, LocalizedMarkdown, LocalizedString, Url } from './'
 
 export interface TeamChallenge {
   key: string
@@ -9,7 +9,7 @@ export interface TeamChallenge {
 
 export interface TeamGameData {
   name: LocalizedString
-  challenges: TeamChallenge[]
+  challenges?: TeamChallenge[]
 }
 
 export interface Teams {

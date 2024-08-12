@@ -1,4 +1,4 @@
-import { TravelBingoGameData } from './game.interfaces'
+import { TravelBingoGameData } from './interfaces'
 
 function addMinutesToNow(minutes: number): string {
   const futureDate = new Date(Date.now() + minutes * 60_000)

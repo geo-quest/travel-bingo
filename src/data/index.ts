@@ -1,4 +1,4 @@
-import { TravelBingoGamesData } from './game.interfaces'
+import { TravelBingoGamesData } from './interfaces'
 import testGame from './test-game'
 
 export default () => {
