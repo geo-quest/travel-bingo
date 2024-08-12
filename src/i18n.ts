@@ -16,6 +16,7 @@ i18n
     backend: {
       loadPath: "/locales/{{lng}}.json",
     },
+    supportedLngs: ["en", "nl", "pt", "zh"],
     fallbackLng: "en",
     debug: false,
     interpolation: {
@@ -24,8 +25,8 @@ i18n
   });
 
 TimeAgo.addDefaultLocale(en);
-TimeAgo.addLocale(pt);
 TimeAgo.addLocale(nl);
+TimeAgo.addLocale(pt);
 TimeAgo.addLocale(zh);
 
 export default i18n;
