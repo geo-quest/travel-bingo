@@ -1,13 +1,11 @@
 .card-done {
   background-color: #008000;
   color: white;
-  font-weight: 200;
 }
 
 .selected-card-done {
   background-color: #00aa00;
   color: white;
-  font-weight: 400 !important;
 }
 
 .solved-challenge {
