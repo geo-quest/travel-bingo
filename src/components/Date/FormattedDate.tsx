@@ -1,29 +1,29 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next'
 
 interface Props {
-  date: string | undefined;
-  showTime?: boolean;
+  date: string | undefined
+  showTime?: boolean
 }
 
 const FormattedDate = ({ date, showTime }: Props) => {
-  const { i18n } = useTranslation();
+  const { i18n } = useTranslation()
 
   const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
-  };
+    year: 'numeric',
+    month: 'long',
+    day: '2-digit',
+  }
 
   if (showTime) {
-    options.hour = "2-digit";
-    options.minute = "2-digit";
+    options.hour = '2-digit'
+    options.minute = '2-digit'
   }
 
   const formattedDate = new Intl.DateTimeFormat(i18n.language, options).format(
-    Date.parse(date || ""),
-  );
+    Date.parse(date || ''),
+  )
 
-  return <span>{formattedDate}</span>;
-};
+  return <span>{formattedDate}</span>
+}
 
-export default FormattedDate;
+export default FormattedDate

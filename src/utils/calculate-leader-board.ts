@@ -1,71 +1,55 @@
-/* eslint-disable arrow-parens */
-import { Challenge, LeaderBoardData, RunGameData } from "../data/interfaces";
+import { Challenge, LeaderBoardData, RunGameData } from '../data/interfaces'
 
-export function calculateLeaderBoard(
-  run: RunGameData,
-  challenges: Challenge[][],
-): LeaderBoardData {
-  const numRows = challenges.length;
-  const numCols = challenges[0].length;
+export function calculateLeaderBoard(run: RunGameData, challenges: Challenge[][]): LeaderBoardData {
+  const numRows = challenges.length
+  const numCols = challenges[0].length
 
   const isRowSolved = (row: number, teamChallenges: string[]): boolean =>
-    challenges[row].every((challenge) =>
-      teamChallenges.includes(challenge.key),
-    );
+    challenges[row].every(challenge => teamChallenges.includes(challenge.key))
 
   const isColSolved = (col: number, teamChallenges: string[]): boolean =>
-    challenges.every((row) => teamChallenges.includes(row[col].key));
+    challenges.every(row => teamChallenges.includes(row[col].key))
 
   const isMainDiagonalSolved = (teamChallenges: string[]): boolean =>
-    challenges.every((_row, i) =>
-      teamChallenges.includes(challenges[i][i].key),
-    );
+    challenges.every((_row, i) => teamChallenges.includes(challenges[i][i].key))
 
   const isSecondaryDiagonalSolved = (teamChallenges: string[]): boolean =>
-    challenges.every((_row, i) =>
-      teamChallenges.includes(challenges[i][numCols - 1 - i].key),
-    );
+    challenges.every((_row, i) => teamChallenges.includes(challenges[i][numCols - 1 - i].key))
 
   return {
     teams: Object.keys(run.teams)
-      .map((key) => {
-        const team = run.teams[key];
-        const teamChallenges = team.challenges.map(
-          (challenge) => challenge.key,
-        );
+      .map(key => {
+        const team = run.teams[key]
+        const teamChallenges = team.challenges.map(challenge => challenge.key)
 
-        let bingos = 0;
+        let bingos = 0
 
-        for (let i = 0; i < numRows; i++)
-          if (isRowSolved(i, teamChallenges)) bingos++;
+        for (let i = 0; i < numRows; i++) if (isRowSolved(i, teamChallenges)) bingos++
 
-        for (let i = 0; i < numCols; i++)
-          if (isColSolved(i, teamChallenges)) bingos++;
+        for (let i = 0; i < numCols; i++) if (isColSolved(i, teamChallenges)) bingos++
 
-        if (isMainDiagonalSolved(teamChallenges)) bingos++;
-        if (isSecondaryDiagonalSolved(teamChallenges)) bingos++;
+        if (isMainDiagonalSolved(teamChallenges)) bingos++
+        if (isSecondaryDiagonalSolved(teamChallenges)) bingos++
 
         return {
           key: key,
           name: team.name,
           score: team.challenges.reduce((result, teamChallenge) => {
-            const challengeData = challenges
-              .flat()
-              .find((c) => c.key === teamChallenge.key);
-            return result + (challengeData?.points || 0);
+            const challengeData = challenges.flat().find(c => c.key === teamChallenge.key)
+            return result + (challengeData?.points || 0)
           }, 0),
           challenges: team.challenges,
           bingos: bingos,
           rank: 0,
-        };
+        }
       })
       .sort((a, b) => {
-        if (b.bingos !== a.bingos) return b.bingos - a.bingos;
-        return b.score - a.score;
+        if (b.bingos !== a.bingos) return b.bingos - a.bingos
+        return b.score - a.score
       })
       .map((team, index) => ({
         ...team,
         rank: index + 1,
       })),
-  };
+  }
 }

@@ -1,20 +1,18 @@
-import { CheckCircleOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined } from '@ant-design/icons'
 
-import { TeamLeaderBoardData } from "../../data/interfaces";
+import { TeamLeaderBoardData } from '../../data/interfaces'
 
 interface Props {
-  team: TeamLeaderBoardData;
+  team: TeamLeaderBoardData
 }
 
 function Score({ team }: Props) {
   return (
     <>
       <span>{team.score}</span>
-      {team.bingos > 0 && (
-        <span>{<CheckCircleOutlined style={{ marginLeft: "3px" }} />}</span>
-      )}
+      {team.bingos > 0 && <span>{<CheckCircleOutlined style={{ marginLeft: '3px' }} />}</span>}
     </>
-  );
+  )
 }
 
-export default Score;
+export default Score
