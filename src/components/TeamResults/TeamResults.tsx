@@ -52,6 +52,13 @@ const TeamResults = function ({ team, run, game }: Props) {
         <Col span={2} />
       </Row>
       <Row>
+        <Col span={24} style={{ textAlign: 'center' }}>
+          {team.members &&
+            team.members?.length > 0 &&
+            team.members?.map((member, index) => <span key={index}>{member} </span>)}
+        </Col>
+      </Row>
+      <Row>
         <Col span={24}>
           <Title level={2}>{t('challenges')}</Title>
           <BingoBoard
