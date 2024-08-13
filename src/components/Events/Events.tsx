@@ -43,7 +43,8 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
-          <strong>{getChallengeTitle(event.challenge, challenges)}</strong>
+          <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
+          {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
         </>
       )
     }

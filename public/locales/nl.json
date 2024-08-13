@@ -32,9 +32,11 @@
   "timeline": {
     "game-started": "Het spel is begonnen",
     "game-finished": "Het spel is net afgelopen",
-    "solved": "opgelost"
+    "solved": "opgelost",
+    "and-scored": "en scoorde",
+    "points": "punten"
   },
-  "ChallengeCompleted": "Uitdaging opgelost",
+  "ChallengeCompleted": "Uitdaging voltooid",
   "Start": "Begin",
   "Finish": "Finish"
 }

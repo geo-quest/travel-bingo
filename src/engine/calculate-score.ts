@@ -88,6 +88,7 @@ export function handleChallengeCompleted(
             return { ...t, rank: idx + 1 }
           }),
       },
+      points: challenge.points,
     },
   ] as ResultEvent[]
 }

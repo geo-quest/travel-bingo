@@ -32,9 +32,11 @@
   "timeline": {
     "game-started": "O jogo começou",
     "game-finished": "O jogo acabou de terminar",
-    "solved": "resolveu"
+    "solved": "resolveu",
+    "and-scored": "e marcou",
+    "points": "pontos"
   },
-  "ChallengeCompleted": "Desafio resolvido",
-  "Start": "Início",
-  "Finish": "Fim"
+  "ChallengeCompleted": "Desafio concluído",
+  "Start": "Começar",
+  "Finish": "Terminar"
 }

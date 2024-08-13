@@ -32,9 +32,11 @@
   "timeline": {
     "game-started": "比赛开始了",
     "game-finished": "比赛刚刚结束",
-    "solved": "解决了"
+    "solved": "解决了",
+    "and-scored": "并得分",
+    "points": "点"
   },
-  "ChallengeCompleted": "挑战已解决",
+  "ChallengeCompleted": "挑战完成",
   "Start": "开始",
   "Finish": "结束"
 }

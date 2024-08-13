@@ -32,7 +32,9 @@
   "timeline": {
     "game-started": "The game has started",
     "game-finished": "The game just ended",
-    "solved": "solved"
+    "solved": "solved",
+    "and-scored": "and scored",
+    "points": "points"
   },
   "ChallengeCompleted": "Challenge completed",
   "Start": "Start",
