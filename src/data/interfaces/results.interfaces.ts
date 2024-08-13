@@ -23,7 +23,7 @@ export interface TeamState {
   rank: number
   score: number
   bingos: number
-  solvedChallenges: string[]
+  completedChallenges: string[]
 }
 
 export interface RunGameState {

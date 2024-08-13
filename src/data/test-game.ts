@@ -1,4 +1,4 @@
-import { TravelBingoGameData } from './interfaces'
+import { EventType, TravelBingoGameData } from './interfaces'
 
 // function addMinutesToNow(minutes: number): string {
 //   const futureDate = new Date(Date.now() + minutes * 60_000)
@@ -675,6 +675,70 @@ export default {
           name: 'Team D',
         },
       },
+      events: [
+        { type: EventType.Start, timestamp: relativeDate(-30, 10, 0) },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 11, 0),
+          team: 'team-a',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 11, 10),
+          team: 'team-b',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 11, 20),
+          team: 'team-c',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 11, 30),
+          team: 'team-d',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 12, 0),
+          team: 'team-a',
+          challenge: 'Spot a tulip field',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 12, 0),
+          team: 'team-b',
+          challenge: 'Spot a tulip field',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 12, 0),
+          team: 'team-c',
+          challenge: 'Spot a tulip field',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 13, 0),
+          team: 'team-a',
+          challenge: 'Spot a bike',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 13, 10),
+          team: 'team-b',
+          challenge: 'Spot a bike',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(-30, 14, 0),
+          team: 'team-a',
+          challenge: 'Take pic with Van Gogh',
+        },
+        { type: EventType.Finish, timestamp: relativeDate(-30, 18, 0) },
+      ],
     },
     'current-edition': {
       name: {
@@ -694,6 +758,7 @@ export default {
           members: ['Lena', 'Kofi', 'Carlos'],
         },
       },
+      events: [],
     },
     'future-edition': {
       name: {
@@ -713,6 +778,7 @@ export default {
           members: ['Lena', 'Kofi', 'Carlos'],
         },
       },
+      events: [],
     },
   },
 } as TravelBingoGameData

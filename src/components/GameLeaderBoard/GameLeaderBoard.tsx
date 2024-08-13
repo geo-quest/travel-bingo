@@ -1,7 +1,9 @@
 import './GameLeaderBoard.css'
 
 import { KeyObject, RunGameData, RunGameStatus, TravelBingoGameData } from 'data/interfaces'
+import { calculateScore } from 'engine/calculate-score'
 
+import FinishedRun from './FinishedRun'
 import PlannedRun from './PlannedRun'
 
 interface Props {
@@ -10,21 +12,17 @@ interface Props {
 }
 
 const GameLeaderBoard = ({ run, game }: Props) => {
-  if (run.state === undefined || run.state.status === RunGameStatus.Planned)
-    return <PlannedRun run={run} game={game} />
+  const events = calculateScore(run, game.challenges)
+  const state = events[events.length - 1].state
+  if (state.status === RunGameStatus.Planned) return <PlannedRun run={run} game={game} />
+  else if (state.status === RunGameStatus.Finished)
+    return <FinishedRun game={game} run={run} state={state} />
   // const { t } = useTranslation()
 
   console.log(run, game)
 
   return <div>GameLeaderBoard</div>
   // const leaderBoardData = calculateScore(run, game.challenges)
-
-  // {run.finished && (
-  //   <FallingEmojis
-  //     emojiList={['🎉', '🥳', '👏', '🎊', '🥂', '🍻', '🙌']}
-  //     milliseconds={7_000}
-  //   />
-  // )}
 
   // const navigate = function (team: TeamLeaderBoardData & KeyObject) {
   //   window.location.href = `/${game.key}/${run.key}/${team.key}`

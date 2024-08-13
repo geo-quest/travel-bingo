@@ -1,6 +1,7 @@
-import { Date, LocalizedString, RunGameState, Teams } from './'
+import { Date, LocalizedString, Teams } from './'
 
 export enum EventType {
+  Empty,
   Start,
   Finish,
   ChallengeCompleted,
@@ -15,9 +16,9 @@ export interface Event {
 
 export interface RunGameData {
   name: LocalizedString
-  date?: Date
+  date: Date
   teams: Teams
-  state?: RunGameState
+  events: Event[]
 }
 
 export interface Runs {

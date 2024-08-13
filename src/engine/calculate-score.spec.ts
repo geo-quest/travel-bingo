@@ -19,9 +19,10 @@ import {
 
 const runGameData = (overrides?: Partial<RunGameData>): RunGameData => {
   return {
-    teams: { 'team-a': { en: 'Team A' }, 'team-b': { en: 'Team B' } },
     name: { en: 'game-1' },
-    state: RunGameStatus.Started,
+    date: '2024-08-12T00:00:00',
+    teams: { 'team-a': { en: 'Team A' }, 'team-b': { en: 'Team B' } },
+    events: [],
     ...overrides,
   } as RunGameData
 }
@@ -51,8 +52,8 @@ const state = (overrides?: Partial<RunGameState>): RunGameState => {
   return {
     status: RunGameStatus.Started,
     teams: [
-      { team: 'team-a', rank: 0, score: 0, bingos: 0, solvedChallenges: [] },
-      { team: 'team-b', rank: 0, score: 0, bingos: 0, solvedChallenges: [] },
+      { team: 'team-a', rank: 0, score: 0, bingos: 0, completedChallenges: [] },
+      { team: 'team-b', rank: 0, score: 0, bingos: 0, completedChallenges: [] },
     ],
     ...overrides,
   } as RunGameState
@@ -64,8 +65,8 @@ describe('calculate-score.ts', () => {
       expect(defineInitialState(runGameData())).toStrictEqual({
         status: RunGameStatus.Planned,
         teams: [
-          { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
-          { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+          { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+          { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
         ],
       } as RunGameState)
     })
@@ -126,8 +127,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
-              { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
             ],
           },
         },
@@ -150,8 +151,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Finished,
             teams: [
-              { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
-              { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
             ],
           },
         },
@@ -218,8 +219,14 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 100, rank: 1, bingos: 0, solvedChallenges: ['challenge-1'] },
-              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
+              {
+                team: 'team-a',
+                score: 100,
+                rank: 1,
+                bingos: 0,
+                completedChallenges: ['challenge-1'],
+              },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
             ],
           },
         },
@@ -239,13 +246,24 @@ describe('calculate-score.ts', () => {
     describe('very simple case', () => {
       const expectedResult = [
         {
+          type: EventType.Empty,
+          timestamp: '2024-08-12T00:00:00',
+          state: {
+            status: RunGameStatus.Planned,
+            teams: [
+              { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+            ],
+          },
+        },
+        {
           type: EventType.Start,
           timestamp: '2024-08-12T10:00:00',
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
-              { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
             ],
           },
         },
@@ -257,8 +275,14 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 100, rank: 1, bingos: 0, solvedChallenges: ['challenge-1'] },
-              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
+              {
+                team: 'team-a',
+                score: 100,
+                rank: 1,
+                bingos: 0,
+                completedChallenges: ['challenge-1'],
+              },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
             ],
           },
         },
@@ -275,9 +299,9 @@ describe('calculate-score.ts', () => {
                 score: 200,
                 rank: 1,
                 bingos: 1,
-                solvedChallenges: ['challenge-1', 'challenge-2'],
+                completedChallenges: ['challenge-1', 'challenge-2'],
               },
-              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
             ],
           },
         },
@@ -292,9 +316,9 @@ describe('calculate-score.ts', () => {
                 score: 200,
                 rank: 1,
                 bingos: 1,
-                solvedChallenges: ['challenge-1', 'challenge-2'],
+                completedChallenges: ['challenge-1', 'challenge-2'],
               },
-              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
             ],
           },
         },
@@ -303,23 +327,25 @@ describe('calculate-score.ts', () => {
       it('should return ResultEventArray', () => {
         expect(
           calculateScore(
-            runGameData(),
-            [
-              event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
-              event({
-                type: EventType.ChallengeCompleted,
-                timestamp: '2024-08-12T11:00:00',
-                team: 'team-a',
-                challenge: 'challenge-1',
-              }),
-              event({
-                type: EventType.ChallengeCompleted,
-                timestamp: '2024-08-12T12:00:00',
-                team: 'team-a',
-                challenge: 'challenge-2',
-              }),
-              event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
-            ],
+            runGameData({
+              events: [
+                event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
+                event({
+                  type: EventType.ChallengeCompleted,
+                  timestamp: '2024-08-12T11:00:00',
+                  team: 'team-a',
+                  challenge: 'challenge-1',
+                }),
+                event({
+                  type: EventType.ChallengeCompleted,
+                  timestamp: '2024-08-12T12:00:00',
+                  team: 'team-a',
+                  challenge: 'challenge-2',
+                }),
+                event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
+              ],
+            }),
+
             challenges(),
           ),
         ).toStrictEqual(expectedResult)
@@ -328,23 +354,24 @@ describe('calculate-score.ts', () => {
       it('should work for unsorted events array', () => {
         expect(
           calculateScore(
-            runGameData(),
-            [
-              event({
-                type: EventType.ChallengeCompleted,
-                timestamp: '2024-08-12T11:00:00',
-                team: 'team-a',
-                challenge: 'challenge-1',
-              }),
-              event({
-                type: EventType.ChallengeCompleted,
-                timestamp: '2024-08-12T12:00:00',
-                team: 'team-a',
-                challenge: 'challenge-2',
-              }),
-              event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
-              event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
-            ],
+            runGameData({
+              events: [
+                event({
+                  type: EventType.ChallengeCompleted,
+                  timestamp: '2024-08-12T11:00:00',
+                  team: 'team-a',
+                  challenge: 'challenge-1',
+                }),
+                event({
+                  type: EventType.ChallengeCompleted,
+                  timestamp: '2024-08-12T12:00:00',
+                  team: 'team-a',
+                  challenge: 'challenge-2',
+                }),
+                event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
+                event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
+              ],
+            }),
             challenges(),
           ),
         ).toStrictEqual(expectedResult)

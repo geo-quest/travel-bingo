@@ -1,8 +1,8 @@
 import { CheckCircleOutlined } from '@ant-design/icons'
-import { TeamLeaderBoardData } from 'data/interfaces'
+import { TeamState } from 'data/interfaces'
 
 interface Props {
-  team: TeamLeaderBoardData
+  team: TeamState
 }
 
 function Score({ team }: Props) {

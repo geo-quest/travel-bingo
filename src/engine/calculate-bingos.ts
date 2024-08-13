@@ -1,6 +1,6 @@
 import { Challenge } from '../data/interfaces'
 
-export function calculateBingos(solvedChallenges: string[], challenges: Challenge[][]): number {
+export function calculateBingos(completedChallenges: string[], challenges: Challenge[][]): number {
   const numRows = challenges.length
   const numCols = challenges[0].length
 
@@ -18,12 +18,12 @@ export function calculateBingos(solvedChallenges: string[], challenges: Challeng
 
   let bingos = 0
 
-  for (let i = 0; i < numRows; i++) if (isRowSolved(i, solvedChallenges)) bingos++
+  for (let i = 0; i < numRows; i++) if (isRowSolved(i, completedChallenges)) bingos++
 
-  for (let i = 0; i < numCols; i++) if (isColSolved(i, solvedChallenges)) bingos++
+  for (let i = 0; i < numCols; i++) if (isColSolved(i, completedChallenges)) bingos++
 
-  if (numCols === numRows && isMainDiagonalSolved(solvedChallenges)) bingos++
-  if (numCols === numRows && isSecondaryDiagonalSolved(solvedChallenges)) bingos++
+  if (numCols === numRows && isMainDiagonalSolved(completedChallenges)) bingos++
+  if (numCols === numRows && isSecondaryDiagonalSolved(completedChallenges)) bingos++
 
   return bingos
 }

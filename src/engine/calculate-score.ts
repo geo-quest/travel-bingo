@@ -20,7 +20,7 @@ export function defineInitialState(run: RunGameData): RunGameState {
   return {
     status: RunGameStatus.Planned,
     teams: Object.keys(run.teams).map(key => {
-      return { team: key, rank: 0, score: 0, bingos: 0, solvedChallenges: [] }
+      return { team: key, rank: 0, score: 0, bingos: 0, completedChallenges: [] }
     }),
   } as RunGameState
 }
@@ -64,6 +64,8 @@ export function handleChallengeCompleted(
 
   if (!team) throw new EngineError(`team "${event.team}" not found`)
   if (!challenge) throw new EngineError(`challenge "${event.challenge}" not found`)
+  if (team.completedChallenges.find(c => c === event.challenge))
+    throw new EngineError(`challenge "${event.challenge}" already completed by ${event.team}`)
 
   return [
     {
@@ -73,12 +75,12 @@ export function handleChallengeCompleted(
         teams: state.teams
           .map(t => {
             if (t.team !== event.team) return t
-            const solvedChallenges = t.solvedChallenges.concat([challenge.key])
+            const completedChallenges = t.completedChallenges.concat([challenge.key])
             return {
               ...t,
               score: t.score + challenge.points,
-              bingos: calculateBingos(solvedChallenges, challenges),
-              solvedChallenges,
+              bingos: calculateBingos(completedChallenges, challenges),
+              completedChallenges: completedChallenges,
             }
           })
           .sort((a, b) => b.score - a.score)
@@ -98,6 +100,7 @@ export function handleEvent(
   const eventHandlers: {
     [key in EventType]: (event: Event, state: RunGameState) => ResultEvent[]
   } = {
+    [EventType.Empty]: () => [],
     [EventType.Start]: (event, state) => handleStart(event, state),
     [EventType.Finish]: (event, state) => handleFinish(event, state),
     [EventType.ChallengeCompleted]: (event, state) =>
@@ -109,20 +112,16 @@ export function handleEvent(
   return handler(event, state)
 }
 
-export function calculateScore(
-  run: RunGameData,
-  events: Event[],
-  challenges: Challenge[][],
-): ResultEvent[] {
-  events.sort((e1, e2) => new Date(e1.timestamp).getTime() - new Date(e2.timestamp).getTime())
+export function calculateScore(run: RunGameData, challenges: Challenge[][]): ResultEvent[] {
+  run.events.sort((e1, e2) => new Date(e1.timestamp).getTime() - new Date(e2.timestamp).getTime())
 
-  validateStartAndFinishEvents(events)
-
-  const result: ResultEvent[] = []
+  validateStartAndFinishEvents(run.events)
 
   let state = defineInitialState(run)
 
-  for (const event of events) {
+  const result: ResultEvent[] = [{ type: EventType.Empty, state, timestamp: run.date }]
+
+  for (const event of run.events) {
     const resultEvents = handleEvent(event, state, challenges)
     result.push(...resultEvents)
     state = resultEvents[resultEvents.length - 1].state
