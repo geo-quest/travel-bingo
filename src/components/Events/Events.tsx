@@ -1,6 +1,6 @@
 import './Events.css'
 
-import { Tag, Timeline, Typography } from 'antd'
+import { Tag, Timeline } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
 import { EventType, ResultEvent, TeamsGameData } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
@@ -9,56 +9,61 @@ import { getTeamName } from 'utils/get-team-name'
 export interface Props {
   events: ResultEvent[]
   teamsData: TeamsGameData
+  filterFunction: (events: ResultEvent) => boolean
 }
 
-const Events: React.FC<Props> = ({ events, teamsData }: Props) => {
+const Events: React.FC<Props> = ({ events, teamsData, filterFunction }: Props) => {
   const { t } = useTranslation()
-  const renderTag = (event: ResultEvent) => {
-    switch (event.type) {
-      case EventType.Start:
-        return <Tag color="blue">Start</Tag>
-      case EventType.Finish:
-        return <Tag color="red">Finish</Tag>
-      case EventType.ChallengeCompleted:
-        return <Tag color="green">Challenge solved!</Tag>
-      default:
-        return <Tag color="gray">Other</Tag>
-    }
+
+  const getColorByEventType = (type: EventType) => {
+    const colorMap = new Map<EventType, string>([
+      [EventType.Start, 'blue'],
+      [EventType.Finish, 'red'],
+      [EventType.ChallengeCompleted, 'green'],
+    ])
+    return colorMap.get(type) || 'gray'
   }
-  const renderTime = (event: ResultEvent) => {
+
+  const renderTag = (event: ResultEvent) => {
     return (
-      <Typography.Text strong>
-        <FormattedDate date={event.timestamp} onlyTime />
-      </Typography.Text>
+      <Tag style={{ float: 'right' }} color={getColorByEventType(event.type)}>
+        {t(EventType[event.type])}
+      </Tag>
     )
   }
 
-  const timelineItems = events.map((event, index) => ({
+  const renderDetails = (event: ResultEvent) => {
+    if (event.type === EventType.Start) {
+      return <>{t('timeline.game-started')}</>
+    } else if (event.type === EventType.Finish) {
+      return <>{t('timeline.game-finished')}</>
+    } else if (event.type === EventType.ChallengeCompleted && event.team && event.challenge) {
+      return (
+        <>
+          <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
+          <strong>{event.challenge}</strong>
+        </>
+      )
+    }
+  }
+
+  const timelineItems = events.filter(filterFunction).map((event, index) => ({
     key: index,
-    dot: renderTime(event),
+    color: getColorByEventType(event.type),
     children: (
       <div className="event-timeline-item">
-        <p>{renderTag(event)}</p>
-        {event.team && (
-          <>
-            <Typography.Text>
-              {t('team')}: {getTeamName(event.team, teamsData)}
-            </Typography.Text>
-          </>
-        )}
-        {event.challenge && (
-          <>
-            <span className="separator">|</span>
-            <Typography.Text>
-              {t('challenge')}: {event.challenge}
-            </Typography.Text>
-          </>
-        )}
+        <p>
+          <strong>
+            <FormattedDate date={event.timestamp} onlyTime />
+            {renderTag(event)}
+          </strong>
+        </p>
+        {renderDetails(event)}
       </div>
     ),
   }))
 
-  return <Timeline mode="left" items={timelineItems} />
+  return <Timeline items={timelineItems} />
 }
 
 export default Events

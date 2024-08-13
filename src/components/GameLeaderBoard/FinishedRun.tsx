@@ -3,6 +3,7 @@ import FormattedDate from 'components/Date/FormattedDate'
 import Events from 'components/Events/Events'
 import FallingEmojis from 'components/FallingEmojis/FallingEmojis'
 import {
+  EventType,
   KeyObject,
   ResultEvent,
   RunGameData,
@@ -62,7 +63,11 @@ const FinishedRun = ({ game, run, state, events }: Props) => {
       children: (
         <Row>
           <Col span={24}>
-            <Events events={events} teamsData={run.teams} />
+            <Events
+              events={events}
+              teamsData={run.teams}
+              filterFunction={event => event.type !== EventType.Empty}
+            />
           </Col>
         </Row>
       ),

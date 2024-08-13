@@ -28,5 +28,13 @@
     "game-not-started": "This game has not started yet!",
     "please-wait": "Please wait a moment.",
     "expected-start-date": "Expected start date"
-  }
+  },
+  "timeline": {
+    "game-started": "The game has started",
+    "game-finished": "The game just ended",
+    "solved": "solved"
+  },
+  "ChallengeCompleted": "Challenge completed",
+  "Start": "Start",
+  "Finish": "Finish"
 }

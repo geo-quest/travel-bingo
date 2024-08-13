@@ -1,6 +1,6 @@
 {
   "challenges": "Uitdagingen",
-  "challenge": "uitdaging",
+  "challenge": "Uitdaging",
   "how-to-play": "Hoe te spelen",
   "rank": "Rang",
   "team": "Team",
@@ -9,7 +9,7 @@
   "run": {
     "run-date": "Datum uitvoeren",
     "last-update": "Laatste update",
-    "leaderboard": "Ranglijst",
+    "leaderboard": "Leiderbord",
     "timeline": "Tijdlijn"
   },
   "podium": {
@@ -28,5 +28,13 @@
     "game-not-started": "Dit spel is nog niet begonnen!",
     "please-wait": "Wacht even.",
     "expected-start-date": "Verwachte startdatum"
-  }
+  },
+  "timeline": {
+    "game-started": "Het spel is begonnen",
+    "game-finished": "Het spel is net afgelopen",
+    "solved": "opgelost"
+  },
+  "ChallengeCompleted": "Uitdaging opgelost",
+  "Start": "Begin",
+  "Finish": "Finish"
 }

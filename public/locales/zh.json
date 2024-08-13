@@ -10,7 +10,7 @@
     "run-date": "运行日期",
     "last-update": "最后更新",
     "leaderboard": "排行榜",
-    "timeline": "时间线"
+    "timeline": "时间轴"
   },
   "podium": {
     "1st": "第一名",
@@ -26,7 +26,15 @@
   },
   "planned-run": {
     "game-not-started": "这个游戏还没开始呢！",
-    "please-wait": "请稍等",
+    "please-wait": "请稍等。",
     "expected-start-date": "预计开始日期"
-  }
+  },
+  "timeline": {
+    "game-started": "比赛开始了",
+    "game-finished": "比赛刚刚结束",
+    "solved": "解决了"
+  },
+  "ChallengeCompleted": "挑战已解决",
+  "Start": "开始",
+  "Finish": "结束"
 }

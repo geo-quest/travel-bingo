@@ -9,8 +9,8 @@
   "run": {
     "run-date": "Data de execução",
     "last-update": "Última atualização",
-    "leaderboard": "Classificação",
-    "timeline": "Timeline"
+    "leaderboard": "Tabela de classificação",
+    "timeline": "Linha do tempo"
   },
   "podium": {
     "1st": "1º",
@@ -26,7 +26,15 @@
   },
   "planned-run": {
     "game-not-started": "Este jogo ainda não começou!",
-    "please-wait": "Por favor, espere um pouco.",
+    "please-wait": "Por favor, espere um momento.",
     "expected-start-date": "Data de início prevista"
-  }
+  },
+  "timeline": {
+    "game-started": "O jogo começou",
+    "game-finished": "O jogo acabou de terminar",
+    "solved": "resolveu"
+  },
+  "ChallengeCompleted": "Desafio resolvido",
+  "Start": "Início",
+  "Finish": "Fim"
 }
