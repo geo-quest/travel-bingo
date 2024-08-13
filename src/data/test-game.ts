@@ -763,8 +763,78 @@ export default {
           name: 'Team B',
           members: ['Lena', 'Kofi', 'Carlos'],
         },
+        'team-c': {
+          name: 'Team C',
+          members: ['Zara', 'Liam', 'Sofia'],
+        },
+        'team-d': {
+          name: 'Team D',
+          members: ['Maya', 'Tariq', 'Ana'],
+        },
       },
-      events: [],
+      events: [
+        { type: EventType.Start, timestamp: relativeDate(0, 10, 0) },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 11, 0),
+          team: 'team-a',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 11, 10),
+          team: 'team-b',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 11, 20),
+          team: 'team-c',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 11, 30),
+          team: 'team-d',
+          challenge: 'Spot a windmill',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 12, 0),
+          team: 'team-a',
+          challenge: 'Spot a tulip field',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 12, 0),
+          team: 'team-c',
+          challenge: 'Spot a tulip field',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 13, 0),
+          team: 'team-a',
+          challenge: 'Spot a bike',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 13, 10),
+          team: 'team-b',
+          challenge: 'Spot a bike',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 14, 0),
+          team: 'team-a',
+          challenge: 'Spot a canal',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 15, 0),
+          team: 'team-a',
+          challenge: 'Spot a cheese shop',
+        },
+      ],
     },
     'future-edition': {
       name: {

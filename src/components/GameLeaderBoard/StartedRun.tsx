@@ -1,10 +1,10 @@
 import { Col, Row, Space, Statistic } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
-import FallingEmojis from 'components/FallingEmojis/FallingEmojis'
+import RelativeDate from 'components/Date/RelativeDate'
 import {
   KeyObject,
+  ResultEvent,
   RunGameData,
-  RunGameState,
   TeamState,
   TravelBingoGameData,
 } from 'data/interfaces'
@@ -16,38 +16,44 @@ import Podium from './Podium'
 interface Props {
   game: TravelBingoGameData & KeyObject
   run: RunGameData & KeyObject
-  state: RunGameState
+  event: ResultEvent
 }
 
-const FinishedRun = ({ run, state, game }: Props) => {
+const StartedRun = ({ run, event, game }: Props) => {
   const { t } = useTranslation()
   const navigate = function (team: TeamState) {
     window.location.href = `/${game.key}/${run.key}/${team.team}`
   }
   return (
     <Space direction="vertical">
-      <FallingEmojis emojiList={['🎉', '🥳', '👏', '🎊', '🥂', '🍻', '🙌']} milliseconds={7_000} />
       <Row>
-        <Col span={24}>
+        <Col span={12} style={{ textAlign: 'center' }}>
           <Statistic
             valueStyle={{ fontSize: '16px' }}
             title={t('run.run-date')}
             valueRender={() => <FormattedDate date={run.date} />}
           />
         </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          <Podium teams={state.teams} teamsData={run.teams} onClick={navigate} />
+        <Col span={12} style={{ textAlign: 'center' }}>
+          <Statistic
+            valueStyle={{ fontSize: '16px' }}
+            title={t('run.last-update')}
+            valueRender={() => <RelativeDate date={event.timestamp} />}
+          />
         </Col>
       </Row>
       <Row>
         <Col span={24}>
-          <LeaderBoard teams={state.teams} teamsData={run.teams} onClick={navigate} />
+          <Podium teams={event.state.teams} teamsData={run.teams} onClick={navigate} />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <LeaderBoard teams={event.state.teams} teamsData={run.teams} onClick={navigate} />
         </Col>
       </Row>
     </Space>
   )
 }
 
-export default FinishedRun
+export default StartedRun
