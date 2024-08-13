@@ -2,7 +2,7 @@ import './Home.css'
 
 import { Button, Col, Row } from 'antd'
 
-import { DynamicIconComponent } from '../../components/DynamicIcon/DynamicIcon'
+import DynamicIcon from '../../components/DynamicIcon/DynamicIcon'
 import { TravelBingoGamesData } from '../../data/interfaces'
 import t2 from '../../utils/t2'
 
@@ -18,7 +18,7 @@ function Home({ data }: Props) {
       <Row style={{ paddingTop: '16px' }} key={key}>
         <Col span={24}>
           <Button
-            icon={<DynamicIconComponent iconName={game.icon} color={game.color} />}
+            icon={<DynamicIcon iconName={game.icon} color={game.color} />}
             onClick={() => {
               window.location.href = `/${key}`
             }}

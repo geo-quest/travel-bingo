@@ -8,7 +8,7 @@ interface Props {
   color?: string
 }
 
-export const DynamicIconComponent = ({ iconName, style, color }: Props) => {
+const DynamicIcon = ({ iconName, style, color }: Props) => {
   const IconComponent = Icons[iconName as keyof typeof Icons] as React.ComponentType<{
     style?: React.CSSProperties
   }>
@@ -19,3 +19,5 @@ export const DynamicIconComponent = ({ iconName, style, color }: Props) => {
 
   return <IconComponent style={style} />
 }
+
+export default DynamicIcon
