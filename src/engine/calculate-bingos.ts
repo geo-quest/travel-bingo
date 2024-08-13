@@ -22,8 +22,8 @@ export function calculateBingos(solvedChallenges: string[], challenges: Challeng
 
   for (let i = 0; i < numCols; i++) if (isColSolved(i, solvedChallenges)) bingos++
 
-  if (isMainDiagonalSolved(solvedChallenges)) bingos++
-  if (isSecondaryDiagonalSolved(solvedChallenges)) bingos++
+  if (numCols === numRows && isMainDiagonalSolved(solvedChallenges)) bingos++
+  if (numCols === numRows && isSecondaryDiagonalSolved(solvedChallenges)) bingos++
 
   return bingos
 }
