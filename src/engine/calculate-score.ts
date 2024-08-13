@@ -1,7 +1,5 @@
 // import { Challenge, LeaderBoardData, RunGameData } from '../data/interfaces'
 
-import { stat } from 'fs'
-
 import {
   Challenge,
   Event,
@@ -10,7 +8,6 @@ import {
   RunGameData,
   RunGameState,
   State,
-  Teams,
 } from '../data/interfaces'
 
 // export function calculateScore(run: RunGameData, challenges: Challenge[][]): LeaderBoardData {
@@ -82,33 +79,17 @@ export function defineInitialState(run: RunGameData) {
   } as State
 }
 
-export function validateListOfEvents(run: RunGameData, events: Event[]) {
-  const isPlanned = run.state === RunGameState.Planned
-  const isRunning = run.state === RunGameState.Running
+export function validateStartAndFinishEvents(events: Event[]) {
+  if (events.length === 0) return
+
   const startEvents = events.filter(e => e.type === EventType.Start)
   const finishEvents = events.filter(e => e.type === EventType.Finish)
 
-  if (isPlanned) {
-    if (events.length > 0) throw new EngineError('the run is planned; events array must be empty.')
-    return
-  }
-
-  if (!events || events.length === 0) throw new EngineError('events array must not be empty.')
-
   if (events[0].type !== EventType.Start) throw new EngineError('the first event must be "start".')
-
   if (startEvents.length !== 1) throw new EngineError('there must be exactly one "start" event.')
-
-  if (isRunning) {
-    if (finishEvents.length > 0) throw new EngineError('no "finish" events allowed while running.')
-  } else {
-    if (events[events.length - 1].type !== EventType.Finish)
-      throw new EngineError('the last event must be "finish".')
-    if (finishEvents.length !== 1)
-      throw new EngineError('there must be exactly one "finish" event.')
-    if (finishEvents[0].timestamp < startEvents[0].timestamp)
-      throw new EngineError('"finish" must be later than "start".')
-  }
+  if (finishEvents.length > 1) throw new EngineError('there must be maximum one "finish" event.')
+  if (finishEvents[0]?.timestamp < startEvents[0]?.timestamp)
+    throw new EngineError('"finish" must be later than "start".')
 }
 
 export function handleStart(state: State): State {
@@ -161,7 +142,9 @@ export function calculateScore(
   events: Event[],
   challenges: Challenge[][],
 ): ResultEvent[] {
-  validateListOfEvents(run, events)
+  events.sort((e1, e2) => Date.parse(e1.timestamp) - Date.parse(e2.timestamp))
+
+  validateStartAndFinishEvents(events)
 
   const result: ResultEvent[] = []
 

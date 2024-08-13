@@ -22,8 +22,6 @@ export interface Event {
 export interface RunGameData {
   name: LocalizedString
   date?: Date
-  lastUpdate?: Date
-  state: RunGameState
   teams: Teams
 }
 

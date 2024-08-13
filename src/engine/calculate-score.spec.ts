@@ -6,12 +6,12 @@ import {
   handleEvent,
   handleFinish,
   handleStart,
-  validateListOfEvents,
+  validateStartAndFinishEvents,
 } from './calculate-score'
 
 const runGameData = (overrides?: Partial<RunGameData>): RunGameData => {
   return {
-    teams: { 'team-a': { en: 'Team A' } },
+    teams: { 'team-a': { en: 'Team A' }, 'team-b': { en: 'Team B' } },
     name: { en: 'game-1' },
     state: RunGameState.Running,
     ...overrides,
@@ -146,82 +146,49 @@ describe('calculate-score.ts', () => {
   describe('defineInitialState', () => {
     it('should return all teams with score 0', () => {
       expect(defineInitialState(runGameData())).toStrictEqual({
-        teams: [{ team: 'team-a', score: 0 }],
+        teams: [
+          { team: 'team-a', score: 0 },
+          { team: 'team-b', score: 0 },
+        ],
       })
     })
   })
 
-  describe('validateListOfEvents', () => {
-    describe('run.state: planned', () => {
-      it('should throw error for non empty array', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Planned }), [event()]),
-        ).toThrowError('the run is planned; events array must be empty.')
-      })
-      it('should not throw error for empty array', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Planned }), []),
-        ).not.toThrow()
-      })
+  describe('validateStartAndFinishEvents', () => {
+    it('should not throw error for empty array', () => {
+      expect(() => validateStartAndFinishEvents([])).not.toThrowError()
     })
-
-    describe('run.state: finished', () => {
-      it('should throw error for empty array', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Finished }), []),
-        ).toThrowError('events array must not be empty.')
-      })
-      it('should throw error for first event other than start', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Finished }), [event()]),
-        ).toThrowError('first event must be "start".')
-      })
-      it('should throw error for multiple "start" events', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Finished }), [
-            event({ type: EventType.Start }),
-            event({ type: EventType.Start }),
-            event({ type: EventType.Finish }),
-          ]),
-        ).toThrowError('there must be exactly one "start" event.')
-      })
-      it('should throw error for last event other than "finish', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Finished }), [
-            event({ type: EventType.Start }),
-            event(),
-          ]),
-        ).toThrowError('last event must be "finish".')
-      })
-      it('should throw error for multiple "finish events', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Finished }), [
-            event({ type: EventType.Start }),
-            event({ type: EventType.Finish }),
-            event({ type: EventType.Finish }),
-          ]),
-        ).toThrowError('there must be exactly one "finish" event.')
-      })
-      it('should throw error for "finish" later than "start', () => {
-        expect(() =>
-          validateListOfEvents(runGameData({ state: RunGameState.Finished }), [
-            event({ type: EventType.Start, timestamp: '20240812T18:00:00' }),
-            event(),
-            event({ type: EventType.Finish, timestamp: '20240812T10:00:00' }),
-          ]),
-        ).toThrowError('"finish" must be later than "start".')
-      })
+    it('should throw error for first event other than start', () => {
+      expect(() => validateStartAndFinishEvents([event()])).toThrowError(
+        'first event must be "start".',
+      )
     })
-
-    describe('run.state: running', () => {
-      it('should throw error for "finish" event', () => {
-        expect(() =>
-          validateListOfEvents(runGameData(), [
-            event({ type: EventType.Start }),
-            event({ type: EventType.Finish }),
-          ]),
-        ).toThrowError('no "finish" events allowed while running.')
-      })
+    it('should throw error for multiple "start" events', () => {
+      expect(() =>
+        validateStartAndFinishEvents([
+          event({ type: EventType.Start }),
+          event({ type: EventType.Start }),
+          event({ type: EventType.Finish }),
+        ]),
+      ).toThrowError('there must be exactly one "start" event.')
+    })
+    it('should throw error for multiple "finish events', () => {
+      expect(() =>
+        validateStartAndFinishEvents([
+          event({ type: EventType.Start }),
+          event({ type: EventType.Finish }),
+          event({ type: EventType.Finish }),
+        ]),
+      ).toThrowError('there must be maximum one "finish" event.')
+    })
+    it('should throw error for "finish" later than "start', () => {
+      expect(() =>
+        validateStartAndFinishEvents([
+          event({ type: EventType.Start, timestamp: '20240812T18:00:00' }),
+          event(),
+          event({ type: EventType.Finish, timestamp: '20240812T10:00:00' }),
+        ]),
+      ).toThrowError('"finish" must be later than "start".')
     })
   })
 
@@ -332,6 +299,7 @@ describe('calculate-score.ts', () => {
               team: 'team-a',
               challenge: 'challenge-1',
             }),
+            event({ type: EventType.Finish, timestamp: '2024-08-12T12:00:00' }),
           ],
           challenges(),
         ),
@@ -339,14 +307,34 @@ describe('calculate-score.ts', () => {
         {
           type: EventType.Start,
           timestamp: '2024-08-12T10:00:00',
-          state: { teams: [{ team: 'team-a', score: 0 }] },
+          state: {
+            teams: [
+              { team: 'team-a', score: 0 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
         },
         {
           type: EventType.ChallengeCompleted,
           timestamp: '2024-08-12T11:00:00',
           team: 'team-a',
           challenge: 'challenge-1',
-          state: { teams: [{ team: 'team-a', score: 100 }] },
+          state: {
+            teams: [
+              { team: 'team-a', score: 100 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
+        },
+        {
+          type: EventType.Finish,
+          timestamp: '2024-08-12T12:00:00',
+          state: {
+            teams: [
+              { team: 'team-a', score: 100 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
         },
       ])
     })
