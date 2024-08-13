@@ -3,11 +3,13 @@ import 'antd/dist/reset.css'
 import { Table } from 'antd'
 import Rank from 'components/Rank/Rank'
 import Score from 'components/Score/Score'
-import { RunGameState, TeamState } from 'data/interfaces'
+import { TeamsGameData, TeamState } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
+import { getTeamName } from 'utils/get-team-name'
 
 interface Props {
-  state: RunGameState
+  teams: TeamState[]
+  teamsData: TeamsGameData
   onClick: (team: TeamState) => void
 }
 
@@ -15,14 +17,7 @@ interface TeamCellProps {
   team: TeamState
 }
 
-const TeamCell = ({ team }: TeamCellProps) => {
-  {
-    /* //TODO: get the team name instead of the key */
-  }
-  return <span>{team.team}</span>
-}
-
-const LeaderBoard = ({ state, onClick }: Props) => {
+const LeaderBoard = ({ teams, teamsData, onClick }: Props) => {
   const { t } = useTranslation()
   const columns = [
     {
@@ -45,10 +40,14 @@ const LeaderBoard = ({ state, onClick }: Props) => {
     },
   ]
 
+  const TeamCell = ({ team }: TeamCellProps) => {
+    return <span>{getTeamName(team, teamsData)}</span>
+  }
+
   return (
     <Table
       columns={columns}
-      dataSource={state.teams}
+      dataSource={teams}
       pagination={false}
       rowKey={team => team.team}
       onRow={team => {

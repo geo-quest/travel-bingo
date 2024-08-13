@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { RunGameStatus, TeamState } from 'data/interfaces'
+import { RunGameStatus, TeamsGameData, TeamState } from 'data/interfaces'
 
 import Podium from './Podium'
 
@@ -47,20 +47,26 @@ const teams: TeamState[] = [
   },
 ]
 
+const teamsData: TeamsGameData = {
+  'team-a': { name: 'Team A' },
+  'team-b': { name: 'Team B' },
+  'team-c': { name: 'Team C' },
+  'team-d': { name: 'Team D' },
+  'team-e': { name: 'Team E' },
+}
+
 describe('Podium Component', () => {
   beforeEach(() => {
     mockOnClick.mockClear()
   })
 
   test('renders without crashing', () => {
-    render(<Podium state={{ status: RunGameStatus.Started, teams }} onClick={mockOnClick} />)
+    render(<Podium teams={teams} teamsData={teamsData} onClick={mockOnClick} />)
     expect(screen.getByText('podium.1st')).toBeInTheDocument()
   })
 
   test('renders correct number of cards for 1 team with correct span', () => {
-    render(
-      <Podium state={{ status: RunGameStatus.Started, teams: [teams[0]] }} onClick={mockOnClick} />,
-    )
+    render(<Podium teams={teams.slice(0, 1)} teamsData={teamsData} onClick={mockOnClick} />)
     const firstPlaceCol = screen.getByText('podium.1st').closest('.ant-col')
     expect(firstPlaceCol).toHaveClass('ant-col-24')
     expect(screen.queryByText('podium.2nd')).toBeNull()
@@ -68,12 +74,7 @@ describe('Podium Component', () => {
   })
 
   test('renders correct number of cards for 2 teams with correct spans', () => {
-    render(
-      <Podium
-        state={{ status: RunGameStatus.Started, teams: teams.slice(0, 2) }}
-        onClick={mockOnClick}
-      />,
-    )
+    render(<Podium teams={teams.slice(0, 2)} teamsData={teamsData} onClick={mockOnClick} />)
 
     const firstPlaceCol = screen.getByText('podium.1st').closest('.ant-col')
     const secondPlaceCol = screen.getByText('podium.2nd').closest('.ant-col')
@@ -84,7 +85,7 @@ describe('Podium Component', () => {
   })
 
   test('renders correct number of cards for 3 or more teams with correct spans', () => {
-    render(<Podium state={{ status: RunGameStatus.Started, teams }} onClick={mockOnClick} />)
+    render(<Podium teams={teams} teamsData={teamsData} onClick={mockOnClick} />)
 
     const firstPlaceCol = screen.getByText('podium.1st').closest('.ant-col')
     const secondPlaceCol = screen.getByText('podium.2nd').closest('.ant-col')
@@ -96,7 +97,7 @@ describe('Podium Component', () => {
   })
 
   test('calls onClick with correct team data when a card is clicked', () => {
-    render(<Podium state={{ status: RunGameStatus.Started, teams }} onClick={mockOnClick} />)
+    render(<Podium teams={teams} teamsData={teamsData} onClick={mockOnClick} />)
     fireEvent.click(screen.getByText('podium.1st'))
     expect(mockOnClick).toHaveBeenCalledWith(teams[0])
 
@@ -108,7 +109,7 @@ describe('Podium Component', () => {
   })
 
   test('applies correct class names based on team position', () => {
-    render(<Podium state={{ status: RunGameStatus.Started, teams }} onClick={mockOnClick} />)
+    render(<Podium teams={teams} teamsData={teamsData} onClick={mockOnClick} />)
     expect(screen.getByText('podium.1st').closest('.podium-card')).toHaveClass('gold')
     expect(screen.getByText('podium.2nd').closest('.podium-card')).toHaveClass('silver')
     expect(screen.getByText('podium.3rd').closest('.podium-card')).toHaveClass('bronze')

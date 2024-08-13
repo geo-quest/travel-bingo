@@ -3,6 +3,6 @@ export interface TeamGameData {
   members?: string[]
 }
 
-export interface Teams {
+export interface TeamsGameData {
   [name: string]: TeamGameData
 }

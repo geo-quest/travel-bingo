@@ -39,12 +39,12 @@ const FinishedRun = ({ run, state, game }: Props) => {
         </Row>
         <Row>
           <Col span={24}>
-            <Podium state={state} onClick={navigate} />
+            <Podium teams={state.teams} teamsData={run.teams} onClick={navigate} />
           </Col>
         </Row>
         <Row>
           <Col span={24}>
-            <LeaderBoard state={state} onClick={navigate} />
+            <LeaderBoard teams={state.teams} teamsData={run.teams} onClick={navigate} />
           </Col>
         </Row>
       </Space>
