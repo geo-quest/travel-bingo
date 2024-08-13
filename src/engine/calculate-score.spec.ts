@@ -181,10 +181,10 @@ describe('calculate-score.ts', () => {
         ]),
       ).toThrowError('there must be maximum one "finish" event.')
     })
-    it('should throw error for "finish" later than "start', () => {
+    it('should throw error for "finish" not later than "start', () => {
       expect(() =>
         validateStartAndFinishEvents([
-          event({ type: EventType.Start, timestamp: '20240812T18:00:00' }),
+          event({ type: EventType.Start, timestamp: '20240812T10:00:00' }),
           event(),
           event({ type: EventType.Finish, timestamp: '20240812T10:00:00' }),
         ]),

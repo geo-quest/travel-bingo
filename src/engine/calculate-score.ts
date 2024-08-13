@@ -1,14 +1,6 @@
 // import { Challenge, LeaderBoardData, RunGameData } from '../data/interfaces'
 
-import {
-  Challenge,
-  Event,
-  EventType,
-  ResultEvent,
-  RunGameData,
-  RunGameState,
-  State,
-} from '../data/interfaces'
+import { Challenge, Event, EventType, ResultEvent, RunGameData, State } from '../data/interfaces'
 
 // export function calculateScore(run: RunGameData, challenges: Challenge[][]): LeaderBoardData {
 //   const numRows = challenges.length
@@ -88,7 +80,7 @@ export function validateStartAndFinishEvents(events: Event[]) {
   if (events[0].type !== EventType.Start) throw new EngineError('the first event must be "start".')
   if (startEvents.length !== 1) throw new EngineError('there must be exactly one "start" event.')
   if (finishEvents.length > 1) throw new EngineError('there must be maximum one "finish" event.')
-  if (finishEvents[0]?.timestamp < startEvents[0]?.timestamp)
+  if (finishEvents[0]?.timestamp <= startEvents[0]?.timestamp)
     throw new EngineError('"finish" must be later than "start".')
 }
 
