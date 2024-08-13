@@ -205,19 +205,19 @@ describe('calculate-score.ts', () => {
   })
 
   describe('handleChallengeCompleted', () => {
-    test('should throw an error if "team" is not defined', () => {
+    it('should throw an error if "team" is not defined', () => {
       expect(() =>
         handleChallengeCompleted(event({ challenge: 'challenge-1' }), state(), challenges()),
       ).toThrow('"team" must be defined')
     })
 
-    test('should throw an error if "challenge" is not defined', () => {
+    it('should throw an error if "challenge" is not defined', () => {
       expect(() =>
         handleChallengeCompleted(event({ team: 'team-a' }), state(), challenges()),
       ).toThrow('"challenge" must be defined')
     })
 
-    test('should throw an error if "team" is invalid', () => {
+    it('should throw an error if "team" is invalid', () => {
       expect(() =>
         handleChallengeCompleted(
           event({ challenge: 'challenge-1', team: 'team-b' }),
@@ -227,7 +227,7 @@ describe('calculate-score.ts', () => {
       ).toThrow('team "team-b" not found')
     })
 
-    test('should throw an error if "challenge" is invalid', () => {
+    it('should throw an error if "challenge" is invalid', () => {
       expect(() =>
         handleChallengeCompleted(
           event({ challenge: 'challenge-5', team: 'team-a' }),
@@ -237,7 +237,7 @@ describe('calculate-score.ts', () => {
       ).toThrow('challenge "challenge-5" not found')
     })
 
-    test('should return state updated', () => {
+    it('should return state updated', () => {
       expect(
         handleChallengeCompleted(
           event({ challenge: 'challenge-1', team: 'team-a' }),
