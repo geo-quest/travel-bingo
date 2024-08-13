@@ -6,12 +6,6 @@ export enum EventType {
   ChallengeCompleted,
 }
 
-export enum RunGameState {
-  Planned,
-  Running,
-  Finished,
-}
-
 export interface Event {
   type: EventType
   timestamp: Date

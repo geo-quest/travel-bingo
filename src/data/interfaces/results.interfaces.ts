@@ -1,5 +1,11 @@
 import { Event, LocalizedString, TeamChallenge } from './'
 
+export enum RunGameStatus {
+  Planned,
+  Started,
+  Finished,
+}
+
 export interface TeamLeaderBoardData {
   key: string
   name: LocalizedString
@@ -19,6 +25,7 @@ export interface TeamState {
 }
 
 export interface State {
+  status: RunGameStatus
   teams: TeamState[]
 }
 

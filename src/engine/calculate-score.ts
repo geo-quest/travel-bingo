@@ -1,6 +1,14 @@
 // import { Challenge, LeaderBoardData, RunGameData } from '../data/interfaces'
 
-import { Challenge, Event, EventType, ResultEvent, RunGameData, State } from '../data/interfaces'
+import {
+  Challenge,
+  Event,
+  EventType,
+  ResultEvent,
+  RunGameData,
+  RunGameStatus,
+  State,
+} from '../data/interfaces'
 
 // export function calculateScore(run: RunGameData, challenges: Challenge[][]): LeaderBoardData {
 //   const numRows = challenges.length
@@ -63,8 +71,9 @@ class EngineError extends Error {
   }
 }
 
-export function defineInitialState(run: RunGameData) {
+export function defineInitialState(run: RunGameData): State {
   return {
+    status: RunGameStatus.Planned,
     teams: Object.keys(run.teams).map(key => {
       return { team: key, score: 0 }
     }),
@@ -84,23 +93,26 @@ export function validateStartAndFinishEvents(events: Event[]) {
     throw new EngineError('"finish" must be later than "start".')
 }
 
-export function handleStart(state: State): State {
-  // FIXME implement it
-  return { ...state }
+export function handleStart(event: Event, state: State): ResultEvent[] {
+  if (state.status !== RunGameStatus.Planned) throw new EngineError('invalid state for start event')
+  return [{ ...event, state: { ...state, status: RunGameStatus.Started } }]
 }
 
-export function handleFinish(state: State): State {
-  // FIXME implement it
-  return { ...state }
+export function handleFinish(event: Event, state: State): ResultEvent[] {
+  if (state.status !== RunGameStatus.Started)
+    throw new EngineError('invalid state for finish event')
+  return [{ ...event, state: { ...state, status: RunGameStatus.Finished } }]
 }
 
 export function handleChallengeCompleted(
   event: Event,
   state: State,
   challenges: Challenge[][],
-): State {
+): ResultEvent[] {
   if (!event.team) throw new EngineError('"team" must be defined')
   if (!event.challenge) throw new EngineError('"challenge" must be defined')
+  if (state.status !== RunGameStatus.Started)
+    throw new EngineError('invalid state for a challengeCompleted event')
 
   const team = state.teams.find(t => t.team === event.team)
   const challenge = challenges.flat().find(c => c.key === event.challenge)
@@ -108,18 +120,23 @@ export function handleChallengeCompleted(
   if (!team) throw new EngineError(`team "${event.team}" not found`)
   if (!challenge) throw new EngineError(`challenge "${event.challenge}" not found`)
 
-  return {
-    ...state,
-    teams: state.teams.map(t =>
-      t.team === event.team ? { ...t, score: t.score + challenge.points } : t,
-    ),
-  }
+  return [
+    {
+      ...event,
+      state: {
+        ...state,
+        teams: state.teams.map(t =>
+          t.team === event.team ? { ...t, score: t.score + challenge.points } : t,
+        ),
+      },
+    },
+  ]
 }
 
-export function handleEvent(event: Event, state: State, challenges: Challenge[][]) {
-  const eventHandlers: { [key in EventType]: (event: Event, state: State) => State } = {
-    [EventType.Start]: (_, state) => handleStart(state),
-    [EventType.Finish]: (_, state) => handleFinish(state),
+export function handleEvent(event: Event, state: State, challenges: Challenge[][]): ResultEvent[] {
+  const eventHandlers: { [key in EventType]: (event: Event, state: State) => ResultEvent[] } = {
+    [EventType.Start]: (event, state) => handleStart(event, state),
+    [EventType.Finish]: (event, state) => handleFinish(event, state),
     [EventType.ChallengeCompleted]: (event, state) =>
       handleChallengeCompleted(event, state, challenges),
   }
@@ -134,7 +151,7 @@ export function calculateScore(
   events: Event[],
   challenges: Challenge[][],
 ): ResultEvent[] {
-  events.sort((e1, e2) => Date.parse(e1.timestamp) - Date.parse(e2.timestamp))
+  events.sort((e1, e2) => new Date(e1.timestamp).getTime() - new Date(e2.timestamp).getTime())
 
   validateStartAndFinishEvents(events)
 
@@ -143,8 +160,9 @@ export function calculateScore(
   let state = defineInitialState(run)
 
   for (const event of events) {
-    state = handleEvent(event, state, challenges)
-    result.push({ ...event, state })
+    const resultEvents = handleEvent(event, state, challenges)
+    result.push(...resultEvents)
+    state = resultEvents[resultEvents.length - 1].state
   }
 
   return result

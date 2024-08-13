@@ -1,4 +1,12 @@
-import { Challenge, Event, EventType, RunGameData, RunGameState, State } from '../data/interfaces'
+import {
+  Challenge,
+  Event,
+  EventType,
+  ResultEvent,
+  RunGameData,
+  RunGameStatus,
+  State,
+} from '../data/interfaces'
 import {
   calculateScore,
   defineInitialState,
@@ -13,7 +21,7 @@ const runGameData = (overrides?: Partial<RunGameData>): RunGameData => {
   return {
     teams: { 'team-a': { en: 'Team A' }, 'team-b': { en: 'Team B' } },
     name: { en: 'game-1' },
-    state: RunGameState.Running,
+    state: RunGameStatus.Started,
     ...overrides,
   } as RunGameData
 }
@@ -39,8 +47,15 @@ const challenges = (): Challenge[][] => {
   ] as Challenge[][]
 }
 
-const state = (): State => {
-  return { teams: [{ team: 'team-a', score: 0 }] }
+const state = (overrides?: Partial<State>): State => {
+  return {
+    status: RunGameStatus.Started,
+    teams: [
+      { team: 'team-a', score: 0 },
+      { team: 'team-b', score: 0 },
+    ],
+    ...overrides,
+  } as State
 }
 
 describe('calculate-score.ts', () => {
@@ -144,13 +159,14 @@ describe('calculate-score.ts', () => {
   // })
 
   describe('defineInitialState', () => {
-    it('should return all teams with score 0', () => {
+    it('should return a planned state', () => {
       expect(defineInitialState(runGameData())).toStrictEqual({
+        status: RunGameStatus.Planned,
         teams: [
           { team: 'team-a', score: 0 },
           { team: 'team-b', score: 0 },
         ],
-      })
+      } as State)
     })
   })
 
@@ -193,14 +209,52 @@ describe('calculate-score.ts', () => {
   })
 
   describe('handleStart', () => {
-    it('should return the initial state', () => {
-      expect(handleStart(state())).toStrictEqual(state())
+    it('should throw an error if state is not planned', () => {
+      expect(() =>
+        handleStart(event({ type: EventType.Start }), state({ status: RunGameStatus.Started })),
+      ).toThrow('invalid state for start event')
+    })
+
+    it('should return a started state', () => {
+      expect(
+        handleStart(event({ type: EventType.Start }), state({ status: RunGameStatus.Planned })),
+      ).toStrictEqual([
+        {
+          type: EventType.Start,
+          timestamp: '2024-08-12T10:00:00',
+          state: {
+            status: RunGameStatus.Started,
+            teams: [
+              { team: 'team-a', score: 0 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
+        },
+      ] as ResultEvent[])
     })
   })
 
   describe('handleFinish', () => {
-    it('should return the final state', () => {
-      expect(handleFinish(state())).toStrictEqual(state())
+    it('should throw an error if state is not started', () => {
+      expect(() =>
+        handleFinish(event({ type: EventType.Finish }), state({ status: RunGameStatus.Planned })),
+      ).toThrow('invalid state for finish event')
+    })
+
+    it('should return a final state', () => {
+      expect(handleFinish(event({ type: EventType.Finish }), state())).toStrictEqual([
+        {
+          type: EventType.Finish,
+          timestamp: '2024-08-12T10:00:00',
+          state: {
+            status: RunGameStatus.Finished,
+            teams: [
+              { team: 'team-a', score: 0 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
+        },
+      ] as ResultEvent[])
     })
   })
 
@@ -220,11 +274,11 @@ describe('calculate-score.ts', () => {
     it('should throw an error if "team" is invalid', () => {
       expect(() =>
         handleChallengeCompleted(
-          event({ challenge: 'challenge-1', team: 'team-b' }),
+          event({ challenge: 'challenge-1', team: 'team-c' }),
           state(),
           challenges(),
         ),
-      ).toThrow('team "team-b" not found')
+      ).toThrow('team "team-c" not found')
     })
 
     it('should throw an error if "challenge" is invalid', () => {
@@ -237,6 +291,16 @@ describe('calculate-score.ts', () => {
       ).toThrow('challenge "challenge-5" not found')
     })
 
+    it('should throw an error if state is not started', () => {
+      expect(() =>
+        handleChallengeCompleted(
+          event({ challenge: 'challenge-1', team: 'team-a' }),
+          state({ status: RunGameStatus.Planned }),
+          challenges(),
+        ),
+      ).toThrow('invalid state for a challengeCompleted event')
+    })
+
     it('should return state updated', () => {
       expect(
         handleChallengeCompleted(
@@ -244,7 +308,21 @@ describe('calculate-score.ts', () => {
           state(),
           challenges(),
         ),
-      ).toStrictEqual({ teams: [{ team: 'team-a', score: 100 }] })
+      ).toStrictEqual([
+        {
+          type: EventType.ChallengeCompleted,
+          team: 'team-a',
+          challenge: 'challenge-1',
+          timestamp: '2024-08-12T10:00:00',
+          state: {
+            status: RunGameStatus.Started,
+            teams: [
+              { team: 'team-a', score: 100 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
+        },
+      ] as ResultEvent[])
     })
   })
 
@@ -287,6 +365,44 @@ describe('calculate-score.ts', () => {
   // })
 
   describe('calculateScore', () => {
+    const expectedResult = [
+      {
+        type: EventType.Start,
+        timestamp: '2024-08-12T10:00:00',
+        state: {
+          status: RunGameStatus.Started,
+          teams: [
+            { team: 'team-a', score: 0 },
+            { team: 'team-b', score: 0 },
+          ],
+        },
+      },
+      {
+        type: EventType.ChallengeCompleted,
+        timestamp: '2024-08-12T11:00:00',
+        team: 'team-a',
+        challenge: 'challenge-1',
+        state: {
+          status: RunGameStatus.Started,
+          teams: [
+            { team: 'team-a', score: 100 },
+            { team: 'team-b', score: 0 },
+          ],
+        },
+      },
+      {
+        type: EventType.Finish,
+        timestamp: '2024-08-12T12:00:00',
+        state: {
+          status: RunGameStatus.Finished,
+          teams: [
+            { team: 'team-a', score: 100 },
+            { team: 'team-b', score: 0 },
+          ],
+        },
+      },
+    ] as ResultEvent[]
+
     it('should return calculated simple case', () => {
       expect(
         calculateScore(
@@ -303,40 +419,7 @@ describe('calculate-score.ts', () => {
           ],
           challenges(),
         ),
-      ).toStrictEqual([
-        {
-          type: EventType.Start,
-          timestamp: '2024-08-12T10:00:00',
-          state: {
-            teams: [
-              { team: 'team-a', score: 0 },
-              { team: 'team-b', score: 0 },
-            ],
-          },
-        },
-        {
-          type: EventType.ChallengeCompleted,
-          timestamp: '2024-08-12T11:00:00',
-          team: 'team-a',
-          challenge: 'challenge-1',
-          state: {
-            teams: [
-              { team: 'team-a', score: 100 },
-              { team: 'team-b', score: 0 },
-            ],
-          },
-        },
-        {
-          type: EventType.Finish,
-          timestamp: '2024-08-12T12:00:00',
-          state: {
-            teams: [
-              { team: 'team-a', score: 100 },
-              { team: 'team-b', score: 0 },
-            ],
-          },
-        },
-      ])
+      ).toStrictEqual(expectedResult)
     })
 
     it('should work for unsorted events array', () => {
@@ -355,40 +438,7 @@ describe('calculate-score.ts', () => {
           ],
           challenges(),
         ),
-      ).toStrictEqual([
-        {
-          type: EventType.Start,
-          timestamp: '2024-08-12T10:00:00',
-          state: {
-            teams: [
-              { team: 'team-a', score: 0 },
-              { team: 'team-b', score: 0 },
-            ],
-          },
-        },
-        {
-          type: EventType.ChallengeCompleted,
-          timestamp: '2024-08-12T11:00:00',
-          team: 'team-a',
-          challenge: 'challenge-1',
-          state: {
-            teams: [
-              { team: 'team-a', score: 100 },
-              { team: 'team-b', score: 0 },
-            ],
-          },
-        },
-        {
-          type: EventType.Finish,
-          timestamp: '2024-08-12T12:00:00',
-          state: {
-            teams: [
-              { team: 'team-a', score: 100 },
-              { team: 'team-b', score: 0 },
-            ],
-          },
-        },
-      ])
+      ).toStrictEqual(expectedResult)
     })
   })
 })
