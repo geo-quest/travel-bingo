@@ -338,5 +338,57 @@ describe('calculate-score.ts', () => {
         },
       ])
     })
+
+    it('should work for unsorted events array', () => {
+      expect(
+        calculateScore(
+          runGameData(),
+          [
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-12T11:00:00',
+              team: 'team-a',
+              challenge: 'challenge-1',
+            }),
+            event({ type: EventType.Finish, timestamp: '2024-08-12T12:00:00' }),
+            event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
+          ],
+          challenges(),
+        ),
+      ).toStrictEqual([
+        {
+          type: EventType.Start,
+          timestamp: '2024-08-12T10:00:00',
+          state: {
+            teams: [
+              { team: 'team-a', score: 0 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: '2024-08-12T11:00:00',
+          team: 'team-a',
+          challenge: 'challenge-1',
+          state: {
+            teams: [
+              { team: 'team-a', score: 100 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
+        },
+        {
+          type: EventType.Finish,
+          timestamp: '2024-08-12T12:00:00',
+          state: {
+            teams: [
+              { team: 'team-a', score: 100 },
+              { team: 'team-b', score: 0 },
+            ],
+          },
+        },
+      ])
+    })
   })
 })
