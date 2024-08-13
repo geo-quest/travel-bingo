@@ -213,9 +213,10 @@ describe('calculate-score.ts', () => {
       ).toStrictEqual([
         {
           type: EventType.ChallengeCompleted,
+          timestamp: '2024-08-12T10:00:00',
           team: 'team-a',
           challenge: 'challenge-1',
-          timestamp: '2024-08-12T10:00:00',
+          points: 100,
           state: {
             status: RunGameStatus.Started,
             teams: [
@@ -272,6 +273,7 @@ describe('calculate-score.ts', () => {
           timestamp: '2024-08-12T11:00:00',
           team: 'team-a',
           challenge: 'challenge-1',
+          points: 100,
           state: {
             status: RunGameStatus.Started,
             teams: [
@@ -291,6 +293,7 @@ describe('calculate-score.ts', () => {
           timestamp: '2024-08-12T12:00:00',
           team: 'team-a',
           challenge: 'challenge-2',
+          points: 100,
           state: {
             status: RunGameStatus.Started,
             teams: [

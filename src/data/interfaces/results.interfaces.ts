@@ -21,4 +21,5 @@ export interface RunGameState {
 
 export interface ResultEvent extends Event {
   state: RunGameState
+  points?: number
 }

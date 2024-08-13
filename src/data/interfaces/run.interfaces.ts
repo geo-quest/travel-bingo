@@ -12,7 +12,6 @@ export interface Event {
   timestamp: Date
   team?: string
   challenge?: string
-  points?: number
 }
 
 export interface RunGameData {
