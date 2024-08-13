@@ -8,7 +8,6 @@ import {
   State,
 } from '../data/interfaces'
 import {
-  calculateBingos,
   calculateScore,
   defineInitialState,
   handleChallengeCompleted,
@@ -52,8 +51,8 @@ const state = (overrides?: Partial<State>): State => {
   return {
     status: RunGameStatus.Started,
     teams: [
-      { team: 'team-a', score: 0, bingos: 0, solvedChallenges: [] },
-      { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+      { team: 'team-a', rank: 0, score: 0, bingos: 0, solvedChallenges: [] },
+      { team: 'team-b', rank: 0, score: 0, bingos: 0, solvedChallenges: [] },
     ],
     ...overrides,
   } as State
@@ -127,8 +126,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 0, bingos: 0, solvedChallenges: [] },
-              { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -151,8 +150,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Finished,
             teams: [
-              { team: 'team-a', score: 0, bingos: 0, solvedChallenges: [] },
-              { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
             ],
           },
         },
