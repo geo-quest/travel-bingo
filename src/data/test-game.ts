@@ -5,10 +5,11 @@ import { TravelBingoGameData } from './interfaces'
 //   return futureDate.toISOString()
 // }
 
-function getTodayMidnight(): string {
-  const d = new Date()
-  d.setHours(0, 0, 0, 0)
-  return d.toISOString()
+function relativeDate(days: number, hour = 0, minute = 0): string {
+  const newDate = new Date()
+  newDate.setDate(newDate.getDate() + days)
+  newDate.setHours(hour, minute, 0, 0)
+  return newDate.toISOString()
 }
 
 export default {
@@ -659,7 +660,7 @@ export default {
         nl: 'Vorige editie',
         zh: '往期',
       },
-      date: getTodayMidnight(),
+      date: relativeDate(-30),
       teams: {
         'team-a': {
           name: 'Team A',
@@ -682,7 +683,7 @@ export default {
         nl: 'Huidige editie',
         zh: '当前版本',
       },
-      date: '2024-02-24T12:00:00',
+      date: relativeDate(0),
       teams: {
         'team-a': {
           name: 'Team A',
@@ -701,7 +702,7 @@ export default {
         nl: 'Toekomstige editie',
         zh: '未来版',
       },
-      date: '2024-02-24T12:00:00',
+      date: relativeDate(+30),
       teams: {
         'team-a': {
           name: 'Team A',

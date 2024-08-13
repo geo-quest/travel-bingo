@@ -1,5 +1,6 @@
 import './App.css'
 
+import Run from 'pages/Run/Run'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import getGameData from './data/index'
@@ -14,9 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home data={gameData} />} />
         <Route path="/:gameKey" element={<Game data={gameData} />} />
-        {/* <Route path="/:gameKey/:runKey" element={<Run data={gameData} />} />
-        <Route path="/:gameKey/:runKey/:teamKey" element={<Team data={gameData} />} />
-        */}
+        <Route path="/:gameKey/:runKey" element={<Run data={gameData} />} />
+        {/* <Route path="/:gameKey/:runKey/:teamKey" element={<Team data={gameData} />} />
+         */}
       </Routes>
     </BrowserRouter>
   )

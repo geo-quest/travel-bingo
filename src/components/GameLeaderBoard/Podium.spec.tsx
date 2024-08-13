@@ -18,36 +18,32 @@ const mockOnClick = jest.fn()
 
 const teams: TeamLeaderBoardData[] = [
   {
-    name: { en: 'Team A' },
+    name: 'Team A',
     score: 100,
     key: 'team-a',
     rank: 1,
     bingos: 0,
-    challenges: [],
   },
   {
-    name: { en: 'Team B' },
+    name: 'Team B',
     score: 90,
     key: 'team-b',
     rank: 2,
     bingos: 0,
-    challenges: [],
   },
   {
-    name: { en: 'Team C' },
+    name: 'Team C',
     score: 80,
     key: 'team-c',
     rank: 3,
     bingos: 0,
-    challenges: [],
   },
   {
-    name: { en: 'Team D' },
+    name: 'Team D',
     score: 70,
     key: 'team-d',
     rank: 4,
     bingos: 0,
-    challenges: [],
   },
 ]
 

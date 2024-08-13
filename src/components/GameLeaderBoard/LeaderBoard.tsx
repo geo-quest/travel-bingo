@@ -1,12 +1,11 @@
 import 'antd/dist/reset.css'
 
 import { Table } from 'antd'
+import Rank from 'components/Rank/Rank'
+import Score from 'components/Score/Score'
+import { TeamLeaderBoardData } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
-
-import { TeamLeaderBoardData } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import Rank from '../Rank/Rank'
-import Score from '../Score/Score'
+import t2 from 'utils/t2'
 
 interface Props {
   teams: TeamLeaderBoardData[]
@@ -18,7 +17,7 @@ interface TeamCellProps {
 }
 
 const TeamCell = ({ team }: TeamCellProps) => {
-  return <span>{t2(team.name)}</span>
+  return <span>{team.name}</span>
 }
 
 const LeaderBoard = ({ teams, onClick }: Props) => {

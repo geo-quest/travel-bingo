@@ -1,4 +1,4 @@
-import { Event, LocalizedString } from './'
+import { Event } from './'
 
 export enum RunGameStatus {
   Planned,
@@ -8,7 +8,7 @@ export enum RunGameStatus {
 
 export interface TeamLeaderBoardData {
   key: string
-  name: LocalizedString
+  name: string
   score: number
   rank: number
   bingos: number
