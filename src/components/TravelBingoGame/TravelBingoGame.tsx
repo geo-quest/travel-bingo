@@ -1,12 +1,12 @@
 import { Col, Row, Space, Typography } from 'antd'
+import BingoBoard from 'components/BingoBoard/BingoBoard'
+import ChallengeModal from 'components/ChallengeModal/ChallengeModal'
+import { Challenge, KeyObject, TravelBingoGameData } from 'data/interfaces'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Markdown from 'react-markdown'
+import t2 from 'utils/t2'
 
-import { Challenge, KeyObject, TravelBingoGameData } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import BingoBoard from '../BingoBoard/BingoBoard'
-import ChallengeModal from '../ChallengeModal/ChallengeModal'
 import Runs from './Runs'
 
 const { Paragraph, Title } = Typography

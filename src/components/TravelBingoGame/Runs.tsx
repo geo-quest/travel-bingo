@@ -1,8 +1,7 @@
 import { Button, Col, Row, Space } from 'antd'
-
-import { KeyObject, TravelBingoGameData } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import { DynamicIconComponent } from '../DynamicIcon/DynamicIcon'
+import DynamicIcon from 'components/DynamicIcon/DynamicIcon'
+import { KeyObject, TravelBingoGameData } from 'data/interfaces'
+import t2 from 'utils/t2'
 
 interface Props {
   game: TravelBingoGameData & KeyObject
@@ -14,7 +13,7 @@ const Runs = ({ game }: Props) => {
       <Row style={{ paddingBottom: '16px', width: '100%', textAlign: 'center' }} key={key}>
         <Col span={24}>
           <Button
-            icon={<DynamicIconComponent iconName={game.icon} color={game.color} />}
+            icon={<DynamicIcon iconName={game.icon} color={game.color} />}
             onClick={() => {
               window.location.href = `/${game.key}/${key}`
             }}

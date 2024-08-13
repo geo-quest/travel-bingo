@@ -1,6 +1,6 @@
 import FallingEmojis from '../../components/FallingEmojis/FallingEmojis'
 import GameLeaderBoard from '../../components/GameLeaderBoard/GameLeaderBoard'
-import NoPage from '../../components/NoPage/NoPage'
+import NoPage from '../../../src/components/NoPage/NoPage'
 import PageComponent from '../../components/PageComponent/PageComponent'
 import { TravelBingoGamesData } from '../../data/interfaces'
 import { getDataBasedOnParams } from '../../utils/get-data-based-on-params'

@@ -1,10 +1,10 @@
 import './BingoBoard.css'
 
 import { Card } from 'antd'
+import { Challenge } from 'data/interfaces'
 import React from 'react'
+import t2 from 'utils/t2'
 
-import { Challenge } from '../../data/interfaces'
-import t2 from '../../utils/t2'
 import Header from './Header'
 
 interface Props {

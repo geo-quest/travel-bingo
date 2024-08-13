@@ -1,4 +1,4 @@
-import NoPage from '../../components/NoPage/NoPage'
+import NoPage from '../../../src/components/NoPage/NoPage'
 import PageComponent from '../../components/PageComponent/PageComponent'
 import TeamResults from '../../components/TeamResults/TeamResults'
 import { TravelBingoGamesData } from '../../data/interfaces'

@@ -1,11 +1,10 @@
 import { Modal, Typography } from 'antd'
+import Image from 'components/Image/Image'
+import { Challenge } from 'data/interfaces'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Markdown from 'react-markdown'
-
-import { Challenge } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import Image from '../Image/Image'
+import t2 from 'utils/t2'
 
 const { Paragraph } = Typography
 
