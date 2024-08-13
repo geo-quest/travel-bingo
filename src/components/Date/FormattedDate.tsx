@@ -1,41 +1,42 @@
+import React, { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
+type DateFormatOption = 'date' | 'time' | 'datetime'
+
 interface Props {
-  date: string | undefined
-  showTime?: boolean
-  onlyTime?: boolean
+  date: Date | string | undefined
+  format?: DateFormatOption
 }
 
-const FormattedDate = ({ date, showTime, onlyTime }: Props) => {
+const FormattedDate: React.FC<Props> = ({ date, format = 'date' }) => {
   const { i18n } = useTranslation()
 
-  if (onlyTime) {
-    const options: Intl.DateTimeFormatOptions = {
-      hour: '2-digit',
-      minute: '2-digit',
-    }
+  const formattedDate = useMemo(() => {
+    if (!date) return 'Date not provided'
 
-    const formattedDate = new Intl.DateTimeFormat(i18n.language, options).format(
-      Date.parse(date || ''),
-    )
+    const parsedDate = typeof date === 'string' ? new Date(date) : date
+    if (isNaN(parsedDate.getTime())) return 'Invalid Date'
 
-    return <span>{formattedDate}</span>
-  }
+    const options: Intl.DateTimeFormatOptions = (() => {
+      switch (format) {
+        case 'time':
+          return { hour: '2-digit', minute: '2-digit' }
+        case 'datetime':
+          return {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+          }
+        case 'date':
+        default:
+          return { year: 'numeric', month: 'long', day: '2-digit' }
+      }
+    })()
 
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit',
-  }
-
-  if (showTime) {
-    options.hour = '2-digit'
-    options.minute = '2-digit'
-  }
-
-  const formattedDate = new Intl.DateTimeFormat(i18n.language, options).format(
-    Date.parse(date || ''),
-  )
+    return new Intl.DateTimeFormat(i18n.language, options).format(parsedDate)
+  }, [date, i18n.language, format])
 
   return <span>{formattedDate}</span>
 }

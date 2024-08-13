@@ -54,7 +54,7 @@ const Events: React.FC<Props> = ({ events, teamsData, filterFunction }: Props) =
       <div className="event-timeline-item">
         <p>
           <strong>
-            <FormattedDate date={event.timestamp} onlyTime />
+            <FormattedDate date={event.timestamp} format="time" />
             {renderTag(event)}
           </strong>
         </p>
