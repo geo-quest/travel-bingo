@@ -3,42 +3,20 @@ import { Challenge } from 'data/interfaces'
 import { calculateBingos } from './calculate-bingos'
 
 describe('calculateBingos', () => {
+  const createChallengeSet = (setNumber: number): Challenge[] => {
+    return Array.from({ length: 5 }, (_, index) => ({
+      key: `c${setNumber}-${index + 1}`,
+      challenge: { en: `challenge${setNumber}-${index + 1}` },
+      points: 100,
+    }))
+  }
+
   const challenges = [
-    [
-      { key: 'c1-1', challenge: { en: 'challenge1-1' }, points: 100 },
-      { key: 'c1-2', challenge: { en: 'challenge1-2' }, points: 100 },
-      { key: 'c1-3', challenge: { en: 'challenge1-3' }, points: 100 },
-      { key: 'c1-4', challenge: { en: 'challenge1-4' }, points: 100 },
-      { key: 'c1-5', challenge: { en: 'challenge1-5' }, points: 100 },
-    ],
-    [
-      { key: 'c2-1', challenge: { en: 'challenge2-1' }, points: 100 },
-      { key: 'c2-2', challenge: { en: 'challenge2-2' }, points: 100 },
-      { key: 'c2-3', challenge: { en: 'challenge2-3' }, points: 100 },
-      { key: 'c2-4', challenge: { en: 'challenge2-4' }, points: 100 },
-      { key: 'c2-5', challenge: { en: 'challenge2-5' }, points: 100 },
-    ],
-    [
-      { key: 'c3-1', challenge: { en: 'challenge3-1' }, points: 100 },
-      { key: 'c3-2', challenge: { en: 'challenge3-2' }, points: 100 },
-      { key: 'c3-3', challenge: { en: 'challenge3-3' }, points: 100 },
-      { key: 'c3-4', challenge: { en: 'challenge3-4' }, points: 100 },
-      { key: 'c3-5', challenge: { en: 'challenge3-5' }, points: 100 },
-    ],
-    [
-      { key: 'c4-1', challenge: { en: 'challenge4-1' }, points: 100 },
-      { key: 'c4-2', challenge: { en: 'challenge4-2' }, points: 100 },
-      { key: 'c4-3', challenge: { en: 'challenge4-3' }, points: 100 },
-      { key: 'c4-4', challenge: { en: 'challenge4-4' }, points: 100 },
-      { key: 'c4-5', challenge: { en: 'challenge4-5' }, points: 100 },
-    ],
-    [
-      { key: 'c5-1', challenge: { en: 'challenge5-1' }, points: 100 },
-      { key: 'c5-2', challenge: { en: 'challenge5-2' }, points: 100 },
-      { key: 'c5-3', challenge: { en: 'challenge5-3' }, points: 100 },
-      { key: 'c5-4', challenge: { en: 'challenge5-4' }, points: 100 },
-      { key: 'c5-5', challenge: { en: 'challenge5-5' }, points: 100 },
-    ],
+    createChallengeSet(1),
+    createChallengeSet(2),
+    createChallengeSet(3),
+    createChallengeSet(4),
+    createChallengeSet(5),
   ] as Challenge[][]
 
   it('should return 0 bingos when no challenges are solved', () => {
