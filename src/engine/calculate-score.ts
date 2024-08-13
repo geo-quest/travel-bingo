@@ -20,7 +20,7 @@ export function defineInitialState(run: RunGameData): State {
   return {
     status: RunGameStatus.Planned,
     teams: Object.keys(run.teams).map(key => {
-      return { team: key, score: 0, bingos: 0, solvedChallenges: [] }
+      return { team: key, rank: 0, score: 0, bingos: 0, solvedChallenges: [] }
     }),
   } as State
 }
@@ -70,16 +70,21 @@ export function handleChallengeCompleted(
       ...event,
       state: {
         ...state,
-        teams: state.teams.map(t => {
-          if (t.team !== event.team) return t
-          const solvedChallenges = t.solvedChallenges.concat([challenge.key])
-          return {
-            ...t,
-            score: t.score + challenge.points,
-            bingos: calculateBingos(solvedChallenges, challenges),
-            solvedChallenges,
-          }
-        }),
+        teams: state.teams
+          .map(t => {
+            if (t.team !== event.team) return t
+            const solvedChallenges = t.solvedChallenges.concat([challenge.key])
+            return {
+              ...t,
+              score: t.score + challenge.points,
+              bingos: calculateBingos(solvedChallenges, challenges),
+              solvedChallenges,
+            }
+          })
+          .sort((a, b) => b.score - a.score)
+          .map((t, idx) => {
+            return { ...t, rank: idx + 1 }
+          }),
       },
     },
   ] as ResultEvent[]

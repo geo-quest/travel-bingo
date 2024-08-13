@@ -21,6 +21,7 @@ export interface LeaderBoardData {
 
 export interface TeamState {
   team: string
+  rank: number
   score: number
   bingos: number
   solvedChallenges: string[]

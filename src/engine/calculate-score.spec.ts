@@ -65,8 +65,8 @@ describe('calculate-score.ts', () => {
       expect(defineInitialState(runGameData())).toStrictEqual({
         status: RunGameStatus.Planned,
         teams: [
-          { team: 'team-a', score: 0, bingos: 0, solvedChallenges: [] },
-          { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+          { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+          { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
         ],
       } as State)
     })
@@ -219,8 +219,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 100, bingos: 0, solvedChallenges: ['challenge-1'] },
-              { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 100, rank: 1, bingos: 0, solvedChallenges: ['challenge-1'] },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -245,8 +245,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 0, bingos: 0, solvedChallenges: [] },
-              { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -258,8 +258,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 100, bingos: 0, solvedChallenges: ['challenge-1'] },
-              { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-a', score: 100, rank: 1, bingos: 0, solvedChallenges: ['challenge-1'] },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -274,10 +274,11 @@ describe('calculate-score.ts', () => {
               {
                 team: 'team-a',
                 score: 200,
+                rank: 1,
                 bingos: 1,
                 solvedChallenges: ['challenge-1', 'challenge-2'],
               },
-              { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -290,10 +291,11 @@ describe('calculate-score.ts', () => {
               {
                 team: 'team-a',
                 score: 200,
+                rank: 1,
                 bingos: 1,
                 solvedChallenges: ['challenge-1', 'challenge-2'],
               },
-              { team: 'team-b', score: 0, bingos: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, rank: 2, bingos: 0, solvedChallenges: [] },
             ],
           },
         },
