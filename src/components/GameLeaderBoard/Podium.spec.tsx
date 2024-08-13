@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { RunGameStatus, TeamsGameData, TeamState } from 'data/interfaces'
+import { TeamsGameData, TeamState } from 'data/interfaces'
 
 import Podium from './Podium'
 
