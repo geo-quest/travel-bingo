@@ -132,8 +132,8 @@ export function handleChallengeCompleted(
   const team = state.teams.find(t => t.team === event.team)
   const challenge = challenges.flat().find(c => c.key === event.challenge)
 
-  if (!team) throw new EngineError('"team" not found')
-  if (!challenge) throw new EngineError('"challenge" not found')
+  if (!team) throw new EngineError(`team "${event.team}" not found`)
+  if (!challenge) throw new EngineError(`challenge "${event.challenge}" not found`)
 
   return {
     ...state,

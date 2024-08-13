@@ -257,7 +257,7 @@ describe('calculate-score.ts', () => {
           state(),
           challenges(),
         ),
-      ).toThrow('"team" not found')
+      ).toThrow('team "team-b" not found')
     })
 
     test('should throw an error if "challenge" is invalid', () => {
@@ -267,7 +267,7 @@ describe('calculate-score.ts', () => {
           state(),
           challenges(),
         ),
-      ).toThrow('"challenge" not found')
+      ).toThrow('challenge "challenge-5" not found')
     })
 
     test('should return state updated', () => {
