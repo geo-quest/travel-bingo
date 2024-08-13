@@ -1,11 +1,9 @@
 import 'antd/dist/reset.css'
 
 import { Card, Col, Row } from 'antd'
+import Score from 'components/Score/Score'
+import { TeamLeaderBoardData } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
-
-import { TeamLeaderBoardData } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import Score from '../Score/Score'
 
 interface Props {
   teams: TeamLeaderBoardData[]

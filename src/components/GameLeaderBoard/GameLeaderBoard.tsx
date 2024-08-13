@@ -1,6 +1,8 @@
 import './GameLeaderBoard.css'
 
-import { KeyObject, RunGameData, TravelBingoGameData } from 'data/interfaces'
+import { KeyObject, RunGameData, RunGameStatus, TravelBingoGameData } from 'data/interfaces'
+
+import PlannedRun from './PlannedRun'
 
 interface Props {
   run: RunGameData & KeyObject
@@ -8,6 +10,8 @@ interface Props {
 }
 
 const GameLeaderBoard = ({ run, game }: Props) => {
+  if (run.state === undefined || run.state.status === RunGameStatus.Planned)
+    return <PlannedRun run={run} />
   // const { t } = useTranslation()
 
   console.log(run, game)

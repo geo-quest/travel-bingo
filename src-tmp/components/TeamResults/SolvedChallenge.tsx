@@ -1,11 +1,9 @@
 import { Typography } from 'antd'
+import FormattedDate from 'components/Date/FormattedDate'
+import Image from 'components/Image/Image'
+import { Challenge, RunGameData, TeamChallenge } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
 import Markdown from 'react-markdown'
-
-import { Challenge, RunGameData, TeamChallenge } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import FormattedDate from '../Date/FormattedDate'
-import Image from '../Image/Image'
 
 interface Props {
   teamChallenge: TeamChallenge

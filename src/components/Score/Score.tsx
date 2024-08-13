@@ -1,6 +1,5 @@
 import { CheckCircleOutlined } from '@ant-design/icons'
-
-import { TeamLeaderBoardData } from '../../data/interfaces'
+import { TeamLeaderBoardData } from 'data/interfaces'
 
 interface Props {
   team: TeamLeaderBoardData

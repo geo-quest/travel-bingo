@@ -26,11 +26,11 @@ export interface TeamState {
   solvedChallenges: string[]
 }
 
-export interface State {
+export interface RunGameState {
   status: RunGameStatus
   teams: TeamState[]
 }
 
 export interface ResultEvent extends Event {
-  state: State
+  state: RunGameState
 }

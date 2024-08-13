@@ -20,5 +20,10 @@
     "something-went-wrong": "Er is iets misgegaan",
     "page-does-not-exist": "De pagina die u zoekt bestaat niet.",
     "go-back-home-page": "Ga terug naar de startpagina"
+  },
+  "planned-run": {
+    "game-not-started": "Dit spel is nog niet begonnen!",
+    "please-wait": "Wacht even.",
+    "expected-start-date": "Verwachte startdatum"
   }
 }

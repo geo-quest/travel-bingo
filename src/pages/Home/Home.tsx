@@ -1,10 +1,9 @@
 import './Home.css'
 
 import { Button, Col, Row } from 'antd'
-
-import DynamicIcon from '../../components/DynamicIcon/DynamicIcon'
-import { TravelBingoGamesData } from '../../data/interfaces'
-import t2 from '../../utils/t2'
+import DynamicIcon from 'components/DynamicIcon/DynamicIcon'
+import { TravelBingoGamesData } from 'data/interfaces'
+import t2 from 'utils/t2'
 
 interface Props {
   data: TravelBingoGamesData

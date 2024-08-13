@@ -4,8 +4,8 @@ import {
   EventType,
   ResultEvent,
   RunGameData,
+  RunGameState,
   RunGameStatus,
-  State,
 } from '../data/interfaces'
 import {
   calculateScore,
@@ -47,7 +47,7 @@ const challenges = (): Challenge[][] => {
   ] as Challenge[][]
 }
 
-const state = (overrides?: Partial<State>): State => {
+const state = (overrides?: Partial<RunGameState>): RunGameState => {
   return {
     status: RunGameStatus.Started,
     teams: [
@@ -55,7 +55,7 @@ const state = (overrides?: Partial<State>): State => {
       { team: 'team-b', rank: 0, score: 0, bingos: 0, solvedChallenges: [] },
     ],
     ...overrides,
-  } as State
+  } as RunGameState
 }
 
 describe('calculate-score.ts', () => {
@@ -67,7 +67,7 @@ describe('calculate-score.ts', () => {
           { team: 'team-a', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
           { team: 'team-b', score: 0, rank: 0, bingos: 0, solvedChallenges: [] },
         ],
-      } as State)
+      } as RunGameState)
     })
   })
 

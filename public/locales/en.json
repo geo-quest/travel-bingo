@@ -20,5 +20,10 @@
     "something-went-wrong": "Something went wrong",
     "page-does-not-exist": "The page you're looking for doesn't exist.",
     "go-back-home-page": "Go back to the homepage"
+  },
+  "planned-run": {
+    "game-not-started": "This game has not started yet!",
+    "please-wait": "Please wait a moment.",
+    "expected-start-date": "Expected start date"
   }
 }

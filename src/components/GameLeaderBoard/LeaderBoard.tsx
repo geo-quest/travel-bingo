@@ -5,7 +5,6 @@ import Rank from 'components/Rank/Rank'
 import Score from 'components/Score/Score'
 import { TeamLeaderBoardData } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
-import t2 from 'utils/t2'
 
 interface Props {
   teams: TeamLeaderBoardData[]

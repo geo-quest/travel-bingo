@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
+import { TeamLeaderBoardData } from 'data/interfaces'
 
-import { TeamLeaderBoardData } from '../../data/interfaces'
 import Podium from './Podium'
 
 jest.mock('react-i18next', () => ({

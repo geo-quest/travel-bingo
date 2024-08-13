@@ -1,14 +1,13 @@
 {
-  "language": "Idioma",
   "challenges": "Desafios",
   "how-to-play": "Como jogar",
-  "rank": "Ranking",
+  "rank": "Classificação",
   "team": "Equipe",
   "score": "Pontuação",
   "solved-at": "Resolvido em",
   "run": {
     "run-date": "Data de execução",
-    "last-update": "Ultima atualização"
+    "last-update": "Última atualização"
   },
   "podium": {
     "1st": "1º",
@@ -21,5 +20,10 @@
     "something-went-wrong": "Algo deu errado",
     "page-does-not-exist": "A página que você procura não existe.",
     "go-back-home-page": "Voltar para a página inicial"
+  },
+  "planned-run": {
+    "game-not-started": "Este jogo ainda não começou!",
+    "please-wait": "Por favor, espere um pouco.",
+    "expected-start-date": "Data de início prevista"
   }
 }

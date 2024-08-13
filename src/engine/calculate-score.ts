@@ -4,8 +4,8 @@ import {
   EventType,
   ResultEvent,
   RunGameData,
+  RunGameState,
   RunGameStatus,
-  State,
 } from '../data/interfaces'
 import { calculateBingos } from './calculate-bingos'
 
@@ -16,13 +16,13 @@ class EngineError extends Error {
   }
 }
 
-export function defineInitialState(run: RunGameData): State {
+export function defineInitialState(run: RunGameData): RunGameState {
   return {
     status: RunGameStatus.Planned,
     teams: Object.keys(run.teams).map(key => {
       return { team: key, rank: 0, score: 0, bingos: 0, solvedChallenges: [] }
     }),
-  } as State
+  } as RunGameState
 }
 
 export function validateStartAndFinishEvents(events: Event[]) {
@@ -38,12 +38,12 @@ export function validateStartAndFinishEvents(events: Event[]) {
     throw new EngineError('"finish" must be later than "start".')
 }
 
-export function handleStart(event: Event, state: State): ResultEvent[] {
+export function handleStart(event: Event, state: RunGameState): ResultEvent[] {
   if (state.status !== RunGameStatus.Planned) throw new EngineError('invalid state for start event')
   return [{ ...event, state: { ...state, status: RunGameStatus.Started } }]
 }
 
-export function handleFinish(event: Event, state: State): ResultEvent[] {
+export function handleFinish(event: Event, state: RunGameState): ResultEvent[] {
   if (state.status !== RunGameStatus.Started)
     throw new EngineError('invalid state for finish event')
   return [{ ...event, state: { ...state, status: RunGameStatus.Finished } }]
@@ -51,7 +51,7 @@ export function handleFinish(event: Event, state: State): ResultEvent[] {
 
 export function handleChallengeCompleted(
   event: Event,
-  state: State,
+  state: RunGameState,
   challenges: Challenge[][],
 ): ResultEvent[] {
   if (!event.team) throw new EngineError('"team" must be defined')
@@ -90,8 +90,14 @@ export function handleChallengeCompleted(
   ] as ResultEvent[]
 }
 
-export function handleEvent(event: Event, state: State, challenges: Challenge[][]): ResultEvent[] {
-  const eventHandlers: { [key in EventType]: (event: Event, state: State) => ResultEvent[] } = {
+export function handleEvent(
+  event: Event,
+  state: RunGameState,
+  challenges: Challenge[][],
+): ResultEvent[] {
+  const eventHandlers: {
+    [key in EventType]: (event: Event, state: RunGameState) => ResultEvent[]
+  } = {
     [EventType.Start]: (event, state) => handleStart(event, state),
     [EventType.Finish]: (event, state) => handleFinish(event, state),
     [EventType.ChallengeCompleted]: (event, state) =>
