@@ -3,11 +3,13 @@ import './TeamResults.css'
 import { Col, Row, Space, Statistic, Typography } from 'antd'
 import BingoBoard from 'components/BingoBoard/BingoBoard'
 import ChallengeModal from 'components/ChallengeModal/ChallengeModal'
+import Events from 'components/Events/Events'
 import NoPage from 'components/NoPage/NoPage'
 import Rank from 'components/Rank/Rank'
 import Score from 'components/Score/Score'
 import {
   Challenge,
+  EventType,
   KeyObject,
   RunGameData,
   TeamGameData,
@@ -40,7 +42,7 @@ const TeamResults = function ({ team, run, game }: Props) {
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
 
   return (
-    <Space direction="vertical">
+    <Space direction="vertical" style={{ width: '100%' }}>
       <Row>
         <Col span={2} />
         <Col span={10} style={{ textAlign: 'center' }}>
@@ -68,6 +70,21 @@ const TeamResults = function ({ team, run, game }: Props) {
             }}
             defineCardClass={(challenge: Challenge) =>
               getSolved(challenge.key) === undefined ? '' : 'card-done'
+            }
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Title level={2}>{t('run.timeline')}</Title>
+          <Events
+            events={events}
+            teamsData={run.teams}
+            challenges={game.challenges}
+            filterFunction={event =>
+              event.type === EventType.Start ||
+              event.type === EventType.Finish ||
+              (event.type === EventType.ChallengeCompleted && event.team === team.key)
             }
           />
         </Col>

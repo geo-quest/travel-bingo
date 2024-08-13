@@ -52,6 +52,7 @@ const FinishedRun = ({ game, run, state, events }: Props) => {
         <Events
           events={events}
           teamsData={run.teams}
+          challenges={game.challenges}
           filterFunction={event => event.type !== EventType.Empty}
         />
       ),
@@ -59,7 +60,7 @@ const FinishedRun = ({ game, run, state, events }: Props) => {
   ]
 
   return (
-    <Space direction="vertical">
+    <Space direction="vertical" style={{ width: '100%' }}>
       <FallingEmojis emojiList={['🎉', '🥳', '👏', '🎊', '🥂', '🍻', '🙌']} milliseconds={7_000} />
       <Tabs size="small" defaultActiveKey="1" items={items} style={{ paddingTop: '0' }} />
     </Space>

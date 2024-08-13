@@ -2,17 +2,19 @@ import './Events.css'
 
 import { Tag, Timeline } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
-import { EventType, ResultEvent, TeamsGameData } from 'data/interfaces'
+import { Challenge, EventType, ResultEvent, TeamsGameData } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
+import { getChallengeTitle } from 'utils/get-challenge-title'
 import { getTeamName } from 'utils/get-team-name'
 
 export interface Props {
   events: ResultEvent[]
   teamsData: TeamsGameData
+  challenges: Challenge[][]
   filterFunction: (events: ResultEvent) => boolean
 }
 
-const Events: React.FC<Props> = ({ events, teamsData, filterFunction }: Props) => {
+const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction }: Props) => {
   const { t } = useTranslation()
 
   const getColorByEventType = (type: EventType) => {
@@ -41,7 +43,7 @@ const Events: React.FC<Props> = ({ events, teamsData, filterFunction }: Props) =
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
-          <strong>{event.challenge}</strong>
+          <strong>{getChallengeTitle(event.challenge, challenges)}</strong>
         </>
       )
     }
