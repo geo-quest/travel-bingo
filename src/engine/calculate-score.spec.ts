@@ -51,8 +51,8 @@ const state = (overrides?: Partial<State>): State => {
   return {
     status: RunGameStatus.Started,
     teams: [
-      { team: 'team-a', score: 0 },
-      { team: 'team-b', score: 0 },
+      { team: 'team-a', score: 0, solvedChallenges: [] },
+      { team: 'team-b', score: 0, solvedChallenges: [] },
     ],
     ...overrides,
   } as State
@@ -163,8 +163,8 @@ describe('calculate-score.ts', () => {
       expect(defineInitialState(runGameData())).toStrictEqual({
         status: RunGameStatus.Planned,
         teams: [
-          { team: 'team-a', score: 0 },
-          { team: 'team-b', score: 0 },
+          { team: 'team-a', score: 0, solvedChallenges: [] },
+          { team: 'team-b', score: 0, solvedChallenges: [] },
         ],
       } as State)
     })
@@ -225,8 +225,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 0 },
-              { team: 'team-b', score: 0 },
+              { team: 'team-a', score: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -249,8 +249,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Finished,
             teams: [
-              { team: 'team-a', score: 0 },
-              { team: 'team-b', score: 0 },
+              { team: 'team-a', score: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -301,7 +301,7 @@ describe('calculate-score.ts', () => {
       ).toThrow('invalid state for a challengeCompleted event')
     })
 
-    it('should return state updated', () => {
+    it('should return calculated ResultEvent', () => {
       expect(
         handleChallengeCompleted(
           event({ challenge: 'challenge-1', team: 'team-a' }),
@@ -317,8 +317,8 @@ describe('calculate-score.ts', () => {
           state: {
             status: RunGameStatus.Started,
             teams: [
-              { team: 'team-a', score: 100 },
-              { team: 'team-b', score: 0 },
+              { team: 'team-a', score: 100, solvedChallenges: ['challenge-1'] },
+              { team: 'team-b', score: 0, solvedChallenges: [] },
             ],
           },
         },
@@ -365,80 +365,82 @@ describe('calculate-score.ts', () => {
   // })
 
   describe('calculateScore', () => {
-    const expectedResult = [
-      {
-        type: EventType.Start,
-        timestamp: '2024-08-12T10:00:00',
-        state: {
-          status: RunGameStatus.Started,
-          teams: [
-            { team: 'team-a', score: 0 },
-            { team: 'team-b', score: 0 },
-          ],
+    describe('very simple case', () => {
+      const expectedResult = [
+        {
+          type: EventType.Start,
+          timestamp: '2024-08-12T10:00:00',
+          state: {
+            status: RunGameStatus.Started,
+            teams: [
+              { team: 'team-a', score: 0, solvedChallenges: [] },
+              { team: 'team-b', score: 0, solvedChallenges: [] },
+            ],
+          },
         },
-      },
-      {
-        type: EventType.ChallengeCompleted,
-        timestamp: '2024-08-12T11:00:00',
-        team: 'team-a',
-        challenge: 'challenge-1',
-        state: {
-          status: RunGameStatus.Started,
-          teams: [
-            { team: 'team-a', score: 100 },
-            { team: 'team-b', score: 0 },
-          ],
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: '2024-08-12T11:00:00',
+          team: 'team-a',
+          challenge: 'challenge-1',
+          state: {
+            status: RunGameStatus.Started,
+            teams: [
+              { team: 'team-a', score: 100, solvedChallenges: ['challenge-1'] },
+              { team: 'team-b', score: 0, solvedChallenges: [] },
+            ],
+          },
         },
-      },
-      {
-        type: EventType.Finish,
-        timestamp: '2024-08-12T12:00:00',
-        state: {
-          status: RunGameStatus.Finished,
-          teams: [
-            { team: 'team-a', score: 100 },
-            { team: 'team-b', score: 0 },
-          ],
+        {
+          type: EventType.Finish,
+          timestamp: '2024-08-12T12:00:00',
+          state: {
+            status: RunGameStatus.Finished,
+            teams: [
+              { team: 'team-a', score: 100, solvedChallenges: ['challenge-1'] },
+              { team: 'team-b', score: 0, solvedChallenges: [] },
+            ],
+          },
         },
-      },
-    ] as ResultEvent[]
+      ] as ResultEvent[]
 
-    it('should return calculated simple case', () => {
-      expect(
-        calculateScore(
-          runGameData(),
-          [
-            event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
-            event({
-              type: EventType.ChallengeCompleted,
-              timestamp: '2024-08-12T11:00:00',
-              team: 'team-a',
-              challenge: 'challenge-1',
-            }),
-            event({ type: EventType.Finish, timestamp: '2024-08-12T12:00:00' }),
-          ],
-          challenges(),
-        ),
-      ).toStrictEqual(expectedResult)
-    })
+      it('should return ResultEventArray', () => {
+        expect(
+          calculateScore(
+            runGameData(),
+            [
+              event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
+              event({
+                type: EventType.ChallengeCompleted,
+                timestamp: '2024-08-12T11:00:00',
+                team: 'team-a',
+                challenge: 'challenge-1',
+              }),
+              event({ type: EventType.Finish, timestamp: '2024-08-12T12:00:00' }),
+            ],
+            challenges(),
+          ),
+        ).toStrictEqual(expectedResult)
+      })
 
-    it('should work for unsorted events array', () => {
-      expect(
-        calculateScore(
-          runGameData(),
-          [
-            event({
-              type: EventType.ChallengeCompleted,
-              timestamp: '2024-08-12T11:00:00',
-              team: 'team-a',
-              challenge: 'challenge-1',
-            }),
-            event({ type: EventType.Finish, timestamp: '2024-08-12T12:00:00' }),
-            event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
-          ],
-          challenges(),
-        ),
-      ).toStrictEqual(expectedResult)
+      it('should work for unsorted events array', () => {
+        expect(
+          calculateScore(
+            runGameData(),
+            [
+              event({
+                type: EventType.ChallengeCompleted,
+                timestamp: '2024-08-12T11:00:00',
+                team: 'team-a',
+                challenge: 'challenge-1',
+              }),
+              event({ type: EventType.Finish, timestamp: '2024-08-12T12:00:00' }),
+              event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
+            ],
+            challenges(),
+          ),
+        ).toStrictEqual(expectedResult)
+      })
     })
   })
 })

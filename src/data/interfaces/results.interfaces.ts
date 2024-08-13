@@ -22,6 +22,7 @@ export interface LeaderBoardData {
 export interface TeamState {
   team: string
   score: number
+  solvedChallenges: string[]
 }
 
 export interface State {
