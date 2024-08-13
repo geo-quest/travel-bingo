@@ -33,8 +33,8 @@ const LeaderBoard = ({ state, onClick }: Props) => {
     },
     {
       title: t('team'),
-      dataIndex: 'key',
-      key: 'key',
+      dataIndex: 'team',
+      key: 'team',
       render: (_text: string, team: TeamState) => <TeamCell team={team} />,
     },
     {
@@ -50,6 +50,7 @@ const LeaderBoard = ({ state, onClick }: Props) => {
       columns={columns}
       dataSource={state.teams}
       pagination={false}
+      rowKey={team => team.team}
       onRow={team => {
         return {
           onClick: () => {
