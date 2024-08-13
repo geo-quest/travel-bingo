@@ -8,7 +8,9 @@ import {
   RunGameData,
   RunGameStatus,
   State,
+  TeamState,
 } from '../data/interfaces'
+import { calculateBingos } from './calculate-bingos'
 
 // export function calculateScore(run: RunGameData, challenges: Challenge[][]): LeaderBoardData {
 //   const numRows = challenges.length
@@ -75,7 +77,7 @@ export function defineInitialState(run: RunGameData): State {
   return {
     status: RunGameStatus.Planned,
     teams: Object.keys(run.teams).map(key => {
-      return { team: key, score: 0, solvedChallenges: [] }
+      return { team: key, score: 0, bingos: 0, solvedChallenges: [] }
     }),
   } as State
 }
@@ -127,10 +129,12 @@ export function handleChallengeCompleted(
         ...state,
         teams: state.teams.map(t => {
           if (t.team !== event.team) return t
+          const solvedChallenges = t.solvedChallenges.concat([challenge.key])
           return {
             ...t,
             score: t.score + challenge.points,
-            solvedChallenges: t.solvedChallenges.concat([challenge.key]),
+            bingos: calculateBingos(solvedChallenges, challenges),
+            solvedChallenges,
           }
         }),
       },
