@@ -1,10 +1,5 @@
 import { EventType, TravelBingoGameData } from './interfaces'
 
-// function addMinutesToNow(minutes: number): string {
-//   const futureDate = new Date(Date.now() + minutes * 60_000)
-//   return futureDate.toISOString()
-// }
-
 function relativeDate(days: number, hour = 0, minute = 0): string {
   const newDate = new Date()
   newDate.setDate(newDate.getDate() + days)

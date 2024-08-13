@@ -6,18 +6,6 @@ export enum RunGameStatus {
   Finished,
 }
 
-export interface TeamLeaderBoardData {
-  key: string
-  name: string
-  score: number
-  rank: number
-  bingos: number
-}
-
-export interface LeaderBoardData {
-  teams: TeamLeaderBoardData[]
-}
-
 export interface TeamState {
   team: string
   rank: number
