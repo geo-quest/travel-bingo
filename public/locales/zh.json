@@ -1,5 +1,6 @@
 {
   "challenges": "挑战",
+  "challenge": "挑战",
   "how-to-play": "怎么玩",
   "rank": "秩",
   "team": "团队",
@@ -7,7 +8,9 @@
   "solved-at": "解决于",
   "run": {
     "run-date": "运行日期",
-    "last-update": "最后更新"
+    "last-update": "最后更新",
+    "leaderboard": "排行榜",
+    "timeline": "时间线"
   },
   "podium": {
     "1st": "第一名",

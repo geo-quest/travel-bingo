@@ -1,5 +1,6 @@
 {
   "challenges": "Desafios",
+  "challenge": "Desafio",
   "how-to-play": "Como jogar",
   "rank": "Classificação",
   "team": "Equipe",
@@ -7,7 +8,9 @@
   "solved-at": "Resolvido em",
   "run": {
     "run-date": "Data de execução",
-    "last-update": "Última atualização"
+    "last-update": "Última atualização",
+    "leaderboard": "Classificação",
+    "timeline": "Timeline"
   },
   "podium": {
     "1st": "1º",

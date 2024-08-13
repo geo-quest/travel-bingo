@@ -1,5 +1,6 @@
 {
   "challenges": "Uitdagingen",
+  "challenge": "uitdaging",
   "how-to-play": "Hoe te spelen",
   "rank": "Rang",
   "team": "Team",
@@ -7,7 +8,9 @@
   "solved-at": "Opgelost bij",
   "run": {
     "run-date": "Datum uitvoeren",
-    "last-update": "Laatste update"
+    "last-update": "Laatste update",
+    "leaderboard": "Ranglijst",
+    "timeline": "Tijdlijn"
   },
   "podium": {
     "1st": "1e",

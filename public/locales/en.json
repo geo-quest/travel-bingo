@@ -1,5 +1,6 @@
 {
   "challenges": "Challenges",
+  "challenge": "Challenge",
   "how-to-play": "How to Play",
   "rank": "Rank",
   "team": "Team",
@@ -7,7 +8,9 @@
   "solved-at": "Solved at",
   "run": {
     "run-date": "Run date",
-    "last-update": "Last update"
+    "last-update": "Last update",
+    "leaderboard": "Leaderboard",
+    "timeline": "Timeline"
   },
   "podium": {
     "1st": "1st",

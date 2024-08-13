@@ -1,6 +1,9 @@
-import { List, Tag, Typography } from 'antd'
+import './Events.css'
+
+import { Tag, Timeline, Typography } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
 import { EventType, ResultEvent, TeamsGameData } from 'data/interfaces'
+import { useTranslation } from 'react-i18next'
 import { getTeamName } from 'utils/get-team-name'
 
 export interface Props {
@@ -9,8 +12,9 @@ export interface Props {
 }
 
 const Events: React.FC<Props> = ({ events, teamsData }: Props) => {
-  const renderTag = (type: EventType) => {
-    switch (type) {
+  const { t } = useTranslation()
+  const renderTag = (event: ResultEvent) => {
+    switch (event.type) {
       case EventType.Start:
         return <Tag color="blue">Start</Tag>
       case EventType.Finish:
@@ -21,40 +25,40 @@ const Events: React.FC<Props> = ({ events, teamsData }: Props) => {
         return <Tag color="gray">Other</Tag>
     }
   }
+  const renderTime = (event: ResultEvent) => {
+    return (
+      <Typography.Text strong>
+        <FormattedDate date={event.timestamp} onlyTime />
+      </Typography.Text>
+    )
+  }
 
-  return (
-    <List
-      grid={{ gutter: 16, column: 1 }}
-      dataSource={events.filter(e => e.type !== EventType.Empty)}
-      renderItem={(event: ResultEvent) => (
-        <List.Item style={{ padding: '8px 0', minWidth: 'fit-content' }}>
-          <List.Item.Meta
-            title={renderTag(event.type)}
-            style={{}}
-            description={
-              <div>
-                <Typography.Text strong>
-                  <FormattedDate date={event.timestamp} showTime />
-                </Typography.Text>
-                {event.team && (
-                  <>
-                    <span style={{ margin: '0 8px' }}>|</span>
-                    <Typography.Text>Team: {getTeamName(event.team, teamsData)}</Typography.Text>
-                  </>
-                )}
-                {event.challenge && (
-                  <>
-                    <span style={{ margin: '0 8px' }}>|</span>
-                    <Typography.Text>Challenge: {event.challenge}</Typography.Text>
-                  </>
-                )}
-              </div>
-            }
-          />
-        </List.Item>
-      )}
-    />
-  )
+  const timelineItems = events.map((event, index) => ({
+    key: index,
+    dot: renderTime(event),
+    children: (
+      <div className="event-timeline-item">
+        <p>{renderTag(event)}</p>
+        {event.team && (
+          <>
+            <Typography.Text>
+              {t('team')}: {getTeamName(event.team, teamsData)}
+            </Typography.Text>
+          </>
+        )}
+        {event.challenge && (
+          <>
+            <span className="separator">|</span>
+            <Typography.Text>
+              {t('challenge')}: {event.challenge}
+            </Typography.Text>
+          </>
+        )}
+      </div>
+    ),
+  }))
+
+  return <Timeline mode="left" items={timelineItems} />
 }
 
 export default Events
