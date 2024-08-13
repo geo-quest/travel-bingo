@@ -19,7 +19,7 @@ const GameLeaderBoard = ({ run, game }: Props) => {
 
   if (state.status === RunGameStatus.Planned) return <PlannedRun run={run} game={game} />
   else if (state.status === RunGameStatus.Finished)
-    return <FinishedRun game={game} run={run} state={state} />
+    return <FinishedRun game={game} run={run} state={state} events={events} />
   else if (state.status === RunGameStatus.Started)
     return <StartedRun game={game} run={run} event={events[events.length - 1]} />
   else return <NoPage />

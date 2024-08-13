@@ -1,8 +1,10 @@
 import { Col, Row, Space, Statistic } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
+import Events from 'components/Events/Events'
 import FallingEmojis from 'components/FallingEmojis/FallingEmojis'
 import {
   KeyObject,
+  ResultEvent,
   RunGameData,
   RunGameState,
   TeamState,
@@ -17,9 +19,10 @@ interface Props {
   game: TravelBingoGameData & KeyObject
   run: RunGameData & KeyObject
   state: RunGameState
+  events: ResultEvent[]
 }
 
-const FinishedRun = ({ run, state, game }: Props) => {
+const FinishedRun = ({ game, run, state, events }: Props) => {
   const { t } = useTranslation()
   const navigate = function (team: TeamState) {
     window.location.href = `/${game.key}/${run.key}/${team.team}`
@@ -44,6 +47,11 @@ const FinishedRun = ({ run, state, game }: Props) => {
       <Row>
         <Col span={24}>
           <LeaderBoard teams={state.teams} teamsData={run.teams} onClick={navigate} />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Events events={events} teamsData={run.teams} />
         </Col>
       </Row>
     </Space>

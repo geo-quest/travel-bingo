@@ -1,8 +1,8 @@
-import { TeamsGameData, TeamState } from 'data/interfaces'
+import { TeamsGameData } from 'data/interfaces'
 
-export function getTeamName(team: TeamState, teamsData: TeamsGameData) {
+export function getTeamName(team: string, teamsData: TeamsGameData) {
   for (const key of Object.keys(teamsData)) {
-    if (key === team.team) return teamsData[key].name
+    if (key === team) return teamsData[key].name
   }
   return ''
 }

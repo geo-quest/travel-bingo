@@ -41,7 +41,7 @@ const LeaderBoard = ({ teams, teamsData, onClick }: Props) => {
   ]
 
   const TeamCell = ({ team }: TeamCellProps) => {
-    return <span>{getTeamName(team, teamsData)}</span>
+    return <span>{getTeamName(team.team, teamsData)}</span>
   }
 
   return (
