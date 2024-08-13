@@ -11,7 +11,7 @@ interface Props {
 
 const GameLeaderBoard = ({ run, game }: Props) => {
   if (run.state === undefined || run.state.status === RunGameStatus.Planned)
-    return <PlannedRun run={run} />
+    return <PlannedRun run={run} game={game} />
   // const { t } = useTranslation()
 
   console.log(run, game)
