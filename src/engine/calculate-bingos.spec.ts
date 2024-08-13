@@ -1,4 +1,5 @@
-import { Challenge } from '../data/interfaces'
+import { Challenge } from 'data/interfaces'
+
 import { calculateBingos } from './calculate-bingos'
 
 describe('calculateBingos', () => {

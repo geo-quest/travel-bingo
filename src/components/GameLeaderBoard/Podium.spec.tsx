@@ -12,7 +12,7 @@ jest.mock('react-i18next', () => ({
   }),
 }))
 
-jest.mock('../Score/Score', () => () => <div>Score</div>)
+jest.mock('components/Score/Score', () => () => <div>Score</div>)
 
 const mockOnClick = jest.fn()
 

@@ -1,6 +1,5 @@
+import { LocalizedMarkdown, LocalizedString } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
-
-import { LocalizedMarkdown, LocalizedString } from '../data/interfaces'
 
 const t2 = (str: LocalizedString | LocalizedMarkdown | undefined) => {
   if (str === undefined) return ''
