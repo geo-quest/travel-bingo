@@ -35,7 +35,7 @@ export default ({ game, run, team }: Props) => {
               },
             ]
           : []),
-        ...(team ? [{ title: t2(team.name) }] : []),
+        ...(team ? [{ title: team.name }] : []),
       ]}
       style={{ marginBottom: '8px' }}
     />

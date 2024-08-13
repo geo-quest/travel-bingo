@@ -1,9 +1,9 @@
 import { TravelBingoGameData } from './interfaces'
 
-function addMinutesToNow(minutes: number): string {
-  const futureDate = new Date(Date.now() + minutes * 60_000)
-  return futureDate.toISOString()
-}
+// function addMinutesToNow(minutes: number): string {
+//   const futureDate = new Date(Date.now() + minutes * 60_000)
+//   return futureDate.toISOString()
+// }
 
 function getTodayMidnight(): string {
   const d = new Date()
@@ -112,7 +112,8 @@ export default {
 ### Vloeken
 
 - **Twist**: Sommige uitdagingen op het bingobord zijn vloeken. Probeer deze om andere teams te hinderen.
-- **Succes**: Als je team een ​​vloek succesvol voltooit, levert de volgende uitdaging die door andere teams wordt voltooid hen slechts halve punten op. - **Mislukking**: Als je team een ​​vloek niet haalt, verliest je team de helft van de punten bij je volgende voltooide uitdaging.
+- **Succes**: Als je team een ​​vloek succesvol voltooit, levert de volgende uitdaging die door andere teams wordt voltooid hen slechts halve punten op.
+- **Mislukking**: Als je team een ​​vloek niet haalt, verliest je team de helft van de punten bij je volgende voltooide uitdaging.
 
 ### Spelregels
 
@@ -651,299 +652,64 @@ export default {
     ],
   ],
   runs: {
-    'summer-edition': {
+    'past-edition': {
       name: {
-        en: 'Summer Edition',
-        pt: 'Edição de verão',
-        nl: 'Zomer editie',
-        zh: '夏季版',
+        en: 'Past Edition',
+        pt: 'Edição Passada',
+        nl: 'Vorige editie',
+        zh: '往期',
       },
-      finished: false,
       date: getTodayMidnight(),
-      lastUpdate: addMinutesToNow(-5),
       teams: {
         'team-a': {
-          name: { en: 'Team A', pt: 'Equipe A', nl: 'Team A', zh: 'A队' },
-          challenges: [
-            {
-              key: 'Discover a natural hot spring',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-3.gif',
-            },
-            {
-              key: 'Spot a wooden shoe',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-2.gif',
-            },
-            {
-              key: 'Try a traditional dish',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-1.gif',
-            },
-          ],
+          name: 'Team A',
         },
         'team-b': {
-          name: { en: 'Team B', pt: 'Equipe B', nl: 'Team B', zh: 'B队' },
-          challenges: [
-            {
-              key: 'Capture a sunrise over the ocean',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-5.gif',
-            },
-            {
-              key: 'Find a famous monument',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-4.gif',
-            },
-            {
-              key: 'Locate a famous statue',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-3.gif',
-            },
-          ],
+          name: 'Team B',
         },
         'team-c': {
-          name: { en: 'Team C', pt: 'Equipe C', nl: 'Team C', zh: 'C队' },
-          challenges: [
-            {
-              key: 'Spot a windmill',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-2.gif',
-            },
-            {
-              key: 'Take pic with Van Gogh',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-1.gif',
-            },
-            {
-              key: 'Capture a sunrise over the ocean',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-5.gif',
-            },
-            {
-              key: 'Spot a rare animal in the wild',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-4.gif',
-            },
-            {
-              key: 'Discover a hidden gem',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-3.gif',
-            },
-          ],
+          name: 'Team C',
         },
         'team-d': {
-          name: { en: 'Team D', pt: 'Equipe D', nl: 'Team D', zh: 'D队' },
-          challenges: [
-            {
-              key: 'Spot a windmill',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-2.gif',
-            },
-            {
-              key: 'Take pic with Van Gogh',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-1.gif',
-            },
-            {
-              key: 'Spot a rare animal in the wild',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-5.gif',
-            },
-            {
-              key: 'Discover a hidden gem',
-              date: '2024-08-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-4.gif',
-            },
-          ],
+          name: 'Team D',
         },
       },
     },
-    'winter-edition': {
+    'current-edition': {
       name: {
-        en: 'Winter Edition',
-        pt: 'Edição de inverno',
-        nl: 'Wintereditie',
-        zh: '冬季版',
+        en: 'Current Edition',
+        pt: 'Edição atual',
+        nl: 'Huidige editie',
+        zh: '当前版本',
       },
-      finished: true,
       date: '2024-02-24T12:00:00',
-      lastUpdate: '2024-02-24T12:00:00',
       teams: {
         'team-a': {
-          name: { en: 'Team A', pt: 'Equipe A', nl: 'Team A', zh: 'A队' },
-          challenges: [
-            {
-              key: 'Discover a natural hot spring',
-              date: '2024-02-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-3.gif',
-            },
-            {
-              key: 'Spot a wooden shoe',
-              date: '2024-02-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-2.gif',
-            },
-            {
-              key: 'Try a traditional dish',
-              date: '2024-02-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-1.gif',
-            },
-          ],
+          name: 'Team A',
+          members: ['Amina', 'Rajesh', 'Hiroshi'],
         },
         'team-b': {
-          name: { en: 'Team B', pt: 'Equipe B', nl: 'Team B', zh: 'B队' },
-          challenges: [
-            {
-              key: 'Locate a famous statue',
-              date: '2024-02-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-            },
-            {
-              key: 'Spot a windmill',
-              date: '2024-02-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-            },
-            {
-              key: 'Take pic with Van Gogh',
-              date: '2024-02-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-5.gif',
-            },
-            {
-              key: 'Capture a sunrise over the ocean',
-              date: '2024-02-24T12:00:00',
-              comment: {
-                en: `_Great job_!!!`,
-                pt: '_Ótimo trabalho_!!!',
-                nl: '_Geweldig gedaan_!!!',
-                zh: '_干得好_!!!',
-              },
-              image: '/images/clapping-4.gif',
-            },
-          ],
+          name: 'Team B',
+          members: ['Lena', 'Kofi', 'Carlos'],
+        },
+      },
+    },
+    'future-edition': {
+      name: {
+        en: 'Future Edition',
+        pt: 'Edição Futura',
+        nl: 'Toekomstige editie',
+        zh: '未来版',
+      },
+      date: '2024-02-24T12:00:00',
+      teams: {
+        'team-a': {
+          name: 'Team A',
+          members: ['Amina', 'Rajesh', 'Hiroshi'],
+        },
+        'team-b': {
+          name: 'Team B',
+          members: ['Lena', 'Kofi', 'Carlos'],
         },
       },
     },

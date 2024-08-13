@@ -1,4 +1,4 @@
-import { Event, LocalizedString, TeamChallenge } from './'
+import { Event, LocalizedString } from './'
 
 export enum RunGameStatus {
   Planned,
@@ -12,7 +12,6 @@ export interface TeamLeaderBoardData {
   score: number
   rank: number
   bingos: number
-  challenges: TeamChallenge[]
 }
 
 export interface LeaderBoardData {
