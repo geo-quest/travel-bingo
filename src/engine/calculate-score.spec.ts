@@ -236,36 +236,6 @@ describe('calculate-score.ts', () => {
     })
   })
 
-  // describe('run.state: running', () => {
-  //   it('should throw error for "finish" event', () => {
-  //     expect(() =>
-  //       initialValidation(runGameData(), [
-  //         event({ type: EventType.Start }),
-  //         event({ type: EventType.Finish }),
-  //       ]),
-  //     ).toThrowError('no "finish" events allowed while running.')
-  //   })
-  //   it('should return calculated simple case', () => {
-  //     expect(
-  //       initialValidation(runGameData(), [
-  //         event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
-  //         event({ type: EventType.ChallengeCompleted, timestamp: '2024-08-12T10:00:00' }),
-  //       ]),
-  //     ).toStrictEqual([
-  //       {
-  //         type: EventType.Start,
-  //         timestamp: '2024-08-12T10:00:00',
-  //         state: { teams: [{ team: 'team-a', score: 0 }] },
-  //       },
-  //       {
-  //         type: EventType.ChallengeCompleted,
-  //         timestamp: '2024-08-12T10:00:00',
-  //         state: { teams: [{ team: 'team-a', score: 0 }] },
-  //       },
-  //     ])
-  //   })
-  // })
-
   describe('calculateScore', () => {
     describe('very simple case', () => {
       const expectedResult = [
