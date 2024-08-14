@@ -65,6 +65,22 @@
   transform: scale(1.1); /* Slightly enlarges on hover */
 }
 
+.board .completed-challenge {
+  background-color: #f6ffed;
+  color: #389e0d;
+  border: 1px solid #b7eb8f;
+  text-align: center;
+  transition:
+    background-color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.board .completed-challenge:hover {
+  background-color: #e0f7e6;
+  border-color: #a0d78b;
+  transform: scale(1.05);
+}
+
 @keyframes flicker {
   0%,
   19%,

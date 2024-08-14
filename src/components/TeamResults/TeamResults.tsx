@@ -1,5 +1,3 @@
-import './TeamResults.css'
-
 import { Col, Row, Space, Statistic, Tag, Typography } from 'antd'
 import BingoBoard from 'components/BingoBoard/BingoBoard'
 import ChallengeModal from 'components/ChallengeModal/ChallengeModal'
@@ -81,7 +79,7 @@ const TeamResults = function ({ team, run, game }: Props) {
               setSelectedChallenge(challenge)
             }}
             defineCardClass={(challenge: Challenge) =>
-              getSolved(challenge.key) === undefined ? '' : 'card-done'
+              getSolved(challenge.key) === undefined ? '' : 'completed-challenge'
             }
           />
         </Col>
