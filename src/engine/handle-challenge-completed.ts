@@ -1,8 +1,8 @@
 import {
   Challenge,
   Event,
-  EventType,
   ResultEvent,
+  ResultEventType,
   RunGameState,
   RunGameStatus,
   TravelBingoRules,
@@ -59,7 +59,7 @@ export function handleChallengeCompleted(
 
   if (newBingos.length > 0 && teamState) {
     resultEvents.push({
-      type: EventType.Bingo,
+      type: ResultEventType.Bingo,
       timestamp: event.timestamp,
       team: teamState.team,
       newBingos: newBingos,

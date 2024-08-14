@@ -1,4 +1,4 @@
-import { EventType, ResultEvent, RunGameStatus } from 'data/interfaces'
+import { EventType, ResultEvent, ResultEventType, RunGameStatus } from 'data/interfaces'
 
 import { calculateScore } from './calculate-score'
 import { challenges, event, rules, runGameData } from './tests.fixtures'
@@ -7,7 +7,7 @@ describe('calculateScore', () => {
   describe('very simple case', () => {
     const expectedResult = [
       {
-        type: EventType.Empty,
+        type: ResultEventType.Empty,
         timestamp: '2024-08-12T00:00:00',
         state: {
           status: RunGameStatus.Planned,
@@ -69,7 +69,7 @@ describe('calculateScore', () => {
         },
       },
       {
-        type: EventType.Bingo,
+        type: ResultEventType.Bingo,
         team: 'team-a',
         timestamp: '2024-08-12T12:00:00',
         newBingos: ['row-0'],

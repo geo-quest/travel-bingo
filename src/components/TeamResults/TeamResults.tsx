@@ -9,6 +9,7 @@ import {
   Challenge,
   EventType,
   KeyObject,
+  ResultEventType,
   RunGameData,
   TeamGameData,
   TravelBingoGameData,
@@ -106,7 +107,7 @@ const TeamResults = function ({ team, run, game }: Props) {
               event.type === EventType.Start ||
               event.type === EventType.Finish ||
               (event.type === EventType.ChallengeCompleted && event.team === team.key) ||
-              (event.type === EventType.Bingo && event.team === team.key)
+              (event.type === ResultEventType.Bingo && event.team === team.key)
             }
           />
         </Col>

@@ -3,9 +3,9 @@ import FormattedDate from 'components/Date/FormattedDate'
 import RelativeDate from 'components/Date/RelativeDate'
 import Events from 'components/Events/Events'
 import {
-  EventType,
   KeyObject,
   ResultEvent,
+  ResultEventType,
   RunGameData,
   TeamState,
   TravelBingoGameData,
@@ -42,7 +42,7 @@ const StartedRun = ({ run, events, game }: Props) => {
           events={events}
           teamsData={run.teams}
           challenges={game.challenges}
-          filterFunction={event => event.type !== EventType.Empty}
+          filterFunction={event => event.type !== ResultEventType.Empty}
         />
       ),
     },

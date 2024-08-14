@@ -1,4 +1,10 @@
-import { Challenge, EventType, ResultEvent, RunGameData, TravelBingoRules } from 'data/interfaces'
+import {
+  Challenge,
+  ResultEvent,
+  ResultEventType,
+  RunGameData,
+  TravelBingoRules,
+} from 'data/interfaces'
 
 import { defineInitialState } from './define-initial-state'
 import { handleEvent } from './handle-event'
@@ -15,7 +21,7 @@ export function calculateScore(
 
   let state = defineInitialState(run)
 
-  const result: ResultEvent[] = [{ type: EventType.Empty, state, timestamp: run.date }]
+  const result: ResultEvent[] = [{ type: ResultEventType.Empty, state, timestamp: run.date }]
 
   for (const event of run.events) {
     const resultEvents = handleEvent(event, state, challenges, rules)

@@ -1,6 +1,6 @@
 import { Tag, Timeline } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
-import { Challenge, EventType, ResultEvent, TeamsGameData } from 'data/interfaces'
+import { Challenge, EventType, ResultEvent, ResultEventType, TeamsGameData } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
 import { getChallengeTitle } from 'utils/get-challenge-title'
 import { getTeamName } from 'utils/get-team-name'
@@ -15,12 +15,12 @@ export interface Props {
 const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction }: Props) => {
   const { t } = useTranslation()
 
-  const getColorByEventType = (type: EventType) => {
-    const colorMap = new Map<EventType, string>([
+  const getColorByEventType = (type: EventType | ResultEventType) => {
+    const colorMap = new Map<EventType | ResultEventType, string>([
       [EventType.Start, 'blue'],
       [EventType.Finish, 'red'],
       [EventType.ChallengeCompleted, 'green'],
-      [EventType.Bingo, '#32cd32'],
+      [ResultEventType.Bingo, '#32cd32'],
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -46,7 +46,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
         </>
       )
-    } else if (event.type === EventType.Bingo && event.team && event.newBingos) {
+    } else if (event.type === ResultEventType.Bingo && event.team && event.newBingos) {
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.scored-bingo')} (
