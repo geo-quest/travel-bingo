@@ -1,4 +1,4 @@
-import { EventType, TravelBingoGameData } from './interfaces'
+import { ChallengeType, EventType, TravelBingoGameData } from './interfaces'
 
 function relativeDate(days: number, hour = 0, minute = 0): string {
   const newDate = new Date()
@@ -186,7 +186,7 @@ export default {
           zh: '在荷兰寻找风车',
         },
         points: 25,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image: 'https://travelwithbender.com/files/4014/3664/1436/zaanse_schans_IMG_4125-2.jpg',
       },
       {
@@ -204,7 +204,7 @@ export default {
           zh: '在荷兰寻找郁金香田',
         },
         points: 10,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image: 'https://dutchwannabe.com/wp-content/uploads/2017/06/tulip-fields-netherlands.jpg',
       },
       {
@@ -222,7 +222,7 @@ export default {
           zh: '在荷兰寻找自行车',
         },
         points: 5,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://photography.bicyclingaroundtheworld.nl/wp-content/uploads/2019/10/amtsterdam-netherlands-bicycle-culture.jpg',
       },
@@ -243,7 +243,7 @@ export default {
         image:
           'https://canalsofamsterdam.com/wp-content/uploads/2022/07/Canals-of-Amsterdam-scaled.jpg',
         points: 5,
-        type: 'normal',
+        type: ChallengeType.Normal,
       },
       {
         key: 'Spot a cheese shop',
@@ -260,7 +260,7 @@ export default {
           zh: '查找在荷兰出售奶酪的商店',
         },
         points: 20,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://images.squarespace-cdn.com/content/v1/5e386e245ec08c1b8eaa7c94/4dd6cf47-72c4-431a-bb96-9884507bf931/Cheese+Shop.jpg',
       },
@@ -281,7 +281,7 @@ export default {
           zh: '与梵高画作合影',
         },
         points: 50,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://assets.vangoghmuseum.nl/f0a809b3-6a77-406f-b398-350f74b9dea1?w=400&c=b65b3ac8477509fef0fb5cf71c1235e2316f27596c3bf2365469ce4303896b0a',
       },
@@ -300,7 +300,7 @@ export default {
           zh: '在荷兰寻找木鞋',
         },
         points: 10,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://www.learndutch.org/wp-content/uploads/2019/02/86-What-about-the-woorden-shoes-.jpg',
       },
@@ -319,7 +319,7 @@ export default {
           zh: '参观当地市场并捕捉熙熙攘攘的气氛',
         },
         points: 20,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image: 'https://www.hiddenholland.com/wp-content/uploads/amsterdam-market-albert-cuyp.jpg',
       },
       {
@@ -337,7 +337,7 @@ export default {
           zh: '找到并拍摄城市中著名的纪念碑',
         },
         points: 30,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://www.iamexpat.nl/sites/default/files/styles/ogimage_thumb/public/oldimages/bf7bfcfede1c35c26a869945094ae3441434370213.jpg',
       },
@@ -356,7 +356,7 @@ export default {
           zh: '观看并记录原产国的传统舞蹈',
         },
         points: 35,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dutch_Folklore_Dance_Group_in_Holambra%2C_Brazil.jpg/1200px-Dutch_Folklore_Dance_Group_in_Holambra%2C_Brazil.jpg',
       },
@@ -377,7 +377,7 @@ export default {
           zh: '在海滩拍摄美丽的日出',
         },
         points: 40,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://t4.ftcdn.net/jpg/00/70/14/07/360_F_70140703_2f8N0lwAp67VimEab9ogx3FjvguA8Ef1.jpg',
       },
@@ -396,7 +396,7 @@ export default {
           zh: '寻找并拍摄正在工作的街头艺术家的照片',
         },
         points: 15,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image: 'https://tucsonartsbrigade.org/wp-content/uploads/graffiti-artist-painting.jpg',
       },
       {
@@ -414,7 +414,7 @@ export default {
           zh: '参观并拍摄历史悠久的城堡',
         },
         points: 50,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://annetravelfoodie.com/wp-content/uploads/2020/09/muiderslot-castle-netherlands.jpg',
       },
@@ -433,7 +433,7 @@ export default {
           zh: '品尝并回顾该地区的传统菜肴',
         },
         points: 25,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://traveladdicts.net/wp-content/uploads/2016/02/Bitterballen-beer-snack-Dutch-food.jpg',
       },
@@ -452,7 +452,7 @@ export default {
           zh: '找到著名雕像并拍照',
         },
         points: 30,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/0a/32/90/johnny-jordaanplein.jpg?w=500&h=500&s=1',
       },
@@ -473,7 +473,7 @@ export default {
           zh: '在自然栖息地拍摄稀有或外来动物',
         },
         points: 60,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://www.iamexpat.nl/sites/default/files/styles/ogimage_thumb/public/wildlife-in-the-netherlands.png',
       },
@@ -492,7 +492,7 @@ export default {
           zh: '找到一条以其色彩缤纷的房屋而闻名的街道，捕捉它的美丽',
         },
         points: 20,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image: 'https://www.shutterstock.com/image-photo/houses-amsterdam-600nw-731110921.jpg',
       },
       {
@@ -510,7 +510,7 @@ export default {
           zh: '参加当地的节日并记录您的经历',
         },
         points: 50,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://www.spendlifetraveling.com/wp-content/uploads/2016/12/amsterdam_events_gay_pride.jpg',
       },
@@ -529,7 +529,7 @@ export default {
           zh: '寻找并捕捉灯塔的宏伟',
         },
         points: 25,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image: 'https://live.staticflickr.com/8199/8242635034_076174c1be_b.jpg',
       },
       {
@@ -547,7 +547,7 @@ export default {
           zh: '找到并拍摄一座世界著名的桥梁',
         },
         points: 30,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://images.squarespace-cdn.com/content/569e766e69492e9dd5373ef6/1553525738625-IG5QYJ8WHIVWZMDWN1H7/amsterdam-photo-tour-009.jpg?format=1500w&content-type=image%2Fjpeg',
       },
@@ -568,7 +568,7 @@ export default {
           zh: '找到一个鲜为人知但令人惊叹的地点并记录下来',
         },
         points: 35,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://bymountainpeople.com/wp-content/uploads/2023/06/Discover-the-Hidden-Gem-of-Nepal-The-Shey-Phoksundo-Lake-Trek-By-Mountain-People.webp',
       },
@@ -587,7 +587,7 @@ export default {
           zh: '拍摄一座著名山峰的顶峰',
         },
         points: 40,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://www.ephotozine.com/resize/articles/15270/P9080276.jpg?RTUdGk5cXyJFCgsJVANtdxU+cVRdHxFYFw1Gewk0T1JYFEtzen5YdgthHHsvEVxR',
       },
@@ -606,7 +606,7 @@ export default {
           zh: '探索植物园的多样化植物并拍摄照片',
         },
         points: 20,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://assets.cntraveller.in/photos/64199ada59df46f87e0a53ca/16:9/w_1024%2Cc_limit/GettyImages-470648565.jpg',
       },
@@ -625,7 +625,7 @@ export default {
           zh: '参观野生动物保护区并在自然环境中捕捉动物',
         },
         points: 45,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://img.traveltriangle.com/blog/wp-content/uploads/2019/08/Wildlife-Sanctuaries-In-India.jpg',
       },
@@ -644,7 +644,7 @@ export default {
           zh: '寻找并拍摄天然温泉',
         },
         points: 40,
-        type: 'normal',
+        type: ChallengeType.Normal,
         image:
           'https://media.cntraveler.com/photos/5eb420d241269ff2d4f2ea8b/master/pass/Pamukkale-Denizli-Turkey-GettyImages-539479634.jpg',
       },
