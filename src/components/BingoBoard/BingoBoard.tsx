@@ -10,14 +10,18 @@ import Header from './Header'
 interface Props {
   challenges: Challenge[][]
   onClick: (challenge: Challenge) => void
-  defineCardClass?: (challenge: Challenge) => string | undefined
+  defineCardClass?: (challenge: Challenge, row: number, col: number) => string[] | undefined
 }
 
 const BingoBoard: React.FC<Props> = ({ challenges, onClick, defineCardClass }) => {
-  const getClass = (challenge: Challenge): string => {
+  const getClass = (challenge: Challenge, row: number, col: number): string => {
     const clazz = ['card']
     if (challenge.type === ChallengeType.Curse1) clazz.push('curse')
-    if (defineCardClass !== undefined && challenge) clazz.push(defineCardClass(challenge) ?? '')
+    if (defineCardClass !== undefined && challenge) {
+      const newClazzes = defineCardClass(challenge, row, col)
+      if (newClazzes) clazz.push(...newClazzes)
+    }
+
     return clazz.join(' ')
   }
 
@@ -29,7 +33,7 @@ const BingoBoard: React.FC<Props> = ({ challenges, onClick, defineCardClass }) =
           {row.map((item, colIndex) => (
             <Card.Grid
               key={colIndex}
-              className={getClass(item)}
+              className={getClass(item, rowIndex, colIndex)}
               onClick={() => onClick(item)}
               style={{ width: `${100 / row.length}%` }}
             >

@@ -79,6 +79,12 @@
   transform: scale(1.05);
 }
 
+.board .bingo {
+  background-color: #008000 !important;
+  color: white !important;
+  border: 0 !important;
+}
+
 @media (max-width: 600px) {
   .board .header-card,
   .board .card {

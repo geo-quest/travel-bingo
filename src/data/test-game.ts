@@ -832,6 +832,18 @@ export default {
           team: 'team-a',
           challenge: 'Spot a cheese shop',
         },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 16, 0),
+          team: 'team-a',
+          challenge: 'Find a street with colorful houses',
+        },
+        {
+          type: EventType.ChallengeCompleted,
+          timestamp: relativeDate(0, 16, 0),
+          team: 'team-c',
+          challenge: 'Find a historic castle',
+        },
       ],
     },
     'future-edition': {

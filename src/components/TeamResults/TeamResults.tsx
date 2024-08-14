@@ -33,8 +33,21 @@ const TeamResults = function ({ team, run, game }: Props) {
 
   if (!teamData) return <NoPage />
 
-  const getSolved = (challengeKey: string) => {
-    return teamData.completedChallenges.find(c => c === challengeKey)
+  const getChallengeClass = (challenge: Challenge, row: number, col: number): string[] => {
+    const clazz = []
+    console.log(teamData.bingos)
+    if (teamData.completedChallenges.find(c => c === challenge.key))
+      clazz.push('completed-challenge')
+    if (teamData.bingos.find(b => b === `row-${row}`)) clazz.push('bingo')
+    if (teamData.bingos.find(b => b === `col-${col}`)) clazz.push('bingo')
+    if (row === col && teamData.bingos.find(b => b === 'main-diagonal')) clazz.push('bingo')
+    if (
+      game.challenges.length === game.challenges[0].length &&
+      row + col === game.challenges.length - 1 &&
+      teamData.bingos.find(b => b === 'secondary-diagonal')
+    )
+      clazz.push('bingo')
+    return clazz
   }
 
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
@@ -78,9 +91,7 @@ const TeamResults = function ({ team, run, game }: Props) {
             onClick={(challenge: Challenge) => {
               setSelectedChallenge(challenge)
             }}
-            defineCardClass={(challenge: Challenge) =>
-              getSolved(challenge.key) === undefined ? '' : 'completed-challenge'
-            }
+            defineCardClass={getChallengeClass}
           />
         </Col>
       </Row>
