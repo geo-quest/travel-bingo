@@ -1,18 +1,18 @@
 import 'antd/dist/reset.css'
 
 import { Card, Col, Row } from 'antd'
+import Score from 'components/Score/Score'
+import { TeamsGameData, TeamState } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
-
-import { TeamLeaderBoardData } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import Score from '../Score/Score'
+import { getTeamName } from 'utils/get-team-name'
 
 interface Props {
-  teams: TeamLeaderBoardData[]
-  onClick: (team: TeamLeaderBoardData) => void
+  teams: TeamState[]
+  teamsData: TeamsGameData
+  onClick: (team: TeamState) => void
 }
 
-const Podium = ({ teams, onClick }: Props) => {
+const Podium = ({ teams, teamsData, onClick }: Props) => {
   const { t } = useTranslation()
   return (
     <div className="podium">
@@ -25,7 +25,7 @@ const Podium = ({ teams, onClick }: Props) => {
               className="podium-card silver"
               onClick={() => onClick(teams[1])}
             >
-              <h3>{t2(teams[1].name)}</h3>
+              <h3>{getTeamName(teams[1].team, teamsData)}</h3>
               <Score team={teams[1]} />
             </Card>
           </Col>
@@ -37,7 +37,7 @@ const Podium = ({ teams, onClick }: Props) => {
             className="podium-card gold"
             onClick={() => onClick(teams[0])}
           >
-            <h3>{t2(teams[0].name)}</h3>
+            <h3>{getTeamName(teams[0].team, teamsData)}</h3>
             <Score team={teams[0]} />
           </Card>
         </Col>
@@ -49,7 +49,7 @@ const Podium = ({ teams, onClick }: Props) => {
               className="podium-card bronze"
               onClick={() => onClick(teams[2])}
             >
-              <h3>{t2(teams[2].name)}</h3>
+              <h3>{getTeamName(teams[2].team, teamsData)}</h3>
               <Score team={teams[2]} />
             </Card>
           </Col>

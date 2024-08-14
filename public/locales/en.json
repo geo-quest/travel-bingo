@@ -1,5 +1,6 @@
 {
   "challenges": "Challenges",
+  "challenge": "Challenge",
   "how-to-play": "How to Play",
   "rank": "Rank",
   "team": "Team",
@@ -7,7 +8,9 @@
   "solved-at": "Solved at",
   "run": {
     "run-date": "Run date",
-    "last-update": "Last update"
+    "last-update": "Last update",
+    "leaderboard": "Leaderboard",
+    "timeline": "Timeline"
   },
   "podium": {
     "1st": "1st",
@@ -20,5 +23,42 @@
     "something-went-wrong": "Something went wrong",
     "page-does-not-exist": "The page you're looking for doesn't exist.",
     "go-back-home-page": "Go back to the homepage"
-  }
+  },
+  "planned-run": {
+    "game-not-started": "This game has not started yet!",
+    "please-wait": "Please wait a moment.",
+    "expected-start-date": "Expected start date"
+  },
+  "timeline": {
+    "game-started": "The game has started",
+    "game-finished": "The game just ended",
+    "solved": "solved",
+    "and-scored": "and scored",
+    "points": "points",
+    "extra-points": "extra points",
+    "scored-bingo": "scored bingo",
+    "and-made": "and made"
+  },
+  "bingo": {
+    "row-0": "First row",
+    "row-1": "Second row",
+    "row-2": "Third row",
+    "row-3": "Fourth row",
+    "row-4": "Fifth row",
+    "row-5": "Sixth row",
+    "row-7": "Seventh row",
+    "col-0": "First column",
+    "col-1": "Second column",
+    "col-2": "Third column",
+    "col-3": "Fourth column",
+    "col-4": "Fifth column",
+    "col-5": "Sixth column",
+    "col-7": "Seventh column",
+    "main-diagonal": "Main diagonal",
+    "secondary-diagonal": "Secondary diagonal"
+  },
+  "ChallengeCompleted": "Challenge completed",
+  "Start": "Start",
+  "Finish": "Finish",
+  "Bingo": "Bingo"
 }

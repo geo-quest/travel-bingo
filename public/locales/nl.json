@@ -1,5 +1,6 @@
 {
   "challenges": "Uitdagingen",
+  "challenge": "Uitdaging",
   "how-to-play": "Hoe te spelen",
   "rank": "Rang",
   "team": "Team",
@@ -7,7 +8,9 @@
   "solved-at": "Opgelost bij",
   "run": {
     "run-date": "Datum uitvoeren",
-    "last-update": "Laatste update"
+    "last-update": "Laatste update",
+    "leaderboard": "Leiderbord",
+    "timeline": "Tijdlijn"
   },
   "podium": {
     "1st": "1e",
@@ -20,5 +23,42 @@
     "something-went-wrong": "Er is iets misgegaan",
     "page-does-not-exist": "De pagina die u zoekt bestaat niet.",
     "go-back-home-page": "Ga terug naar de startpagina"
-  }
+  },
+  "planned-run": {
+    "game-not-started": "Dit spel is nog niet begonnen!",
+    "please-wait": "Wacht even.",
+    "expected-start-date": "Verwachte startdatum"
+  },
+  "timeline": {
+    "game-started": "Het spel is begonnen",
+    "game-finished": "Het spel is net afgelopen",
+    "solved": "opgelost",
+    "and-scored": "en scoorde",
+    "points": "punten",
+    "extra-points": "extra punten",
+    "scored-bingo": "bingo gescoord",
+    "and-made": "en gemaakt"
+  },
+  "bingo": {
+    "row-0": "Eerste rij",
+    "row-1": "Tweede rij",
+    "row-2": "Derde rij",
+    "row-3": "Vierde rij",
+    "row-4": "Vijfde rij",
+    "row-5": "Zesde rij",
+    "row-7": "Zevende rij",
+    "col-0": "Eerste kolom",
+    "col-1": "Tweede kolom",
+    "col-2": "Derde kolom",
+    "col-3": "Vierde kolom",
+    "col-4": "Vijfde colonne",
+    "col-5": "Zesde colonne",
+    "col-7": "Zevende colonne",
+    "main-diagonal": "Hoofddiagonaal",
+    "secondary-diagonal": "Secundaire diagonaal"
+  },
+  "ChallengeCompleted": "Uitdaging voltooid",
+  "Start": "Begin",
+  "Finish": "Finish",
+  "Bingo": "Bingo"
 }

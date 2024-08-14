@@ -1,8 +1,8 @@
-import NoPage from '../../components/NoPage/NoPage'
-import PageComponent from '../../components/PageComponent/PageComponent'
-import TravelBingoGame from '../../components/TravelBingoGame/TravelBingoGame'
-import { TravelBingoGamesData } from '../../data/interfaces'
-import { getDataBasedOnParams } from '../../utils/get-data-based-on-params'
+import NoPage from 'components/NoPage/NoPage'
+import PageComponent from 'components/PageComponent/PageComponent'
+import TravelBingoGame from 'components/TravelBingoGame/TravelBingoGame'
+import { TravelBingoGamesData } from 'data/interfaces'
+import { getDataBasedOnParams } from 'utils/get-data-based-on-params'
 
 interface Props {
   data: TravelBingoGamesData

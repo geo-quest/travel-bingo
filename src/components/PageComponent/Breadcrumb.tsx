@@ -1,9 +1,8 @@
 import { HomeOutlined } from '@ant-design/icons'
 import { Breadcrumb } from 'antd'
-
-import { KeyObject, RunGameData, TeamGameData, TravelBingoGameData } from '../../data/interfaces'
-import t2 from '../../utils/t2'
-import { DynamicIconComponent } from '../DynamicIcon/DynamicIcon'
+import DynamicIcon from 'components/DynamicIcon/DynamicIcon'
+import { KeyObject, RunGameData, TeamGameData, TravelBingoGameData } from 'data/interfaces'
+import t2 from 'utils/t2'
 
 interface Props {
   game: TravelBingoGameData & KeyObject
@@ -23,7 +22,7 @@ export default ({ game, run, team }: Props) => {
           href: run === undefined ? undefined : `/${game.key}`,
           title: (
             <>
-              <DynamicIconComponent iconName={game.icon} />
+              <DynamicIcon iconName={game.icon} />
               <span>{t2(game.title)}</span>
             </>
           ),
@@ -36,7 +35,7 @@ export default ({ game, run, team }: Props) => {
               },
             ]
           : []),
-        ...(team ? [{ title: t2(team.name) }] : []),
+        ...(team ? [{ title: team.name }] : []),
       ]}
       style={{ marginBottom: '8px' }}
     />

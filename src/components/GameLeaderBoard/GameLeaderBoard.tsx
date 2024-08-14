@@ -1,19 +1,12 @@
 import './GameLeaderBoard.css'
 
-import { Col, Row, Space, Statistic } from 'antd'
-import { useTranslation } from 'react-i18next'
+import NoPage from 'components/NoPage/NoPage'
+import { KeyObject, RunGameData, RunGameStatus, TravelBingoGameData } from 'data/interfaces'
+import { calculateScore } from 'engine'
 
-import {
-  KeyObject,
-  RunGameData,
-  TeamLeaderBoardData,
-  TravelBingoGameData,
-} from '../../data/interfaces'
-import { calculateLeaderBoard } from '../../utils/calculate-leader-board'
-import FormattedDate from '../Date/FormattedDate'
-import RelativeDate from '../Date/RelativeDate'
-import LeaderBoard from './LeaderBoard'
-import Podium from './Podium'
+import FinishedRun from './FinishedRun'
+import PlannedRun from './PlannedRun'
+import StartedRun from './StartedRun'
 
 interface Props {
   run: RunGameData & KeyObject
@@ -21,62 +14,15 @@ interface Props {
 }
 
 const GameLeaderBoard = ({ run, game }: Props) => {
-  const { t } = useTranslation()
-  const leaderBoardData = calculateLeaderBoard(run, game.challenges)
+  const events = calculateScore(run, game.challenges, game.rules)
+  const state = events[events.length - 1].state
 
-  const navigate = function (team: TeamLeaderBoardData & KeyObject) {
-    window.location.href = `/${game.key}/${run.key}/${team.key}`
-  }
-
-  const renderHeaderRow = (run: RunGameData) => {
-    if (run.finished)
-      return (
-        <Row>
-          <Col span={24} style={{ textAlign: 'center' }}>
-            <Statistic
-              valueStyle={{ fontSize: '16px' }}
-              title={t('run.run-date')}
-              valueRender={() => <FormattedDate date={run.date} />}
-            />
-          </Col>
-        </Row>
-      )
-
-    return (
-      <Row>
-        <Col span={12} style={{ textAlign: 'center' }}>
-          <Statistic
-            valueStyle={{ fontSize: '16px' }}
-            title={t('run.run-date')}
-            valueRender={() => <FormattedDate date={run.date} />}
-          />
-        </Col>
-        <Col span={12} style={{ textAlign: 'center' }}>
-          <Statistic
-            valueStyle={{ fontSize: '16px' }}
-            title={t('run.last-update')}
-            valueRender={() => <RelativeDate date={run.lastUpdate} />}
-          />
-        </Col>
-      </Row>
-    )
-  }
-
-  return (
-    <Space direction="vertical">
-      {renderHeaderRow(run)}
-      <Row>
-        <Col span={24}>
-          <Podium teams={leaderBoardData.teams} onClick={navigate} />
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          <LeaderBoard teams={leaderBoardData.teams} onClick={navigate} />
-        </Col>
-      </Row>
-    </Space>
-  )
+  if (state.status === RunGameStatus.Planned) return <PlannedRun run={run} game={game} />
+  else if (state.status === RunGameStatus.Finished)
+    return <FinishedRun game={game} run={run} state={state} events={events} />
+  else if (state.status === RunGameStatus.Started)
+    return <StartedRun game={game} run={run} events={events} />
+  else return <NoPage />
 }
 
 export default GameLeaderBoard

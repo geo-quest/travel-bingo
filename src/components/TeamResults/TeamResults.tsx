@@ -1,24 +1,21 @@
-import './TeamResults.css'
-
-import { Col, Row, Space, Statistic, Typography } from 'antd'
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-
+import { Col, Row, Space, Statistic, Tag, Typography } from 'antd'
+import BingoBoard from 'components/BingoBoard/BingoBoard'
+import ChallengeModal from 'components/ChallengeModal/ChallengeModal'
+import Events from 'components/Events/Events'
+import NoPage from 'components/NoPage/NoPage'
+import Rank from 'components/Rank/Rank'
+import Score from 'components/Score/Score'
 import {
   Challenge,
   KeyObject,
+  ResultEventType,
   RunGameData,
-  TeamChallenge,
   TeamGameData,
   TravelBingoGameData,
-} from '../../data/interfaces'
-import { calculateLeaderBoard } from '../../utils/calculate-leader-board'
-import BingoBoard from '../BingoBoard/BingoBoard'
-import ChallengeModal from '../ChallengeModal/ChallengeModal'
-import NoPage from '../NoPage/NoPage'
-import Rank from '../Rank/Rank'
-import Score from '../Score/Score'
-import SolvedChallenge from './SolvedChallenge'
+} from 'data/interfaces'
+import { calculateScore } from 'engine'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const { Title } = Typography
 
@@ -30,22 +27,53 @@ interface Props {
 
 const TeamResults = function ({ team, run, game }: Props) {
   const { t } = useTranslation()
-  const leaderBoardData = calculateLeaderBoard(run, game.challenges)
-  const teamData = leaderBoardData.teams.find(t => t.key === team.key)
+  const events = calculateScore(run, game.challenges, game.rules)
+  const state = events[events.length - 1].state
+  const teamData = state.teams.find(t => t.team === team.key)
 
   if (!teamData) return <NoPage />
 
-  const getSolved = (challengeKey: string) => {
-    return teamData.challenges.find(c => c.key === challengeKey)
+  const getChallengeClass = (challenge: Challenge, row: number, col: number): string[] => {
+    const clazz = []
+    console.log(teamData.bingos)
+    if (teamData.completedChallenges.find(c => c === challenge.key))
+      clazz.push('completed-challenge')
+    if (teamData.bingos.find(b => b === `row-${row}`)) clazz.push('bingo')
+    if (teamData.bingos.find(b => b === `col-${col}`)) clazz.push('bingo')
+    if (row === col && teamData.bingos.find(b => b === 'main-diagonal')) clazz.push('bingo')
+    if (
+      game.challenges.length === game.challenges[0].length &&
+      row + col === game.challenges.length - 1 &&
+      teamData.bingos.find(b => b === 'secondary-diagonal')
+    )
+      clazz.push('bingo')
+    return clazz
   }
 
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
 
-  const [selectedSolvedChallenge, setSelectedSolvedChallenge] = useState<TeamChallenge | null>(null)
-
   return (
-    <Space direction="vertical">
+    <Space direction="vertical" style={{ width: '100%' }}>
       <Row>
+        <Col span={24} style={{ textAlign: 'center' }}>
+          {team.members &&
+            team.members.length > 0 &&
+            team.members.map(member => (
+              <Tag color={game.color} key={member} style={{ margin: '0 8px' }}>
+                {member}
+              </Tag>
+            ))}
+        </Col>
+      </Row>
+      <Row
+        style={{
+          border: 'solid 1px #f0f0f0',
+          backgroundColor: '#f0f0f0',
+          borderRadius: '16px',
+          paddingBottom: '8px',
+          paddingTop: '8px',
+        }}
+      >
         <Col span={2} />
         <Col span={10} style={{ textAlign: 'center' }}>
           <Statistic title={t('rank')} valueRender={() => <Rank rank={teamData.rank} />} />
@@ -61,35 +89,26 @@ const TeamResults = function ({ team, run, game }: Props) {
           <BingoBoard
             challenges={game.challenges}
             onClick={(challenge: Challenge) => {
-              const solved = getSolved(challenge.key)
-              if (!solved) {
-                setSelectedChallenge(challenge)
-                setSelectedSolvedChallenge(null)
-              } else {
-                setSelectedSolvedChallenge(
-                  challenge.key === selectedSolvedChallenge?.key ? null : solved,
-                )
-              }
+              setSelectedChallenge(challenge)
             }}
-            defineCardClass={(challenge: Challenge) =>
-              getSolved(challenge.key) === undefined
-                ? ''
-                : challenge.key === selectedSolvedChallenge?.key
-                  ? 'selected-card-done'
-                  : 'card-done'
-            }
+            defineCardClass={getChallengeClass}
           />
         </Col>
       </Row>
       <Row>
         <Col span={24}>
-          {selectedSolvedChallenge && (
-            <SolvedChallenge
-              run={run}
-              teamChallenge={selectedSolvedChallenge}
-              challenge={game.challenges.flat().find(c => c.key === selectedSolvedChallenge.key)}
-            />
-          )}
+          <Title level={2}>{t('run.timeline')}</Title>
+          <Events
+            events={events}
+            teamsData={run.teams}
+            challenges={game.challenges}
+            filterFunction={event =>
+              event.type === ResultEventType.Start ||
+              event.type === ResultEventType.Finish ||
+              (event.type === ResultEventType.ChallengeCompleted && event.team === team.key) ||
+              (event.type === ResultEventType.Bingo && event.team === team.key)
+            }
+          />
         </Col>
       </Row>
       {selectedChallenge && (

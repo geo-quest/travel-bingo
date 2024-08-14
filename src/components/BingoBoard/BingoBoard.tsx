@@ -1,19 +1,30 @@
 import './BingoBoard.css'
 
 import { Card } from 'antd'
+import { Challenge, ChallengeType } from 'data/interfaces'
 import React from 'react'
+import t2 from 'utils/t2'
 
-import { Challenge } from '../../data/interfaces'
-import t2 from '../../utils/t2'
 import Header from './Header'
 
 interface Props {
   challenges: Challenge[][]
   onClick: (challenge: Challenge) => void
-  defineCardClass?: (challenge: Challenge) => string | undefined
+  defineCardClass?: (challenge: Challenge, row: number, col: number) => string[] | undefined
 }
 
 const BingoBoard: React.FC<Props> = ({ challenges, onClick, defineCardClass }) => {
+  const getClass = (challenge: Challenge, row: number, col: number): string => {
+    const clazz = ['card']
+    if (challenge.type === ChallengeType.Curse1) clazz.push('curse')
+    if (defineCardClass !== undefined && challenge) {
+      const newClazzes = defineCardClass(challenge, row, col)
+      if (newClazzes) clazz.push(...newClazzes)
+    }
+
+    return clazz.join(' ')
+  }
+
   return (
     <div className="board">
       <Header />
@@ -22,7 +33,7 @@ const BingoBoard: React.FC<Props> = ({ challenges, onClick, defineCardClass }) =
           {row.map((item, colIndex) => (
             <Card.Grid
               key={colIndex}
-              className={defineCardClass ? defineCardClass(item) + ' card' : 'card'}
+              className={getClass(item, rowIndex, colIndex)}
               onClick={() => onClick(item)}
               style={{ width: `${100 / row.length}%` }}
             >

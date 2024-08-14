@@ -2,10 +2,10 @@ import './PageComponent.css'
 
 import { setTwoToneColor } from '@ant-design/icons'
 import { Card, Col, Row, Space } from 'antd'
+import LanguageSelector from 'components/LanguageSelector/LanguageSelector'
+import { KeyObject, RunGameData, TeamGameData, TravelBingoGameData } from 'data/interfaces'
 import { useEffect } from 'react'
 
-import { KeyObject, RunGameData, TeamGameData, TravelBingoGameData } from '../../data/interfaces'
-import LanguageSelector from '../LanguageSelector/LanguageSelector'
 import Breadcrumb from './Breadcrumb'
 import PageTitle from './PageTitle'
 

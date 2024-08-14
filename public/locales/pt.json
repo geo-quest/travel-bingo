@@ -1,6 +1,6 @@
 {
-  "language": "Idioma",
   "challenges": "Desafios",
+  "challenge": "Desafio",
   "how-to-play": "Como jogar",
   "rank": "Ranking",
   "team": "Equipe",
@@ -8,7 +8,9 @@
   "solved-at": "Resolvido em",
   "run": {
     "run-date": "Data de execução",
-    "last-update": "Ultima atualização"
+    "last-update": "Última atualização",
+    "leaderboard": "Classificação",
+    "timeline": "Linha do tempo"
   },
   "podium": {
     "1st": "1º",
@@ -21,5 +23,42 @@
     "something-went-wrong": "Algo deu errado",
     "page-does-not-exist": "A página que você procura não existe.",
     "go-back-home-page": "Voltar para a página inicial"
-  }
+  },
+  "planned-run": {
+    "game-not-started": "Este jogo ainda não começou!",
+    "please-wait": "Por favor, espere um momento.",
+    "expected-start-date": "Data de início prevista"
+  },
+  "timeline": {
+    "game-started": "O jogo começou",
+    "game-finished": "O jogo acabou de terminar",
+    "solved": "resolveu",
+    "and-scored": "e fez",
+    "points": "pontos",
+    "extra-points": "pontos extras",
+    "scored-bingo": "fez bingo",
+    "and-made": "e ganhou"
+  },
+  "bingo": {
+    "row-0": "Primeira linha",
+    "row-1": "Segunda linha",
+    "row-2": "Terceira linha",
+    "row-3": "Quarta linha",
+    "row-4": "Quinta linha",
+    "row-5": "Sexta linha",
+    "row-7": "Sétima linha",
+    "col-0": "Primeira coluna",
+    "col-1": "Segunda coluna",
+    "col-2": "Terceira coluna",
+    "col-3": "Quarta coluna",
+    "col-4": "Quinta coluna",
+    "col-5": "Sexta coluna",
+    "col-7": "Sétima coluna",
+    "main-diagonal": "Diagonal principal",
+    "secondary-diagonal": "Diagonal secundária"
+  },
+  "ChallengeCompleted": "Desafio concluído",
+  "Start": "Começar",
+  "Finish": "Terminar",
+  "Bingo": "Bingo"
 }

@@ -45,6 +45,46 @@
   max-width: 100px !important;
 }
 
+.board .curse {
+  background-color: purple;
+  color: white;
+  text-shadow:
+    0 0 10px #ff0000,
+    0 0 20px #ff0000,
+    0 0 30px #ff0000;
+  border: 1px solid red;
+  padding: 10px;
+  box-shadow:
+    inset 0 0 15px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+.board .curse:hover {
+  transform: scale(1.1); /* Slightly enlarges on hover */
+}
+
+.board .completed-challenge {
+  background-color: #f6ffed;
+  color: #389e0d;
+  border: 1px solid #b7eb8f;
+  text-align: center;
+  transition:
+    background-color 0.3s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.board .completed-challenge:hover {
+  background-color: #e0f7e6;
+  border-color: #a0d78b;
+  transform: scale(1.05);
+}
+
+.board .bingo {
+  background-color: #008000 !important;
+  color: white !important;
+  border: 0 !important;
+}
+
 @media (max-width: 600px) {
   .board .header-card,
   .board .card {
