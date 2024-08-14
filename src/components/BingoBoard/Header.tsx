@@ -1,6 +1,6 @@
 import { Card } from 'antd'
 
-function Header() {
+const Header = () => {
   return (
     <div style={{ display: 'flex' }}>
       {['B', 'I', 'N', 'G', 'O'].map(letter => (

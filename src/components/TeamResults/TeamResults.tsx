@@ -25,7 +25,7 @@ interface Props {
   game: TravelBingoGameData & KeyObject
 }
 
-const TeamResults = function ({ team, run, game }: Props) {
+const TeamResults = ({ team, run, game }: Props) => {
   const { t } = useTranslation()
   const events = calculateScore(run, game.challenges, game.rules)
   const state = events[events.length - 1].state

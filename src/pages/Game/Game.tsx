@@ -8,7 +8,7 @@ interface Props {
   data: TravelBingoGamesData
 }
 
-function Game({ data }: Props) {
+const Game = ({ data }: Props) => {
   const { game } = getDataBasedOnParams(data)
   if (!game) return <NoPage />
 

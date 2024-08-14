@@ -9,7 +9,7 @@ interface Props {
   teamsData: TeamsGameData
 }
 
-function TeamName({ team, teamsData }: Props) {
+const TeamName = ({ team, teamsData }: Props) => {
   const { t } = useTranslation()
   const name = getTeamName(team.team, teamsData)
   if (team.cursedMultiplier !== undefined)
