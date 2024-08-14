@@ -34,9 +34,30 @@
     "game-finished": "比赛刚刚结束",
     "solved": "解决了",
     "and-scored": "并得分",
-    "points": "点"
+    "points": "点",
+    "scored-bingo": "得分宾果游戏",
+    "and-made": "并做了"
+  },
+  "bingo": {
+    "row-0": "第一排",
+    "row-1": "第二排",
+    "row-2": "第三排",
+    "row-3": "第四排",
+    "row-4": "第五排",
+    "row-5": "第六排",
+    "row-7": "第七排",
+    "col-0": "第一栏",
+    "col-1": "第二栏",
+    "col-2": "第三栏",
+    "col-3": "第四栏",
+    "col-4": "第五栏",
+    "col-5": "第六栏",
+    "col-7": "第七栏",
+    "main-diagonal": "主对角线",
+    "secondary-diagonal": "次对角线"
   },
   "ChallengeCompleted": "挑战完成",
   "Start": "开始",
-  "Finish": "结束"
+  "Finish": "结束",
+  "Bingo": "宾果游戏"
 }

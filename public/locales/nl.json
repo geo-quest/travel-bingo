@@ -34,9 +34,30 @@
     "game-finished": "Het spel is net afgelopen",
     "solved": "opgelost",
     "and-scored": "en scoorde",
-    "points": "punten"
+    "points": "punten",
+    "scored-bingo": "bingo gescoord",
+    "and-made": "en gemaakt"
+  },
+  "bingo": {
+    "row-0": "Eerste rij",
+    "row-1": "Tweede rij",
+    "row-2": "Derde rij",
+    "row-3": "Vierde rij",
+    "row-4": "Vijfde rij",
+    "row-5": "Zesde rij",
+    "row-7": "Zevende rij",
+    "col-0": "Eerste kolom",
+    "col-1": "Tweede kolom",
+    "col-2": "Derde kolom",
+    "col-3": "Vierde kolom",
+    "col-4": "Vijfde colonne",
+    "col-5": "Zesde colonne",
+    "col-7": "Zevende colonne",
+    "main-diagonal": "Hoofddiagonaal",
+    "secondary-diagonal": "Secundaire diagonaal"
   },
   "ChallengeCompleted": "Uitdaging voltooid",
   "Start": "Begin",
-  "Finish": "Finish"
+  "Finish": "Finish",
+  "Bingo": "Bingo"
 }

@@ -32,11 +32,32 @@
   "timeline": {
     "game-started": "O jogo começou",
     "game-finished": "O jogo acabou de terminar",
-    "solved": "resolveu",
+    "solved": "resolvido",
     "and-scored": "e marcou",
-    "points": "pontos"
+    "points": "pontos",
+    "scored-bingo": "bingo marcado",
+    "and-made": "e fez"
+  },
+  "bingo": {
+    "row-0": "Primeira linha",
+    "row-1": "Segunda linha",
+    "row-2": "Terceira linha",
+    "row-3": "Quarta linha",
+    "row-4": "Quinta linha",
+    "row-5": "Sexta linha",
+    "row-7": "Sétima linha",
+    "col-0": "Primeira coluna",
+    "col-1": "Segunda coluna",
+    "col-2": "Terceira coluna",
+    "col-3": "Quarta coluna",
+    "col-4": "Quinta coluna",
+    "col-5": "Sexta coluna",
+    "col-7": "Sétima coluna",
+    "main-diagonal": "Diagonal principal",
+    "secondary-diagonal": "Diagonal secundária"
   },
   "ChallengeCompleted": "Desafio concluído",
   "Start": "Começar",
-  "Finish": "Terminar"
+  "Finish": "Terminar",
+  "Bingo": "Bingo"
 }
