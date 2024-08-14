@@ -1,4 +1,4 @@
-import { ResultEvent, ResultEventType, RunGameStatus } from 'data/interfaces'
+import { EventType, ResultEvent, ResultEventType, RunGameStatus } from 'data/interfaces'
 
 import { handleChallengeCompleted } from './handle-challenge-completed'
 import { challenges, event, rules, state } from './tests.fixtures'
