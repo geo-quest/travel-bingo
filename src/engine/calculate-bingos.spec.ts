@@ -1,4 +1,4 @@
-import { Challenge } from 'data/interfaces'
+import { Challenge, ChallengeType } from 'data/interfaces'
 
 import { calculateBingos } from './calculate-bingos'
 
@@ -6,6 +6,7 @@ describe('calculateBingos', () => {
   const createChallengeSet = (setNumber: number): Challenge[] => {
     return Array.from({ length: 5 }, (_, index) => ({
       key: `c${setNumber}-${index + 1}`,
+      type: ChallengeType.Normal,
       challenge: { en: `challenge${setNumber}-${index + 1}` },
       points: 100,
     }))

@@ -2,7 +2,6 @@ import {
   Challenge,
   ChallengeType,
   Event,
-  EventType,
   ResultEvent,
   ResultEventType,
   RunGameState,

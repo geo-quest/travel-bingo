@@ -16,7 +16,7 @@ interface Props {
 const BingoBoard: React.FC<Props> = ({ challenges, onClick, defineCardClass }) => {
   const getClass = (challenge: Challenge, row: number, col: number): string => {
     const clazz = ['card']
-    if (challenge.type === ChallengeType.Curse1) clazz.push('curse')
+    if (challenge.type === ChallengeType.Curse) clazz.push('curse')
     if (defineCardClass !== undefined && challenge) {
       const newClazzes = defineCardClass(challenge, row, col)
       if (newClazzes) clazz.push(...newClazzes)
