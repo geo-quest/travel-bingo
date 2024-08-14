@@ -2,14 +2,14 @@
   "challenges": "Desafios",
   "challenge": "Desafio",
   "how-to-play": "Como jogar",
-  "rank": "Classificação",
+  "rank": "Ranking",
   "team": "Equipe",
   "score": "Pontuação",
   "solved-at": "Resolvido em",
   "run": {
     "run-date": "Data de execução",
     "last-update": "Última atualização",
-    "leaderboard": "Tabela de classificação",
+    "leaderboard": "Classificação",
     "timeline": "Linha do tempo"
   },
   "podium": {
@@ -32,11 +32,12 @@
   "timeline": {
     "game-started": "O jogo começou",
     "game-finished": "O jogo acabou de terminar",
-    "solved": "resolvido",
-    "and-scored": "e marcou",
+    "solved": "resolveu",
+    "and-scored": "e fez",
     "points": "pontos",
-    "scored-bingo": "bingo marcado",
-    "and-made": "e fez"
+    "extra-points": "pontos extras",
+    "scored-bingo": "fez bingo",
+    "and-made": "e ganhou"
   },
   "bingo": {
     "row-0": "Primeira linha",

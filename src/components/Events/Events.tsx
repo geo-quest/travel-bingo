@@ -53,7 +53,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           {event.newBingos.map(b => {
             return <span key={b}>{t(`bingo.${b}`)}</span>
           })}
-          ) {t('timeline.and-made')} <strong>{event.points}</strong> {t('timeline.points')}
+          ) {t('timeline.and-made')} <strong>{event.points}</strong> {t('timeline.extra-points')}
         </>
       )
     }
