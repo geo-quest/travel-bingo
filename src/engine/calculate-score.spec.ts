@@ -379,4 +379,34 @@ describe('calculateScore', () => {
       expect(results[6]).toStrictEqual(expectedResult[6])
     })
   })
+
+  describe('boost', () => {
+    const expectedResult = [
+      {
+        type: ResultEventType.Empty,
+        timestamp: '2024-08-12T00:00:00',
+        state: {
+          status: RunGameStatus.Planned,
+          teams: [
+            { team: 'team-a', score: 0, rank: 0, bingos: [], completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 0, bingos: [], completedChallenges: [] },
+          ],
+        },
+      },
+    ] as ResultEvent[]
+
+    it('should calculate a boost properly', () => {
+      const results = calculateScore(runGameData(), challenges({ useCurse: true }), rules())
+
+      expect(results.length).toBe(1)
+      expect(results[0]).toStrictEqual(expectedResult[0])
+    })
+  })
+
+  describe('edge cases', () => {
+    it.todo('curse followed by boost')
+    it.todo('boost followed by curse')
+    it.todo('curse followed by curse')
+    it.todo('boost followed by boost')
+  })
 })

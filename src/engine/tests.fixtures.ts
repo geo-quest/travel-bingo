@@ -27,7 +27,10 @@ export const event = (overrides?: Partial<Event>): Event => {
   } as Event
 }
 
-export const challenges = ({ useCurse = false }: { useCurse?: boolean } = {}): Challenge[][] => {
+export const challenges = ({
+  useCurse = false,
+  useBoost = false,
+}: { useCurse?: boolean; useBoost?: boolean } = {}): Challenge[][] => {
   return [
     [
       {
@@ -47,7 +50,7 @@ export const challenges = ({ useCurse = false }: { useCurse?: boolean } = {}): C
     [
       {
         key: 'challenge-3',
-        type: ChallengeType.Normal,
+        type: useBoost === true ? ChallengeType.Boost : ChallengeType.Normal,
         challenge: { en: 'Challenge 3' },
         points: 100,
       },
