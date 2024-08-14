@@ -1,7 +1,7 @@
 import { EventType, ResultEvent, ResultEventType, RunGameStatus } from 'data/interfaces'
 
 import { calculateScore } from './calculate-score'
-import { challenges, challengesWithCurse, event, rules, runGameData } from './tests.fixtures'
+import { challenges, event, rules, runGameData } from './tests.fixtures'
 
 describe('calculateScore', () => {
   describe('very simple case', () => {
