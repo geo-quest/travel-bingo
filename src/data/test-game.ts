@@ -414,7 +414,7 @@ export default {
           zh: '参观并拍摄历史悠久的城堡',
         },
         points: 50,
-        type: ChallengeType.Normal,
+        type: ChallengeType.Curse1,
         image:
           'https://annetravelfoodie.com/wp-content/uploads/2020/09/muiderslot-castle-netherlands.jpg',
       },
