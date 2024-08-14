@@ -33,36 +33,34 @@ const StartedRun = ({ run, events, game }: Props) => {
       key: '1',
       label: t('run.leaderboard'),
       children: (
-        <>
-          <Space direction="vertical">
-            <Row>
-              <Col span={12} style={{ textAlign: 'center' }}>
-                <Statistic
-                  valueStyle={{ fontSize: '16px' }}
-                  title={t('run.run-date')}
-                  valueRender={() => <FormattedDate date={run.date} />}
-                />
-              </Col>
-              <Col span={12} style={{ textAlign: 'center' }}>
-                <Statistic
-                  valueStyle={{ fontSize: '16px' }}
-                  title={t('run.last-update')}
-                  valueRender={() => <RelativeDate date={event.timestamp} />}
-                />
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <Podium teams={event.state.teams} teamsData={run.teams} onClick={navigate} />
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <LeaderBoard teams={event.state.teams} teamsData={run.teams} onClick={navigate} />
-              </Col>
-            </Row>
-          </Space>
-        </>
+        <Space direction="vertical">
+          <Row>
+            <Col span={12} style={{ textAlign: 'center' }}>
+              <Statistic
+                valueStyle={{ fontSize: '16px' }}
+                title={t('run.run-date')}
+                valueRender={() => <FormattedDate date={run.date} />}
+              />
+            </Col>
+            <Col span={12} style={{ textAlign: 'center' }}>
+              <Statistic
+                valueStyle={{ fontSize: '16px' }}
+                title={t('run.last-update')}
+                valueRender={() => <RelativeDate date={event.timestamp} />}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <Podium teams={event.state.teams} teamsData={run.teams} onClick={navigate} />
+            </Col>
+          </Row>
+          <Row>
+            <Col span={24}>
+              <LeaderBoard teams={event.state.teams} teamsData={run.teams} onClick={navigate} />
+            </Col>
+          </Row>
+        </Space>
       ),
     },
     {

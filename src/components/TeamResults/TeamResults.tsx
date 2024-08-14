@@ -57,7 +57,7 @@ const TeamResults = function ({ team, run, game }: Props) {
         <Col span={24} style={{ textAlign: 'center' }}>
           {team.members &&
             team.members?.length > 0 &&
-            team.members?.map((member, index) => <span key={index}>{member} </span>)}
+            team.members?.map(member => <span key={member}>{member} </span>)}
         </Col>
       </Row>
       <Row>

@@ -21,7 +21,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       [EventType.Finish, 'red'],
       [EventType.ChallengeCompleted, 'green'],
     ])
-    return colorMap.get(type) || 'gray'
+    return colorMap.get(type) ?? 'gray'
   }
 
   const renderTag = (event: ResultEvent) => {
