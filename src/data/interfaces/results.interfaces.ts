@@ -12,6 +12,7 @@ export enum ResultEventType {
   ChallengeCompleted,
   Empty,
   Bingo,
+  Curse,
 }
 
 export interface TeamState {
@@ -20,6 +21,7 @@ export interface TeamState {
   score: number
   bingos: string[]
   completedChallenges: string[]
+  cursedMultiplier?: number
 }
 
 export interface RunGameState {
@@ -32,4 +34,6 @@ export interface ResultEvent extends BaseEvent {
   state: RunGameState
   points?: number
   newBingos?: string[]
+  curseMultiplier?: number
+  cursedApplied?: boolean
 }

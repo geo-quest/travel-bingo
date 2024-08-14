@@ -1,5 +1,6 @@
 import {
   Challenge,
+  ChallengeType,
   Event,
   EventType,
   RunGameData,
@@ -29,12 +30,66 @@ export const event = (overrides?: Partial<Event>): Event => {
 export const challenges = (): Challenge[][] => {
   return [
     [
-      { key: 'challenge-1', challenge: { en: 'Challenge 1' }, points: 100 },
-      { key: 'challenge-2', challenge: { en: 'Challenge 2' }, points: 100 },
+      {
+        key: 'challenge-1',
+        type: ChallengeType.Normal,
+        challenge: { en: 'Challenge 1' },
+        points: 100,
+      },
+      {
+        key: 'challenge-2',
+        type: ChallengeType.Normal,
+        challenge: { en: 'Challenge 2' },
+        points: 100,
+      },
     ],
     [
-      { key: 'challenge-3', challenge: { en: 'Challenge 3' }, points: 100 },
-      { key: 'challenge-4', challenge: { en: 'Challenge 4' }, points: 100 },
+      {
+        key: 'challenge-3',
+        type: ChallengeType.Normal,
+        challenge: { en: 'Challenge 3' },
+        points: 100,
+      },
+      {
+        key: 'challenge-4',
+        type: ChallengeType.Normal,
+        challenge: { en: 'Challenge 4' },
+        points: 100,
+      },
+    ],
+  ] as Challenge[][]
+}
+
+export const challengesWithCurse = (): Challenge[][] => {
+  return [
+    [
+      {
+        key: 'challenge-1',
+        type: ChallengeType.Curse,
+        curseMultiplier: 0.5,
+        challenge: { en: 'Challenge 1' },
+        points: 100,
+      },
+      {
+        key: 'challenge-2',
+        type: ChallengeType.Normal,
+        challenge: { en: 'Challenge 2' },
+        points: 100,
+      },
+    ],
+    [
+      {
+        key: 'challenge-3',
+        type: ChallengeType.Normal,
+        challenge: { en: 'Challenge 3' },
+        points: 100,
+      },
+      {
+        key: 'challenge-4',
+        type: ChallengeType.Normal,
+        challenge: { en: 'Challenge 4' },
+        points: 100,
+      },
     ],
   ] as Challenge[][]
 }
