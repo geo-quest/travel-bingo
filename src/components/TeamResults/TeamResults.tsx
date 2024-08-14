@@ -44,17 +44,7 @@ const TeamResults = function ({ team, run, game }: Props) {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
       <Row>
-        <Col span={2} />
-        <Col span={10} style={{ textAlign: 'center' }}>
-          <Statistic title={t('rank')} valueRender={() => <Rank rank={teamData.rank} />} />
-        </Col>
-        <Col span={10} style={{ textAlign: 'center' }}>
-          <Statistic title={t('score')} valueRender={() => <Score team={teamData} />} />
-        </Col>
-        <Col span={2} />
-      </Row>
-      <Row>
-        <Col span={24} style={{ textAlign: 'center', paddingTop: '8px' }}>
+        <Col span={24} style={{ textAlign: 'center' }}>
           {team.members &&
             team.members.length > 0 &&
             team.members.map(member => (
@@ -63,6 +53,24 @@ const TeamResults = function ({ team, run, game }: Props) {
               </Tag>
             ))}
         </Col>
+      </Row>
+      <Row
+        style={{
+          border: 'solid 1px #f0f0f0',
+          backgroundColor: '#f0f0f0',
+          borderRadius: '16px',
+          paddingBottom: '8px',
+          paddingTop: '8px',
+        }}
+      >
+        <Col span={2} />
+        <Col span={10} style={{ textAlign: 'center' }}>
+          <Statistic title={t('rank')} valueRender={() => <Rank rank={teamData.rank} />} />
+        </Col>
+        <Col span={10} style={{ textAlign: 'center' }}>
+          <Statistic title={t('score')} valueRender={() => <Score team={teamData} />} />
+        </Col>
+        <Col span={2} />
       </Row>
       <Row>
         <Col span={24}>
