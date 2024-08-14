@@ -6,7 +6,7 @@ interface Props {
   team: TeamState
 }
 
-function Score({ team }: Props) {
+const Score = ({ team }: Props) => {
   return (
     <>
       <span>{team.score}</span>

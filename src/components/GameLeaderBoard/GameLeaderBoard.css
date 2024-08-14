@@ -25,6 +25,11 @@
   cursor: pointer;
 }
 
+.podium-card > .ant-card-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .podium-card.gold {
   background: linear-gradient(135deg, #ffd700, #ffc700);
   height: 210px;
@@ -58,7 +63,7 @@
 }
 
 .podium-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 

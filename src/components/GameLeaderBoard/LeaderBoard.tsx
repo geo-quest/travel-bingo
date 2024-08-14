@@ -3,9 +3,9 @@ import 'antd/dist/reset.css'
 import { Table } from 'antd'
 import Rank from 'components/Rank/Rank'
 import Score from 'components/Score/Score'
+import TeamName from 'components/TeamName/TeamName'
 import { TeamsGameData, TeamState } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
-import { getTeamName } from 'utils/get-team-name'
 
 interface Props {
   teams: TeamState[]
@@ -41,7 +41,7 @@ const LeaderBoard = ({ teams, teamsData, onClick }: Props) => {
   ]
 
   const TeamCell = ({ team }: TeamCellProps) => {
-    return <span>{getTeamName(team.team, teamsData)}</span>
+    return <TeamName team={team} teamsData={teamsData} />
   }
 
   return (
