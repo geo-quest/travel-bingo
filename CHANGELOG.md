@@ -1,3 +1,9 @@
+## [1.9.0](https://github.com/geo-quest/travel-bingo/compare/v1.8.0...v1.9.0) (2024-08-14)
+
+### Features
+
+* creating events entity ([#47](https://github.com/geo-quest/travel-bingo/issues/47)) ([bc09350](https://github.com/geo-quest/travel-bingo/commit/bc093503cc3f2f9c03fa4a64be817f55e4acd96b))
+
 ## [1.8.0](https://github.com/geo-quest/travel-bingo/compare/v1.7.2...v1.8.0) (2024-08-12)
 
 ### Features
