@@ -57,11 +57,17 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           ) {t('timeline.and-made')} <strong>{event.points}</strong> {t('timeline.extra-points')}
         </>
       )
-    } else if (event.type === ResultEventType.Curse && event.team && event.cursedTeam) {
+    } else if (
+      event.type === ResultEventType.Curse &&
+      event.team &&
+      event.cursedTeam &&
+      event.challenge
+    ) {
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.cursed')}{' '}
-          <strong>{getTeamName(event.cursedTeam, teamsData)}</strong>
+          <strong>{getTeamName(event.cursedTeam, teamsData)}</strong> {t('timeline.solving')}{' '}
+          <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
         </>
       )
     }
