@@ -1,5 +1,3 @@
-import './Events.css'
-
 import { Tag, Timeline } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
 import { Challenge, EventType, ResultEvent, TeamsGameData } from 'data/interfaces'
