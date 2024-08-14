@@ -52,14 +52,12 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           )}
         </>
       )
-    } else if (event.type === ResultEventType.Bingo && event.team && event.newBingos) {
+    } else if (event.type === ResultEventType.Bingo && event.team && event.newBingo) {
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.scored-bingo')} (
-          {event.newBingos.map(b => {
-            return <span key={b}>{t(`bingo.${b}`)}</span>
-          })}
-          ) {t('timeline.and-made')} <strong>{event.points}</strong> {t('timeline.extra-points')}
+          <span>{t(`bingo.${event.newBingo}`)}</span>) {t('timeline.and-made')}{' '}
+          <strong>{event.points}</strong> {t('timeline.extra-points')}
         </>
       )
     } else if (

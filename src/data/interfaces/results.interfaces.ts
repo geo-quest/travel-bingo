@@ -33,7 +33,7 @@ export interface ResultEvent extends BaseEvent {
   type: ResultEventType
   state: RunGameState
   points?: number
-  newBingos?: string[]
+  newBingo?: string
   curseMultiplier?: number
   cursedApplied?: boolean
 }

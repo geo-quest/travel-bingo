@@ -51,7 +51,7 @@ export function handleChallengeCompleted(
   ]
 
   if (newBingos.length > 0 && teamState)
-    resultEvents.push(createBingoEvent(event, state, rules, teamState, newBingos))
+    resultEvents.push(...createBingoEvents(event, state, rules, teamState, newBingos))
 
   if (challenge.type === ChallengeType.Curse)
     resultEvents.push(createCurseEvent(event, resultEvents[0].state, challenge))
@@ -90,36 +90,38 @@ function createChallengeCompletedEvent(
   return result
 }
 
-function createBingoEvent(
+function createBingoEvents(
   event: Event,
   state: RunGameState,
   rules: TravelBingoRules,
   teamState: TeamState,
   newBingos: string[],
-): ResultEvent {
-  return {
-    type: ResultEventType.Bingo,
-    timestamp: event.timestamp,
-    team: teamState.team,
-    newBingos: newBingos,
-    points: rules.bonusPointsPerBingo * newBingos.length,
-    state: {
-      ...state,
-      teams: state.teams
-        .map(t =>
-          teamState && t.team === teamState.team
-            ? {
-                ...teamState,
-                score: teamState.score + rules.bonusPointsPerBingo * newBingos.length,
-              }
-            : t,
-        )
-        .sort((a, b) => b.score - a.score)
-        .map((t, idx) => {
-          return { ...t, rank: idx + 1 }
-        }),
-    },
-  } as ResultEvent
+): ResultEvent[] {
+  return newBingos.map((newBingo, idx) => {
+    return {
+      type: ResultEventType.Bingo,
+      timestamp: event.timestamp,
+      team: teamState.team,
+      newBingo: newBingo,
+      points: rules.bonusPointsPerBingo,
+      state: {
+        ...state,
+        teams: state.teams
+          .map(t =>
+            t.team === teamState.team
+              ? {
+                  ...teamState,
+                  score: teamState.score + rules.bonusPointsPerBingo * (1 + idx),
+                }
+              : t,
+          )
+          .sort((a, b) => b.score - a.score)
+          .map((t, idx) => {
+            return { ...t, rank: idx + 1 }
+          }),
+      },
+    } as ResultEvent
+  })
 }
 
 function createCurseEvent(event: Event, state: RunGameState, challenge: Challenge): ResultEvent {
