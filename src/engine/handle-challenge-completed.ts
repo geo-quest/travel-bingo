@@ -42,7 +42,6 @@ export function handleChallengeCompleted(
     ...teamState,
     score:
       teamState.score + challenge.points * (cursedApplied ? (teamState.cursedMultiplier ?? 1) : 1),
-    bingos: bingos,
     completedChallenges: completedChallenges,
   }
 
@@ -112,6 +111,7 @@ function createBingoEvents(
               ? {
                   ...teamState,
                   score: teamState.score + rules.bonusPointsPerBingo * (1 + idx),
+                  bingos: teamState.bingos.concat(newBingos.slice(0, 1 + idx)),
                 }
               : t,
           )
