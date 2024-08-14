@@ -2,9 +2,9 @@ import 'antd/dist/reset.css'
 
 import { Card, Col, Row } from 'antd'
 import Score from 'components/Score/Score'
+import TeamName from 'components/TeamName/TeamName'
 import { TeamsGameData, TeamState } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
-import { getTeamName } from 'utils/get-team-name'
 
 interface Props {
   teams: TeamState[]
@@ -25,8 +25,10 @@ const Podium = ({ teams, teamsData, onClick }: Props) => {
               className="podium-card silver"
               onClick={() => onClick(teams[1])}
             >
-              <h3>{getTeamName(teams[1].team, teamsData)}</h3>
-              <Score team={teams[1]} />
+              <TeamName team={teams[1]} teamsData={teamsData} />
+              <p>
+                <Score team={teams[1]} />
+              </p>
             </Card>
           </Col>
         )}
@@ -37,8 +39,12 @@ const Podium = ({ teams, teamsData, onClick }: Props) => {
             className="podium-card gold"
             onClick={() => onClick(teams[0])}
           >
-            <h3>{getTeamName(teams[0].team, teamsData)}</h3>
-            <Score team={teams[0]} />
+            <p>
+              <TeamName team={teams[0]} teamsData={teamsData} />
+            </p>
+            <p>
+              <Score team={teams[0]} />
+            </p>
           </Card>
         </Col>
         {teams.length >= 3 && (
@@ -49,8 +55,10 @@ const Podium = ({ teams, teamsData, onClick }: Props) => {
               className="podium-card bronze"
               onClick={() => onClick(teams[2])}
             >
-              <h3>{getTeamName(teams[2].team, teamsData)}</h3>
-              <Score team={teams[2]} />
+              <TeamName team={teams[2]} teamsData={teamsData} />
+              <p>
+                <Score team={teams[2]} />
+              </p>
             </Card>
           </Col>
         )}

@@ -37,7 +37,10 @@
     "points": "pontos",
     "extra-points": "pontos extras",
     "scored-bingo": "fez bingo",
-    "and-made": "e ganhou"
+    "and-made": "e ganhou",
+    "cursed": "amaldiçoou",
+    "solving": "ao resolver",
+    "a-curse-was-applied": "Uma maldição foi aplicada!"
   },
   "bingo": {
     "row-0": "Primeira linha",
@@ -60,5 +63,8 @@
   "ChallengeCompleted": "Desafio concluído",
   "Start": "Começar",
   "Finish": "Terminar",
-  "Bingo": "Bingo"
+  "Bingo": "Bingo",
+  "team-results": {
+    "is-cursed": "está amaldiçoado"
+  }
 }

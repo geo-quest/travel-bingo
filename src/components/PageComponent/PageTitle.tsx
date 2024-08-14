@@ -8,7 +8,7 @@ interface Props {
   team?: TeamGameData & KeyObject
 }
 
-function PageTitle({ game, run, team }: Props) {
+const PageTitle = ({ game, run, team }: Props) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <DynamicIcon iconName={game.icon} style={{ marginRight: 8, fontSize: '32px' }} />

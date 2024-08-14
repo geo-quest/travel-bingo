@@ -10,6 +10,7 @@ export interface BaseEvent {
   timestamp: Date
   team?: string
   challenge?: string
+  cursedTeam?: string
 }
 
 export interface Event extends BaseEvent {

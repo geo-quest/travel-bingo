@@ -37,7 +37,10 @@
     "points": "点",
     "extra-points": "额外积分",
     "scored-bingo": "得分宾果游戏",
-    "and-made": "并做了"
+    "and-made": "并做了",
+    "cursed": "诅咒",
+    "solving": "解决",
+    "a-curse-was-applied": "诅咒已生效！"
   },
   "bingo": {
     "row-0": "第一排",
@@ -60,5 +63,8 @@
   "ChallengeCompleted": "挑战完成",
   "Start": "开始",
   "Finish": "结束",
-  "Bingo": "宾果游戏"
+  "Bingo": "宾果游戏",
+  "team-results": {
+    "is-cursed": "被诅咒了"
+  }
 }

@@ -2,16 +2,18 @@ import { Color, Icon, LocalizedMarkdown, LocalizedString, Runs, Url } from './'
 
 export enum ChallengeType {
   Normal,
-  Curse1,
+  Curse,
+  Boost,
 }
 
 export interface Challenge {
   key: string
+  type: ChallengeType
   challenge: LocalizedString
   points: number
+  curseMultiplier?: number
   description?: LocalizedMarkdown
   image?: Url
-  type?: ChallengeType
 }
 
 export interface TravelBingoRules {

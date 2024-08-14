@@ -25,7 +25,7 @@ interface Props {
 
 const FinishedRun = ({ game, run, state, events }: Props) => {
   const { t } = useTranslation()
-  const navigate = function (team: TeamState) {
+  const navigate = (team: TeamState) => {
     window.location.href = `/${game.key}/${run.key}/${team.team}`
   }
 

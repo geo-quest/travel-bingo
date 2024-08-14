@@ -60,7 +60,7 @@
 }
 
 .board .curse:hover {
-  transform: scale(1.1); /* Slightly enlarges on hover */
+  transform: scale(1.1);
 }
 
 .board .completed-challenge {

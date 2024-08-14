@@ -9,7 +9,7 @@ interface Props {
   data: TravelBingoGamesData
 }
 
-function Home({ data }: Props) {
+const Home = ({ data }: Props) => {
   const gameLinks = Object.keys(data).map(key => {
     const game = data[key]
 

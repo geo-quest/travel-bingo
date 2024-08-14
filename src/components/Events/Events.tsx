@@ -1,6 +1,6 @@
 import { Tag, Timeline } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
-import { Challenge, EventType, ResultEvent, ResultEventType, TeamsGameData } from 'data/interfaces'
+import { Challenge, ResultEvent, ResultEventType, TeamsGameData } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
 import { getChallengeTitle } from 'utils/get-challenge-title'
 import { getTeamName } from 'utils/get-team-name'
@@ -21,6 +21,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       [ResultEventType.Finish, 'red'],
       [ResultEventType.ChallengeCompleted, 'green'],
       [ResultEventType.Bingo, '#32cd32'],
+      [ResultEventType.Curse, 'purple'],
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -28,7 +29,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
   const renderTag = (event: ResultEvent) => {
     return (
       <Tag style={{ float: 'right' }} color={getColorByEventType(event.type)}>
-        {t(EventType[event.type])}
+        {t(ResultEventType[event.type])}
       </Tag>
     )
   }
@@ -44,6 +45,11 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
           {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
+          {event.cursedApplied === true && (
+            <p>
+              <i>{t('timeline.a-curse-was-applied')}</i>
+            </p>
+          )}
         </>
       )
     } else if (event.type === ResultEventType.Bingo && event.team && event.newBingos) {
@@ -54,6 +60,19 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
             return <span key={b}>{t(`bingo.${b}`)}</span>
           })}
           ) {t('timeline.and-made')} <strong>{event.points}</strong> {t('timeline.extra-points')}
+        </>
+      )
+    } else if (
+      event.type === ResultEventType.Curse &&
+      event.team &&
+      event.cursedTeam &&
+      event.challenge
+    ) {
+      return (
+        <>
+          <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.cursed')}{' '}
+          <strong>{getTeamName(event.cursedTeam, teamsData)}</strong> {t('timeline.solving')}{' '}
+          <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
         </>
       )
     }
