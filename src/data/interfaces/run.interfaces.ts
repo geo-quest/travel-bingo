@@ -1,18 +1,19 @@
 import { Date, LocalizedString, TeamsGameData } from './'
 
 export enum EventType {
-  Empty,
   Start,
   Finish,
   ChallengeCompleted,
-  Bingo,
 }
 
-export interface Event {
-  type: EventType
+export interface BaseEvent {
   timestamp: Date
   team?: string
   challenge?: string
+}
+
+export interface Event extends BaseEvent {
+  type: EventType
 }
 
 export interface RunGameData {

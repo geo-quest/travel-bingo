@@ -24,8 +24,6 @@ export function handleEvent(
       rules: TravelBingoRules,
     ) => ResultEvent[]
   } = {
-    [EventType.Empty]: () => [],
-    [EventType.Bingo]: () => [],
     [EventType.Start]: (event, state) => handleStart(event, state),
     [EventType.Finish]: (event, state) => handleFinish(event, state),
     [EventType.ChallengeCompleted]: (event, state, rules) =>
