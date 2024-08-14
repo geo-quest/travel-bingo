@@ -9,6 +9,10 @@ export interface Challenge {
   type?: string
 }
 
+export interface TravelBingoRules {
+  bonusPointsPerBingo: number
+}
+
 export interface TravelBingoGameData {
   title: LocalizedString
   icon: Icon
@@ -17,6 +21,7 @@ export interface TravelBingoGameData {
   shortDescription: LocalizedString
   gamePlay: LocalizedMarkdown
   challenges: Challenge[][]
+  rules: TravelBingoRules
   runs: Runs
 }
 

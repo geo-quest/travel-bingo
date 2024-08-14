@@ -14,7 +14,7 @@ interface Props {
 }
 
 const GameLeaderBoard = ({ run, game }: Props) => {
-  const events = calculateScore(run, game.challenges)
+  const events = calculateScore(run, game.challenges, game.rules)
   const state = events[events.length - 1].state
 
   if (state.status === RunGameStatus.Planned) return <PlannedRun run={run} game={game} />

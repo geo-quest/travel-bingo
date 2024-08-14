@@ -18,8 +18,8 @@ describe('handleFinish', () => {
         state: {
           status: RunGameStatus.Finished,
           teams: [
-            { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
-            { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+            { team: 'team-a', score: 0, rank: 0, bingos: [], completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 0, bingos: [], completedChallenges: [] },
           ],
         },
       },

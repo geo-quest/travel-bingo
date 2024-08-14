@@ -10,7 +10,7 @@ export interface TeamState {
   team: string
   rank: number
   score: number
-  bingos: number
+  bingos: string[]
   completedChallenges: string[]
 }
 
@@ -22,4 +22,5 @@ export interface RunGameState {
 export interface ResultEvent extends Event {
   state: RunGameState
   points?: number
+  newBingos?: string[]
 }

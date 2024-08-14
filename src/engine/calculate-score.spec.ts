@@ -1,7 +1,7 @@
 import { EventType, ResultEvent, RunGameStatus } from 'data/interfaces'
 
 import { calculateScore } from './calculate-score'
-import { challenges, event, runGameData } from './tests.fixtures'
+import { challenges, event, rules, runGameData } from './tests.fixtures'
 
 describe('calculateScore', () => {
   describe('very simple case', () => {
@@ -12,8 +12,8 @@ describe('calculateScore', () => {
         state: {
           status: RunGameStatus.Planned,
           teams: [
-            { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
-            { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+            { team: 'team-a', score: 0, rank: 0, bingos: [], completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 0, bingos: [], completedChallenges: [] },
           ],
         },
       },
@@ -23,8 +23,8 @@ describe('calculateScore', () => {
         state: {
           status: RunGameStatus.Started,
           teams: [
-            { team: 'team-a', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
-            { team: 'team-b', score: 0, rank: 0, bingos: 0, completedChallenges: [] },
+            { team: 'team-a', score: 0, rank: 0, bingos: [], completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 0, bingos: [], completedChallenges: [] },
           ],
         },
       },
@@ -41,10 +41,10 @@ describe('calculateScore', () => {
               team: 'team-a',
               score: 100,
               rank: 1,
-              bingos: 0,
+              bingos: [],
               completedChallenges: ['challenge-1'],
             },
-            { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 2, bingos: [], completedChallenges: [] },
           ],
         },
       },
@@ -61,10 +61,30 @@ describe('calculateScore', () => {
               team: 'team-a',
               score: 200,
               rank: 1,
-              bingos: 1,
+              bingos: ['row-0'],
               completedChallenges: ['challenge-1', 'challenge-2'],
             },
-            { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 2, bingos: [], completedChallenges: [] },
+          ],
+        },
+      },
+      {
+        type: EventType.Bingo,
+        team: 'team-a',
+        timestamp: '2024-08-12T12:00:00',
+        newBingos: ['row-0'],
+        points: 20,
+        state: {
+          status: RunGameStatus.Started,
+          teams: [
+            {
+              team: 'team-a',
+              score: 220,
+              rank: 1,
+              bingos: ['row-0'],
+              completedChallenges: ['challenge-1', 'challenge-2'],
+            },
+            { team: 'team-b', score: 0, rank: 2, bingos: [], completedChallenges: [] },
           ],
         },
       },
@@ -76,12 +96,12 @@ describe('calculateScore', () => {
           teams: [
             {
               team: 'team-a',
-              score: 200,
+              score: 220,
               rank: 1,
-              bingos: 1,
+              bingos: ['row-0'],
               completedChallenges: ['challenge-1', 'challenge-2'],
             },
-            { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 2, bingos: [], completedChallenges: [] },
           ],
         },
       },
@@ -108,8 +128,8 @@ describe('calculateScore', () => {
               event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
             ],
           }),
-
           challenges(),
+          rules(),
         ),
       ).toStrictEqual(expectedResult)
     })
@@ -136,6 +156,7 @@ describe('calculateScore', () => {
             ],
           }),
           challenges(),
+          rules(),
         ),
       ).toStrictEqual(expectedResult)
     })

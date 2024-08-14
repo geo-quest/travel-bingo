@@ -1,18 +1,18 @@
 import { EventType, ResultEvent, RunGameStatus } from 'data/interfaces'
 
 import { handleChallengeCompleted } from './handle-challenge-completed'
-import { challenges, event, state } from './tests.fixtures'
+import { challenges, event, rules, state } from './tests.fixtures'
 
 describe('handleChallengeCompleted', () => {
   it('should throw an error if "team" is not defined', () => {
     expect(() =>
-      handleChallengeCompleted(event({ challenge: 'challenge-1' }), state(), challenges()),
+      handleChallengeCompleted(event({ challenge: 'challenge-1' }), state(), challenges(), rules()),
     ).toThrow('"team" must be defined')
   })
 
   it('should throw an error if "challenge" is not defined', () => {
     expect(() =>
-      handleChallengeCompleted(event({ team: 'team-a' }), state(), challenges()),
+      handleChallengeCompleted(event({ team: 'team-a' }), state(), challenges(), rules()),
     ).toThrow('"challenge" must be defined')
   })
 
@@ -22,6 +22,7 @@ describe('handleChallengeCompleted', () => {
         event({ challenge: 'challenge-1', team: 'team-c' }),
         state(),
         challenges(),
+        rules(),
       ),
     ).toThrow('team "team-c" not found')
   })
@@ -32,6 +33,7 @@ describe('handleChallengeCompleted', () => {
         event({ challenge: 'challenge-5', team: 'team-a' }),
         state(),
         challenges(),
+        rules(),
       ),
     ).toThrow('challenge "challenge-5" not found')
   })
@@ -42,6 +44,7 @@ describe('handleChallengeCompleted', () => {
         event({ challenge: 'challenge-1', team: 'team-a' }),
         state({ status: RunGameStatus.Planned }),
         challenges(),
+        rules(),
       ),
     ).toThrow('invalid state for a challengeCompleted event')
   })
@@ -52,6 +55,7 @@ describe('handleChallengeCompleted', () => {
         event({ challenge: 'challenge-1', team: 'team-a' }),
         state(),
         challenges(),
+        rules(),
       ),
     ).toStrictEqual([
       {
@@ -67,10 +71,10 @@ describe('handleChallengeCompleted', () => {
               team: 'team-a',
               score: 100,
               rank: 1,
-              bingos: 0,
+              bingos: [],
               completedChallenges: ['challenge-1'],
             },
-            { team: 'team-b', score: 0, rank: 2, bingos: 0, completedChallenges: [] },
+            { team: 'team-b', score: 0, rank: 2, bingos: [], completedChallenges: [] },
           ],
         },
       },

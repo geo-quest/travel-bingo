@@ -5,6 +5,7 @@ import {
   RunGameData,
   RunGameState,
   RunGameStatus,
+  TravelBingoRules,
 } from 'data/interfaces'
 
 export const runGameData = (overrides?: Partial<RunGameData>): RunGameData => {
@@ -42,9 +43,13 @@ export const state = (overrides?: Partial<RunGameState>): RunGameState => {
   return {
     status: RunGameStatus.Started,
     teams: [
-      { team: 'team-a', rank: 0, score: 0, bingos: 0, completedChallenges: [] },
-      { team: 'team-b', rank: 0, score: 0, bingos: 0, completedChallenges: [] },
+      { team: 'team-a', rank: 0, score: 0, bingos: [], completedChallenges: [] },
+      { team: 'team-b', rank: 0, score: 0, bingos: [], completedChallenges: [] },
     ],
     ...overrides,
   } as RunGameState
+}
+
+export const rules = (overrides?: Partial<TravelBingoRules>): TravelBingoRules => {
+  return { bonusPointsPerBingo: 20, ...overrides } as TravelBingoRules
 }

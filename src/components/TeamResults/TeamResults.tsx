@@ -29,7 +29,7 @@ interface Props {
 
 const TeamResults = function ({ team, run, game }: Props) {
   const { t } = useTranslation()
-  const events = calculateScore(run, game.challenges)
+  const events = calculateScore(run, game.challenges, game.rules)
   const state = events[events.length - 1].state
   const teamData = state.teams.find(t => t.team === team.key)
 
@@ -84,7 +84,8 @@ const TeamResults = function ({ team, run, game }: Props) {
             filterFunction={event =>
               event.type === EventType.Start ||
               event.type === EventType.Finish ||
-              (event.type === EventType.ChallengeCompleted && event.team === team.key)
+              (event.type === EventType.ChallengeCompleted && event.team === team.key) ||
+              (event.type === EventType.Bingo && event.team === team.key)
             }
           />
         </Col>

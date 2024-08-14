@@ -20,6 +20,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       [EventType.Start, 'blue'],
       [EventType.Finish, 'red'],
       [EventType.ChallengeCompleted, 'green'],
+      [EventType.Bingo, '#32cd32'],
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -43,6 +44,16 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
           {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
+        </>
+      )
+    } else if (event.type === EventType.Bingo && event.team && event.newBingos) {
+      return (
+        <>
+          <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.scored-bingo')} (
+          {event.newBingos.map(b => {
+            return <span>{t(`bingo.${b}`)}</span>
+          })}
+          ) {t('timeline.and-made')} <strong>{event.points}</strong> {t('timeline.points')}
         </>
       )
     }

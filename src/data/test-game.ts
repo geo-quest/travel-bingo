@@ -166,6 +166,9 @@ export default {
 - 与您的团队沟通并协调以覆盖尽可能多的地面。
 `,
   },
+  rules: {
+    bonusPointsPerBingo: 20,
+  },
   challenges: [
     [
       {

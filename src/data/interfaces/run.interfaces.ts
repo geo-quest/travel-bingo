@@ -5,6 +5,7 @@ export enum EventType {
   Start,
   Finish,
   ChallengeCompleted,
+  Bingo,
 }
 
 export interface Event {

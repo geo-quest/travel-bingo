@@ -20,23 +20,31 @@ describe('calculateBingos', () => {
   ] as Challenge[][]
 
   it('should return 0 bingos when no challenges are solved', () => {
-    expect(calculateBingos([], challenges)).toBe(0)
+    expect(calculateBingos([], challenges).length).toBe(0)
   })
 
   it('should return 1 bingo for a solved row', () => {
-    expect(calculateBingos(['c1-1', 'c1-2', 'c1-3', 'c1-4', 'c1-5'], challenges)).toBe(1)
+    expect(calculateBingos(['c1-1', 'c1-2', 'c1-3', 'c1-4', 'c1-5'], challenges)).toStrictEqual([
+      'row-0',
+    ])
   })
 
   it('should return 1 bingo for a solved column', () => {
-    expect(calculateBingos(['c1-1', 'c2-1', 'c3-1', 'c4-1', 'c5-1'], challenges)).toBe(1)
+    expect(calculateBingos(['c1-1', 'c2-1', 'c3-1', 'c4-1', 'c5-1'], challenges)).toStrictEqual([
+      'col-0',
+    ])
   })
 
   it('should return 1 bingo for the solved main diagonal', () => {
-    expect(calculateBingos(['c1-1', 'c2-2', 'c3-3', 'c4-4', 'c5-5'], challenges)).toBe(1)
+    expect(calculateBingos(['c1-1', 'c2-2', 'c3-3', 'c4-4', 'c5-5'], challenges)).toStrictEqual([
+      'main-diagonal',
+    ])
   })
 
   it('should return 1 bingo for the solved secondary diagonal', () => {
-    expect(calculateBingos(['c1-5', 'c2-4', 'c3-3', 'c4-2', 'c5-1'], challenges)).toBe(1)
+    expect(calculateBingos(['c1-5', 'c2-4', 'c3-3', 'c4-2', 'c5-1'], challenges)).toStrictEqual([
+      'secondary-diagonal',
+    ])
   })
 
   it('should return 2 bingos for a solved row and a solved column', () => {
@@ -45,7 +53,7 @@ describe('calculateBingos', () => {
         ['c1-1', 'c1-2', 'c1-3', 'c1-4', 'c1-5', 'c2-1', 'c3-1', 'c4-1', 'c5-1'],
         challenges,
       ),
-    ).toBe(2)
+    ).toStrictEqual(['row-0', 'col-0'])
   })
 
   it('should return 2 bingos for the solved main diagonal and the solved secondary diagonal', () => {
@@ -54,7 +62,7 @@ describe('calculateBingos', () => {
         ['c1-1', 'c2-2', 'c3-3', 'c4-4', 'c5-5', 'c1-5', 'c2-4', 'c3-3', 'c4-2', 'c5-1'],
         challenges,
       ),
-    ).toBe(2)
+    ).toStrictEqual(['main-diagonal', 'secondary-diagonal'])
   })
 
   it('should return 12 bingos for a completely solved 5x5 grid', () => {
@@ -89,6 +97,19 @@ describe('calculateBingos', () => {
         ],
         challenges,
       ),
-    ).toBe(12)
+    ).toStrictEqual([
+      'row-0',
+      'row-1',
+      'row-2',
+      'row-3',
+      'row-4',
+      'col-0',
+      'col-1',
+      'col-2',
+      'col-3',
+      'col-4',
+      'main-diagonal',
+      'secondary-diagonal',
+    ])
   })
 })
