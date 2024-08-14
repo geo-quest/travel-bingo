@@ -40,7 +40,8 @@
     "and-made": "and made",
     "cursed": "cursed",
     "solving": "solving",
-    "a-curse-was-applied": " A curse was applied!"
+    "a-curse-was-applied": " A curse was applied!",
+    "full-board": "completed the board! That's impressive!"
   },
   "bingo": {
     "row-0": "First row",
@@ -60,10 +61,14 @@
     "main-diagonal": "Main diagonal",
     "secondary-diagonal": "Secondary diagonal"
   },
-  "ChallengeCompleted": "Challenge completed",
-  "Start": "Start",
-  "Finish": "Finish",
-  "Bingo": "Bingo",
+  "resultEventType": {
+    "Start": "Start",
+    "Finish": "Finish",
+    "ChallengeCompleted": "Challenge completed",
+    "Bingo": "Bingo",
+    "Curse": "Curse",
+    "FullBoard": "FullBoard"
+  },
   "team-results": {
     "is-cursed": "is cursed"
   }

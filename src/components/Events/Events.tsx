@@ -22,6 +22,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       [ResultEventType.ChallengeCompleted, 'green'],
       [ResultEventType.Bingo, '#32cd32'],
       [ResultEventType.Curse, 'purple'],
+      [ResultEventType.FullBoard, '#008000'],
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -71,6 +72,12 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.cursed')}{' '}
           <strong>{getTeamName(event.cursedTeam, teamsData)}</strong> {t('timeline.solving')}{' '}
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
+        </>
+      )
+    } else if (event.type === ResultEventType.FullBoard && event.team) {
+      return (
+        <>
+          <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.full-board')}
         </>
       )
     }

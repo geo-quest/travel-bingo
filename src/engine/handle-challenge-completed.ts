@@ -53,7 +53,12 @@ export function handleChallengeCompleted(
     resultEvents.push(...createBingoEvents(event, state, rules, teamState, newBingos))
 
   if (challenge.type === ChallengeType.Curse)
-    resultEvents.push(createCurseEvent(event, resultEvents[0].state, challenge))
+    resultEvents.push(
+      createCurseEvent(event, resultEvents[resultEvents.length - 1].state, challenge),
+    )
+
+  if (teamState.completedChallenges.length === challenges.flat().length)
+    resultEvents.push(createFullBoardEvent(event, resultEvents[resultEvents.length - 1].state))
 
   return resultEvents
 }
@@ -141,4 +146,12 @@ function createCurseEvent(event: Event, state: RunGameState, challenge: Challeng
       ),
     },
   }
+}
+
+function createFullBoardEvent(event: Event, state: RunGameState): ResultEvent {
+  return {
+    ...event,
+    type: ResultEventType.FullBoard,
+    state: state,
+  } as ResultEvent
 }

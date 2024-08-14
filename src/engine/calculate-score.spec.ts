@@ -198,7 +198,7 @@ describe('calculateScore', () => {
         rules(),
       )
 
-      expect(result.length).toBe(13)
+      expect(result.length).toBe(14)
 
       expect(result[0]).toStrictEqual({
         type: ResultEventType.Empty,
@@ -429,6 +429,25 @@ describe('calculateScore', () => {
         },
       })
       expect(result[12]).toStrictEqual({
+        type: ResultEventType.FullBoard,
+        team: 'team-a',
+        challenge: 'challenge-4',
+        timestamp: '2024-08-12T14:00:00',
+        state: {
+          status: RunGameStatus.Started,
+          teams: [
+            {
+              team: 'team-a',
+              score: 520,
+              rank: 1,
+              bingos: ['row-0', 'col-0', 'secondary-diagonal', 'row-1', 'col-1', 'main-diagonal'],
+              completedChallenges: ['challenge-1', 'challenge-2', 'challenge-3', 'challenge-4'],
+            },
+            { team: 'team-b', score: 0, rank: 2, bingos: [], completedChallenges: [] },
+          ],
+        },
+      })
+      expect(result[13]).toStrictEqual({
         type: EventType.Finish,
         timestamp: '2024-08-12T15:00:00',
         state: {

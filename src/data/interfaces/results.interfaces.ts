@@ -13,6 +13,7 @@ export enum ResultEventType {
   Empty,
   Bingo,
   Curse,
+  FullBoard,
 }
 
 export interface TeamState {
