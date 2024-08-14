@@ -2,7 +2,7 @@ import './GameLeaderBoard.css'
 
 import NoPage from 'components/NoPage/NoPage'
 import { KeyObject, RunGameData, RunGameStatus, TravelBingoGameData } from 'data/interfaces'
-import { calculateScore } from 'engine/calculate-score'
+import { calculateScore } from 'engine'
 
 import FinishedRun from './FinishedRun'
 import PlannedRun from './PlannedRun'

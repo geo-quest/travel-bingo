@@ -15,7 +15,7 @@ import {
   TeamGameData,
   TravelBingoGameData,
 } from 'data/interfaces'
-import { calculateScore } from 'engine/calculate-score'
+import { calculateScore } from 'engine'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
