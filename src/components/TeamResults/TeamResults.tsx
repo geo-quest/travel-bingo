@@ -82,7 +82,7 @@ const TeamResults = ({ team, run, game }: Props) => {
         </Col>
         <Col span={2} />
       </Row>
-      {teamState.cursedMultiplier !== undefined && (
+      {teamState.curseMultiplier !== undefined && (
         <Row
           style={{
             border: 'solid 1px red',

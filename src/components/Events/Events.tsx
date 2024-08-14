@@ -46,7 +46,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
           {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
-          {event.cursedApplied === true && (
+          {event.curseApplied === true && (
             <p>
               <i>{t('timeline.a-curse-was-applied')}</i>
             </p>

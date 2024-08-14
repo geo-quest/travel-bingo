@@ -12,7 +12,7 @@ interface Props {
 const TeamName = ({ team, teamsData }: Props) => {
   const { t } = useTranslation()
   const name = getTeamName(team.team, teamsData)
-  if (team.cursedMultiplier !== undefined)
+  if (team.curseMultiplier !== undefined)
     return (
       <span className="cursed" title={`${name} ${t('team-results.is-cursed')}`}>
         {name}

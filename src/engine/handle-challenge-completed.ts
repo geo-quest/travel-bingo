@@ -36,17 +36,21 @@ export function handleChallengeCompleted(
   const bingos = calculateBingos(completedChallenges, challenges)
   const newBingos = bingos.filter(b => !teamState?.bingos.includes(b))
 
-  const cursedApplied = teamState.cursedMultiplier !== undefined
+  const curseApplied = teamState.curseMultiplier !== undefined
+  const boostApplied = teamState.boostMultiplier !== undefined
 
   teamState = {
     ...teamState,
     score:
-      teamState.score + challenge.points * (cursedApplied ? (teamState.cursedMultiplier ?? 1) : 1),
+      teamState.score +
+      challenge.points *
+        (curseApplied ? (teamState.curseMultiplier ?? 1) : 1) *
+        (boostApplied ? (teamState.boostMultiplier ?? 1) : 1),
     completedChallenges: completedChallenges,
   }
 
   const resultEvents: ResultEvent[] = [
-    createChallengeCompletedEvent(event, state, challenge, teamState, cursedApplied),
+    createChallengeCompletedEvent(event, state, challenge, teamState, curseApplied, boostApplied),
   ]
 
   if (newBingos.length > 0 && teamState)
@@ -55,6 +59,11 @@ export function handleChallengeCompleted(
   if (challenge.type === ChallengeType.Curse)
     resultEvents.push(
       createCurseEvent(event, resultEvents[resultEvents.length - 1].state, challenge),
+    )
+
+  if (challenge.type === ChallengeType.Boost)
+    resultEvents.push(
+      createBoostEvent(event, resultEvents[resultEvents.length - 1].state, challenge),
     )
 
   if (teamState.completedChallenges.length === challenges.flat().length)
@@ -68,18 +77,23 @@ function createChallengeCompletedEvent(
   state: RunGameState,
   challenge: Challenge,
   teamState: TeamState,
-  cursedApplied: boolean,
+  curseApplied: boolean,
+  boostApplied: boolean,
 ): ResultEvent {
   const result: ResultEvent = {
     ...event,
     type: ResultEventType.ChallengeCompleted,
-    points: challenge.points * (cursedApplied ? (teamState.cursedMultiplier ?? 1) : 1),
+    points:
+      challenge.points *
+      (curseApplied ? (teamState.curseMultiplier ?? 1) : 1) *
+      (boostApplied ? (teamState.boostMultiplier ?? 1) : 1),
     state: {
       ...state,
       teams: state.teams
         .map(t => {
           if (t.team !== teamState.team) return t
-          delete teamState.cursedMultiplier
+          delete teamState.curseMultiplier
+          delete teamState.boostMultiplier
           return teamState
         })
         .sort((a, b) => b.score - a.score)
@@ -89,7 +103,8 @@ function createChallengeCompletedEvent(
     },
   } as ResultEvent
 
-  if (cursedApplied) result.cursedApplied = true
+  if (curseApplied) result.curseApplied = true
+  if (boostApplied) result.boostApplied = true
 
   return result
 }
@@ -142,7 +157,23 @@ function createCurseEvent(event: Event, state: RunGameState, challenge: Challeng
     state: {
       ...state,
       teams: state.teams.map(t =>
-        t.team === event.cursedTeam ? { ...t, cursedMultiplier: challenge.curseMultiplier } : t,
+        t.team === event.cursedTeam ? { ...t, curseMultiplier: challenge.curseMultiplier } : t,
+      ),
+    },
+  }
+}
+
+function createBoostEvent(event: Event, state: RunGameState, challenge: Challenge): ResultEvent {
+  if (!challenge.boostMultiplier)
+    throw new EngineError(`boostMultiplier not defined for "${challenge.key}"`)
+  return {
+    ...event,
+    type: ResultEventType.Boost,
+    boostMultiplier: challenge.boostMultiplier,
+    state: {
+      ...state,
+      teams: state.teams.map(t =>
+        t.team === event.team ? { ...t, boostMultiplier: challenge.boostMultiplier } : t,
       ),
     },
   }

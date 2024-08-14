@@ -12,6 +12,7 @@ export interface Challenge {
   challenge: LocalizedString
   points: number
   curseMultiplier?: number
+  boostMultiplier?: number
   description?: LocalizedMarkdown
   image?: Url
 }

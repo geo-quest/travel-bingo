@@ -51,8 +51,9 @@ export const challenges = ({
       {
         key: 'challenge-3',
         type: useBoost === true ? ChallengeType.Boost : ChallengeType.Normal,
+        boostMultiplier: useBoost === true ? 2 : undefined,
         challenge: { en: 'Challenge 3' },
-        points: 100,
+        points: useBoost === true ? 0 : 100,
       },
       {
         key: 'challenge-4',
