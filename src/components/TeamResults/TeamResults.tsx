@@ -1,6 +1,6 @@
 import './TeamResults.css'
 
-import { Col, Row, Space, Statistic, Typography } from 'antd'
+import { Col, Row, Space, Statistic, Tag, Typography } from 'antd'
 import BingoBoard from 'components/BingoBoard/BingoBoard'
 import ChallengeModal from 'components/ChallengeModal/ChallengeModal'
 import Events from 'components/Events/Events'
@@ -54,10 +54,14 @@ const TeamResults = function ({ team, run, game }: Props) {
         <Col span={2} />
       </Row>
       <Row>
-        <Col span={24} style={{ textAlign: 'center' }}>
+        <Col span={24} style={{ textAlign: 'center', paddingTop: '8px' }}>
           {team.members &&
-            team.members?.length > 0 &&
-            team.members?.map(member => <span key={member}>{member} </span>)}
+            team.members.length > 0 &&
+            team.members.map(member => (
+              <Tag color={game.color} key={member} style={{ margin: '0 8px' }}>
+                {member}
+              </Tag>
+            ))}
         </Col>
       </Row>
       <Row>

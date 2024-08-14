@@ -1,4 +1,4 @@
-import { Space, Statistic, Tabs } from 'antd'
+import { Col, Row, Space, Statistic, Tabs } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
 import Events from 'components/Events/Events'
 import FallingEmojis from 'components/FallingEmojis/FallingEmojis'
@@ -33,17 +33,7 @@ const FinishedRun = ({ game, run, state, events }: Props) => {
     {
       key: '1',
       label: t('run.leaderboard'),
-      children: (
-        <>
-          <Statistic
-            valueStyle={{ fontSize: '16px' }}
-            title={t('run.run-date')}
-            valueRender={() => <FormattedDate date={run.date} />}
-          />
-          <Podium teams={state.teams} teamsData={run.teams} onClick={navigate} />
-          <LeaderBoard teams={state.teams} teamsData={run.teams} onClick={navigate} />
-        </>
-      ),
+      children: <LeaderBoard teams={state.teams} teamsData={run.teams} onClick={navigate} />,
     },
     {
       key: '2',
@@ -62,7 +52,25 @@ const FinishedRun = ({ game, run, state, events }: Props) => {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
       <FallingEmojis emojiList={['🎉', '🥳', '👏', '🎊', '🥂', '🍻', '🙌']} milliseconds={7_000} />
-      <Tabs size="small" defaultActiveKey="1" items={items} style={{ paddingTop: '0' }} />
+      <Row>
+        <Col span={24} style={{ textAlign: 'center' }}>
+          <Statistic
+            valueStyle={{ fontSize: '16px' }}
+            title={t('run.run-date')}
+            valueRender={() => <FormattedDate date={run.date} />}
+          />
+        </Col>
+        <Row style={{ width: '100%' }}>
+          <Col span={24} style={{ textAlign: 'center' }}>
+            <Podium teams={state.teams} teamsData={run.teams} onClick={navigate} />
+          </Col>
+        </Row>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <Tabs size="small" defaultActiveKey="1" items={items} style={{ paddingTop: '0' }} />
+        </Col>
+      </Row>
     </Space>
   )
 }
