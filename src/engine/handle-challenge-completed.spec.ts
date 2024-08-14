@@ -1,4 +1,4 @@
-import { EventType, ResultEvent, RunGameStatus } from 'data/interfaces'
+import { EventType, ResultEvent, ResultEventType, RunGameStatus } from 'data/interfaces'
 
 import { handleChallengeCompleted } from './handle-challenge-completed'
 import { challenges, event, rules, state } from './tests.fixtures'
@@ -59,7 +59,7 @@ describe('handleChallengeCompleted', () => {
       ),
     ).toStrictEqual([
       {
-        type: EventType.ChallengeCompleted,
+        type: ResultEventType.ChallengeCompleted,
         timestamp: '2024-08-12T10:00:00',
         team: 'team-a',
         challenge: 'challenge-1',

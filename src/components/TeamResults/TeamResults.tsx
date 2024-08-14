@@ -7,7 +7,6 @@ import Rank from 'components/Rank/Rank'
 import Score from 'components/Score/Score'
 import {
   Challenge,
-  EventType,
   KeyObject,
   ResultEventType,
   RunGameData,
@@ -104,9 +103,9 @@ const TeamResults = function ({ team, run, game }: Props) {
             teamsData={run.teams}
             challenges={game.challenges}
             filterFunction={event =>
-              event.type === EventType.Start ||
-              event.type === EventType.Finish ||
-              (event.type === EventType.ChallengeCompleted && event.team === team.key) ||
+              event.type === ResultEventType.Start ||
+              event.type === ResultEventType.Finish ||
+              (event.type === ResultEventType.ChallengeCompleted && event.team === team.key) ||
               (event.type === ResultEventType.Bingo && event.team === team.key)
             }
           />

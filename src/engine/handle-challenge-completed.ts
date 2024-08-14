@@ -44,6 +44,7 @@ export function handleChallengeCompleted(
   const resultEvents: ResultEvent[] = [
     {
       ...event,
+      type: ResultEventType.ChallengeCompleted,
       points: challenge.points,
       state: {
         ...state,

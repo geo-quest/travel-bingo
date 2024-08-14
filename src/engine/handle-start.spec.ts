@@ -1,4 +1,4 @@
-import { EventType, ResultEvent, RunGameStatus } from 'data/interfaces'
+import { EventType, ResultEvent, ResultEventType, RunGameStatus } from 'data/interfaces'
 
 import { handleStart } from './handle-start'
 import { event, state } from './tests.fixtures'
@@ -15,7 +15,7 @@ describe('handleStart', () => {
       handleStart(event({ type: EventType.Start }), state({ status: RunGameStatus.Planned })),
     ).toStrictEqual([
       {
-        type: EventType.Start,
+        type: ResultEventType.Start,
         timestamp: '2024-08-12T10:00:00',
         state: {
           status: RunGameStatus.Started,

@@ -1,4 +1,4 @@
-import { EventType, ResultEvent, RunGameStatus } from 'data/interfaces'
+import { EventType, ResultEvent, ResultEventType, RunGameStatus } from 'data/interfaces'
 
 import { handleFinish } from './handle-finish'
 import { event, state } from './tests.fixtures'
@@ -13,7 +13,7 @@ describe('handleFinish', () => {
   it('should return a final state', () => {
     expect(handleFinish(event({ type: EventType.Finish }), state())).toStrictEqual([
       {
-        type: EventType.Finish,
+        type: ResultEventType.Finish,
         timestamp: '2024-08-12T10:00:00',
         state: {
           status: RunGameStatus.Finished,

@@ -1,4 +1,4 @@
-import { BaseEvent, EventType } from './'
+import { BaseEvent } from './'
 
 export enum RunGameStatus {
   Planned,
@@ -7,6 +7,9 @@ export enum RunGameStatus {
 }
 
 export enum ResultEventType {
+  Start,
+  Finish,
+  ChallengeCompleted,
   Empty,
   Bingo,
 }
@@ -25,7 +28,7 @@ export interface RunGameState {
 }
 
 export interface ResultEvent extends BaseEvent {
-  type: EventType | ResultEventType
+  type: ResultEventType
   state: RunGameState
   points?: number
   newBingos?: string[]

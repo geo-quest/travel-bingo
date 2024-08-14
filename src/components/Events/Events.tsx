@@ -15,11 +15,11 @@ export interface Props {
 const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction }: Props) => {
   const { t } = useTranslation()
 
-  const getColorByEventType = (type: EventType | ResultEventType) => {
-    const colorMap = new Map<EventType | ResultEventType, string>([
-      [EventType.Start, 'blue'],
-      [EventType.Finish, 'red'],
-      [EventType.ChallengeCompleted, 'green'],
+  const getColorByEventType = (type: ResultEventType) => {
+    const colorMap = new Map<ResultEventType, string>([
+      [ResultEventType.Start, 'blue'],
+      [ResultEventType.Finish, 'red'],
+      [ResultEventType.ChallengeCompleted, 'green'],
       [ResultEventType.Bingo, '#32cd32'],
     ])
     return colorMap.get(type) ?? 'gray'
@@ -34,11 +34,11 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
   }
 
   const renderDetails = (event: ResultEvent) => {
-    if (event.type === EventType.Start) {
+    if (event.type === ResultEventType.Start) {
       return <>{t('timeline.game-started')}</>
-    } else if (event.type === EventType.Finish) {
+    } else if (event.type === ResultEventType.Finish) {
       return <>{t('timeline.game-finished')}</>
-    } else if (event.type === EventType.ChallengeCompleted && event.team && event.challenge) {
+    } else if (event.type === ResultEventType.ChallengeCompleted && event.team && event.challenge) {
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
