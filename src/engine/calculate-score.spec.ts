@@ -240,7 +240,7 @@ describe('calculateScore', () => {
         timestamp: '2024-08-12T12:00:00',
         team: 'team-b',
         challenge: 'challenge-2',
-        points: 100,
+        points: 50,
         cursedApplied: true,
         state: {
           status: RunGameStatus.Started,

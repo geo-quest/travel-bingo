@@ -69,7 +69,7 @@ function createChallengeCompletedEvent(
   const result: ResultEvent = {
     ...event,
     type: ResultEventType.ChallengeCompleted,
-    points: challenge.points,
+    points: challenge.points * (cursedApplied ? (teamState.cursedMultiplier ?? 1) : 1),
     state: {
       ...state,
       teams: state.teams
