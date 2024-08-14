@@ -29,22 +29,21 @@ const TeamResults = function ({ team, run, game }: Props) {
   const { t } = useTranslation()
   const events = calculateScore(run, game.challenges, game.rules)
   const state = events[events.length - 1].state
-  const teamData = state.teams.find(t => t.team === team.key)
+  const teamState = state.teams.find(t => t.team === team.key)
 
-  if (!teamData) return <NoPage />
+  if (!teamState) return <NoPage />
 
   const getChallengeClass = (challenge: Challenge, row: number, col: number): string[] => {
     const clazz = []
-    console.log(teamData.bingos)
-    if (teamData.completedChallenges.find(c => c === challenge.key))
+    if (teamState.completedChallenges.find(c => c === challenge.key))
       clazz.push('completed-challenge')
-    if (teamData.bingos.find(b => b === `row-${row}`)) clazz.push('bingo')
-    if (teamData.bingos.find(b => b === `col-${col}`)) clazz.push('bingo')
-    if (row === col && teamData.bingos.find(b => b === 'main-diagonal')) clazz.push('bingo')
+    if (teamState.bingos.find(b => b === `row-${row}`)) clazz.push('bingo')
+    if (teamState.bingos.find(b => b === `col-${col}`)) clazz.push('bingo')
+    if (row === col && teamState.bingos.find(b => b === 'main-diagonal')) clazz.push('bingo')
     if (
       game.challenges.length === game.challenges[0].length &&
       row + col === game.challenges.length - 1 &&
-      teamData.bingos.find(b => b === 'secondary-diagonal')
+      teamState.bingos.find(b => b === 'secondary-diagonal')
     )
       clazz.push('bingo')
     return clazz
@@ -76,13 +75,31 @@ const TeamResults = function ({ team, run, game }: Props) {
       >
         <Col span={2} />
         <Col span={10} style={{ textAlign: 'center' }}>
-          <Statistic title={t('rank')} valueRender={() => <Rank rank={teamData.rank} />} />
+          <Statistic title={t('rank')} valueRender={() => <Rank rank={teamState.rank} />} />
         </Col>
         <Col span={10} style={{ textAlign: 'center' }}>
-          <Statistic title={t('score')} valueRender={() => <Score team={teamData} />} />
+          <Statistic title={t('score')} valueRender={() => <Score team={teamState} />} />
         </Col>
         <Col span={2} />
       </Row>
+      {teamState.cursedMultiplier !== undefined && (
+        <Row
+          style={{
+            border: 'solid 1px red',
+            backgroundColor: 'purple',
+            borderRadius: '16px',
+            paddingBottom: '8px',
+            paddingTop: '8px',
+            color: 'white',
+            textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;',
+            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.7);',
+          }}
+        >
+          <Col span={24} style={{ textAlign: 'center' }}>
+            <strong>{team.name}</strong> {t('is-cursed')}
+          </Col>
+        </Row>
+      )}
       <Row>
         <Col span={24}>
           <Title level={2}>{t('challenges')}</Title>
@@ -106,7 +123,9 @@ const TeamResults = function ({ team, run, game }: Props) {
               event.type === ResultEventType.Start ||
               event.type === ResultEventType.Finish ||
               (event.type === ResultEventType.ChallengeCompleted && event.team === team.key) ||
-              (event.type === ResultEventType.Bingo && event.team === team.key)
+              (event.type === ResultEventType.Bingo && event.team === team.key) ||
+              (event.type === ResultEventType.Curse &&
+                (event.team === team.key || event.cursedTeam === team.key))
             }
           />
         </Col>

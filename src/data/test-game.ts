@@ -415,6 +415,7 @@ export default {
         },
         points: 50,
         type: ChallengeType.Curse,
+        curseMultiplier: 0.5,
         image:
           'https://annetravelfoodie.com/wp-content/uploads/2020/09/muiderslot-castle-netherlands.jpg',
       },
@@ -843,6 +844,7 @@ export default {
           timestamp: relativeDate(0, 16, 0),
           team: 'team-c',
           challenge: 'Find a historic castle',
+          cursedTeam: 'team-a',
         },
       ],
     },

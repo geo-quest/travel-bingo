@@ -124,8 +124,8 @@ function createBingoEvent(
 
 function createCurseEvent(event: Event, state: RunGameState, challenge: Challenge): ResultEvent {
   if (!challenge.curseMultiplier)
-    throw new EngineError(`curse multiplier not defined for ${challenge.challenge}`)
-  if (!event.cursedTeam) throw new EngineError(`cursedTeam not defined on ${event}`)
+    throw new EngineError(`curseMultiplier not defined for "${challenge.key}"`)
+  if (!event.cursedTeam) throw new EngineError(`cursedTeam not defined on ${JSON.stringify(event)}`)
   return {
     ...event,
     type: ResultEventType.Curse,

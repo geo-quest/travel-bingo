@@ -37,7 +37,8 @@
     "points": "points",
     "extra-points": "extra points",
     "scored-bingo": "scored bingo",
-    "and-made": "and made"
+    "and-made": "and made",
+    "cursed": "cursed"
   },
   "bingo": {
     "row-0": "First row",
@@ -60,5 +61,8 @@
   "ChallengeCompleted": "Challenge completed",
   "Start": "Start",
   "Finish": "Finish",
-  "Bingo": "Bingo"
+  "Bingo": "Bingo",
+  "team-results": {
+    "is-cursed": "is cursed"
+  }
 }

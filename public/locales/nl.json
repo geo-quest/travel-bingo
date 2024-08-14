@@ -37,7 +37,8 @@
     "points": "punten",
     "extra-points": "extra punten",
     "scored-bingo": "bingo gescoord",
-    "and-made": "en gemaakt"
+    "and-made": "en gemaakt",
+    "cursed": "vervloekte"
   },
   "bingo": {
     "row-0": "Eerste rij",
@@ -60,5 +61,8 @@
   "ChallengeCompleted": "Uitdaging voltooid",
   "Start": "Begin",
   "Finish": "Finish",
-  "Bingo": "Bingo"
+  "Bingo": "Bingo",
+  "team-results": {
+    "is-cursed": "is vervloekt"
+  }
 }
