@@ -71,6 +71,7 @@ describe('calculateScore', () => {
       {
         type: ResultEventType.Bingo,
         team: 'team-a',
+        challenge: 'challenge-2',
         timestamp: '2024-08-12T12:00:00',
         newBingo: 'row-0',
         points: 20,
@@ -264,6 +265,7 @@ describe('calculateScore', () => {
       expect(result[4]).toStrictEqual({
         type: ResultEventType.Bingo,
         team: 'team-a',
+        challenge: 'challenge-2',
         timestamp: '2024-08-12T12:00:00',
         newBingo: 'row-0',
         points: 20,
@@ -304,6 +306,7 @@ describe('calculateScore', () => {
       expect(result[6]).toStrictEqual({
         type: ResultEventType.Bingo,
         team: 'team-a',
+        challenge: 'challenge-3',
         timestamp: '2024-08-12T13:00:00',
         newBingo: 'col-0',
         points: 20,
@@ -324,6 +327,7 @@ describe('calculateScore', () => {
       expect(result[7]).toStrictEqual({
         type: ResultEventType.Bingo,
         team: 'team-a',
+        challenge: 'challenge-3',
         timestamp: '2024-08-12T13:00:00',
         newBingo: 'secondary-diagonal',
         points: 20,
@@ -364,6 +368,7 @@ describe('calculateScore', () => {
       expect(result[9]).toStrictEqual({
         type: ResultEventType.Bingo,
         team: 'team-a',
+        challenge: 'challenge-4',
         timestamp: '2024-08-12T14:00:00',
         newBingo: 'row-1',
         points: 20,
@@ -384,6 +389,7 @@ describe('calculateScore', () => {
       expect(result[10]).toStrictEqual({
         type: ResultEventType.Bingo,
         team: 'team-a',
+        challenge: 'challenge-4',
         timestamp: '2024-08-12T14:00:00',
         newBingo: 'col-1',
         points: 20,
@@ -404,6 +410,7 @@ describe('calculateScore', () => {
       expect(result[11]).toStrictEqual({
         type: ResultEventType.Bingo,
         team: 'team-a',
+        challenge: 'challenge-4',
         timestamp: '2024-08-12T14:00:00',
         newBingo: 'main-diagonal',
         points: 20,
@@ -570,6 +577,7 @@ describe('calculateScore', () => {
       {
         type: ResultEventType.Bingo,
         team: 'team-b',
+        challenge: 'challenge-3',
         timestamp: '2024-08-12T13:00:00',
         newBingo: 'secondary-diagonal',
         points: 20,

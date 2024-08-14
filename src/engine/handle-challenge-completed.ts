@@ -101,6 +101,7 @@ function createBingoEvents(
       type: ResultEventType.Bingo,
       timestamp: event.timestamp,
       team: teamState.team,
+      challenge: event.challenge,
       newBingo: newBingo,
       points: rules.bonusPointsPerBingo,
       state: {
