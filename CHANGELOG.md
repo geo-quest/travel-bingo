@@ -1,3 +1,9 @@
+## [1.10.0](https://github.com/geo-quest/travel-bingo/compare/v1.9.0...v1.10.0) (2024-08-14)
+
+### Features
+
+* **curse:** creating initial version of curses ([#53](https://github.com/geo-quest/travel-bingo/issues/53)) ([9de82dc](https://github.com/geo-quest/travel-bingo/commit/9de82dc867ae6cff87fbec29fd13ad54e668bdd9))
+
 ## [1.9.0](https://github.com/geo-quest/travel-bingo/compare/v1.8.0...v1.9.0) (2024-08-14)
 
 ### Features
