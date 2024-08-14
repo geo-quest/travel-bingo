@@ -365,7 +365,7 @@ describe('calculateScore', () => {
             event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
           ],
         }),
-        challengesWithCurse(),
+        challenges({ useCurse: true }),
         rules(),
       )
 
