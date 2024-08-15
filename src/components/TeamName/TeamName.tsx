@@ -1,5 +1,6 @@
 import './TeamName.css'
 
+import classNames from 'classnames'
 import { TeamsGameData, TeamState } from 'data/interfaces'
 import { useTranslation } from 'react-i18next'
 import { getTeamName } from 'utils/get-team-name'
@@ -12,20 +13,20 @@ interface Props {
 const TeamName = ({ team, teamsData }: Props) => {
   const { t } = useTranslation()
   const name = getTeamName(team.team, teamsData)
-  if (team.curseMultiplier !== undefined)
-    return (
-      <span className="cursed" title={`${name} ${t('team-results.is-cursed')}`}>
-        {name}
-      </span>
-    )
-  if (team.boostMultiplier !== undefined)
-    return (
-      <span className="boosted" title={`${name} ${t('team-results.is-cursed')}`}>
-        {name}
-      </span>
-    )
+  const isCursed = team.curseMultiplier !== undefined && team.boostMultiplier === undefined
+  const isBoosted = team.boostMultiplier !== undefined && team.curseMultiplier === undefined
 
-  return <span>{name}</span>
+  const title = isCursed
+    ? `${name} ${t('team-results.is-cursed')}`
+    : isBoosted
+      ? `${name} ${t('team-results.is-boosted')}`
+      : undefined
+
+  return (
+    <span className={classNames({ cursed: isCursed, boosted: isBoosted })} title={title}>
+      {name}
+    </span>
+  )
 }
 
 export default TeamName
