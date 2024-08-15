@@ -1,5 +1,3 @@
-import './App.css'
-
 import Game from 'pages/Game/Game'
 import Home from 'pages/Home/Home'
 import Run from 'pages/Run/Run'

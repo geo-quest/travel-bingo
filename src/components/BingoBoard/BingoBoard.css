@@ -20,7 +20,7 @@
 }
 
 .board .header-card,
-.board .card {
+.board .cell {
   padding: 4px !important;
 }
 
@@ -35,8 +35,6 @@
 
 /* Default cell styling */
 .board .cell {
-  padding: 10px;
-  border: 1px solid #ddd;
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -126,7 +124,7 @@
 
 @media (max-width: 600px) {
   .board .header-card,
-  .board .card {
+  .board .cell {
     max-width: 60px !important;
   }
 }
