@@ -547,6 +547,7 @@ describe('calculateScore', () => {
         challenge: 'challenge-2',
         points: 50,
         curseApplied: true,
+        curseMultiplier: 0.5,
         state: {
           status: RunGameStatus.Started,
           teams: [
@@ -782,6 +783,7 @@ describe('calculateScore', () => {
         challenge: 'challenge-4',
         points: 200,
         boostApplied: true,
+        boostMultiplier: 2,
         state: {
           status: RunGameStatus.Started,
           teams: [
