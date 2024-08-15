@@ -44,14 +44,14 @@ export function handleChallengeCompleted(
   ]
 
   if (newPlace) {
-    const { newTeamState, resultEvent } = createNewPlaceEvent(event, state, rules, teamState)
+    const { newTeamState, newPlaceEvent } = createNewPlaceEvent(event, state, rules, teamState)
     teamState = newTeamState
-    resultEvents.push(resultEvent)
+    resultEvents.push(newPlaceEvent)
   }
   delete event.place
 
   if (newBingos.length > 0 && teamState) {
-    const { newTeamState, bingoResultEvents } = createBingoEvents(
+    const { newTeamState, bingoEvents } = createBingoEvents(
       event,
       state,
       rules,
@@ -59,21 +59,40 @@ export function handleChallengeCompleted(
       newBingos,
     )
     teamState = newTeamState
-    resultEvents.push(...bingoResultEvents)
+    resultEvents.push(...bingoEvents)
   }
 
-  if (challenge.type === ChallengeType.Curse)
-    resultEvents.push(
-      createCurseEvent(event, resultEvents[resultEvents.length - 1].state, challenge),
+  if (challenge.type === ChallengeType.Curse) {
+    const { newTeamState, curseEvent } = createCurseEvent(
+      event,
+      resultEvents[resultEvents.length - 1].state,
+      challenge,
+      teamState,
     )
+    teamState = newTeamState
+    resultEvents.push(curseEvent)
+  }
 
-  if (challenge.type === ChallengeType.Boost)
-    resultEvents.push(
-      createBoostEvent(event, resultEvents[resultEvents.length - 1].state, challenge),
+  if (challenge.type === ChallengeType.Boost) {
+    const { newTeamState, boostEvent } = createBoostEvent(
+      event,
+      resultEvents[resultEvents.length - 1].state,
+      challenge,
+      teamState,
     )
+    teamState = newTeamState
+    resultEvents.push(boostEvent)
+  }
 
-  if (teamState.completedChallenges.length === challenges.flat().length)
-    resultEvents.push(createFullBoardEvent(event, resultEvents[resultEvents.length - 1].state))
+  if (teamState.completedChallenges.length === challenges.flat().length) {
+    const { newTeamState, fullBoardEvent } = createFullBoardEvent(
+      event,
+      resultEvents[resultEvents.length - 1].state,
+      teamState,
+    )
+    teamState = newTeamState
+    resultEvents.push(fullBoardEvent)
+  }
 
   return resultEvents
 }
@@ -156,13 +175,13 @@ function createNewPlaceEvent(
   state: RunGameState,
   rules: TravelBingoRules,
   teamState: TeamState,
-): { newTeamState: TeamState; resultEvent: ResultEvent } {
+): { newTeamState: TeamState; newPlaceEvent: ResultEvent } {
   const newTeamState = {
     ...teamState,
     score: teamState.score + rules.bonusPointsPerPlace,
     places: teamState.places.concat([event.place ?? '']),
   }
-  const resultEvent = {
+  const newPlaceEvent = {
     type: ResultEventType.NewPlace,
     timestamp: event.timestamp,
     team: teamState.team,
@@ -180,7 +199,7 @@ function createNewPlaceEvent(
     },
   }
 
-  return { newTeamState, resultEvent }
+  return { newTeamState, newPlaceEvent }
 }
 
 function createBingoEvents(
@@ -189,7 +208,7 @@ function createBingoEvents(
   rules: TravelBingoRules,
   teamState: TeamState,
   newBingos: string[],
-): { newTeamState: TeamState; bingoResultEvents: ResultEvent[] } {
+): { newTeamState: TeamState; bingoEvents: ResultEvent[] } {
   const newsTeamState = newBingos.map((_, idx) => {
     return {
       ...teamState,
@@ -198,7 +217,7 @@ function createBingoEvents(
     }
   })
 
-  const bingoResultEvents = newBingos.map((newBingo, idx) => {
+  const bingoEvents = newBingos.map((newBingo, idx) => {
     return {
       type: ResultEventType.Bingo,
       timestamp: event.timestamp,
@@ -218,14 +237,23 @@ function createBingoEvents(
     }
   })
 
-  return { newTeamState: newsTeamState[newsTeamState.length - 1], bingoResultEvents }
+  return { newTeamState: newsTeamState[newsTeamState.length - 1], bingoEvents }
 }
 
-function createCurseEvent(event: Event, state: RunGameState, challenge: Challenge): ResultEvent {
+function createCurseEvent(
+  event: Event,
+  state: RunGameState,
+  challenge: Challenge,
+  teamState: TeamState,
+): { newTeamState: TeamState; curseEvent: ResultEvent } {
   if (!challenge.curseMultiplier)
     throw new EngineError(`curseMultiplier not defined for "${challenge.key}"`)
   if (!event.cursedTeam) throw new EngineError(`cursedTeam not defined on ${JSON.stringify(event)}`)
-  return {
+
+  const newTeamState = {
+    ...teamState,
+  }
+  const curseEvent = {
     ...event,
     type: ResultEventType.Curse,
     cursedTeam: event.cursedTeam,
@@ -237,28 +265,49 @@ function createCurseEvent(event: Event, state: RunGameState, challenge: Challeng
       ),
     },
   }
+  return { newTeamState, curseEvent }
 }
 
-function createBoostEvent(event: Event, state: RunGameState, challenge: Challenge): ResultEvent {
+function createBoostEvent(
+  event: Event,
+  state: RunGameState,
+  challenge: Challenge,
+  teamState: TeamState,
+): { newTeamState: TeamState; boostEvent: ResultEvent } {
   if (!challenge.boostMultiplier)
     throw new EngineError(`boostMultiplier not defined for "${challenge.key}"`)
-  return {
+  const newTeamState = {
+    ...teamState,
+    boostMultiplier: challenge.boostMultiplier,
+  }
+  const boostEvent = {
     ...event,
     type: ResultEventType.Boost,
     boostMultiplier: challenge.boostMultiplier,
     state: {
       ...state,
-      teams: state.teams.map(t =>
-        t.team === event.team ? { ...t, boostMultiplier: challenge.boostMultiplier } : t,
-      ),
+      teams: state.teams
+        .map(t => (t.team === event.team ? newTeamState : t))
+        .sort((a, b) => b.score - a.score)
+        .map((t, idx) => {
+          return { ...t, rank: idx + 1 }
+        }),
     },
   }
+
+  return { newTeamState, boostEvent }
 }
 
-function createFullBoardEvent(event: Event, state: RunGameState): ResultEvent {
-  return {
+function createFullBoardEvent(
+  event: Event,
+  state: RunGameState,
+  teamState: TeamState,
+): { newTeamState: TeamState; fullBoardEvent: ResultEvent } {
+  const newTeamState = { ...teamState }
+  const fullBoardEvent = {
     ...event,
     type: ResultEventType.FullBoard,
     state: state,
   } as ResultEvent
+  return { newTeamState, fullBoardEvent }
 }
