@@ -39,9 +39,16 @@ export function handleChallengeCompleted(
     completedChallenges: completedChallenges,
   }
 
-  const resultEvents: ResultEvent[] = [
-    createChallengeCompletedEvent(event, state, challenge, teamState, curseApplied, boostApplied),
-  ]
+  const { newTeamState, completedEvent } = createChallengeCompletedEvent(
+    event,
+    state,
+    challenge,
+    teamState,
+    curseApplied,
+    boostApplied,
+  )
+  teamState = newTeamState
+  const resultEvents: ResultEvent[] = [completedEvent]
 
   if (newPlace) {
     const { newTeamState, newPlaceEvent } = createNewPlaceEvent(event, state, rules, teamState)
@@ -130,24 +137,28 @@ function createChallengeCompletedEvent(
   teamState: TeamState,
   curseApplied: boolean,
   boostApplied: boolean,
-): ResultEvent {
-  let result: ResultEvent = {
+): { newTeamState: TeamState; completedEvent: ResultEvent } {
+  let completedEvent: ResultEvent = {
     ...event,
     type: ResultEventType.ChallengeCompleted,
     state: state,
   }
 
   if (curseApplied) {
-    result.curseApplied = true
-    result.curseMultiplier = teamState.curseMultiplier
+    completedEvent.curseApplied = true
+    completedEvent.curseMultiplier = teamState.curseMultiplier
   }
   if (boostApplied) {
-    result.boostApplied = true
-    result.boostMultiplier = teamState.boostMultiplier
+    completedEvent.boostApplied = true
+    completedEvent.boostMultiplier = teamState.boostMultiplier
   }
 
-  result = {
-    ...result,
+  const newTeamState = { ...teamState }
+  delete newTeamState.curseMultiplier
+  delete newTeamState.boostMultiplier
+
+  completedEvent = {
+    ...completedEvent,
     type: ResultEventType.ChallengeCompleted,
     points:
       (challenge.points ?? 0) * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
@@ -156,9 +167,7 @@ function createChallengeCompletedEvent(
       teams: state.teams
         .map(t => {
           if (t.team !== teamState.team) return t
-          delete teamState.curseMultiplier
-          delete teamState.boostMultiplier
-          return teamState
+          return newTeamState
         })
         .sort((a, b) => b.score - a.score)
         .map((t, idx) => {
@@ -167,7 +176,7 @@ function createChallengeCompletedEvent(
     },
   } as ResultEvent
 
-  return result
+  return { newTeamState, completedEvent }
 }
 
 function createNewPlaceEvent(
@@ -310,4 +319,13 @@ function createFullBoardEvent(
     state: state,
   } as ResultEvent
   return { newTeamState, fullBoardEvent }
+}
+
+function sortAndRankTeams(teams: TeamState[], newTeamState: TeamState, targetTeam: string) {
+  return teams
+    .map(t => (t.team === targetTeam ? newTeamState : t))
+    .sort((a, b) => b.score - a.score)
+    .map((t, idx) => {
+      return { ...t, rank: idx + 1 }
+    })
 }
