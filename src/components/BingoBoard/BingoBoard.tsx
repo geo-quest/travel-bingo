@@ -30,10 +30,10 @@ const BingoBoard: React.FC<Props> = ({ challenges, onClick, defineCardClass }) =
     <div className="board">
       <Header />
       {challenges.map((row, rowIndex) => (
-        <div key={rowIndex} style={{ display: 'flex' }}>
+        <div key={row.map(i => i.key).join()} style={{ display: 'flex' }}>
           {row.map((item, colIndex) => (
             <Card.Grid
-              key={colIndex}
+              key={item.key}
               className={getClass(item, rowIndex, colIndex)}
               onClick={() => onClick(item)}
               style={{ width: `${100 / row.length}%` }}
