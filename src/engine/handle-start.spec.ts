@@ -19,6 +19,7 @@ describe('handleStart', () => {
         timestamp: '2024-08-12T10:00:00',
         state: {
           status: RunGameStatus.Started,
+          firstChallengeCompleted: false,
           teams: [
             { team: 'team-a', score: 0, rank: 0, bingos: [], places: [], completedChallenges: [] },
             { team: 'team-b', score: 0, rank: 0, bingos: [], places: [], completedChallenges: [] },

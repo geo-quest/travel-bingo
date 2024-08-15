@@ -49,6 +49,18 @@ export function handleChallengeCompleted(
   teamState = newTeamState
   const resultEvents: ResultEvent[] = [completedEvent]
 
+  if (!state.firstChallengeCompleted) {
+    state = { ...state, firstChallengeCompleted: true }
+    const { newTeamState, firstChallengeEvent } = createFirstChallengeEvent(
+      event,
+      state,
+      rules,
+      teamState,
+    )
+    teamState = newTeamState
+    resultEvents.push(firstChallengeEvent)
+  }
+
   if (newPlace) {
     const { newTeamState, newPlaceEvent } = createNewPlaceEvent(event, state, rules, teamState)
     teamState = newTeamState
@@ -174,21 +186,49 @@ function createChallengeCompletedEvent(
   return { newTeamState, completedEvent }
 }
 
+function createFirstChallengeEvent(
+  event: Event,
+  state: RunGameState,
+  rules: TravelBingoRules,
+  teamState: TeamState,
+): {
+  newTeamState: TeamState
+  firstChallengeEvent: ResultEvent
+} {
+  const newTeamState: TeamState = {
+    ...teamState,
+    score: teamState.score + rules.bonusForFirstChallenge,
+  }
+  const firstChallengeEvent: ResultEvent = {
+    type: ResultEventType.FirstChallenge,
+    timestamp: event.timestamp,
+    team: event.team,
+    challenge: event.challenge,
+    points: rules.bonusForFirstChallenge,
+    state: {
+      ...state,
+      teams: updateTeamsState(state.teams, newTeamState, event.team),
+    },
+  }
+
+  return { newTeamState, firstChallengeEvent }
+}
+
 function createNewPlaceEvent(
   event: Event,
   state: RunGameState,
   rules: TravelBingoRules,
   teamState: TeamState,
 ): { newTeamState: TeamState; newPlaceEvent: ResultEvent } {
-  const newTeamState = {
+  const newTeamState: TeamState = {
     ...teamState,
     score: teamState.score + rules.bonusPointsPerPlace,
     places: teamState.places.concat([event.place ?? '']),
   }
-  const newPlaceEvent = {
+  const newPlaceEvent: ResultEvent = {
     type: ResultEventType.NewPlace,
     timestamp: event.timestamp,
-    team: teamState.team,
+    team: event.team,
     challenge: event.challenge,
     newPlace: event.place,
     points: rules.bonusPointsPerPlace,
@@ -208,7 +248,7 @@ function createBingoEvents(
   teamState: TeamState,
   newBingos: string[],
 ): { newTeamState: TeamState; bingoEvents: ResultEvent[] } {
-  const newsTeamState = newBingos.map((_, idx) => {
+  const newsTeamState: TeamState[] = newBingos.map((_, idx) => {
     return {
       ...teamState,
       score: teamState.score + rules.bonusPointsPerBingo * (1 + idx),
@@ -216,7 +256,7 @@ function createBingoEvents(
     }
   })
 
-  const bingoEvents = newBingos.map((newBingo, idx) => {
+  const bingoEvents: ResultEvent[] = newBingos.map((newBingo, idx) => {
     return {
       type: ResultEventType.Bingo,
       timestamp: event.timestamp,
@@ -244,16 +284,16 @@ function createCurseEvent(
     throw new EngineError(`curseMultiplier not defined for "${challenge.key}"`)
   if (!event.cursedTeam) throw new EngineError(`cursedTeam not defined on ${JSON.stringify(event)}`)
 
-  const newTeamState = {
+  const newTeamState: TeamState = {
     ...teamState,
   }
 
-  const cursedTeamNewState = {
+  const cursedTeamNewState: TeamState = {
     ...state.teams.find(t => t.team === event.cursedTeam),
     curseMultiplier: challenge.curseMultiplier,
   } as TeamState
 
-  const curseEvent = {
+  const curseEvent: ResultEvent = {
     timestamp: event.timestamp,
     team: event.team,
     challenge: event.challenge,
@@ -276,11 +316,11 @@ function createBoostEvent(
 ): { newTeamState: TeamState; boostEvent: ResultEvent } {
   if (!challenge.boostMultiplier)
     throw new EngineError(`boostMultiplier not defined for "${challenge.key}"`)
-  const newTeamState = {
+  const newTeamState: TeamState = {
     ...teamState,
     boostMultiplier: challenge.boostMultiplier,
   }
-  const boostEvent = {
+  const boostEvent: ResultEvent = {
     timestamp: event.timestamp,
     team: event.team,
     challenge: event.challenge,
@@ -300,8 +340,8 @@ function createFullBoardEvent(
   state: RunGameState,
   teamState: TeamState,
 ): { newTeamState: TeamState; fullBoardEvent: ResultEvent } {
-  const newTeamState = { ...teamState }
-  const fullBoardEvent = {
+  const newTeamState: TeamState = { ...teamState }
+  const fullBoardEvent: ResultEvent = {
     timestamp: event.timestamp,
     team: event.team,
     challenge: event.challenge,
