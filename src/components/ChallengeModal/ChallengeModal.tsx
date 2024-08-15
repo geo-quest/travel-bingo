@@ -15,24 +15,30 @@ interface Props {
   onClose: () => void
 }
 
-const ChallengeModal: React.FC<Props> = ({ challenge, onClose }) => {
+const ChallengeModal = ({ challenge, onClose }: Props) => {
   const { t } = useTranslation()
+
+  const getTitle = () => {
+    let title = t2(challenge.challenge)
+    if (challenge.points > 0) title += `[${challenge.points} ${t('pts')}]`
+    return title
+  }
+
+  const getClassName = () => {
+    if (challenge.curseMultiplier) return 'curse'
+    if (challenge.boostMultiplier) return 'boost'
+    return ''
+  }
 
   return (
     <Modal
-      title={`${t2(challenge.challenge)} ${challenge.points > 0 ? `[${challenge.points} ${t('pts')}]` : ''}`}
+      title={getTitle()}
       open={!!challenge}
       onCancel={onClose}
       centered
       footer={false}
       closeIcon={false}
-      className={
-        challenge.curseMultiplier !== undefined
-          ? 'curse'
-          : challenge.boostMultiplier !== undefined
-            ? 'boost'
-            : ''
-      }
+      className={getClassName()}
     >
       <Paragraph>
         {challenge.curseMultiplier && (
