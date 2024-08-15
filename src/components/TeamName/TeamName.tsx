@@ -18,6 +18,12 @@ const TeamName = ({ team, teamsData }: Props) => {
         {name}
       </span>
     )
+  if (team.boostMultiplier !== undefined)
+    return (
+      <span className="boosted" title={`${name} ${t('team-results.is-cursed')}`}>
+        {name}
+      </span>
+    )
 
   return <span>{name}</span>
 }

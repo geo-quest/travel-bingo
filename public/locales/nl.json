@@ -38,9 +38,12 @@
     "extra-points": "extra punten",
     "scored-bingo": "bingo gescoord",
     "and-made": "en gemaakt",
-    "cursed": "vervloekte",
+    "cursed": "vervloekt",
     "solving": "oplossen",
-    "a-curse-was-applied": "Er werd een vloek uitgesproken!"
+    "a-curse-was-applied": " Er werd een vloek toegepast!",
+    "is-boosted": " wordt versterkt!",
+    "a-boost-was-applied": " Er is een boost toegepast!",
+    "full-board": "heeft het bord compleet gemaakt! "
   },
   "bingo": {
     "row-0": "Eerste rij",
@@ -60,11 +63,17 @@
     "main-diagonal": "Hoofddiagonaal",
     "secondary-diagonal": "Secundaire diagonaal"
   },
-  "ChallengeCompleted": "Uitdaging voltooid",
-  "Start": "Begin",
-  "Finish": "Finish",
-  "Bingo": "Bingo",
+  "resultEventType": {
+    "Start": "Begin",
+    "Finish": "Finish",
+    "ChallengeCompleted": "Uitdaging voltooid",
+    "Bingo": "Bingo",
+    "Curse": "Vloek",
+    "Boost": "Boost",
+    "FullBoard": "Volpension"
+  },
   "team-results": {
-    "is-cursed": "is vervloekt"
+    "is-cursed": "is vervloekt",
+    "is-boosted": " wordt versterkt"
   }
 }

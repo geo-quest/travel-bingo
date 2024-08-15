@@ -25,7 +25,9 @@ const Podium = ({ teams, teamsData, onClick }: Props) => {
               className="podium-card silver"
               onClick={() => onClick(teams[1])}
             >
-              <TeamName team={teams[1]} teamsData={teamsData} />
+              <p>
+                <TeamName team={teams[1]} teamsData={teamsData} />
+              </p>
               <p>
                 <Score team={teams[1]} />
               </p>
@@ -55,7 +57,9 @@ const Podium = ({ teams, teamsData, onClick }: Props) => {
               className="podium-card bronze"
               onClick={() => onClick(teams[2])}
             >
-              <TeamName team={teams[2]} teamsData={teamsData} />
+              <p>
+                <TeamName team={teams[2]} teamsData={teamsData} />
+              </p>
               <p>
                 <Score team={teams[2]} />
               </p>

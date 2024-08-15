@@ -20,8 +20,9 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       [ResultEventType.Start, 'blue'],
       [ResultEventType.Finish, 'red'],
       [ResultEventType.ChallengeCompleted, 'green'],
-      [ResultEventType.Bingo, '#32cd32'],
+      [ResultEventType.Bingo, '#ffd700'],
       [ResultEventType.Curse, 'purple'],
+      [ResultEventType.Boost, '#00bfff'],
       [ResultEventType.FullBoard, '#008000'],
     ])
     return colorMap.get(type) ?? 'gray'
@@ -45,10 +46,19 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
-          {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
+          {event.points !== undefined && event.points > 0 && (
+            <>
+              {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
+            </>
+          )}
           {event.curseApplied === true && (
             <p>
               <i>{t('timeline.a-curse-was-applied')}</i>
+            </p>
+          )}
+          {event.boostApplied === true && (
+            <p>
+              <i>{t('timeline.a-boost-was-applied')}</i>
             </p>
           )}
         </>
@@ -72,6 +82,12 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.cursed')}{' '}
           <strong>{getTeamName(event.cursedTeam, teamsData)}</strong> {t('timeline.solving')}{' '}
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
+        </>
+      )
+    } else if (event.type === ResultEventType.Boost && event.team) {
+      return (
+        <>
+          <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.is-boosted')}{' '}
         </>
       )
     } else if (event.type === ResultEventType.FullBoard && event.team) {

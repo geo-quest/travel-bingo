@@ -2,14 +2,14 @@
   "challenges": "Desafios",
   "challenge": "Desafio",
   "how-to-play": "Como jogar",
-  "rank": "Ranking",
+  "rank": "Classificação",
   "team": "Equipe",
   "score": "Pontuação",
   "solved-at": "Resolvido em",
   "run": {
     "run-date": "Data de execução",
     "last-update": "Última atualização",
-    "leaderboard": "Classificação",
+    "leaderboard": "Tabela de classificação",
     "timeline": "Linha do tempo"
   },
   "podium": {
@@ -32,15 +32,18 @@
   "timeline": {
     "game-started": "O jogo começou",
     "game-finished": "O jogo acabou de terminar",
-    "solved": "resolveu",
-    "and-scored": "e fez",
+    "solved": "resolvido",
+    "and-scored": "e marcou",
     "points": "pontos",
     "extra-points": "pontos extras",
-    "scored-bingo": "fez bingo",
-    "and-made": "e ganhou",
-    "cursed": "amaldiçoou",
-    "solving": "ao resolver",
-    "a-curse-was-applied": "Uma maldição foi aplicada!"
+    "scored-bingo": "bingo marcado",
+    "and-made": "e fez",
+    "cursed": "amaldiçoado",
+    "solving": "resolvendo",
+    "a-curse-was-applied": " Uma maldição foi aplicada!",
+    "is-boosted": " é impulsionado!",
+    "a-boost-was-applied": " Um impulso foi aplicado!",
+    "full-board": "completou o quadro! "
   },
   "bingo": {
     "row-0": "Primeira linha",
@@ -60,11 +63,17 @@
     "main-diagonal": "Diagonal principal",
     "secondary-diagonal": "Diagonal secundária"
   },
-  "ChallengeCompleted": "Desafio concluído",
-  "Start": "Começar",
-  "Finish": "Terminar",
-  "Bingo": "Bingo",
+  "resultEventType": {
+    "Start": "Começar",
+    "Finish": "Terminar",
+    "ChallengeCompleted": "Desafio concluído",
+    "Bingo": "Bingo",
+    "Curse": "Xingamento",
+    "Boost": "Impulsionar",
+    "FullBoard": "Pensão completa"
+  },
   "team-results": {
-    "is-cursed": "está amaldiçoado"
+    "is-cursed": "é amaldiçoado",
+    "is-boosted": " é impulsionado"
   }
 }

@@ -41,6 +41,8 @@
     "cursed": "cursed",
     "solving": "solving",
     "a-curse-was-applied": " A curse was applied!",
+    "is-boosted": " is boosted!",
+    "a-boost-was-applied": " A boost was applied!",
     "full-board": "completed the board! That's impressive!"
   },
   "bingo": {
@@ -71,6 +73,7 @@
     "FullBoard": "FullBoard"
   },
   "team-results": {
-    "is-cursed": "is cursed"
+    "is-cursed": "is cursed",
+    "is-boosted": " is boosted"
   }
 }
