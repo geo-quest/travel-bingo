@@ -43,9 +43,7 @@ export function handleChallengeCompleted(
     ...teamState,
     score:
       teamState.score +
-      challenge.points *
-        (curseApplied ? (teamState.curseMultiplier ?? 1) : 1) *
-        (boostApplied ? (teamState.boostMultiplier ?? 1) : 1),
+      challenge.points * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
     completedChallenges: completedChallenges,
   }
 
@@ -83,10 +81,7 @@ function createChallengeCompletedEvent(
   const result: ResultEvent = {
     ...event,
     type: ResultEventType.ChallengeCompleted,
-    points:
-      challenge.points *
-      (curseApplied ? (teamState.curseMultiplier ?? 1) : 1) *
-      (boostApplied ? (teamState.boostMultiplier ?? 1) : 1),
+    points: challenge.points * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
     state: {
       ...state,
       teams: state.teams
