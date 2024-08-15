@@ -10,8 +10,9 @@ export interface Challenge {
   key: string
   type: ChallengeType
   challenge: LocalizedString
-  points: number
+  points?: number
   curseMultiplier?: number
+  boostMultiplier?: number
   description?: LocalizedMarkdown
   image?: Url
 }

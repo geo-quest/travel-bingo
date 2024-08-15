@@ -31,12 +31,13 @@ const TeamResults = ({ team, run, game }: Props) => {
   const state = events[events.length - 1].state
   const teamState = state.teams.find(t => t.team === team.key)
 
+  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
+
   if (!teamState) return <NoPage />
 
   const getChallengeClass = (challenge: Challenge, row: number, col: number): string[] => {
     const clazz = []
-    if (teamState.completedChallenges.find(c => c === challenge.key))
-      clazz.push('completed-challenge')
+    if (teamState.completedChallenges.find(c => c === challenge.key)) clazz.push('completed')
     if (teamState.bingos.find(b => b === `row-${row}`)) clazz.push('bingo')
     if (teamState.bingos.find(b => b === `col-${col}`)) clazz.push('bingo')
     if (row === col && teamState.bingos.find(b => b === 'main-diagonal')) clazz.push('bingo')
@@ -48,8 +49,6 @@ const TeamResults = ({ team, run, game }: Props) => {
       clazz.push('bingo')
     return clazz
   }
-
-  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
@@ -82,7 +81,7 @@ const TeamResults = ({ team, run, game }: Props) => {
         </Col>
         <Col span={2} />
       </Row>
-      {teamState.cursedMultiplier !== undefined && (
+      {teamState.curseMultiplier !== undefined && (
         <Row
           style={{
             border: 'solid 1px red',
@@ -96,7 +95,25 @@ const TeamResults = ({ team, run, game }: Props) => {
           }}
         >
           <Col span={24} style={{ textAlign: 'center' }}>
-            <strong>{team.name}</strong> {t('is-cursed')}
+            <strong>{team.name}</strong> {t('team-results.is-cursed')}
+          </Col>
+        </Row>
+      )}
+      {teamState.boostMultiplier !== undefined && (
+        <Row
+          style={{
+            border: 'solid 1px blue',
+            backgroundColor: 'dodgerblue',
+            borderRadius: '16px',
+            paddingBottom: '8px',
+            paddingTop: '8px',
+            color: 'white',
+            textShadow: '0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;',
+            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 191, 255, 0.7);',
+          }}
+        >
+          <Col span={24} style={{ textAlign: 'center' }}>
+            <strong>{team.name}</strong> {t('team-results.is-boosted')}
           </Col>
         </Row>
       )}
@@ -125,7 +142,8 @@ const TeamResults = ({ team, run, game }: Props) => {
               (event.type === ResultEventType.ChallengeCompleted && event.team === team.key) ||
               (event.type === ResultEventType.Bingo && event.team === team.key) ||
               (event.type === ResultEventType.Curse &&
-                (event.team === team.key || event.cursedTeam === team.key))
+                (event.team === team.key || event.cursedTeam === team.key)) ||
+              (event.type === ResultEventType.Boost && event.team === team.key)
             }
           />
         </Col>

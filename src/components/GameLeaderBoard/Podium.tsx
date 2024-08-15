@@ -14,25 +14,34 @@ interface Props {
 
 const Podium = ({ teams, teamsData, onClick }: Props) => {
   const { t } = useTranslation()
+  const get2ndSpan = () => (teams.length === 2 ? 12 : 8)
+  const get1stSpan = () => {
+    if (teams.length === 1) return 24
+    if (teams.length === 2) return 12
+    return 8
+  }
+
   return (
     <div className="podium">
       <Row gutter={16}>
         {teams.length >= 2 && (
-          <Col span={teams.length == 2 ? 12 : 8}>
+          <Col span={get2ndSpan()}>
             <Card
               title={t('podium.2nd')}
               bordered={false}
               className="podium-card silver"
               onClick={() => onClick(teams[1])}
             >
-              <TeamName team={teams[1]} teamsData={teamsData} />
+              <p>
+                <TeamName team={teams[1]} teamsData={teamsData} />
+              </p>
               <p>
                 <Score team={teams[1]} />
               </p>
             </Card>
           </Col>
         )}
-        <Col span={teams.length == 1 ? 24 : teams.length == 2 ? 12 : 8}>
+        <Col span={get1stSpan()}>
           <Card
             title={t('podium.1st')}
             bordered={false}
@@ -55,7 +64,9 @@ const Podium = ({ teams, teamsData, onClick }: Props) => {
               className="podium-card bronze"
               onClick={() => onClick(teams[2])}
             >
-              <TeamName team={teams[2]} teamsData={teamsData} />
+              <p>
+                <TeamName team={teams[2]} teamsData={teamsData} />
+              </p>
               <p>
                 <Score team={teams[2]} />
               </p>

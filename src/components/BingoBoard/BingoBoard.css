@@ -20,7 +20,7 @@
 }
 
 .board .header-card,
-.board .card {
+.board .cell {
   padding: 4px !important;
 }
 
@@ -33,9 +33,11 @@
   background-color: #f0f0f0;
 }
 
-.board .card {
-  cursor: pointer;
+/* Default cell styling */
+.board .cell {
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
   font-weight: 200;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -45,6 +47,7 @@
   max-width: 100px !important;
 }
 
+/* Curse cell */
 .board .curse {
   background-color: purple;
   color: white;
@@ -53,7 +56,6 @@
     0 0 20px #ff0000,
     0 0 30px #ff0000;
   border: 1px solid red;
-  padding: 10px;
   box-shadow:
     inset 0 0 15px rgba(0, 0, 0, 0.7),
     0 0 15px rgba(255, 0, 0, 0.7);
@@ -63,31 +65,66 @@
   transform: scale(1.1);
 }
 
-.board .completed-challenge {
-  background-color: #f6ffed;
-  color: #389e0d;
-  border: 1px solid #b7eb8f;
-  text-align: center;
-  transition:
-    background-color 0.3s ease-in-out,
-    transform 0.2s ease-in-out;
+/* Boost cell */
+.board .boost {
+  background-color: dodgerblue;
+  color: white;
+  text-shadow:
+    0 0 10px #00bfff,
+    0 0 20px #00bfff,
+    0 0 30px #00bfff;
+  border: 1px solid blue;
+  box-shadow:
+    inset 0 0 15px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(0, 191, 255, 0.7);
 }
 
-.board .completed-challenge:hover {
-  background-color: #e0f7e6;
-  border-color: #a0d78b;
-  transform: scale(1.05);
+.board .boost:hover {
+  transform: scale(1.1);
 }
 
+/* Solved cell */
+.board .completed {
+  background-color: limegreen;
+  color: white;
+  text-shadow:
+    0 0 10px #00ff00,
+    0 0 20px #00ff00,
+    0 0 30px #00ff00;
+  border: 1px solid green;
+  box-shadow:
+    inset 0 0 15px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.board .solved:hover {
+  transform: scale(1.1);
+}
+
+/* Bingo cell */
 .board .bingo {
-  background-color: #008000 !important;
-  color: white !important;
-  border: 0 !important;
+  background-color: gold;
+  color: black;
+  text-shadow:
+    0 0 10px #ffd700,
+    0 0 20px #ffd700,
+    0 0 30px #ffd700;
+  border: 1px solid orange;
+  box-shadow:
+    inset 0 0 15px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+.board .bingo:hover {
+  transform: scale(1.1);
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(255, 215, 0, 1);
 }
 
 @media (max-width: 600px) {
   .board .header-card,
-  .board .card {
+  .board .cell {
     max-width: 60px !important;
   }
 }

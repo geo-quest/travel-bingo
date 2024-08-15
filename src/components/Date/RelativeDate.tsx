@@ -7,7 +7,7 @@ interface Props {
 
 const RelativeDate = ({ date }: Props) => {
   const { i18n } = useTranslation()
-  return <span>{new TimeAgo(i18n.language).format(Date.parse(date || ''))}</span>
+  return <span>{new TimeAgo(i18n.language).format(Date.parse(date ?? ''))}</span>
 }
 
 export default RelativeDate

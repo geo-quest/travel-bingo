@@ -35,12 +35,17 @@
     "solved": "解决了",
     "and-scored": "并得分",
     "points": "点",
-    "extra-points": "额外积分",
+    "extra-points": "加分",
     "scored-bingo": "得分宾果游戏",
     "and-made": "并做了",
-    "cursed": "诅咒",
+    "cursed": "被诅咒的",
     "solving": "解决",
-    "a-curse-was-applied": "诅咒已生效！"
+    "a-curse-was-applied": " 施加了诅咒！",
+    "is-boosted": " 被提升",
+    "a-boost-was-applied": " 施加了提升！",
+    "full-board": "完成了董事会！",
+    "curse-multiplier": "诅咒倍数",
+    "boost-multiplier": "升压倍数"
   },
   "bingo": {
     "row-0": "第一排",
@@ -60,11 +65,23 @@
     "main-diagonal": "主对角线",
     "secondary-diagonal": "次对角线"
   },
-  "ChallengeCompleted": "挑战完成",
-  "Start": "开始",
-  "Finish": "结束",
-  "Bingo": "宾果游戏",
+  "resultEventType": {
+    "Start": "开始",
+    "Finish": "结束",
+    "ChallengeCompleted": "挑战完成",
+    "Bingo": "宾果游戏",
+    "Curse": "诅咒",
+    "Boost": "促进",
+    "FullBoard": "全食宿"
+  },
   "team-results": {
-    "is-cursed": "被诅咒了"
+    "is-cursed": "被诅咒了",
+    "is-boosted": " 被提升"
+  },
+  "challenge-modal": {
+    "is-a-curse": "这个挑战是一个诅咒。",
+    "curse-multiplier": "诅咒惩罚",
+    "is-a-boost": "这次挑战是一种推动。",
+    "boost-multiplier": "升压倍数"
   }
 }

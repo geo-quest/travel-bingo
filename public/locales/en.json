@@ -40,7 +40,12 @@
     "and-made": "and made",
     "cursed": "cursed",
     "solving": "solving",
-    "a-curse-was-applied": " A curse was applied!"
+    "a-curse-was-applied": " A curse was applied!",
+    "is-boosted": " is boosted",
+    "a-boost-was-applied": " A boost was applied!",
+    "full-board": "completed the board! That's impressive!",
+    "curse-multiplier": "Curse multiplier",
+    "boost-multiplier": "Boost multiplier"
   },
   "bingo": {
     "row-0": "First row",
@@ -60,11 +65,23 @@
     "main-diagonal": "Main diagonal",
     "secondary-diagonal": "Secondary diagonal"
   },
-  "ChallengeCompleted": "Challenge completed",
-  "Start": "Start",
-  "Finish": "Finish",
-  "Bingo": "Bingo",
+  "resultEventType": {
+    "Start": "Start",
+    "Finish": "Finish",
+    "ChallengeCompleted": "Challenge completed",
+    "Bingo": "Bingo",
+    "Curse": "Curse",
+    "Boost": "Boost",
+    "FullBoard": "FullBoard"
+  },
   "team-results": {
-    "is-cursed": "is cursed"
+    "is-cursed": "is cursed",
+    "is-boosted": " is boosted"
+  },
+  "challenge-modal": {
+    "is-a-curse": "This challenge is a curse.",
+    "curse-multiplier": "Curse penalty",
+    "is-a-boost": "This challenge is a boost.",
+    "boost-multiplier": "Boost multiplier"
   }
 }
