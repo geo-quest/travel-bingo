@@ -29,6 +29,10 @@ export function handleChallengeCompleted(
 
   if (!teamState) throw new EngineError(`team "${event.team}" not found`)
   if (!challenge) throw new EngineError(`challenge "${event.challenge}" not found`)
+  if (challenge.type === ChallengeType.Normal && (challenge.points ?? 0) === 0)
+    throw new EngineError(`challenge "${event.challenge}" must have points defined`)
+  if (challenge.type !== ChallengeType.Normal && (challenge.points ?? 0) !== 0)
+    throw new EngineError(`challenge "${event.challenge}" must not have points defined`)
   if (teamState.completedChallenges.find(c => c === event.challenge))
     throw new EngineError(`challenge "${event.challenge}" already completed by ${event.team}`)
 
@@ -43,7 +47,7 @@ export function handleChallengeCompleted(
     ...teamState,
     score:
       teamState.score +
-      challenge.points * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
+      (challenge.points ?? 0) * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
     completedChallenges: completedChallenges,
   }
 
@@ -96,7 +100,8 @@ function createChallengeCompletedEvent(
   result = {
     ...result,
     type: ResultEventType.ChallengeCompleted,
-    points: challenge.points * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
+    points:
+      (challenge.points ?? 0) * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
     state: {
       ...state,
       teams: state.teams

@@ -497,13 +497,13 @@ describe('calculateScore', () => {
         team: 'team-a',
         challenge: 'challenge-1',
         cursedTeam: 'team-b',
-        points: 100,
+        points: 0,
         state: {
           status: RunGameStatus.Started,
           teams: [
             {
               team: 'team-a',
-              score: 100,
+              score: 0,
               rank: 1,
               bingos: [],
               completedChallenges: ['challenge-1'],
@@ -524,7 +524,7 @@ describe('calculateScore', () => {
           teams: [
             {
               team: 'team-a',
-              score: 100,
+              score: 0,
               rank: 1,
               bingos: [],
               completedChallenges: ['challenge-1'],
@@ -552,18 +552,18 @@ describe('calculateScore', () => {
           status: RunGameStatus.Started,
           teams: [
             {
-              team: 'team-a',
-              score: 100,
-              rank: 1,
-              bingos: [],
-              completedChallenges: ['challenge-1'],
-            },
-            {
               team: 'team-b',
               score: 50,
-              rank: 2,
+              rank: 1,
               bingos: [],
               completedChallenges: ['challenge-2'],
+            },
+            {
+              team: 'team-a',
+              score: 0,
+              rank: 2,
+              bingos: [],
+              completedChallenges: ['challenge-1'],
             },
           ],
         },
@@ -586,7 +586,7 @@ describe('calculateScore', () => {
             },
             {
               team: 'team-a',
-              score: 100,
+              score: 0,
               rank: 2,
               bingos: [],
               completedChallenges: ['challenge-1'],
@@ -613,7 +613,7 @@ describe('calculateScore', () => {
             },
             {
               team: 'team-a',
-              score: 100,
+              score: 0,
               rank: 2,
               bingos: [],
               completedChallenges: ['challenge-1'],

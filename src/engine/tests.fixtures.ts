@@ -38,7 +38,7 @@ export const challenges = ({
         type: useCurse === true ? ChallengeType.Curse : ChallengeType.Normal,
         curseMultiplier: useCurse === true ? 0.5 : undefined,
         challenge: { en: 'Challenge 1' },
-        points: 100,
+        points: useCurse === true ? 0 : 100,
       },
       {
         key: 'challenge-2',

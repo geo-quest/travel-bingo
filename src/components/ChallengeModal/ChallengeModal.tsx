@@ -20,7 +20,7 @@ const ChallengeModal = ({ challenge, onClose }: Props) => {
 
   const getTitle = () => {
     let title = t2(challenge.challenge)
-    if (challenge.points > 0) title += `[${challenge.points} ${t('pts')}]`
+    if ((challenge.points ?? 0) > 0) title += `[${challenge.points} ${t('pts')}]`
     return title
   }
 
