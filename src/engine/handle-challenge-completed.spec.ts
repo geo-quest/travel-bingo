@@ -19,7 +19,7 @@ describe('handleChallengeCompleted', () => {
   it('should throw an error if "team" is invalid', () => {
     expect(() =>
       handleChallengeCompleted(
-        event({ challenge: 'challenge-1', team: 'team-c' }),
+        event({ challenge: 'challenge-1', team: 'team-c', place: 'place-a' }),
         state(),
         challenges(),
         rules(),
@@ -30,7 +30,7 @@ describe('handleChallengeCompleted', () => {
   it('should throw an error if "challenge" is invalid', () => {
     expect(() =>
       handleChallengeCompleted(
-        event({ challenge: 'challenge-5', team: 'team-a' }),
+        event({ challenge: 'challenge-5', team: 'team-a', place: 'place-a' }),
         state(),
         challenges(),
         rules(),
@@ -41,7 +41,7 @@ describe('handleChallengeCompleted', () => {
   it('should throw an error if state is not started', () => {
     expect(() =>
       handleChallengeCompleted(
-        event({ challenge: 'challenge-1', team: 'team-a' }),
+        event({ challenge: 'challenge-1', team: 'team-a', place: 'place-a' }),
         state({ status: RunGameStatus.Planned }),
         challenges(),
         rules(),
@@ -52,7 +52,7 @@ describe('handleChallengeCompleted', () => {
   it('should return calculated ResultEvent', () => {
     expect(
       handleChallengeCompleted(
-        event({ challenge: 'challenge-1', team: 'team-a' }),
+        event({ challenge: 'challenge-1', team: 'team-a', place: 'place-a' }),
         state(),
         challenges(),
         rules(),
@@ -63,6 +63,7 @@ describe('handleChallengeCompleted', () => {
         timestamp: '2024-08-12T10:00:00',
         team: 'team-a',
         challenge: 'challenge-1',
+        place: 'place-a',
         points: 100,
         state: {
           status: RunGameStatus.Started,

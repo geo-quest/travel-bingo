@@ -41,6 +41,8 @@ export function handleChallengeCompleted(
     createChallengeCompletedEvent(event, state, challenge, teamState, curseApplied, boostApplied),
   ]
 
+  delete event.place
+
   if (newBingos.length > 0 && teamState)
     resultEvents.push(...createBingoEvents(event, state, rules, teamState, newBingos))
 
@@ -67,6 +69,7 @@ function validateAndFetchData(
 ): { currentTeamState: TeamState; challenge: Challenge } {
   if (!event.team) throw new EngineError('"team" must be defined')
   if (!event.challenge) throw new EngineError('"challenge" must be defined')
+  if (!event.place) throw new EngineError('"place" must be defined')
   if (state.status !== RunGameStatus.Started)
     throw new EngineError('invalid state for a challengeCompleted event')
 

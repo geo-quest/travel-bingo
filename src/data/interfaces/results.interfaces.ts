@@ -12,6 +12,7 @@ export enum ResultEventType {
   ChallengeCompleted,
   Empty,
   Bingo,
+  NewPlace,
   Curse,
   Boost,
   FullBoard,
@@ -22,6 +23,7 @@ export interface TeamState {
   rank: number
   score: number
   bingos: string[]
+  places: string[]
   completedChallenges: string[]
   curseMultiplier?: number
   boostMultiplier?: number

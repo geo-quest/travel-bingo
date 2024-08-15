@@ -11,6 +11,7 @@ export interface BaseEvent {
   team?: string
   challenge?: string
   cursedTeam?: string
+  place?: string
 }
 
 export interface Event extends BaseEvent {
