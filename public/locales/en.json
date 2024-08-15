@@ -44,7 +44,7 @@
     "is-boosted": " is boosted",
     "a-boost-was-applied": " A boost was applied!",
     "full-board": "completed the board! That's impressive!",
-    "curse-penalty": "Curse penalty",
+    "curse-multiplier": "Curse multiplier",
     "boost-multiplier": "Boost multiplier"
   },
   "bingo": {
@@ -80,7 +80,7 @@
   },
   "challenge-modal": {
     "is-a-curse": "This challenge is a curse.",
-    "curse-penalty": "Curse penalty",
+    "curse-multiplier": "Curse penalty",
     "is-a-boost": "This challenge is a boost.",
     "boost-multiplier": "Boost multiplier"
   }

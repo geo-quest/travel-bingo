@@ -41,10 +41,10 @@
     "cursed": "被诅咒的",
     "solving": "解决",
     "a-curse-was-applied": " 施加了诅咒！",
-    "is-boosted": " 被提升了！",
+    "is-boosted": " 被提升",
     "a-boost-was-applied": " 施加了提升！",
     "full-board": "完成了董事会！",
-    "curse-penalty": "诅咒惩罚",
+    "curse-multiplier": "诅咒倍数",
     "boost-multiplier": "升压倍数"
   },
   "bingo": {
@@ -80,7 +80,7 @@
   },
   "challenge-modal": {
     "is-a-curse": "这个挑战是一个诅咒。",
-    "curse-penalty": "诅咒惩罚",
+    "curse-multiplier": "诅咒惩罚",
     "is-a-boost": "这次挑战是一种推动。",
     "boost-multiplier": "升压倍数"
   }

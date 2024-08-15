@@ -44,7 +44,7 @@
     "is-boosted": " é impulsionado",
     "a-boost-was-applied": " Um impulso foi aplicado!",
     "full-board": "completou o quadro! ",
-    "curse-penalty": "Penalidade de maldição",
+    "curse-multiplier": "Multiplicador de maldição",
     "boost-multiplier": "Multiplicador de impulso"
   },
   "bingo": {
@@ -80,7 +80,7 @@
   },
   "challenge-modal": {
     "is-a-curse": "Este desafio é uma maldição.",
-    "curse-penalty": "Penalidade de maldição",
+    "curse-multiplier": "Penalidade de maldição",
     "is-a-boost": "Este desafio é um impulso.",
     "boost-multiplier": "Multiplicador de impulso"
   }

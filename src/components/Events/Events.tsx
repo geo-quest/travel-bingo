@@ -58,7 +58,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
               </p>
               <p>
                 <i>
-                  {t('timeline.curse-penalty')}: <strong>{event.curseMultiplier}</strong>
+                  {t('timeline.curse-multiplier')}: <strong>{event.curseMultiplier}</strong>
                 </i>
               </p>
             </>
@@ -99,7 +99,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
           <p>
             <i>
-              {t('timeline.curse-penalty')}: <strong>{event.curseMultiplier}</strong>
+              {t('timeline.curse-multiplier')}: <strong>{event.curseMultiplier}</strong>
             </i>
           </p>
         </>

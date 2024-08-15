@@ -42,7 +42,7 @@ const ChallengeModal: React.FC<Props> = ({ challenge, onClose }) => {
               <i>{t('challenge-modal.is-a-curse')}</i>
             </p>
             <p>
-              <strong>{t('challenge-modal.curse-penalty')}:</strong>{' '}
+              <strong>{t('challenge-modal.curse-multiplier')}:</strong>{' '}
               <span>{challenge.curseMultiplier}</span>
             </p>
             <Divider style={{ marginBottom: 4, marginTop: 4 }} />

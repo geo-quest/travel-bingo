@@ -41,10 +41,10 @@
     "cursed": "vervloekt",
     "solving": "oplossen",
     "a-curse-was-applied": " Er werd een vloek toegepast!",
-    "is-boosted": " wordt versterkt!",
+    "is-boosted": " wordt versterkt",
     "a-boost-was-applied": " Er is een boost toegepast!",
     "full-board": "heeft het bord compleet gemaakt! ",
-    "curse-penalty": "Vloekstraf",
+    "curse-multiplier": "Vloek vermenigvuldiger",
     "boost-multiplier": "Verhoog de vermenigvuldiger"
   },
   "bingo": {
@@ -80,7 +80,7 @@
   },
   "challenge-modal": {
     "is-a-curse": "Deze uitdaging is een vloek.",
-    "curse-penalty": "Vloekstraf",
+    "curse-multiplier": "Vloekstraf",
     "is-a-boost": "Deze uitdaging is een opsteker.",
     "boost-multiplier": "Verhoog de vermenigvuldiger"
   }
