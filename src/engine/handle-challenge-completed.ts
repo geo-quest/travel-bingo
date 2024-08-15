@@ -50,8 +50,17 @@ export function handleChallengeCompleted(
   }
   delete event.place
 
-  if (newBingos.length > 0 && teamState)
-    resultEvents.push(...createBingoEvents(event, state, rules, teamState, newBingos))
+  if (newBingos.length > 0 && teamState) {
+    const { newTeamState, bingoResultEvents } = createBingoEvents(
+      event,
+      state,
+      rules,
+      teamState,
+      newBingos,
+    )
+    teamState = newTeamState
+    resultEvents.push(...bingoResultEvents)
+  }
 
   if (challenge.type === ChallengeType.Curse)
     resultEvents.push(
@@ -180,8 +189,16 @@ function createBingoEvents(
   rules: TravelBingoRules,
   teamState: TeamState,
   newBingos: string[],
-): ResultEvent[] {
-  return newBingos.map((newBingo, idx) => {
+): { newTeamState: TeamState; bingoResultEvents: ResultEvent[] } {
+  const newsTeamState = newBingos.map((_, idx) => {
+    return {
+      ...teamState,
+      score: teamState.score + rules.bonusPointsPerBingo * (1 + idx),
+      bingos: teamState.bingos.concat(newBingos.slice(0, 1 + idx)),
+    }
+  })
+
+  const bingoResultEvents = newBingos.map((newBingo, idx) => {
     return {
       type: ResultEventType.Bingo,
       timestamp: event.timestamp,
@@ -192,22 +209,16 @@ function createBingoEvents(
       state: {
         ...state,
         teams: state.teams
-          .map(t =>
-            t.team === teamState.team
-              ? {
-                  ...teamState,
-                  score: teamState.score + rules.bonusPointsPerBingo * (1 + idx),
-                  bingos: teamState.bingos.concat(newBingos.slice(0, 1 + idx)),
-                }
-              : t,
-          )
+          .map(t => (t.team === event.team ? newsTeamState[idx] : t))
           .sort((a, b) => b.score - a.score)
           .map((t, idx) => {
             return { ...t, rank: idx + 1 }
           }),
       },
-    } as ResultEvent
+    }
   })
+
+  return { newTeamState: newsTeamState[newsTeamState.length - 1], bingoResultEvents }
 }
 
 function createCurseEvent(event: Event, state: RunGameState, challenge: Challenge): ResultEvent {

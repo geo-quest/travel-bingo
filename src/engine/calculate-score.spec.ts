@@ -5,7 +5,7 @@ import { challenges, event, rules, runGameData } from './tests.fixtures'
 
 describe('calculateScore', () => {
   describe('simple cases', () => {
-    it('should return ResultEventArray', () => {
+    it('should handle a basic case', () => {
       const result = calculateScore(
         runGameData({
           events: [
@@ -30,7 +30,18 @@ describe('calculateScore', () => {
         challenges(),
         rules(),
       )
+
       expect(result.length).toBe(7)
+
+      // empty >> start >> completed >> new-place >> completed >> bingo >> finish
+      expect(result[0].type).toBe(ResultEventType.Empty)
+      expect(result[1].type).toBe(ResultEventType.Start)
+      expect(result[2].type).toBe(ResultEventType.ChallengeCompleted)
+      expect(result[3].type).toBe(ResultEventType.NewPlace)
+      expect(result[4].type).toBe(ResultEventType.ChallengeCompleted)
+      expect(result[5].type).toBe(ResultEventType.Bingo)
+      expect(result[6].type).toBe(ResultEventType.Finish)
+
       expect(result[0]).toStrictEqual({
         type: ResultEventType.Empty,
         timestamp: '2024-08-12T00:00:00',
@@ -161,7 +172,7 @@ describe('calculateScore', () => {
       })
     })
 
-    it('should work for unsorted events array', () => {
+    it('should handle unsorted events array', () => {
       const result = calculateScore(
         runGameData({
           events: [
