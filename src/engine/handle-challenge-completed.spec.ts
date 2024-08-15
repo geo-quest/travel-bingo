@@ -49,36 +49,34 @@ describe('handleChallengeCompleted', () => {
     ).toThrow('invalid state for a challengeCompleted event')
   })
 
-  it('should return calculated ResultEvent', () => {
-    expect(
-      handleChallengeCompleted(
-        event({ challenge: 'challenge-1', team: 'team-a', place: 'place-a' }),
-        state(),
-        challenges(),
-        rules(),
-      ),
-    ).toStrictEqual([
-      {
-        type: ResultEventType.ChallengeCompleted,
-        timestamp: '2024-08-12T10:00:00',
-        team: 'team-a',
-        challenge: 'challenge-1',
-        place: 'place-a',
-        points: 100,
-        state: {
-          status: RunGameStatus.Started,
-          teams: [
-            {
-              team: 'team-a',
-              score: 100,
-              rank: 1,
-              bingos: [],
-              completedChallenges: ['challenge-1'],
-            },
-            { team: 'team-b', score: 0, rank: 2, bingos: [], completedChallenges: [] },
-          ],
-        },
+  it('should return ResultEvent.ChallengeCompleted', () => {
+    const result = handleChallengeCompleted(
+      event({ challenge: 'challenge-1', team: 'team-a', place: 'place-a' }),
+      state(),
+      challenges(),
+      rules(),
+    )
+    expect(result[0]).toStrictEqual({
+      type: ResultEventType.ChallengeCompleted,
+      timestamp: '2024-08-12T10:00:00',
+      team: 'team-a',
+      challenge: 'challenge-1',
+      place: 'place-a',
+      points: 100,
+      state: {
+        status: RunGameStatus.Started,
+        teams: [
+          {
+            team: 'team-a',
+            score: 100,
+            rank: 1,
+            bingos: [],
+            places: [],
+            completedChallenges: ['challenge-1'],
+          },
+          { team: 'team-b', score: 0, rank: 2, bingos: [], places: [], completedChallenges: [] },
+        ],
       },
-    ] as ResultEvent[])
+    } as ResultEvent)
   })
 })

@@ -8,8 +8,8 @@ describe('defineInitialState', () => {
     expect(defineInitialState(runGameData())).toStrictEqual({
       status: RunGameStatus.Planned,
       teams: [
-        { team: 'team-a', score: 0, rank: 0, bingos: [], completedChallenges: [] },
-        { team: 'team-b', score: 0, rank: 0, bingos: [], completedChallenges: [] },
+        { team: 'team-a', score: 0, rank: 0, bingos: [], places: [], completedChallenges: [] },
+        { team: 'team-b', score: 0, rank: 0, bingos: [], places: [], completedChallenges: [] },
       ],
     } as RunGameState)
   })

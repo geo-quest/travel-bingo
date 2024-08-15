@@ -39,6 +39,7 @@ export interface ResultEvent extends BaseEvent {
   state: RunGameState
   points?: number
   newBingo?: string
+  newPlace?: string
   curseMultiplier?: number
   curseApplied?: boolean
   boostMultiplier?: number

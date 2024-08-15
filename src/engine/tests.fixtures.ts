@@ -69,13 +69,13 @@ export const state = (overrides?: Partial<RunGameState>): RunGameState => {
   return {
     status: RunGameStatus.Started,
     teams: [
-      { team: 'team-a', rank: 0, score: 0, bingos: [], completedChallenges: [] },
-      { team: 'team-b', rank: 0, score: 0, bingos: [], completedChallenges: [] },
+      { team: 'team-a', rank: 0, score: 0, bingos: [], places: [], completedChallenges: [] },
+      { team: 'team-b', rank: 0, score: 0, bingos: [], places: [], completedChallenges: [] },
     ],
     ...overrides,
   } as RunGameState
 }
 
 export const rules = (overrides?: Partial<TravelBingoRules>): TravelBingoRules => {
-  return { bonusPointsPerBingo: 20, ...overrides } as TravelBingoRules
+  return { bonusPointsPerBingo: 20, bonusPointsPerPlace: 10, ...overrides } as TravelBingoRules
 }

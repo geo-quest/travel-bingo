@@ -11,6 +11,7 @@ import {
 } from 'data/interfaces'
 
 import { calculateBingos } from './calculate-bingos'
+import { rules } from './tests.fixtures'
 import { EngineError } from './types'
 
 export function handleChallengeCompleted(
@@ -25,6 +26,7 @@ export function handleChallengeCompleted(
   const completedChallenges = teamState.completedChallenges.concat([challenge.key])
   const bingos = calculateBingos(completedChallenges, challenges)
   const newBingos = bingos.filter(b => !teamState?.bingos.includes(b))
+  const newPlace = event.place && !teamState.places.includes(event.place)
 
   const curseApplied = teamState.curseMultiplier !== undefined
   const boostApplied = teamState.boostMultiplier !== undefined
@@ -41,6 +43,7 @@ export function handleChallengeCompleted(
     createChallengeCompletedEvent(event, state, challenge, teamState, curseApplied, boostApplied),
   ]
 
+  if (newPlace) resultEvents.push(createNewPlaceEvent(event, state, rules, teamState))
   delete event.place
 
   if (newBingos.length > 0 && teamState)
@@ -133,6 +136,39 @@ function createChallengeCompletedEvent(
   } as ResultEvent
 
   return result
+}
+
+function createNewPlaceEvent(
+  event: Event,
+  state: RunGameState,
+  rules: TravelBingoRules,
+  teamState: TeamState,
+): ResultEvent {
+  return {
+    type: ResultEventType.NewPlace,
+    timestamp: event.timestamp,
+    team: teamState.team,
+    challenge: event.challenge,
+    newPlace: event.place,
+    points: rules.bonusPointsPerPlace,
+    state: {
+      ...state,
+      teams: state.teams
+        .map(t =>
+          t.team === teamState.team && event.place
+            ? {
+                ...teamState,
+                score: teamState.score + rules.bonusPointsPerPlace,
+                places: teamState.places.concat([event.place]),
+              }
+            : t,
+        )
+        .sort((a, b) => b.score - a.score)
+        .map((t, idx) => {
+          return { ...t, rank: idx + 1 }
+        }),
+    },
+  }
 }
 
 function createBingoEvents(

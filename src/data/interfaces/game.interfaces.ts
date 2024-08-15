@@ -19,6 +19,7 @@ export interface Challenge {
 
 export interface TravelBingoRules {
   bonusPointsPerBingo: number
+  bonusPointsPerPlace: number
 }
 
 export interface TravelBingoGameData {
