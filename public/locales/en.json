@@ -45,7 +45,9 @@
     "a-boost-was-applied": " A boost was applied!",
     "full-board": "completed the board! That's impressive!",
     "curse-multiplier": "Curse multiplier",
-    "boost-multiplier": "Boost multiplier"
+    "boost-multiplier": "Boost multiplier",
+    "visited-a-new-place": "visited a new place",
+    "at": "at"
   },
   "bingo": {
     "row-0": "First row",
@@ -72,11 +74,14 @@
     "Bingo": "Bingo",
     "Curse": "Curse",
     "Boost": "Boost",
-    "FullBoard": "FullBoard"
+    "FullBoard": "FullBoard",
+    "NewPlace": "New place"
   },
   "team-results": {
     "is-cursed": "is cursed",
-    "is-boosted": " is boosted"
+    "is-boosted": " is boosted",
+    "visited-places": "Visited places",
+    "members": "Members"
   },
   "challenge-modal": {
     "is-a-curse": "This challenge is a curse.",

@@ -11,7 +11,6 @@ import {
 } from 'data/interfaces'
 
 import { calculateBingos } from './calculate-bingos'
-import { rules } from './tests.fixtures'
 import { EngineError } from './types'
 
 export function handleChallengeCompleted(
@@ -55,7 +54,6 @@ export function handleChallengeCompleted(
     teamState = newTeamState
     resultEvents.push(newPlaceEvent)
   }
-  delete event.place
 
   if (newBingos.length > 0 && teamState) {
     const { newTeamState, bingoEvents } = createBingoEvents(
@@ -109,9 +107,14 @@ function validateAndFetchData(
   state: RunGameState,
   challenges: Challenge[][],
 ): { currentTeamState: TeamState; challenge: Challenge } {
-  if (!event.team) throw new EngineError('"team" must be defined')
-  if (!event.challenge) throw new EngineError('"challenge" must be defined')
-  if (!event.place) throw new EngineError('"place" must be defined')
+  if (!event.team)
+    throw new EngineError(`"team" must be defined for event ${JSON.stringify(event)}`)
+  if (!event.challenge)
+    throw new EngineError(`"challenge" must be defined for event ${JSON.stringify(event)}`)
+  if (!event.place) {
+    throw new EngineError(`"place" must be defined for event ${JSON.stringify(event)}`)
+  }
+
   if (state.status !== RunGameStatus.Started)
     throw new EngineError('invalid state for a challengeCompleted event')
 
@@ -251,7 +254,9 @@ function createCurseEvent(
   } as TeamState
 
   const curseEvent = {
-    ...event,
+    timestamp: event.timestamp,
+    team: event.team,
+    challenge: event.challenge,
     type: ResultEventType.Curse,
     cursedTeam: event.cursedTeam,
     curseMultiplier: challenge.curseMultiplier,
@@ -259,7 +264,7 @@ function createCurseEvent(
       ...state,
       teams: updateTeamsState(state.teams, cursedTeamNewState, event.cursedTeam),
     },
-  }
+  } as ResultEvent
   return { newTeamState, curseEvent }
 }
 
@@ -276,7 +281,9 @@ function createBoostEvent(
     boostMultiplier: challenge.boostMultiplier,
   }
   const boostEvent = {
-    ...event,
+    timestamp: event.timestamp,
+    team: event.team,
+    challenge: event.challenge,
     type: ResultEventType.Boost,
     boostMultiplier: challenge.boostMultiplier,
     state: {
@@ -295,7 +302,9 @@ function createFullBoardEvent(
 ): { newTeamState: TeamState; fullBoardEvent: ResultEvent } {
   const newTeamState = { ...teamState }
   const fullBoardEvent = {
-    ...event,
+    timestamp: event.timestamp,
+    team: event.team,
+    challenge: event.challenge,
     type: ResultEventType.FullBoard,
     state: state,
   } as ResultEvent

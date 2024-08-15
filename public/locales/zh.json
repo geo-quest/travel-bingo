@@ -45,7 +45,9 @@
     "a-boost-was-applied": " 施加了提升！",
     "full-board": "完成了董事会！",
     "curse-multiplier": "诅咒倍数",
-    "boost-multiplier": "升压倍数"
+    "boost-multiplier": "升压倍数",
+    "visited-a-new-place": "参观了一个新地方",
+    "at": "在"
   },
   "bingo": {
     "row-0": "第一排",
@@ -72,11 +74,14 @@
     "Bingo": "宾果游戏",
     "Curse": "诅咒",
     "Boost": "促进",
-    "FullBoard": "全食宿"
+    "FullBoard": "全食宿",
+    "NewPlace": "新地方"
   },
   "team-results": {
     "is-cursed": "被诅咒了",
-    "is-boosted": " 被提升"
+    "is-boosted": " 被提升",
+    "visited-places": "去过的地方",
+    "members": "会员"
   },
   "challenge-modal": {
     "is-a-curse": "这个挑战是一个诅咒。",

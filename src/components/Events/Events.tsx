@@ -12,7 +12,7 @@ export interface Props {
   filterFunction: (events: ResultEvent) => boolean
 }
 
-const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction }: Props) => {
+const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
   const { t } = useTranslation()
 
   const getColorByEventType = (type: ResultEventType) => {
@@ -24,6 +24,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       [ResultEventType.Curse, 'purple'],
       [ResultEventType.Boost, '#00bfff'],
       [ResultEventType.FullBoard, '#008000'],
+      [ResultEventType.NewPlace, '#ff4500'],
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -31,7 +32,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
   const renderTag = (event: ResultEvent) => {
     return (
       <Tag style={{ float: 'right' }} color={getColorByEventType(event.type)}>
-        {t(ResultEventType[event.type])}
+        {t(`resultEventType.${ResultEventType[event.type]}`)}
       </Tag>
     )
   }
@@ -127,6 +128,19 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.full-board')}
         </>
       )
+    } else if (
+      event.type === ResultEventType.NewPlace &&
+      event.team &&
+      event.newPlace &&
+      event.points
+    ) {
+      return (
+        <>
+          <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.visited-a-new-place')}{' '}
+          <strong>{event.newPlace}</strong> {t('timeline.and-scored')}{' '}
+          <strong>{event.points}</strong> {t('timeline.points')}
+        </>
+      )
     }
   }
 
@@ -140,6 +154,7 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
             <FormattedDate date={event.timestamp} format="time" />
             {renderTag(event)}
           </strong>
+          {event.place && <i style={{ paddingLeft: 8 }}>{event.place}</i>}
         </p>
         {renderDetails(event)}
       </div>

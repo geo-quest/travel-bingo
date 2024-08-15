@@ -10,6 +10,7 @@ interface Props {
 
 const Run = ({ data }: Props) => {
   const { game, run } = getDataBasedOnParams(data)
+
   if (!game || !run) return <NoPage />
 
   return (

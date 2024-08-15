@@ -4,13 +4,16 @@ import { TeamState } from 'data/interfaces'
 
 interface Props {
   team: TeamState
+  showBingos?: boolean
 }
 
-const Score = ({ team }: Props) => {
+const Score = ({ team, showBingos }: Props) => {
   return (
     <>
       <span>{team.score}</span>
-      {team.bingos.length > 0 && <span className="score-bingos">{team.bingos.length}</span>}
+      {showBingos && team.bingos.length > 0 && (
+        <span className="score-bingos">{team.bingos.length}</span>
+      )}
     </>
   )
 }
