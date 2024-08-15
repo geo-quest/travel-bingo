@@ -41,9 +41,11 @@
     "cursed": "amaldiçoado",
     "solving": "resolvendo",
     "a-curse-was-applied": " Uma maldição foi aplicada!",
-    "is-boosted": " é impulsionado!",
+    "is-boosted": " é impulsionado",
     "a-boost-was-applied": " Um impulso foi aplicado!",
-    "full-board": "completou o quadro! "
+    "full-board": "completou o quadro! ",
+    "curse-penalty": "Penalidade de maldição",
+    "boost-multiplier": "Multiplicador de impulso"
   },
   "bingo": {
     "row-0": "Primeira linha",

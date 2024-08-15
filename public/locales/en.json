@@ -41,9 +41,11 @@
     "cursed": "cursed",
     "solving": "solving",
     "a-curse-was-applied": " A curse was applied!",
-    "is-boosted": " is boosted!",
+    "is-boosted": " is boosted",
     "a-boost-was-applied": " A boost was applied!",
-    "full-board": "completed the board! That's impressive!"
+    "full-board": "completed the board! That's impressive!",
+    "curse-penalty": "Curse penalty",
+    "boost-multiplier": "Boost multiplier"
   },
   "bingo": {
     "row-0": "First row",

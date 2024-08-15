@@ -78,8 +78,23 @@ function createChallengeCompletedEvent(
   curseApplied: boolean,
   boostApplied: boolean,
 ): ResultEvent {
-  const result: ResultEvent = {
+  let result: ResultEvent = {
     ...event,
+    type: ResultEventType.ChallengeCompleted,
+    state: state,
+  }
+
+  if (curseApplied) {
+    result.curseApplied = true
+    result.curseMultiplier = teamState.curseMultiplier
+  }
+  if (boostApplied) {
+    result.boostApplied = true
+    result.boostMultiplier = teamState.boostMultiplier
+  }
+
+  result = {
+    ...result,
     type: ResultEventType.ChallengeCompleted,
     points: challenge.points * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
     state: {
@@ -97,9 +112,6 @@ function createChallengeCompletedEvent(
         }),
     },
   } as ResultEvent
-
-  if (curseApplied) result.curseApplied = true
-  if (boostApplied) result.boostApplied = true
 
   return result
 }

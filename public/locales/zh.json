@@ -43,7 +43,9 @@
     "a-curse-was-applied": " 施加了诅咒！",
     "is-boosted": " 被提升了！",
     "a-boost-was-applied": " 施加了提升！",
-    "full-board": "完成了董事会！"
+    "full-board": "完成了董事会！",
+    "curse-penalty": "诅咒惩罚",
+    "boost-multiplier": "升压倍数"
   },
   "bingo": {
     "row-0": "第一排",

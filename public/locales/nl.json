@@ -43,7 +43,9 @@
     "a-curse-was-applied": " Er werd een vloek toegepast!",
     "is-boosted": " wordt versterkt!",
     "a-boost-was-applied": " Er is een boost toegepast!",
-    "full-board": "heeft het bord compleet gemaakt! "
+    "full-board": "heeft het bord compleet gemaakt! ",
+    "curse-penalty": "Vloekstraf",
+    "boost-multiplier": "Verhoog de vermenigvuldiger"
   },
   "bingo": {
     "row-0": "Eerste rij",

@@ -52,14 +52,28 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
             </>
           )}
           {event.curseApplied === true && (
-            <p>
-              <i>{t('timeline.a-curse-was-applied')}</i>
-            </p>
+            <>
+              <p style={{ marginBottom: 0 }}>
+                <i>{t('timeline.a-curse-was-applied')}</i>
+              </p>
+              <p>
+                <i>
+                  {t('timeline.curse-penalty')}: <strong>{event.curseMultiplier}</strong>
+                </i>
+              </p>
+            </>
           )}
           {event.boostApplied === true && (
-            <p>
-              <i>{t('timeline.a-boost-was-applied')}</i>
-            </p>
+            <>
+              <p style={{ marginBottom: 0 }}>
+                <i>{t('timeline.a-boost-was-applied')}</i>
+              </p>
+              <p>
+                <i>
+                  {t('timeline.boost-multiplier')}: <strong>{event.boostMultiplier}</strong>
+                </i>
+              </p>
+            </>
           )}
         </>
       )
@@ -75,19 +89,36 @@ const Events: React.FC<Props> = ({ events, teamsData, challenges, filterFunction
       event.type === ResultEventType.Curse &&
       event.team &&
       event.cursedTeam &&
-      event.challenge
+      event.challenge &&
+      event.curseMultiplier
     ) {
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.cursed')}{' '}
           <strong>{getTeamName(event.cursedTeam, teamsData)}</strong> {t('timeline.solving')}{' '}
           <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
+          <p>
+            <i>
+              {t('timeline.curse-penalty')}: <strong>{event.curseMultiplier}</strong>
+            </i>
+          </p>
         </>
       )
-    } else if (event.type === ResultEventType.Boost && event.team) {
+    } else if (
+      event.type === ResultEventType.Boost &&
+      event.team &&
+      event.challenge &&
+      event.boostMultiplier
+    ) {
       return (
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.is-boosted')}{' '}
+          {t('timeline.solving')} <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
+          <p>
+            <i>
+              {t('timeline.boost-multiplier')}: <strong>{event.boostMultiplier}</strong>
+            </i>
+          </p>
         </>
       )
     } else if (event.type === ResultEventType.FullBoard && event.team) {
