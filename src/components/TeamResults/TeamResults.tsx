@@ -31,6 +31,8 @@ const TeamResults = ({ team, run, game }: Props) => {
   const state = events[events.length - 1].state
   const teamState = state.teams.find(t => t.team === team.key)
 
+  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
+
   if (!teamState) return <NoPage />
 
   const getChallengeClass = (challenge: Challenge, row: number, col: number): string[] => {
@@ -47,8 +49,6 @@ const TeamResults = ({ team, run, game }: Props) => {
       clazz.push('bingo')
     return clazz
   }
-
-  const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null)
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
