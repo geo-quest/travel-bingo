@@ -164,15 +164,7 @@ function createChallengeCompletedEvent(
       (challenge.points ?? 0) * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
     state: {
       ...state,
-      teams: state.teams
-        .map(t => {
-          if (t.team !== teamState.team) return t
-          return newTeamState
-        })
-        .sort((a, b) => b.score - a.score)
-        .map((t, idx) => {
-          return { ...t, rank: idx + 1 }
-        }),
+      teams: updateTeamsState(state.teams, newTeamState, event.team),
     },
   } as ResultEvent
 
@@ -199,12 +191,7 @@ function createNewPlaceEvent(
     points: rules.bonusPointsPerPlace,
     state: {
       ...state,
-      teams: state.teams
-        .map(t => (t.team === event.team ? newTeamState : t))
-        .sort((a, b) => b.score - a.score)
-        .map((t, idx) => {
-          return { ...t, rank: idx + 1 }
-        }),
+      teams: updateTeamsState(state.teams, newTeamState, event.team),
     },
   }
 
@@ -236,12 +223,7 @@ function createBingoEvents(
       points: rules.bonusPointsPerBingo,
       state: {
         ...state,
-        teams: state.teams
-          .map(t => (t.team === event.team ? newsTeamState[idx] : t))
-          .sort((a, b) => b.score - a.score)
-          .map((t, idx) => {
-            return { ...t, rank: idx + 1 }
-          }),
+        teams: updateTeamsState(state.teams, newsTeamState[idx], event.team),
       },
     }
   })
@@ -262,6 +244,12 @@ function createCurseEvent(
   const newTeamState = {
     ...teamState,
   }
+
+  const cursedTeamNewState = {
+    ...state.teams.find(t => t.team === event.cursedTeam),
+    curseMultiplier: challenge.curseMultiplier,
+  } as TeamState
+
   const curseEvent = {
     ...event,
     type: ResultEventType.Curse,
@@ -269,9 +257,7 @@ function createCurseEvent(
     curseMultiplier: challenge.curseMultiplier,
     state: {
       ...state,
-      teams: state.teams.map(t =>
-        t.team === event.cursedTeam ? { ...t, curseMultiplier: challenge.curseMultiplier } : t,
-      ),
+      teams: updateTeamsState(state.teams, cursedTeamNewState, event.cursedTeam),
     },
   }
   return { newTeamState, curseEvent }
@@ -295,12 +281,7 @@ function createBoostEvent(
     boostMultiplier: challenge.boostMultiplier,
     state: {
       ...state,
-      teams: state.teams
-        .map(t => (t.team === event.team ? newTeamState : t))
-        .sort((a, b) => b.score - a.score)
-        .map((t, idx) => {
-          return { ...t, rank: idx + 1 }
-        }),
+      teams: updateTeamsState(state.teams, newTeamState, event.team),
     },
   }
 
@@ -321,7 +302,11 @@ function createFullBoardEvent(
   return { newTeamState, fullBoardEvent }
 }
 
-function sortAndRankTeams(teams: TeamState[], newTeamState: TeamState, targetTeam: string) {
+function updateTeamsState(
+  teams: TeamState[],
+  newTeamState: TeamState,
+  targetTeam: string | undefined,
+): TeamState[] {
   return teams
     .map(t => (t.team === targetTeam ? newTeamState : t))
     .sort((a, b) => b.score - a.score)
