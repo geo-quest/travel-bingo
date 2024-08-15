@@ -415,7 +415,7 @@ export default {
           nl: 'Bezoek en fotografeer een historisch kasteel',
           zh: '参观并拍摄历史悠久的城堡',
         },
-        points: 50,
+        points: 0,
         type: ChallengeType.Curse,
         curseMultiplier: 0.5,
         image:
