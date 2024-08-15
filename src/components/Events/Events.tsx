@@ -25,6 +25,7 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
       [ResultEventType.Boost, '#00bfff'],
       [ResultEventType.FullBoard, '#008000'],
       [ResultEventType.NewPlace, '#ff4500'],
+      [ResultEventType.FirstChallenge, '#ffa500'],
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -138,6 +139,14 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
         <>
           <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.visited-a-new-place')}{' '}
           <strong>{event.newPlace}</strong> {t('timeline.and-scored')}{' '}
+          <strong>{event.points}</strong> {t('timeline.points')}
+        </>
+      )
+    } else if (event.type === ResultEventType.FirstChallenge && event.team) {
+      return (
+        <>
+          <strong>{getTeamName(event.team, teamsData)}</strong>{' '}
+          {t('timeline.completed-first-challenge')} {t('timeline.and-scored')}{' '}
           <strong>{event.points}</strong> {t('timeline.points')}
         </>
       )

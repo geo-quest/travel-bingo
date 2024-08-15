@@ -168,7 +168,8 @@ export default {
   },
   rules: {
     bonusPointsPerBingo: 20,
-    bonusPointsPerPlace: 10,
+    bonusPointsPerPlace: 5,
+    bonusForFirstChallenge: 30,
   },
   challenges: [
     [
