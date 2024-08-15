@@ -43,7 +43,11 @@ export function handleChallengeCompleted(
     createChallengeCompletedEvent(event, state, challenge, teamState, curseApplied, boostApplied),
   ]
 
-  if (newPlace) resultEvents.push(createNewPlaceEvent(event, state, rules, teamState))
+  if (newPlace) {
+    const { newTeamState, resultEvent } = createNewPlaceEvent(event, state, rules, teamState)
+    teamState = newTeamState
+    resultEvents.push(resultEvent)
+  }
   delete event.place
 
   if (newBingos.length > 0 && teamState)
@@ -143,8 +147,13 @@ function createNewPlaceEvent(
   state: RunGameState,
   rules: TravelBingoRules,
   teamState: TeamState,
-): ResultEvent {
-  return {
+): { newTeamState: TeamState; resultEvent: ResultEvent } {
+  const newTeamState = {
+    ...teamState,
+    score: teamState.score + rules.bonusPointsPerPlace,
+    places: teamState.places.concat([event.place ?? '']),
+  }
+  const resultEvent = {
     type: ResultEventType.NewPlace,
     timestamp: event.timestamp,
     team: teamState.team,
@@ -154,21 +163,15 @@ function createNewPlaceEvent(
     state: {
       ...state,
       teams: state.teams
-        .map(t =>
-          t.team === teamState.team && event.place
-            ? {
-                ...teamState,
-                score: teamState.score + rules.bonusPointsPerPlace,
-                places: teamState.places.concat([event.place]),
-              }
-            : t,
-        )
+        .map(t => (t.team === event.team ? newTeamState : t))
         .sort((a, b) => b.score - a.score)
         .map((t, idx) => {
           return { ...t, rank: idx + 1 }
         }),
     },
   }
+
+  return { newTeamState, resultEvent }
 }
 
 function createBingoEvents(

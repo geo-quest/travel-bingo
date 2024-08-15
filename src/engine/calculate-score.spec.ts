@@ -545,6 +545,67 @@ describe('calculateScore', () => {
         },
       })
     })
+
+    it('should handle multiple places', () => {
+      const result = calculateScore(
+        runGameData({
+          events: [
+            event({ type: EventType.Start, timestamp: '2024-08-12T10:00:00' }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-12T11:00:00',
+              team: 'team-a',
+              challenge: 'challenge-1',
+              place: 'place-a',
+            }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-12T12:00:00',
+              team: 'team-a',
+              challenge: 'challenge-2',
+              place: 'place-b',
+            }),
+            event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
+          ],
+        }),
+        challenges(),
+        rules(),
+      )
+
+      expect(result.length).toBe(8)
+
+      expect(result[3].type).toBe(ResultEventType.NewPlace)
+      expect(result[3].newPlace).toBe('place-a')
+
+      expect(result[5].type).toBe(ResultEventType.NewPlace)
+      expect(result[5].newPlace).toBe('place-b')
+
+      expect(result[7]).toStrictEqual({
+        type: ResultEventType.Finish,
+        timestamp: '2024-08-12T13:00:00',
+        state: {
+          status: RunGameStatus.Finished,
+          teams: [
+            {
+              team: 'team-a',
+              score: 240,
+              rank: 1,
+              bingos: ['row-0'],
+              places: ['place-a', 'place-b'],
+              completedChallenges: ['challenge-1', 'challenge-2'],
+            },
+            {
+              team: 'team-b',
+              score: 0,
+              rank: 2,
+              bingos: [],
+              places: [],
+              completedChallenges: [],
+            },
+          ],
+        },
+      })
+    })
   })
 
   describe('curse', () => {
