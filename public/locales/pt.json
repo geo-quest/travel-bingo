@@ -75,5 +75,11 @@
   "team-results": {
     "is-cursed": "é amaldiçoado",
     "is-boosted": " é impulsionado"
+  },
+  "challenge-modal": {
+    "is-a-curse": "Este desafio é uma maldição.",
+    "curse-penalty": "Penalidade de maldição",
+    "is-a-boost": "Este desafio é um impulso.",
+    "boost-multiplier": "Multiplicador de impulso"
   }
 }

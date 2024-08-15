@@ -75,5 +75,11 @@
   "team-results": {
     "is-cursed": "被诅咒了",
     "is-boosted": " 被提升"
+  },
+  "challenge-modal": {
+    "is-a-curse": "这个挑战是一个诅咒。",
+    "curse-penalty": "诅咒惩罚",
+    "is-a-boost": "这次挑战是一种推动。",
+    "boost-multiplier": "升压倍数"
   }
 }

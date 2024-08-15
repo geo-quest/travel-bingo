@@ -75,5 +75,11 @@
   "team-results": {
     "is-cursed": "is cursed",
     "is-boosted": " is boosted"
+  },
+  "challenge-modal": {
+    "is-a-curse": "This challenge is a curse.",
+    "curse-penalty": "Curse penalty",
+    "is-a-boost": "This challenge is a boost.",
+    "boost-multiplier": "Boost multiplier"
   }
 }

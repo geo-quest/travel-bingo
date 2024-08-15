@@ -75,5 +75,11 @@
   "team-results": {
     "is-cursed": "is vervloekt",
     "is-boosted": " wordt versterkt"
+  },
+  "challenge-modal": {
+    "is-a-curse": "Deze uitdaging is een vloek.",
+    "curse-penalty": "Vloekstraf",
+    "is-a-boost": "Deze uitdaging is een opsteker.",
+    "boost-multiplier": "Verhoog de vermenigvuldiger"
   }
 }
