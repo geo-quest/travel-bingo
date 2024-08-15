@@ -52,17 +52,6 @@ const TeamResults = ({ team, run, game }: Props) => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      <Row>
-        <Col span={24} style={{ textAlign: 'center' }}>
-          {team.members &&
-            team.members.length > 0 &&
-            team.members.map(member => (
-              <Tag color={game.color} key={member} style={{ margin: '0 8px' }}>
-                {member}
-              </Tag>
-            ))}
-        </Col>
-      </Row>
       <Row
         style={{
           border: 'solid 1px #f0f0f0',
@@ -73,11 +62,25 @@ const TeamResults = ({ team, run, game }: Props) => {
         }}
       >
         <Col span={2} />
-        <Col span={10} style={{ textAlign: 'center' }}>
+        <Col span={4} style={{ textAlign: 'center' }}>
           <Statistic title={t('rank')} valueRender={() => <Rank rank={teamState.rank} />} />
         </Col>
-        <Col span={10} style={{ textAlign: 'center' }}>
+        <Col span={4} style={{ textAlign: 'center' }}>
           <Statistic title={t('score')} valueRender={() => <Score team={teamState} />} />
+        </Col>
+        <Col span={12} style={{ textAlign: 'center' }}>
+          <Statistic
+            title={t('team-results.visited-places')}
+            valueRender={() =>
+              teamState.places.length === 0
+                ? '-'
+                : teamState.places.map(place => (
+                    <Tag color="#ff4500" key={place}>
+                      {place}
+                    </Tag>
+                  ))
+            }
+          />
         </Col>
         <Col span={2} />
       </Row>
@@ -137,13 +140,10 @@ const TeamResults = ({ team, run, game }: Props) => {
             teamsData={run.teams}
             challenges={game.challenges}
             filterFunction={event =>
-              event.type === ResultEventType.Start ||
-              event.type === ResultEventType.Finish ||
-              (event.type === ResultEventType.ChallengeCompleted && event.team === team.key) ||
-              (event.type === ResultEventType.Bingo && event.team === team.key) ||
-              (event.type === ResultEventType.Curse &&
-                (event.team === team.key || event.cursedTeam === team.key)) ||
-              (event.type === ResultEventType.Boost && event.team === team.key)
+              event.type !== ResultEventType.Empty &&
+              (event.team === undefined ||
+                event.team === team.key ||
+                (event.type === ResultEventType.Curse && event.cursedTeam === team.key))
             }
           />
         </Col>

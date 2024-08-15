@@ -9,8 +9,26 @@ interface Props {
 }
 
 const PageTitle = ({ game, run, team }: Props) => {
+  const renderTeamMembers = (members?: string[]) => {
+    return (
+      members &&
+      members.length > 0 && (
+        <span style={{ fontSize: '0.6em', fontWeight: 'normal' }}>
+          {'('}
+          <i>{members.join(', ')}</i>
+          {')'}
+        </span>
+      )
+    )
+  }
+
   const getTitle = () => {
-    if (team) return team.name
+    if (team)
+      return (
+        <>
+          {team.name} {renderTeamMembers(team.members)}
+        </>
+      )
     if (run) return t2(run.name)
     return t2(game.title)
   }

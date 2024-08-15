@@ -23,6 +23,7 @@ const teams: TeamState[] = [
     rank: 1,
     score: 100,
     bingos: ['row-1'],
+    places: [],
     completedChallenges: [],
   },
   {
@@ -30,6 +31,7 @@ const teams: TeamState[] = [
     rank: 2,
     score: 90,
     bingos: [],
+    places: [],
     completedChallenges: [],
   },
   {
@@ -37,6 +39,7 @@ const teams: TeamState[] = [
     rank: 3,
     score: 80,
     bingos: [],
+    places: [],
     completedChallenges: [],
   },
   {
@@ -44,6 +47,7 @@ const teams: TeamState[] = [
     rank: 4,
     score: 70,
     bingos: ['col-1'],
+    places: [],
     completedChallenges: [],
   },
 ]

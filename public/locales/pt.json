@@ -45,7 +45,9 @@
     "a-boost-was-applied": " Um impulso foi aplicado!",
     "full-board": "completou o quadro! ",
     "curse-multiplier": "Multiplicador de maldição",
-    "boost-multiplier": "Multiplicador de impulso"
+    "boost-multiplier": "Multiplicador de impulso",
+    "visited-a-new-place": "visitei um novo lugar",
+    "at": "no"
   },
   "bingo": {
     "row-0": "Primeira linha",
@@ -72,11 +74,14 @@
     "Bingo": "Bingo",
     "Curse": "Xingamento",
     "Boost": "Impulsionar",
-    "FullBoard": "Pensão completa"
+    "FullBoard": "Pensão completa",
+    "NewPlace": "Novo lugar"
   },
   "team-results": {
     "is-cursed": "é amaldiçoado",
-    "is-boosted": " é impulsionado"
+    "is-boosted": " é impulsionado",
+    "visited-places": "Lugares visitados",
+    "members": "Membros"
   },
   "challenge-modal": {
     "is-a-curse": "Este desafio é uma maldição.",

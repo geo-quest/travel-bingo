@@ -8,4 +8,4 @@
 
 Experience the thrill of travel and competition. Complete location-based challenges, gather points, and see if you can outscore your friends.
 
-Online at: https://travel-bingo.netlify.app
+> Online at: https://travel-bingo.netlify.app
