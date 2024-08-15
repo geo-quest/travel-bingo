@@ -16,11 +16,10 @@ const TeamName = ({ team, teamsData }: Props) => {
   const isCursed = team.curseMultiplier !== undefined && team.boostMultiplier === undefined
   const isBoosted = team.boostMultiplier !== undefined && team.curseMultiplier === undefined
 
-  const title = isCursed
-    ? `${name} ${t('team-results.is-cursed')}`
-    : isBoosted
-      ? `${name} ${t('team-results.is-boosted')}`
-      : undefined
+  let title = undefined
+
+  if (isCursed) title = `${name} ${t('team-results.is-cursed')}`
+  if (isBoosted) title = `${name} ${t('team-results.is-boosted')}`
 
   return (
     <span className={classNames({ cursed: isCursed, boosted: isBoosted })} title={title}>
