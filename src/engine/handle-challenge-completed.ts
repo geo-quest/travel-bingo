@@ -19,9 +19,8 @@ export function handleChallengeCompleted(
   challenges: Challenge[][],
   rules: TravelBingoRules,
 ): ResultEvent[] {
-  const result = validateAndFetchData(event, state, challenges)
-  let { teamState } = result
-  const { challenge } = result
+  const { challenge, currentTeamState } = validateAndFetchData(event, state, challenges)
+  let teamState = currentTeamState
 
   const completedChallenges = teamState.completedChallenges.concat([challenge.key])
   const bingos = calculateBingos(completedChallenges, challenges)
@@ -65,25 +64,25 @@ function validateAndFetchData(
   event: Event,
   state: RunGameState,
   challenges: Challenge[][],
-): { teamState: TeamState; challenge: Challenge } {
+): { currentTeamState: TeamState; challenge: Challenge } {
   if (!event.team) throw new EngineError('"team" must be defined')
   if (!event.challenge) throw new EngineError('"challenge" must be defined')
   if (state.status !== RunGameStatus.Started)
     throw new EngineError('invalid state for a challengeCompleted event')
 
-  const teamState = state.teams.find(t => t.team === event.team)
+  const currentTeamState = state.teams.find(t => t.team === event.team)
   const challenge = challenges.flat().find(c => c.key === event.challenge)
 
-  if (!teamState) throw new EngineError(`team "${event.team}" not found`)
+  if (!currentTeamState) throw new EngineError(`team "${event.team}" not found`)
   if (!challenge) throw new EngineError(`challenge "${event.challenge}" not found`)
   if (challenge.type === ChallengeType.Normal && (challenge.points ?? 0) === 0)
     throw new EngineError(`challenge "${event.challenge}" must have points defined`)
   if (challenge.type !== ChallengeType.Normal && (challenge.points ?? 0) !== 0)
     throw new EngineError(`challenge "${event.challenge}" must not have points defined`)
-  if (teamState.completedChallenges.find(c => c === event.challenge))
+  if (currentTeamState.completedChallenges.find(c => c === event.challenge))
     throw new EngineError(`challenge "${event.challenge}" already completed by ${event.team}`)
 
-  return { teamState, challenge }
+  return { currentTeamState, challenge }
 }
 
 function createChallengeCompletedEvent(
