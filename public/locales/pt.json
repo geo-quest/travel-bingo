@@ -47,7 +47,8 @@
     "curse-multiplier": "Multiplicador de maldição",
     "boost-multiplier": "Multiplicador de impulso",
     "visited-a-new-place": "visitei um novo lugar",
-    "at": "no"
+    "at": "no",
+    "completed-first-challenge": "completou o primeiro desafio do jogo"
   },
   "bingo": {
     "row-0": "Primeira linha",
@@ -75,7 +76,8 @@
     "Curse": "Xingamento",
     "Boost": "Impulsionar",
     "FullBoard": "Pensão completa",
-    "NewPlace": "Novo lugar"
+    "NewPlace": "Novo lugar",
+    "FirstChallenge": "Primeiro desafio"
   },
   "team-results": {
     "is-cursed": "é amaldiçoado",
