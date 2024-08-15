@@ -19,9 +19,9 @@ export function handleChallengeCompleted(
   challenges: Challenge[][],
   rules: TravelBingoRules,
 ): ResultEvent[] {
-  const result = validate(event, state, challenges)
-  let teamState = result[0]
-  const challenge = result[1]
+  const result = validateAndFetchData(event, state, challenges)
+  let { teamState } = result
+  const { challenge } = result
 
   const completedChallenges = teamState.completedChallenges.concat([challenge.key])
   const bingos = calculateBingos(completedChallenges, challenges)
@@ -61,11 +61,11 @@ export function handleChallengeCompleted(
   return resultEvents
 }
 
-function validate(
+function validateAndFetchData(
   event: Event,
   state: RunGameState,
   challenges: Challenge[][],
-): [TeamState, Challenge] {
+): { teamState: TeamState; challenge: Challenge } {
   if (!event.team) throw new EngineError('"team" must be defined')
   if (!event.challenge) throw new EngineError('"challenge" must be defined')
   if (state.status !== RunGameStatus.Started)
@@ -83,7 +83,7 @@ function validate(
   if (teamState.completedChallenges.find(c => c === event.challenge))
     throw new EngineError(`challenge "${event.challenge}" already completed by ${event.team}`)
 
-  return [teamState, challenge]
+  return { teamState, challenge }
 }
 
 function createChallengeCompletedEvent(
