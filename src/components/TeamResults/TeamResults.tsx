@@ -142,6 +142,7 @@ const TeamResults = ({ team, run, game }: Props) => {
             }
             reverse={state.status === RunGameStatus.Started}
             hidePlace={state.status === RunGameStatus.Started}
+            teamInMatter={team.key}
           />
         </Col>
       </Row>
