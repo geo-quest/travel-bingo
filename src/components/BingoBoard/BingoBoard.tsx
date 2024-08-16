@@ -25,17 +25,17 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
     return clazz.join(' ')
   }
 
-  const getBadgeCount = (item: Challenge): number | undefined => {
+  const getBadgeCount = (item: Challenge): number | undefined | string => {
     if (item.points && item.points > 0) return item.points
-    if (item.curseMultiplier && item.curseMultiplier > 0) return item.curseMultiplier
-    if (item.boostMultiplier && item.boostMultiplier > 0) return item.boostMultiplier
+    if (item.curseMultiplier && item.curseMultiplier > 0) return `${item.curseMultiplier}x`
+    if (item.boostMultiplier && item.boostMultiplier > 0) return `${item.boostMultiplier}x`
     return undefined
   }
 
   const getBadgeColor = (item: Challenge): string | undefined => {
-    if (item.points && item.points > 0) return 'green'
-    if (item.curseMultiplier && item.curseMultiplier > 0) return 'purple'
-    if (item.boostMultiplier && item.boostMultiplier > 0) return 'blue'
+    if (item.points && item.points > 0) return '#87CEEB'
+    if (item.curseMultiplier && item.curseMultiplier > 0) return '#4B0082'
+    if (item.boostMultiplier && item.boostMultiplier > 0) return '#FFA500'
     return undefined
   }
 
