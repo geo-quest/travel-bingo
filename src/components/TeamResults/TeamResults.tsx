@@ -147,6 +147,7 @@ const TeamResults = ({ team, run, game }: Props) => {
                 (event.type === ResultEventType.Curse && event.cursedTeam === team.key))
             }
             reverse={state.status === RunGameStatus.Started}
+            hidePlace={state.status === RunGameStatus.Started}
           />
         </Col>
       </Row>
