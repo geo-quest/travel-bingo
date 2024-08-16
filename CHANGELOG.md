@@ -1,3 +1,9 @@
+## [1.15.0](https://github.com/geo-quest/travel-bingo/compare/v1.14.0...v1.15.0) (2024-08-16)
+
+### Features
+
+* make game text bold ([#63](https://github.com/geo-quest/travel-bingo/issues/63)) ([8853da5](https://github.com/geo-quest/travel-bingo/commit/8853da508e0c429282240f830c377a195592b190))
+
 ## [1.14.0](https://github.com/geo-quest/travel-bingo/compare/v1.13.0...v1.14.0) (2024-08-16)
 
 ### Features
