@@ -39,10 +39,14 @@
   cursor: pointer;
   transition: transform 0.2s ease;
   font-weight: 200;
+  overflow: visible;
+}
+
+.cell-container {
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
   line-clamp: 3;
   max-width: 100px !important;
 }
@@ -85,8 +89,8 @@
 
 /* Solved cell */
 .board .completed {
-  background-color: limegreen;
-  color: white;
+  background-color: #b7eb8f;
+  color: #389e0d;
   text-shadow:
     0 0 10px #00ff00,
     0 0 20px #00ff00,
@@ -103,7 +107,7 @@
 
 /* Bingo cell */
 .board .bingo {
-  background-color: gold;
+  background-color: rgb(255, 215, 0);
   color: black;
   text-shadow:
     0 0 10px #ffd700,
@@ -127,4 +131,11 @@
   .board .cell {
     max-width: 60px !important;
   }
+}
+
+.ant-badge-not-a-wrapper {
+  position: absolute;
+  top: -12px;
+  right: -16px;
+  z-index: 10;
 }

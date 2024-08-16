@@ -22,6 +22,10 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    react: {
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'b', 'i'],
+    },
   })
 
 TimeAgo.addDefaultLocale(en)
