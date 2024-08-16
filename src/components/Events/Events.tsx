@@ -110,94 +110,92 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
 
   const renderChallengeCompleted = (event: TimelineEvent) => {
     return (
-      <>
-        <ul style={{ paddingLeft: 8 }}>
-          {event.points !== undefined && event.points > 0 && event.team && event.challenge && (
-            <li>
-              <Trans i18nKey={'timeline.solved-and-made-points'}>
-                {{
-                  team: getTeamName(event.team, teamsData),
-                  challenge: getChallengeTitle(event.challenge, challenges),
-                  points: event.points,
-                }}
-              </Trans>
-            </li>
-          )}
+      <ul style={{ paddingLeft: 8 }}>
+        {event.points !== undefined && event.points > 0 && event.team && event.challenge && (
+          <li>
+            <Trans i18nKey={'timeline.solved-and-made-points'}>
+              {{
+                team: getTeamName(event.team, teamsData),
+                challenge: getChallengeTitle(event.challenge, challenges),
+                points: event.points,
+              }}
+            </Trans>
+          </li>
+        )}
 
-          {event.boostEvent && (
-            <li>
-              <Trans i18nKey={'timeline.solved-and-team-boosted'}>
+        {event.boostEvent && (
+          <li>
+            <Trans i18nKey={'timeline.solved-and-team-boosted'}>
+              {{
+                team: getTeamName(event.team, teamsData),
+                challenge: getChallengeTitle(event.challenge, challenges),
+                boostMultiplier: event.boostEvent.boostMultiplier,
+              }}
+            </Trans>
+          </li>
+        )}
+        {event.curseEvent && (
+          <li>
+            <Trans i18nKey={'timeline.solved-and-cursed-another-team'}>
+              {{
+                team: getTeamName(event.team, teamsData),
+                challenge: getChallengeTitle(event.challenge, challenges),
+                cursedTeam: getTeamName(event.cursedTeam, teamsData),
+                curseMultiplier: event.curseEvent.curseMultiplier,
+              }}
+            </Trans>
+          </li>
+        )}
+        {event.firstChallengeEvent && (
+          <li>
+            <Trans i18nKey={'timeline.solved-first-challenge'}>
+              {{
+                points: event.firstChallengeEvent.points,
+              }}
+            </Trans>
+          </li>
+        )}
+        {event.newPlaceEvent && (
+          <li>
+            <Trans i18nKey={'timeline.visited-a-new-place'}>
+              {{
+                points: event.newPlaceEvent.points,
+                newPlace: event.newPlaceEvent.newPlace,
+              }}
+            </Trans>
+          </li>
+        )}
+        {event.curseApplied === true && (
+          <li>
+            <Trans i18nKey={'timeline.curse-applied'}>
+              {{
+                curseMultiplier: event.curseMultiplier,
+              }}
+            </Trans>
+          </li>
+        )}
+        {event.boostApplied === true && (
+          <li>
+            <Trans i18nKey={'timeline.boost-applied'}>
+              {{
+                boostMultiplier: event.boostMultiplier,
+              }}
+            </Trans>
+          </li>
+        )}
+        {event.bingoEvents &&
+          event.bingoEvents.length > 0 &&
+          event.bingoEvents.map(bingo => (
+            <li key={bingo.newBingo}>
+              <Trans i18nKey={'timeline.made-a-bingo'}>
                 {{
-                  team: getTeamName(event.team, teamsData),
-                  challenge: getChallengeTitle(event.challenge, challenges),
-                  boostMultiplier: event.boostEvent.boostMultiplier,
+                  bingo: t(`bingo.${bingo.newBingo}`),
+                  points: bingo.points,
                 }}
               </Trans>
             </li>
-          )}
-          {event.curseEvent && (
-            <li>
-              <Trans i18nKey={'timeline.solved-and-cursed-another-team'}>
-                {{
-                  team: getTeamName(event.team, teamsData),
-                  challenge: getChallengeTitle(event.challenge, challenges),
-                  cursedTeam: getTeamName(event.cursedTeam, teamsData),
-                  curseMultiplier: event.curseEvent.curseMultiplier,
-                }}
-              </Trans>
-            </li>
-          )}
-          {event.firstChallengeEvent && (
-            <li>
-              <Trans i18nKey={'timeline.solved-first-challenge'}>
-                {{
-                  points: event.firstChallengeEvent.points,
-                }}
-              </Trans>
-            </li>
-          )}
-          {event.newPlaceEvent && (
-            <li>
-              <Trans i18nKey={'timeline.visited-a-new-place'}>
-                {{
-                  points: event.newPlaceEvent.points,
-                  newPlace: event.newPlaceEvent.newPlace,
-                }}
-              </Trans>
-            </li>
-          )}
-          {event.curseApplied === true && (
-            <li>
-              <Trans i18nKey={'timeline.curse-applied'}>
-                {{
-                  curseMultiplier: event.curseMultiplier,
-                }}
-              </Trans>
-            </li>
-          )}
-          {event.boostApplied === true && (
-            <li>
-              <Trans i18nKey={'timeline.boost-applied'}>
-                {{
-                  boostMultiplier: event.boostMultiplier,
-                }}
-              </Trans>
-            </li>
-          )}
-          {event.bingoEvents &&
-            event.bingoEvents.length > 0 &&
-            event.bingoEvents.map(bingo => (
-              <li key={bingo.newBingo}>
-                <Trans i18nKey={'timeline.made-a-bingo'}>
-                  {{
-                    bingo: t(`bingo.${bingo.newBingo}`),
-                    points: bingo.points,
-                  }}
-                </Trans>
-              </li>
-            ))}
-        </ul>
-      </>
+          ))}
+      </ul>
     )
   }
 
@@ -282,6 +280,31 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
     return null
   }
 
+  const mergeCompletedChallenge = (
+    event: ResultEvent,
+    events: ResultEvent[],
+    i: number,
+  ): TimelineEvent => {
+    let j = i + 1
+    const timelineEvent: TimelineEvent = { ...event, bingoEvents: [] }
+
+    while (
+      j < events.length &&
+      events[i].team === events[j].team &&
+      events[i].challenge === events[j].challenge
+    ) {
+      if (events[j].type === ResultEventType.FirstChallenge)
+        timelineEvent.firstChallengeEvent = events[j]
+      else if (events[j].type === ResultEventType.NewPlace) timelineEvent.newPlaceEvent = events[j]
+      else if (events[j].type === ResultEventType.Boost) timelineEvent.boostEvent = events[j]
+      else if (events[j].type === ResultEventType.Curse) timelineEvent.curseEvent = events[j]
+      else if (events[j].type === ResultEventType.Bingo) timelineEvent.bingoEvents?.push(events[j])
+
+      j++
+    }
+    return timelineEvent
+  }
+
   const mergeItems = (events: ResultEvent[]): TimelineEvent[] => {
     const timelineEvents: TimelineEvent[] = []
 
@@ -294,26 +317,7 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
       )
         timelineEvents.push(event)
       else if (event.type === ResultEventType.ChallengeCompleted) {
-        let j = i + 1
-        const timelineEvent: TimelineEvent = { ...event, bingoEvents: [] }
-
-        while (
-          j < events.length &&
-          events[i].team === events[j].team &&
-          events[i].challenge === events[j].challenge
-        ) {
-          if (events[j].type === ResultEventType.FirstChallenge)
-            timelineEvent.firstChallengeEvent = events[j]
-          else if (events[j].type === ResultEventType.NewPlace)
-            timelineEvent.newPlaceEvent = events[j]
-          else if (events[j].type === ResultEventType.Boost) timelineEvent.boostEvent = events[j]
-          else if (events[j].type === ResultEventType.Curse) timelineEvent.curseEvent = events[j]
-          else if (events[j].type === ResultEventType.Bingo)
-            timelineEvent.bingoEvents?.push(events[j])
-
-          j++
-        }
-        timelineEvents.push(timelineEvent)
+        timelineEvents.push(mergeCompletedChallenge(event, events, i))
       }
     }
     return timelineEvents
