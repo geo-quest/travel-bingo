@@ -27,14 +27,14 @@ export function handleChallengeCompleted(
   const newBingos = bingos.filter(b => !teamState?.bingos.includes(b))
   const newPlace = event.place && !teamState.places.includes(event.place)
 
-  const curseApplied = teamState.curseMultiplier !== undefined
-  const boostApplied = teamState.boostMultiplier !== undefined
+  const curseApplied =
+    teamState.curseMultiplier !== undefined && challenge.type === ChallengeType.Normal
+  const boostApplied =
+    teamState.boostMultiplier !== undefined && challenge.type === ChallengeType.Normal
 
   teamState = {
     ...teamState,
-    score:
-      teamState.score +
-      (challenge.points ?? 0) * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
+    score: getScore(teamState, challenge, curseApplied, boostApplied),
     completedChallenges: completedChallenges,
   }
 
@@ -169,14 +169,13 @@ function createChallengeCompletedEvent(
   }
 
   const newTeamState = { ...teamState }
-  delete newTeamState.curseMultiplier
-  delete newTeamState.boostMultiplier
+  if (curseApplied) delete newTeamState.curseMultiplier
+  if (boostApplied) delete newTeamState.boostMultiplier
 
   completedEvent = {
     ...completedEvent,
     type: ResultEventType.ChallengeCompleted,
-    points:
-      (challenge.points ?? 0) * (teamState.curseMultiplier ?? 1) * (teamState.boostMultiplier ?? 1),
+    points: getPoints(teamState, challenge, curseApplied, boostApplied),
     state: {
       ...state,
       teams: updateTeamsState(state.teams, newTeamState, event.team),
@@ -288,9 +287,11 @@ function createCurseEvent(
     ...teamState,
   }
 
-  const cursedTeamNewState: TeamState = {
-    ...state.teams.find(t => t.team === event.cursedTeam),
-    curseMultiplier: challenge.curseMultiplier,
+  let cursedTeamNewState = state.teams.find(t => t.team === event.cursedTeam)
+
+  cursedTeamNewState = {
+    ...cursedTeamNewState,
+    curseMultiplier: (cursedTeamNewState?.curseMultiplier ?? 1) * challenge.curseMultiplier,
   } as TeamState
 
   const curseEvent: ResultEvent = {
@@ -318,7 +319,7 @@ function createBoostEvent(
     throw new EngineError(`boostMultiplier not defined for "${challenge.key}"`)
   const newTeamState: TeamState = {
     ...teamState,
-    boostMultiplier: challenge.boostMultiplier,
+    boostMultiplier: (teamState.boostMultiplier ?? 1) * challenge.boostMultiplier,
   }
   const boostEvent: ResultEvent = {
     timestamp: event.timestamp,
@@ -349,6 +350,26 @@ function createFullBoardEvent(
     state: state,
   } as ResultEvent
   return { newTeamState, fullBoardEvent }
+}
+
+function getScore(
+  teamState: TeamState,
+  challenge: Challenge,
+  curseApplied: boolean,
+  boostApplied: boolean,
+): number {
+  return teamState.score + getPoints(teamState, challenge, curseApplied, boostApplied)
+}
+
+function getPoints(
+  teamState: TeamState,
+  challenge: Challenge,
+  curseApplied: boolean,
+  boostApplied: boolean,
+): number {
+  const curseMultiplier = curseApplied ? (teamState.curseMultiplier ?? 1) : 1
+  const boostMultiplier = boostApplied ? (teamState.boostMultiplier ?? 1) : 1
+  return (challenge.points ?? 0) * curseMultiplier * boostMultiplier
 }
 
 function updateTeamsState(
