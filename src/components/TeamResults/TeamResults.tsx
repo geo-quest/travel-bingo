@@ -88,7 +88,7 @@ const TeamResults = ({ team, run, game }: Props) => {
       {teamState.curseMultiplier !== undefined && (
         <Row
           style={{
-            backgroundColor: 'purple',
+            backgroundColor: '#9C27B0',
             borderRadius: '16px',
             paddingBottom: '8px',
             paddingTop: '8px',
@@ -103,14 +103,11 @@ const TeamResults = ({ team, run, game }: Props) => {
       {teamState.boostMultiplier !== undefined && (
         <Row
           style={{
-            border: 'solid 1px blue',
-            backgroundColor: 'dodgerblue',
+            backgroundColor: '#2196F3',
             borderRadius: '16px',
             paddingBottom: '8px',
             paddingTop: '8px',
             color: 'white',
-            textShadow: '0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff',
-            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 191, 255, 0.7)',
           }}
         >
           <Col span={24} style={{ textAlign: 'center' }}>

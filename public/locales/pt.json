@@ -96,6 +96,8 @@
     "is-a-curse": "Este desafio é uma maldição.",
     "curse-multiplier": "Penalidade de maldição",
     "is-a-boost": "Este desafio é um impulso.",
-    "boost-multiplier": "Multiplicador de impulso"
+    "boost-multiplier": "Multiplicador de impulso",
+    "curse": "xingamento",
+    "boost": "impulsionar"
   }
 }

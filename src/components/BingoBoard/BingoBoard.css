@@ -53,7 +53,7 @@
 
 /* Curse cell */
 .board .curse {
-  background-color: purple;
+  background-color: '#9C27B0';
   color: white;
 }
 
@@ -63,7 +63,7 @@
 
 /* Boost cell */
 .board .boost {
-  background-color: dodgerblue;
+  background-color: '#2196F3';
   color: white;
 }
 

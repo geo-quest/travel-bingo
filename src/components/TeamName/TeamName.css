@@ -1,5 +1,5 @@
 .cursed {
-  background-color: purple;
+  background-color: '#9C27B0';
   color: white;
   padding: 8px;
   text-wrap: nowrap;
@@ -11,7 +11,7 @@
 }
 
 .boosted {
-  background-color: dodgerblue;
+  background-color: '#2196F3';
   color: white;
   padding: 8px;
   border-radius: 8px;

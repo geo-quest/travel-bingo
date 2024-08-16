@@ -96,6 +96,8 @@
     "is-a-curse": "这个挑战是一个诅咒。",
     "curse-multiplier": "诅咒惩罚",
     "is-a-boost": "这次挑战是一种推动。",
-    "boost-multiplier": "升压倍数"
+    "boost-multiplier": "升压倍数",
+    "curse": "诅咒",
+    "boost": "促进"
   }
 }

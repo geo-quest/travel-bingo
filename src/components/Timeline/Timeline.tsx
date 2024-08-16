@@ -27,15 +27,15 @@ export default ({ events, teamsData, challenges, filterFunction, reverse, hidePl
 
   const getColorByEventType = (type: ResultEventType) => {
     const colorMap = new Map<ResultEventType, string>([
-      [ResultEventType.Start, 'blue'],
-      [ResultEventType.Finish, 'red'],
-      [ResultEventType.ChallengeCompleted, 'green'],
-      [ResultEventType.Bingo, '#ffd700'],
-      [ResultEventType.Curse, '#C060C0'],
-      [ResultEventType.Boost, '#00bfff'],
-      [ResultEventType.FullBoard, '#008000'],
-      [ResultEventType.NewPlace, '#ff4500'],
-      [ResultEventType.FirstChallenge, '#ffa500'],
+      [ResultEventType.Start, '#333333'], // Dark Gray - Starting point
+      [ResultEventType.Finish, '#C02942'], // Reddish Pink - Completion/End
+      [ResultEventType.ChallengeCompleted, '#4CAF50'], // Green - Success
+      [ResultEventType.Bingo, '#FFEB3B'], // Light Yellow - Winning Bingo
+      [ResultEventType.Curse, '#9C27B0'], // Deep Purple - Curse/Negative
+      [ResultEventType.Boost, '#2196F3'], // Blue - Positive/Boost
+      [ResultEventType.FullBoard, '#3F51B5'], // Dark Blue - Full Board
+      [ResultEventType.NewPlace, '#F44336'], // Red - New Place
+      [ResultEventType.FirstChallenge, '#FF9800'], // Orange - First Challenge
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -87,7 +87,7 @@ export default ({ events, teamsData, challenges, filterFunction, reverse, hidePl
     }
     if (event.curseApplied === true) {
       tags.push(
-        <Tag key="cursed" color="purple" style={{ textTransform: 'capitalize' }}>
+        <Tag key="cursed" color="#9C27B0" style={{ textTransform: 'capitalize' }}>
           {t(`timeline.cursed`)}
         </Tag>,
       )
