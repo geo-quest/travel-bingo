@@ -7,7 +7,7 @@ export enum NetherlandsPilotChallenge {
   SilentTrain = 'SilentTrain',
   TheLettersToUtrecht = 'TheLettersToUtrecht',
   StreetArtHunt = 'StreetArtHunt',
-  LocalFlavor = 'LocalFlavor',
+  LocalFlavor = 'LocalFlavor', // +
   ComplimentALocal = 'ComplimentALocal',
   BullishAdventure = 'BullishAdventure',
   InternationalCourt = 'InternationalCourt',
@@ -57,6 +57,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Experimente uma bebida holandesa local.',
       zh: '尝试当地荷兰饮料。',
     },
+    image:
+      'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWUxZm5udjMycTBhd3dwZ2FsNnNlNjMxajdsZGRhbXl6eGNuZTVzYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BPJmthQ3YRwD6QqcVD/giphy.webp',
   },
   [NetherlandsPilotChallenge.PublicDanceDare]: {
     key: NetherlandsPilotChallenge.PublicDanceDare,
@@ -74,6 +76,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Realize uma rotina de dança curta (min 1 min) em uma área pública.',
       zh: '在公共区域表演一段短舞蹈（最少1分钟）。',
     },
+    image:
+      'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDc4azA0OWtpOTMzNWdpNnl1djYxY2EwZ3hzcjh5YXNjdWJxNXdhOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2JhL1AzTxORUTDlC/giphy.webp',
   },
   [NetherlandsPilotChallenge.WindmillWonder]: {
     key: NetherlandsPilotChallenge.WindmillWonder,
@@ -91,6 +95,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Tire uma selfie com um moinho de vento.',
       zh: '与风车合影。',
     },
+    image:
+      'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHYyZHcxeThxcGIyM3VwMzMwNTk0M2tqa2V3d2dtcXBtM3psMzU5NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WFlSw3IzjDy3k8FZRH/giphy.webp',
   },
   [NetherlandsPilotChallenge.SilentTrain]: {
     key: NetherlandsPilotChallenge.SilentTrain,
@@ -108,11 +114,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Converse com alguém no compartimento silencioso de um trem.',
       zh: '与火车的无声车厢里的某人交谈。',
     },
+    image:
+      'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWZuMXh1bHVuYnVqb3hrOXZ0b3VrOGU1Ymd2Z2hzZ2VxN285NW44bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wsAAfsY80yJDyGOZaE/giphy.webp',
   },
   [NetherlandsPilotChallenge.TheLettersToUtrecht]: {
     key: NetherlandsPilotChallenge.TheLettersToUtrecht,
     type: ChallengeType.Normal,
-    points: 20,
+    points: 10,
     challenge: {
       en: 'The Letters of Utrecht',
       nl: 'De Letters van Utrecht',
@@ -125,6 +133,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Encontre e leia um segmento do poema "As Letras de Utrecht".',
       zh: '找到并阅读《乌得勒支的字母》诗歌的一部分。',
     },
+    image:
+      'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWx0YXJ0MDQ4a3Jma3l3emp5ZWl0OG85NDlpcm1za2tiZ2ZmaTY2ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NFA61GS9qKZ68/giphy.webp',
   },
   [NetherlandsPilotChallenge.StreetArtHunt]: {
     key: NetherlandsPilotChallenge.StreetArtHunt,
@@ -159,6 +169,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Experimente uma comida tradicional holandesa.',
       zh: '尝试一种传统荷兰食物。',
     },
+    image:
+      'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2k4OTY5NGJubTJmbXJxbjI5N3dmODRvdGh3cnNseGd6bWMzcDc5dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7JsJNgBOIbAJumDNGk/giphy.webp',
   },
   [NetherlandsPilotChallenge.ComplimentALocal]: {
     key: NetherlandsPilotChallenge.ComplimentALocal,
@@ -193,6 +205,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Procure um prédio financeiro proeminente em uma grande cidade holandesa e tire uma foto em grupo com uma estátua que represente o sucesso do mercado.',
       zh: '在荷兰主要城市中寻找一个著名的金融建筑，并与代表市场成功的雕像合影。',
     },
+    image:
+      'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmV1MnQ1eHRwZ3g2cTQ3Yjh5c2ZicWV2azNva3pybmR6MXp0bWJ2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HB4mYkjjFcvNm/giphy.webp',
   },
   [NetherlandsPilotChallenge.InternationalCourt]: {
     key: NetherlandsPilotChallenge.InternationalCourt,
@@ -210,11 +224,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Encontre o prédio do Tribunal Internacional de Justiça e tire uma foto do lado de fora.',
       zh: '找到国际法院大楼并在外面拍照。',
     },
+    image:
+      'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXhhazVlNXcxajB1bG14NHByaWsxcno5OHhvcGd3dmw1MW8wbHF2YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l5sNKozrhIXAvJnu0d/giphy.webp',
   },
   [NetherlandsPilotChallenge.WindmillSpin]: {
     key: NetherlandsPilotChallenge.WindmillSpin,
     type: ChallengeType.Curse,
-    curseMultiplier: 0.4,
+    curseMultiplier: 0.7,
     challenge: {
       en: 'Windmill Spin',
       nl: 'Molen Draai',
@@ -227,6 +243,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Dê 10 voltas e depois ande 10 metros em linha reta sem cair.',
       zh: '转10圈，然后直线走10米而不摔倒。',
     },
+    image:
+      'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3d4bDRnaDU3eXFjajVyOGd6bWtnZjdsc2VscGx4MXV4N2I4Y2tvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BXVUXTYCIKxbS4bSvp/giphy.webp',
   },
   [NetherlandsPilotChallenge.DomTowerSnapshot]: {
     key: NetherlandsPilotChallenge.DomTowerSnapshot,
@@ -278,11 +296,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Localize e tire uma foto com Miffy.',
       zh: '找到米菲并拍照。',
     },
+    image:
+      'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanljczV3dTZvcTU1djY2MnBmZjl3ZDV5ZjgwZ3NveHNyeWNjdmk4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FzXHX4g5EdXUeq4XPR/giphy.webp',
   },
   [NetherlandsPilotChallenge.PublicKaraoke]: {
     key: NetherlandsPilotChallenge.PublicKaraoke,
     type: ChallengeType.Curse,
-    curseMultiplier: 0.6,
+    curseMultiplier: 0.3,
     challenge: {
       en: 'Public Karaoke',
       nl: 'Openbare Karaoke',
@@ -295,6 +315,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Cante em voz alta qualquer música de sua escolha em um espaço público, como um parque ou praça.',
       zh: '在公共空间（如公园或广场）大声唱一首您选择的歌曲。',
     },
+    image:
+      'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGFmZ3diZWZtcHQ1a2hicXBwcm1namp6aTJ0NmM2czJsNjFvd3MwZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VCiM9RQ8R5T5ejkq4M/giphy.webp',
   },
   [NetherlandsPilotChallenge.JapaneseChristmas]: {
     key: NetherlandsPilotChallenge.JapaneseChristmas,
@@ -312,11 +334,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Encontre o estabelecimento que desempenha um papel significativo nos costumes de Natal do Japão.',
       zh: '找到在日本圣诞习俗中起重要作用的机构。',
     },
+    image:
+      'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2QzMnZzM3Fxd25wMnVqMnV1eXpmYTNmcXAyYmdhOTVnZXB5NHo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/J4mrcRFUkFdAUXJNCl/giphy.webp',
   },
   [NetherlandsPilotChallenge.ProgrammingBirthplace]: {
     key: NetherlandsPilotChallenge.ProgrammingBirthplace,
     type: ChallengeType.Normal,
-    points: 30,
+    points: 20,
     challenge: {
       en: 'Programming Birthplace',
       nl: 'Geboorteplaats Programmeren',
@@ -329,6 +353,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Visite o local de nascimento de um famoso programador de computador holandês.',
       zh: '参观一位著名的荷兰计算机程序员的出生地。',
     },
+    image:
+      'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExejN0dGtvOXM4eXJidGF1ODRwcXZqbWhsa2RzZWZuZ3RncnUwcjEwdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.webp',
   },
   [NetherlandsPilotChallenge.RepurposedHistory]: {
     key: NetherlandsPilotChallenge.RepurposedHistory,
@@ -367,7 +393,7 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
   [NetherlandsPilotChallenge.DutchMasters]: {
     key: NetherlandsPilotChallenge.DutchMasters,
     type: ChallengeType.Normal,
-    points: 40,
+    points: 30,
     challenge: {
       en: 'Dutch Masters',
       nl: 'Nederlandse Meesters',
@@ -384,7 +410,7 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
   [NetherlandsPilotChallenge.TwoCitiesOneName]: {
     key: NetherlandsPilotChallenge.TwoCitiesOneName,
     type: ChallengeType.Normal,
-    points: 40,
+    points: 50,
     challenge: {
       en: 'Two Cities, One Name',
       nl: 'Twee Steden, Één Naam',
@@ -397,11 +423,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Visite duas cidades nos Países Baixos que inspiraram nomes de cidades dos EUA.',
       zh: '访问荷兰的两个城市，这两个城市启发了美国的城市名称。',
     },
+    image:
+      'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDFna242Y2h3bjRvemtqYnQ1MDBnMDB4YTVtOHNsZXV3ajlpMXlyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKGzEhwj4e1YihPZm/giphy.webp',
   },
   [NetherlandsPilotChallenge.GlassWalk]: {
     key: NetherlandsPilotChallenge.GlassWalk,
     type: ChallengeType.Normal,
-    points: 50,
+    points: 40,
     challenge: {
       en: 'Glass Walk',
       nl: 'Glaswandeling',
@@ -414,6 +442,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Caminhe na plataforma de vidro na Igreja de Eusebius',
       zh: '在欧塞比乌斯教堂的玻璃平台上行走',
     },
+    image:
+      'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExejcyMXR4Zmc3eXAwdjl0aHJqODdra2Z1bTJnb294bDQxdnd2cGJpdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RHOwWKH5OY7buuGHNi/giphy.webp',
   },
   [NetherlandsPilotChallenge.WoodenShoes]: {
     key: NetherlandsPilotChallenge.WoodenShoes,
@@ -435,7 +465,7 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
   [NetherlandsPilotChallenge.VOCHeritage]: {
     key: NetherlandsPilotChallenge.VOCHeritage,
     type: ChallengeType.Normal,
-    points: 40,
+    points: 30,
     challenge: {
       en: 'VOC Heritage',
       nl: 'VOC Erfgoed',
@@ -450,8 +480,9 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
     },
   },
   [NetherlandsPilotChallenge.InsuranceLandmark]: {
-    key: 'insurance_company',
+    key: NetherlandsPilotChallenge.InsuranceLandmark,
     type: ChallengeType.Normal,
+    points: 10,
     challenge: {
       en: 'Insurance Landmark',
       nl: 'Verzekeringslandmark',
@@ -464,7 +495,6 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Encontre um prédio ou escritório associado a uma grande empresa de seguros holandesa.',
       zh: '找到与一家荷兰大型保险公司相关的建筑或办公室。',
     },
-    points: 20,
   },
   [NetherlandsPilotChallenge.StatueSelfie]: {
     key: NetherlandsPilotChallenge.StatueSelfie,
@@ -486,6 +516,7 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
   [NetherlandsPilotChallenge.BinnenhofBeauty]: {
     key: NetherlandsPilotChallenge.BinnenhofBeauty,
     type: ChallengeType.Normal,
+    points: 30,
     challenge: {
       en: 'Binnenhof Beauty',
       nl: 'Binnenhof Beauty',
@@ -498,7 +529,6 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Fotografe o Hofvijver com o Binnenhof ao fundo',
       zh: '拍摄背景为国会大厦的Hofvijver',
     },
-    points: 40,
   },
   [NetherlandsPilotChallenge.MarketBrowsing]: {
     key: NetherlandsPilotChallenge.MarketBrowsing,
@@ -533,6 +563,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Faça uma pose com uma estátua aleatória por 1 minuto',
       zh: '与随机雕像摆姿势1分钟',
     },
+    image:
+      'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExczRlcnV3NGd1cHhycnloM3k5Mm1yaWMwMWw1d3ZkaHhwMGIyZ2ZiYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7WIJSvqw4gsE2iZ2/giphy.webp',
   },
   [NetherlandsPilotChallenge.Photobomb]: {
     key: NetherlandsPilotChallenge.Photobomb,
@@ -550,6 +582,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Photobomb com sucesso a foto de um estranho em um ponto turístico.',
       zh: '在旅游景点成功photobomb一个陌生人的照片。',
     },
+    image:
+      'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDdqMjQ0bmtsdTY1emFxOGJ1eml6ZWpuamdkeXh0dzRpYTJ2dzNkNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TrdOrVrCzYCiY/giphy.webp',
   },
   [NetherlandsPilotChallenge.GuessTheJob]: {
     key: NetherlandsPilotChallenge.GuessTheJob,
@@ -571,7 +605,7 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
   [NetherlandsPilotChallenge.DutchChat]: {
     key: NetherlandsPilotChallenge.DutchChat,
     type: ChallengeType.Boost,
-    boostMultiplier: 1.7,
+    boostMultiplier: 1.6,
     challenge: {
       en: 'Dutch Chat',
       nl: 'Nederlands Gesprek',
@@ -584,11 +618,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Tenha uma conversa de 1 minuto em holandês com um falante nativo sem usar inglês.',
       zh: '与荷兰母语人士进行一分钟的荷兰语对话，不使用任何英语。',
     },
+    image:
+      'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnp5NGZkMWp6bHJ5cTR0YTZwOHpsNmt4cXgzdGducGF6OTNoNzRuNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U5OkqHaFTnznGkKGp5/giphy.webp',
   },
   [NetherlandsPilotChallenge.Paparazzi]: {
     key: NetherlandsPilotChallenge.Paparazzi,
     type: ChallengeType.Boost,
-    boostMultiplier: 1.8,
+    boostMultiplier: 1.5,
     challenge: {
       en: 'Paparazzi',
       nl: 'Paparazzi',
@@ -601,6 +637,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Tire uma foto em grupo com uma celebridade.',
       zh: '与名人合影。',
     },
+    image:
+      'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTJka2VkcGltNWc2dHl4bGlkZTZibTFkbGtrcmpzeGx5bmJydzluZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8YQWt6TpuFIJO/200.webp',
   },
   [NetherlandsPilotChallenge.RoyalConnection]: {
     key: NetherlandsPilotChallenge.RoyalConnection,
@@ -622,7 +660,7 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
   [NetherlandsPilotChallenge.PetsAreTheBest]: {
     key: NetherlandsPilotChallenge.PetsAreTheBest,
     type: ChallengeType.Normal,
-    points: 10,
+    points: 20,
     challenge: {
       en: 'Pets Are The Best',
       nl: 'Huisdieren Zijn De Beste',
@@ -635,11 +673,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Tire uma foto com um animal de estimação em um local público.',
       zh: '在公共场所与宠物合影。',
     },
+    image:
+      'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHZicmNxNXpyNWg0MGQ0a2thanhpb2s1YmIwZGdobHBhMGxyaTdmayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/moMd5EntFglTG/giphy.webp',
   },
   [NetherlandsPilotChallenge.CityOfBikes]: {
     key: NetherlandsPilotChallenge.CityOfBikes,
     type: ChallengeType.Normal,
-    points: 20,
+    points: 10,
     challenge: {
       en: 'City of Bikes',
       nl: 'Fietsstad',
@@ -647,11 +687,13 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       zh: '自行车之城',
     },
     description: {
-      en: 'Photograph a street or area filled with atleast a 100 bicycles.',
-      nl: 'Fotografeer een straat of gebied gevuld met minstens 100 fietsen.',
-      pt: 'Fotografe uma rua ou área cheia de pelo menos 100 bicicletas.',
-      zh: '拍摄一条或一个区域至少有100辆自行车。',
+      en: 'Photograph a street or area filled with atleast a 50 bicycles.',
+      nl: 'Fotografeer een straat of gebied gevuld met minstens 50 fietsen.',
+      pt: 'Fotografe uma rua ou área cheia de pelo menos 50 bicicletas.',
+      zh: '拍摄一条或一个区域至少有50辆自行车。',
     },
+    image:
+      'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmQ3NjFkaG9wd2JhbXlkMWlnZnd3c3ExaDVsZGF5OHVnZzhjcm52dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BKgUB7IapKg3CT3yxp/giphy.webp',
   },
   [NetherlandsPilotChallenge.AlphabetCity]: {
     key: NetherlandsPilotChallenge.AlphabetCity,

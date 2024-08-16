@@ -70,53 +70,54 @@ Good luck, adventurers! 🌍🎉
   // 6x6 grid of challenges
   challenges: [
     [
-      NetherlandsPilotChallenges.WindmillWonder,
-      NetherlandsPilotChallenges.StatueSelfie,
-      NetherlandsPilotChallenges.Grachtenhuis,
-      NetherlandsPilotChallenges.Paparazzi,
-      NetherlandsPilotChallenges.PetsAreTheBest,
-      NetherlandsPilotChallenges.AlphabetCity,
+      NetherlandsPilotChallenges.DomTowerSnapshot, // utrecht
+      NetherlandsPilotChallenges.RepurposedHistory, // any city
+      NetherlandsPilotChallenges.WindmillWonder, // utrecht
+      NetherlandsPilotChallenges.Grachtenhuis, // utrecht
+      NetherlandsPilotChallenges.FindMiffy, // utrecht
+      NetherlandsPilotChallenges.TheLettersToUtrecht, // utrecht
     ],
     [
-      NetherlandsPilotChallenges.PublicKaraoke,
-      NetherlandsPilotChallenges.Photobomb,
-      NetherlandsPilotChallenges.JapaneseChristmas,
-      NetherlandsPilotChallenges.TwoCitiesOneName,
-      NetherlandsPilotChallenges.DutchChat,
-      NetherlandsPilotChallenges.GlassWalk,
+      NetherlandsPilotChallenges.Photobomb, // any city
+      NetherlandsPilotChallenges.PublicKaraoke, // any city
+      NetherlandsPilotChallenges.CheersToTheDutch, // any city
+      NetherlandsPilotChallenges.StreetArtHunt, // any city
+      NetherlandsPilotChallenges.SilentTrain, // any city
+      NetherlandsPilotChallenges.PetsAreTheBest, // any city
     ],
     [
-      NetherlandsPilotChallenges.CheersToTheDutch,
-      NetherlandsPilotChallenges.TheLettersToUtrecht,
-      NetherlandsPilotChallenges.PublicDanceDare,
-      NetherlandsPilotChallenges.CityOfBikes,
-      NetherlandsPilotChallenges.BullishAdventure,
-      NetherlandsPilotChallenges.FindMiffy,
+      NetherlandsPilotChallenges.ComplimentALocal, // any city
+      NetherlandsPilotChallenges.GlassWalk, // Arnhem
+      NetherlandsPilotChallenges.StatuePose, // any city
+      NetherlandsPilotChallenges.GuessTheJob, // any city
+      NetherlandsPilotChallenges.AlphabetCity, // any city
+      NetherlandsPilotChallenges.StatueSelfie, // any city
     ],
     [
-      NetherlandsPilotChallenges.DomTowerSnapshot,
-      NetherlandsPilotChallenges.MarketBrowsing,
-      NetherlandsPilotChallenges.WindmillSpin,
-      NetherlandsPilotChallenges.DutchMasters,
-      NetherlandsPilotChallenges.VOCHeritage,
-      NetherlandsPilotChallenges.ProgrammingBirthplace,
+      NetherlandsPilotChallenges.InternationalCourt, // den haag
+      NetherlandsPilotChallenges.ProgrammingBirthplace, // den haag
+      NetherlandsPilotChallenges.BinnenhofBeauty, // den haag
+      NetherlandsPilotChallenges.WindmillSpin, // any city
+      NetherlandsPilotChallenges.PublicDanceDare, // any city
+      NetherlandsPilotChallenges.ProvincesShowdown, // any city
     ],
     [
-      NetherlandsPilotChallenges.SilentTrain,
-      NetherlandsPilotChallenges.RoyalConnection,
-      NetherlandsPilotChallenges.StreetArtHunt,
-      NetherlandsPilotChallenges.ComplimentALocal,
-      NetherlandsPilotChallenges.ProvincesShowdown,
-      NetherlandsPilotChallenges.WoodenShoes,
+      NetherlandsPilotChallenges.MarketBrowsing, // any city
+      NetherlandsPilotChallenges.LocalFlavor, // any city
+      NetherlandsPilotChallenges.WoodenShoes, // any city
+      NetherlandsPilotChallenges.InsuranceLandmark, // any city
+      NetherlandsPilotChallenges.DutchChat, // any city
+      NetherlandsPilotChallenges.JapaneseChristmas, // utrecht
     ],
     [
-      NetherlandsPilotChallenges.InsuranceLandmark,
-      NetherlandsPilotChallenges.InternationalCourt,
-      NetherlandsPilotChallenges.StatuePose,
-      NetherlandsPilotChallenges.BinnenhofBeauty,
-      NetherlandsPilotChallenges.GuessTheJob,
-      NetherlandsPilotChallenges.RepurposedHistory,
+      NetherlandsPilotChallenges.BullishAdventure, // amsterdam
+      NetherlandsPilotChallenges.Paparazzi, // amsterdam
+      NetherlandsPilotChallenges.VOCHeritage, // amsterdam
+      NetherlandsPilotChallenges.TwoCitiesOneName, // amsterdam, haarlem, breukelen (center)
+      NetherlandsPilotChallenges.RoyalConnection, // amsterdam, den haag
+      NetherlandsPilotChallenges.DutchMasters, // any city
     ],
   ],
+
   runs: runs,
 } as TravelBingoGameData
