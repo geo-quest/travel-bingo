@@ -1,3 +1,9 @@
+## [1.13.0](https://github.com/geo-quest/travel-bingo/compare/v1.12.0...v1.13.0) (2024-08-16)
+
+### Features
+
+* **timeline:** merging related events ([#61](https://github.com/geo-quest/travel-bingo/issues/61)) ([6168555](https://github.com/geo-quest/travel-bingo/commit/61685555ecf950a2379ba1cb27c1fa333cd7533e))
+
 ## [1.12.0](https://github.com/geo-quest/travel-bingo/compare/v1.11.1...v1.12.0) (2024-08-16)
 
 ### Features
