@@ -341,8 +341,6 @@ export default ({ events, teamsData, challenges, filterFunction, reverse, hidePl
     )
   }
 
-  console.log(hidePlace)
-
   const timelineItems = mergeItems(events.filter(filterFunction))
     .sort(
       (a, b) =>
