@@ -1,3 +1,9 @@
+## [1.19.0](https://github.com/geo-quest/travel-bingo/compare/v1.18.0...v1.19.0) (2024-08-16)
+
+### Features
+
+* **engine:** handling edge cases ([#67](https://github.com/geo-quest/travel-bingo/issues/67)) ([d8f4ad8](https://github.com/geo-quest/travel-bingo/commit/d8f4ad8e727b2575735871d2d8a897956474dffe))
+
 ## [1.18.0](https://github.com/geo-quest/travel-bingo/compare/v1.17.0...v1.18.0) (2024-08-16)
 
 ### Features
