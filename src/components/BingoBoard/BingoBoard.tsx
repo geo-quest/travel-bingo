@@ -15,8 +15,8 @@ interface Props {
 const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
   const getClass = (challenge: Challenge, row: number, col: number): string => {
     const clazz = ['cell']
-    if (challenge.type === ChallengeType.Curse) clazz.push('curse')
-    if (challenge.type === ChallengeType.Boost) clazz.push('boost')
+    if (challenge.type === ChallengeType.Curse) clazz.push('curse-not-used')
+    if (challenge.type === ChallengeType.Boost) clazz.push('boost-not-used')
     if (defineCardClass !== undefined && challenge) {
       const newClazzes = defineCardClass(challenge, row, col)
       if (newClazzes) clazz.push(...newClazzes)
@@ -40,8 +40,8 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
               <div style={{ position: 'relative', overflow: 'visible' }}>
                 <Badge
                   count={item.points || item.curseMultiplier || item.boostMultiplier}
-                  color={item.points ? 'green' : 'purple'}
-                  style={{ opacity: '0.9', zIndex: '10' }}
+                  color={item.points ? 'green' : item.curseMultiplier ? 'purple' : 'blue'}
+                  style={{ opacity: '0.9', zIndex: '10', minWidth: '20px' }}
                 />
                 <div className="cell-container">{t2(item.challenge)}</div>
               </div>
