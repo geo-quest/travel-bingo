@@ -65,6 +65,7 @@ describe('handleChallengeCompleted', () => {
       points: 100,
       state: {
         status: RunGameStatus.Started,
+        firstChallengeCompleted: false,
         teams: [
           {
             team: 'team-a',

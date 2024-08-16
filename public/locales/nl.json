@@ -47,7 +47,8 @@
     "curse-multiplier": "Vloek vermenigvuldiger",
     "boost-multiplier": "Verhoog de vermenigvuldiger",
     "visited-a-new-place": "een nieuwe plek bezocht",
-    "at": "bij"
+    "at": "bij",
+    "completed-first-challenge": "voltooide de eerste uitdaging van het spel"
   },
   "bingo": {
     "row-0": "Eerste rij",
@@ -75,7 +76,8 @@
     "Curse": "Vloek",
     "Boost": "Boost",
     "FullBoard": "Volpension",
-    "NewPlace": "Nieuwe plek"
+    "NewPlace": "Nieuwe plek",
+    "FirstChallenge": "Eerste uitdaging"
   },
   "team-results": {
     "is-cursed": "is vervloekt",

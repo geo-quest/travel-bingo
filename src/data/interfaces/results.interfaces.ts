@@ -13,6 +13,7 @@ export enum ResultEventType {
   Empty,
   Bingo,
   NewPlace,
+  FirstChallenge,
   Curse,
   Boost,
   FullBoard,
@@ -31,6 +32,7 @@ export interface TeamState {
 
 export interface RunGameState {
   status: RunGameStatus
+  firstChallengeCompleted: boolean
   teams: TeamState[]
 }
 

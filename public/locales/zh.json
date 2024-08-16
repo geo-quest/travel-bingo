@@ -47,7 +47,8 @@
     "curse-multiplier": "诅咒倍数",
     "boost-multiplier": "升压倍数",
     "visited-a-new-place": "参观了一个新地方",
-    "at": "在"
+    "at": "在",
+    "completed-first-challenge": "完成了游戏的第一个挑战"
   },
   "bingo": {
     "row-0": "第一排",
@@ -75,7 +76,8 @@
     "Curse": "诅咒",
     "Boost": "促进",
     "FullBoard": "全食宿",
-    "NewPlace": "新地方"
+    "NewPlace": "新地方",
+    "FirstChallenge": "第一个挑战"
   },
   "team-results": {
     "is-cursed": "被诅咒了",

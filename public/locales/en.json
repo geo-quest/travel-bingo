@@ -47,7 +47,8 @@
     "curse-multiplier": "Curse multiplier",
     "boost-multiplier": "Boost multiplier",
     "visited-a-new-place": "visited a new place",
-    "at": "at"
+    "at": "at",
+    "completed-first-challenge": "completed the first challenge of the game"
   },
   "bingo": {
     "row-0": "First row",
@@ -75,7 +76,8 @@
     "Curse": "Curse",
     "Boost": "Boost",
     "FullBoard": "FullBoard",
-    "NewPlace": "New place"
+    "NewPlace": "New place",
+    "FirstChallenge": "First challenge"
   },
   "team-results": {
     "is-cursed": "is cursed",
