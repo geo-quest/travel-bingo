@@ -321,37 +321,58 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
   const mergeItems = (events: ResultEvent[]): TimelineEvent[] => {
     const timelineEvents: TimelineEvent[] = []
 
+    const isRelevantEvent = (event: ResultEvent): boolean =>
+      event.type === ResultEventType.Start ||
+      event.type === ResultEventType.Finish ||
+      event.type === ResultEventType.FullBoard
+
+    const handleChallengeCompleted = (
+      event: ResultEvent,
+      events: ResultEvent[],
+      startIndex: number,
+    ): TimelineEvent => {
+      const timelineEvent: TimelineEvent = { ...event, bingoEvents: [] }
+      let index = startIndex
+
+      while (
+        index < events.length &&
+        events[startIndex].team === events[index].team &&
+        events[startIndex].challenge === events[index].challenge
+      ) {
+        switch (events[index].type) {
+          case ResultEventType.FirstChallenge:
+            timelineEvent.firstChallengeEvent = events[index]
+            break
+          case ResultEventType.NewPlace:
+            timelineEvent.newPlaceEvent = events[index]
+            break
+          case ResultEventType.Boost:
+            timelineEvent.boostEvent = events[index]
+            break
+          case ResultEventType.Curse:
+            timelineEvent.curseEvent = events[index]
+            break
+          case ResultEventType.Bingo:
+            timelineEvent.bingoEvents?.push(events[index])
+            break
+        }
+        index++
+      }
+
+      return timelineEvent
+    }
+
     for (let i = 0; i < events.length; i++) {
       const event = events[i]
-      if (
-        event.type === ResultEventType.Start ||
-        event.type === ResultEventType.Finish ||
-        event.type === ResultEventType.FullBoard
-      )
-        timelineEvents.push(event)
-      else if (event.type === ResultEventType.ChallengeCompleted) {
-        let j = i + 1
-        const timelineEvent: TimelineEvent = event
-        timelineEvent.bingoEvents = []
-        while (
-          j < events.length &&
-          events[i].team === events[j].team &&
-          events[i].challenge === events[j].challenge
-        ) {
-          if (events[j].type === ResultEventType.FirstChallenge)
-            timelineEvent.firstChallengeEvent = events[j]
-          else if (events[j].type === ResultEventType.NewPlace)
-            timelineEvent.newPlaceEvent = events[j]
-          else if (events[j].type === ResultEventType.Boost) timelineEvent.boostEvent = events[j]
-          else if (events[j].type === ResultEventType.Curse) timelineEvent.curseEvent = events[j]
-          else if (events[j].type === ResultEventType.Bingo)
-            timelineEvent.bingoEvents?.push(events[j])
 
-          j++
-        }
+      if (isRelevantEvent(event)) {
+        timelineEvents.push(event)
+      } else if (event.type === ResultEventType.ChallengeCompleted) {
+        const timelineEvent = handleChallengeCompleted(event, events, i + 1)
         timelineEvents.push(timelineEvent)
       }
     }
+
     return timelineEvents
   }
 
