@@ -919,7 +919,7 @@ export default {
         nl: 'Toekomstige editie',
         zh: '未来版',
       },
-      date: relativeDate(+30),
+      date: relativeDate(+1),
       teams: {
         'team-a': {
           name: 'Team A',
