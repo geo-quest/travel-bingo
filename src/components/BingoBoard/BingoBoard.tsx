@@ -25,6 +25,20 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
     return clazz.join(' ')
   }
 
+  const getBadgeCount = (item: Challenge): number | undefined => {
+    if (item.points ?? 0 > 0) return item.points
+    if (item.curseMultiplier ?? 0 > 0) return item.curseMultiplier
+    if (item.boostMultiplier ?? 0 > 0) return item.boostMultiplier
+    return undefined
+  }
+
+  const getBadgeColor = (item: Challenge): string | undefined => {
+    if (item.points ?? 0 > 0) return 'green'
+    if (item.curseMultiplier ?? 0 > 0) return 'purple'
+    if (item.boostMultiplier ?? 0 > 0) return 'blue'
+    return undefined
+  }
+
   return (
     <div className="board">
       <Header />
@@ -39,8 +53,8 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
             >
               <div style={{ position: 'relative', overflow: 'visible' }}>
                 <Badge
-                  count={item.points || item.curseMultiplier || item.boostMultiplier}
-                  color={item.points ? 'green' : item.curseMultiplier ? 'purple' : 'blue'}
+                  count={getBadgeCount(item)}
+                  color={getBadgeColor(item)}
                   style={{ opacity: '0.9', zIndex: '10', minWidth: '20px' }}
                 />
                 <div className="cell-container">{t2(item.challenge)}</div>
