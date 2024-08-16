@@ -46,7 +46,7 @@ const PageComponent = ({ game, run, team, children }: Props) => {
         <Row>
           <Col span={1}></Col>
           <Col span={22} style={{ textAlign: 'center', paddingBottom: '16px' }}>
-            Travel Bingo <i>Turn travel into a game</i>
+            <b>Travel Bingo</b> <i>Turn travel into a game</i>
           </Col>
           <Col span={1}></Col>
         </Row>

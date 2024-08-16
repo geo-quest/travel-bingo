@@ -1,3 +1,27 @@
+## [1.18.0](https://github.com/geo-quest/travel-bingo/compare/v1.17.0...v1.18.0) (2024-08-16)
+
+### Features
+
+* update styling ([#66](https://github.com/geo-quest/travel-bingo/issues/66)) ([4fafae4](https://github.com/geo-quest/travel-bingo/commit/4fafae48a2e47d6ed24f6860da5b6a9d63304dab))
+
+## [1.17.0](https://github.com/geo-quest/travel-bingo/compare/v1.16.0...v1.17.0) (2024-08-16)
+
+### Features
+
+* **timeline:** hidding places during the game ([#65](https://github.com/geo-quest/travel-bingo/issues/65)) ([7d5dc60](https://github.com/geo-quest/travel-bingo/commit/7d5dc60c0c3f2d37439bc18757596dc30b7bde66))
+
+## [1.16.0](https://github.com/geo-quest/travel-bingo/compare/v1.15.0...v1.16.0) (2024-08-16)
+
+### Features
+
+* **timeline:** reversing timeline during the game ([#64](https://github.com/geo-quest/travel-bingo/issues/64)) ([a3bc9f6](https://github.com/geo-quest/travel-bingo/commit/a3bc9f65d9a42786da45c2f8dcd7af7eee603163))
+
+## [1.15.0](https://github.com/geo-quest/travel-bingo/compare/v1.14.0...v1.15.0) (2024-08-16)
+
+### Features
+
+* make game text bold ([#63](https://github.com/geo-quest/travel-bingo/issues/63)) ([8853da5](https://github.com/geo-quest/travel-bingo/commit/8853da508e0c429282240f830c377a195592b190))
+
 ## [1.14.0](https://github.com/geo-quest/travel-bingo/compare/v1.13.0...v1.14.0) (2024-08-16)
 
 ### Features

@@ -1,15 +1,16 @@
 import { Col, Row, Space, Statistic, Tag, Typography } from 'antd'
 import BingoBoard from 'components/BingoBoard/BingoBoard'
 import ChallengeModal from 'components/ChallengeModal/ChallengeModal'
-import Events from 'components/Events/Events'
 import NoPage from 'components/NoPage/NoPage'
 import Rank from 'components/Rank/Rank'
 import Score from 'components/Score/Score'
+import Timeline from 'components/Timeline/Timeline'
 import {
   Challenge,
   KeyObject,
   ResultEventType,
   RunGameData,
+  RunGameStatus,
   TeamGameData,
   TravelBingoGameData,
 } from 'data/interfaces'
@@ -87,14 +88,11 @@ const TeamResults = ({ team, run, game }: Props) => {
       {teamState.curseMultiplier !== undefined && (
         <Row
           style={{
-            border: 'solid 1px red',
-            backgroundColor: 'purple',
+            backgroundColor: '#9C27B0',
             borderRadius: '16px',
             paddingBottom: '8px',
             paddingTop: '8px',
             color: 'white',
-            textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000',
-            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.7)',
           }}
         >
           <Col span={24} style={{ textAlign: 'center' }}>
@@ -105,14 +103,11 @@ const TeamResults = ({ team, run, game }: Props) => {
       {teamState.boostMultiplier !== undefined && (
         <Row
           style={{
-            border: 'solid 1px blue',
-            backgroundColor: 'dodgerblue',
+            backgroundColor: '#2196F3',
             borderRadius: '16px',
             paddingBottom: '8px',
             paddingTop: '8px',
             color: 'white',
-            textShadow: '0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff',
-            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 191, 255, 0.7)',
           }}
         >
           <Col span={24} style={{ textAlign: 'center' }}>
@@ -135,7 +130,7 @@ const TeamResults = ({ team, run, game }: Props) => {
       <Row>
         <Col span={24}>
           <Title level={2}>{t('run.timeline')}</Title>
-          <Events
+          <Timeline
             events={events}
             teamsData={run.teams}
             challenges={game.challenges}
@@ -145,6 +140,8 @@ const TeamResults = ({ team, run, game }: Props) => {
                 event.team === team.key ||
                 (event.type === ResultEventType.Curse && event.cursedTeam === team.key))
             }
+            reverse={state.status === RunGameStatus.Started}
+            hidePlace={state.status === RunGameStatus.Started}
           />
         </Col>
       </Row>

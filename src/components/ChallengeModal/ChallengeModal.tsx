@@ -1,6 +1,6 @@
 import './ChallengeModal.css'
 
-import { Divider, Modal, Typography } from 'antd'
+import { Modal, Typography } from 'antd'
 import Image from 'components/Image/Image'
 import { Challenge } from 'data/interfaces'
 import React from 'react'
@@ -21,6 +21,10 @@ const ChallengeModal = ({ challenge, onClose }: Props) => {
   const getTitle = () => {
     let title = t2(challenge.challenge)
     if ((challenge.points ?? 0) > 0) title += `[${challenge.points} ${t('pts')}]`
+    if (challenge.curseMultiplier)
+      title += ` [${challenge.curseMultiplier}x ${t('challenge-modal.curse')}]`
+    if (challenge.boostMultiplier)
+      title += ` [${challenge.boostMultiplier}x ${t('challenge-modal.boost')}]`
     return title
   }
 
@@ -37,36 +41,10 @@ const ChallengeModal = ({ challenge, onClose }: Props) => {
       onCancel={onClose}
       centered
       footer={false}
-      closeIcon={false}
+      closeIcon={true}
       className={getClassName()}
     >
       <Paragraph>
-        {challenge.curseMultiplier && (
-          <>
-            <Divider style={{ marginBottom: 4, marginTop: 4 }} />
-            <p>
-              <i>{t('challenge-modal.is-a-curse')}</i>
-            </p>
-            <p>
-              <strong>{t('challenge-modal.curse-multiplier')}:</strong>{' '}
-              <span>{challenge.curseMultiplier}</span>
-            </p>
-            <Divider style={{ marginBottom: 4, marginTop: 4 }} />
-          </>
-        )}
-        {challenge.boostMultiplier && (
-          <>
-            <Divider style={{ marginBottom: 4, marginTop: 4 }} />
-            <p>
-              <i>{t('challenge-modal.is-a-boost')}</i>
-            </p>
-            <p>
-              <strong>{t('challenge-modal.boost-multiplier')}:</strong>{' '}
-              <span>{challenge.boostMultiplier}</span>
-            </p>
-            <Divider style={{ marginBottom: 4, marginTop: 4 }} />
-          </>
-        )}
         <Markdown>{t2(challenge.description)}</Markdown>
         {challenge.image && (
           <Image
