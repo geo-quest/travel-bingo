@@ -15,7 +15,7 @@ export enum NetherlandsPilotChallenge {
   DomTowerSnapshot = 'DomTowerSnapshot',
   ProvincesShowdown = 'ProvincesShowdown',
   FindMiffy = 'FindMiffy',
-  HistoricTrade = 'HistoricTrade',
+  PublicKaraoke = 'PublicKaraoke',
   JapaneseChristmas = 'JapaneseChristmas',
   ProgrammingBirthplace = 'ProgrammingBirthplace',
   RepurposedHistory = 'RepurposedHistory',
@@ -95,7 +95,7 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
   [NetherlandsPilotChallenge.SilentTrain]: {
     key: NetherlandsPilotChallenge.SilentTrain,
     type: ChallengeType.Curse,
-    curseMultiplier: 0.8,
+    curseMultiplier: 0.5,
     challenge: {
       en: 'Silent Train',
       nl: 'Stille Trein',
@@ -279,21 +279,21 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       zh: '找到米菲并拍照。',
     },
   },
-  [NetherlandsPilotChallenge.HistoricTrade]: {
-    key: NetherlandsPilotChallenge.HistoricTrade,
-    type: ChallengeType.Normal,
-    points: 30,
+  [NetherlandsPilotChallenge.PublicKaraoke]: {
+    key: NetherlandsPilotChallenge.PublicKaraoke,
+    type: ChallengeType.Curse,
+    curseMultiplier: 0.6,
     challenge: {
-      en: 'Historic Trade',
-      nl: 'Historische Handel',
-      pt: 'Comércio Histórico',
-      zh: '历史贸易',
+      en: 'Public Karaoke',
+      nl: 'Openbare Karaoke',
+      pt: 'Karaokê Público',
+      zh: '公共卡拉OK',
     },
     description: {
-      en: 'Take a photo at a historical site linked to Dutch trade or risk management.',
-      nl: 'Maak een foto op een historische locatie die is verbonden met Nederlandse handel of risicobeheer.',
-      pt: 'Tire uma foto em um local histórico ligado ao comércio ou gerenciamento de riscos holandês.',
-      zh: '在与荷兰贸易或风险管理有关的历史遗址拍照。',
+      en: 'Sing any song of your choice out loud in a public space, such as a park or square.',
+      nl: 'Zing hardop een liedje naar keuze op een openbare plek, zoals een park of plein.',
+      pt: 'Cante em voz alta qualquer música de sua escolha em um espaço público, como um parque ou praça.',
+      zh: '在公共空间（如公园或广场）大声唱一首您选择的歌曲。',
     },
   },
   [NetherlandsPilotChallenge.JapaneseChristmas]: {
