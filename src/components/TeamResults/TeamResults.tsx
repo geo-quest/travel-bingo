@@ -93,8 +93,8 @@ const TeamResults = ({ team, run, game }: Props) => {
             paddingBottom: '8px',
             paddingTop: '8px',
             color: 'white',
-            textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;',
-            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.7);',
+            textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000',
+            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.7)',
           }}
         >
           <Col span={24} style={{ textAlign: 'center' }}>
@@ -111,8 +111,8 @@ const TeamResults = ({ team, run, game }: Props) => {
             paddingBottom: '8px',
             paddingTop: '8px',
             color: 'white',
-            textShadow: '0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;',
-            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 191, 255, 0.7);',
+            textShadow: '0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff',
+            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 191, 255, 0.7)',
           }}
         >
           <Col span={24} style={{ textAlign: 'center' }}>

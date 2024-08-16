@@ -39,6 +39,7 @@
     "scored-bingo": "得分宾果游戏",
     "and-made": "并做了",
     "cursed": "被诅咒的",
+    "boosted": "增强的",
     "solving": "解决",
     "a-curse-was-applied": " 施加了诅咒！",
     "is-boosted": " 被提升",
@@ -46,9 +47,16 @@
     "full-board": "完成了董事会！",
     "curse-multiplier": "诅咒倍数",
     "boost-multiplier": "升压倍数",
-    "visited-a-new-place": "参观了一个新地方",
     "at": "在",
-    "completed-first-challenge": "完成了游戏的第一个挑战"
+    "completed-first-challenge": "完成了游戏的第一个挑战",
+    "solved-and-made-points": "<strong>{{team}}</strong> 解决了 <strong>{{challenge}}</strong> 并做了 <strong>{{points}}</strong> 点。",
+    "solved-and-team-boosted": "<strong>{{team}}</strong> 解决了 <strong>{{challenge}}</strong> 现在已得到提升。 <i>新的挑战将是值得的 {{boostMultiplier}} 多倍积分。</i>",
+    "solved-and-cursed-another-team": "<strong>{{team}}</strong> 解决了 <strong>{{challenge}}</strong> 并咒骂 <strong>{{cursedTeam}}</strong>。 <i>新的挑战 {{cursedTeam}} 将受到以下处罚 {{curseMultiplier}} 次。</i>",
+    "solved-first-challenge": "<strong>{{points}}</strong> 解决游戏第一个挑战可获得额外积分。",
+    "visited-a-new-place": "<strong>{{points}}</strong> 参观新地方的额外积分 <strong>{{newPlace}}</strong>。",
+    "curse-applied": "罚款为 <strong>{{curseMultiplier}}</strong> 由于施加了诅咒。",
+    "boost-applied": "的提升 <strong>{{boostMultiplier}}</strong> 次被应用。",
+    "made-a-bingo": "<strong>{{points}}</strong> 进行宾果游戏可获得额外积分 <strong>{{bingo}}</strong>。"
   },
   "bingo": {
     "row-0": "第一排",
@@ -71,7 +79,7 @@
   "resultEventType": {
     "Start": "开始",
     "Finish": "结束",
-    "ChallengeCompleted": "挑战完成",
+    "ChallengeCompleted": "完全的",
     "Bingo": "宾果游戏",
     "Curse": "诅咒",
     "Boost": "促进",

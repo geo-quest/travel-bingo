@@ -39,6 +39,7 @@
     "scored-bingo": "bingo gescoord",
     "and-made": "en gemaakt",
     "cursed": "vervloekt",
+    "boosted": "versterkt",
     "solving": "oplossen",
     "a-curse-was-applied": " Er werd een vloek toegepast!",
     "is-boosted": " wordt versterkt",
@@ -46,9 +47,16 @@
     "full-board": "heeft het bord compleet gemaakt! ",
     "curse-multiplier": "Vloek vermenigvuldiger",
     "boost-multiplier": "Verhoog de vermenigvuldiger",
-    "visited-a-new-place": "een nieuwe plek bezocht",
     "at": "bij",
-    "completed-first-challenge": "voltooide de eerste uitdaging van het spel"
+    "completed-first-challenge": "voltooide de eerste uitdaging van het spel",
+    "solved-and-made-points": "<strong>{{team}}</strong> opgelost <strong>{{challenge}}</strong> en gemaakt <strong>{{points}}</strong> punten.",
+    "solved-and-team-boosted": "<strong>{{team}}</strong> opgelost <strong>{{challenge}}</strong> en wordt nu versterkt. <i>Een nieuwe uitdaging zal de moeite waard zijn {{boostMultiplier}} keer meer punten.</i>",
+    "solved-and-cursed-another-team": "<strong>{{team}}</strong> opgelost <strong>{{challenge}}</strong> en vervloekt <strong>{{cursedTeam}}</strong>. <i>Nieuwe uitdaging van {{cursedTeam}} krijgt een boete van {{curseMultiplier}} keer.</i>",
+    "solved-first-challenge": "<strong>{{points}}</strong> extra punten voor het oplossen van de eerste uitdaging van het spel.",
+    "visited-a-new-place": "<strong>{{points}}</strong> extra punten voor een bezoek aan de nieuwe plek <strong>{{newPlace}}</strong>.",
+    "curse-applied": "Een boete van <strong>{{curseMultiplier}}</strong> vanwege de vloek werd toegepast.",
+    "boost-applied": "Een opsteker van <strong>{{boostMultiplier}}</strong> tijden werd toegepast.",
+    "made-a-bingo": "<strong>{{points}}</strong> extra punten voor het maken van een bingo bij <strong>{{bingo}}</strong>."
   },
   "bingo": {
     "row-0": "Eerste rij",
@@ -71,7 +79,7 @@
   "resultEventType": {
     "Start": "Begin",
     "Finish": "Finish",
-    "ChallengeCompleted": "Uitdaging voltooid",
+    "ChallengeCompleted": "Voltooid",
     "Bingo": "Bingo",
     "Curse": "Vloek",
     "Boost": "Boost",

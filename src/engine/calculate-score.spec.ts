@@ -1192,9 +1192,10 @@ describe('calculateScore', () => {
   })
 
   describe('edge cases', () => {
-    it.todo('curse followed by boost')
-    it.todo('boost followed by curse')
-    it.todo('curse followed by curse')
-    it.todo('boost followed by boost')
+    it.todo('team-a curses team-b => team-b solves a boost ?')
+    it.todo('team-a curses team-b => team-c curses team-a ?')
+    it.todo('team-a is boosted => team-b curses team-a ?')
+    it.todo('team-a solves a boost => team-a solves a boost ?')
+    it.todo('team-a solves a boost => team-a solves a curse ?')
   })
 })

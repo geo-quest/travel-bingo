@@ -39,6 +39,7 @@
     "scored-bingo": "scored bingo",
     "and-made": "and made",
     "cursed": "cursed",
+    "boosted": "boosted",
     "solving": "solving",
     "a-curse-was-applied": " A curse was applied!",
     "is-boosted": " is boosted",
@@ -46,9 +47,16 @@
     "full-board": "completed the board! That's impressive!",
     "curse-multiplier": "Curse multiplier",
     "boost-multiplier": "Boost multiplier",
-    "visited-a-new-place": "visited a new place",
     "at": "at",
-    "completed-first-challenge": "completed the first challenge of the game"
+    "completed-first-challenge": "completed the first challenge of the game",
+    "solved-and-made-points": "<strong>{{team}}</strong> solved <strong>{{challenge}}</strong> and made <strong>{{points}}</strong> points.",
+    "solved-and-team-boosted": "<strong>{{team}}</strong> solved <strong>{{challenge}}</strong> and is now boosted. <i>New challenge will be worth {{boostMultiplier}} times more points.</i>",
+    "solved-and-cursed-another-team": "<strong>{{team}}</strong> solved <strong>{{challenge}}</strong> and cursed <strong>{{cursedTeam}}</strong>. <i>New challenge of {{cursedTeam}} will have a penalty of {{curseMultiplier}} times.</i>",
+    "solved-first-challenge": "<strong>{{points}}</strong> extra points for solving the first challenge of the game.",
+    "visited-a-new-place": "<strong>{{points}}</strong> extra points for visiting the new place <strong>{{newPlace}}</strong>.",
+    "curse-applied": "A penalty of <strong>{{curseMultiplier}}</strong> due to the curse was applied.",
+    "boost-applied": "A boost of <strong>{{boostMultiplier}}</strong> times was applied.",
+    "made-a-bingo": "<strong>{{points}}</strong> extra points for made a bingo at <strong>{{bingo}}</strong>."
   },
   "bingo": {
     "row-0": "First row",
@@ -71,7 +79,7 @@
   "resultEventType": {
     "Start": "Start",
     "Finish": "Finish",
-    "ChallengeCompleted": "Challenge completed",
+    "ChallengeCompleted": "Completed",
     "Bingo": "Bingo",
     "Curse": "Curse",
     "Boost": "Boost",
