@@ -55,7 +55,13 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
                 <Badge
                   count={getBadgeCount(item)}
                   color={getBadgeColor(item)}
-                  style={{ opacity: '0.9', zIndex: '10', minWidth: '20px' }}
+                  size="small"
+                  style={{
+                    opacity: '0.9',
+                    zIndex: '10',
+                    minWidth: '30px',
+                    fontSize: '0.8em',
+                  }}
                 />
                 <div className="cell-container">{t2(item.challenge)}</div>
               </div>

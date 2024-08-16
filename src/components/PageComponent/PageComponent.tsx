@@ -39,7 +39,12 @@ const PageComponent = ({ game, run, team, children }: Props) => {
         <Row>
           <Col span={1}></Col>
           <Col span={22}>
-            <Card title={<PageTitle game={game} run={run} team={team} />}>{children}</Card>
+            <Card
+              className={'page-component-card'}
+              title={<PageTitle game={game} run={run} team={team} />}
+            >
+              {children}
+            </Card>
           </Col>
           <Col span={1}></Col>
         </Row>
