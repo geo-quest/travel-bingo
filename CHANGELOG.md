@@ -1,3 +1,9 @@
+## [1.18.0](https://github.com/geo-quest/travel-bingo/compare/v1.17.0...v1.18.0) (2024-08-16)
+
+### Features
+
+* update styling ([#66](https://github.com/geo-quest/travel-bingo/issues/66)) ([4fafae4](https://github.com/geo-quest/travel-bingo/commit/4fafae48a2e47d6ed24f6860da5b6a9d63304dab))
+
 ## [1.17.0](https://github.com/geo-quest/travel-bingo/compare/v1.16.0...v1.17.0) (2024-08-16)
 
 ### Features
