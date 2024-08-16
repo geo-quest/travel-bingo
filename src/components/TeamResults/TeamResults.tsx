@@ -1,15 +1,16 @@
 import { Col, Row, Space, Statistic, Tag, Typography } from 'antd'
 import BingoBoard from 'components/BingoBoard/BingoBoard'
 import ChallengeModal from 'components/ChallengeModal/ChallengeModal'
-import Events from 'components/Events/Events'
 import NoPage from 'components/NoPage/NoPage'
 import Rank from 'components/Rank/Rank'
 import Score from 'components/Score/Score'
+import Timeline from 'components/Timeline/Timeline'
 import {
   Challenge,
   KeyObject,
   ResultEventType,
   RunGameData,
+  RunGameStatus,
   TeamGameData,
   TravelBingoGameData,
 } from 'data/interfaces'
@@ -135,7 +136,7 @@ const TeamResults = ({ team, run, game }: Props) => {
       <Row>
         <Col span={24}>
           <Title level={2}>{t('run.timeline')}</Title>
-          <Events
+          <Timeline
             events={events}
             teamsData={run.teams}
             challenges={game.challenges}
@@ -145,6 +146,7 @@ const TeamResults = ({ team, run, game }: Props) => {
                 event.team === team.key ||
                 (event.type === ResultEventType.Curse && event.cursedTeam === team.key))
             }
+            reverse={state.status === RunGameStatus.Started}
           />
         </Col>
       </Row>
