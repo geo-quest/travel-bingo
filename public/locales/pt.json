@@ -39,6 +39,7 @@
     "scored-bingo": "bingo marcado",
     "and-made": "e fez",
     "cursed": "amaldiçoado",
+    "boosted": "impulsionado",
     "solving": "resolvendo",
     "a-curse-was-applied": " Uma maldição foi aplicada!",
     "is-boosted": " é impulsionado",
@@ -46,9 +47,16 @@
     "full-board": "completou o quadro! ",
     "curse-multiplier": "Multiplicador de maldição",
     "boost-multiplier": "Multiplicador de impulso",
-    "visited-a-new-place": "visitei um novo lugar",
     "at": "no",
-    "completed-first-challenge": "completou o primeiro desafio do jogo"
+    "completed-first-challenge": "completou o primeiro desafio do jogo",
+    "solved-and-made-points": "<strong>{{team}}</strong> resolvido <strong>{{challenge}}</strong> e fez <strong>{{points}}</strong> pontos.",
+    "solved-and-team-boosted": "<strong>{{team}}</strong> resolvido <strong>{{challenge}}</strong> e agora está impulsionado. <i>Novo desafio valerá a pena {{boostMultiplier}} vezes mais pontos.</i>",
+    "solved-and-cursed-another-team": "<strong>{{team}}</strong> resolvido <strong>{{challenge}}</strong> e amaldiçoado <strong>{{cursedTeam}}</strong>. <i>Novo desafio de {{cursedTeam}} terá uma penalidade de {{curseMultiplier}} vezes.</i>",
+    "solved-first-challenge": "<strong>{{points}}</strong> pontos extras para resolver o primeiro desafio do jogo.",
+    "visited-a-new-place": "<strong>{{points}}</strong> pontos extras por visitar o novo local <strong>{{newPlace}}</strong>.",
+    "curse-applied": "Uma penalidade de <strong>{{curseMultiplier}}</strong> devido à maldição foi aplicada.",
+    "boost-applied": "Um impulso de <strong>{{boostMultiplier}}</strong> vezes foi aplicado.",
+    "made-a-bingo": "<strong>{{points}}</strong> pontos extras por fazer um bingo em <strong>{{bingo}}</strong>."
   },
   "bingo": {
     "row-0": "Primeira linha",
@@ -71,7 +79,7 @@
   "resultEventType": {
     "Start": "Começar",
     "Finish": "Terminar",
-    "ChallengeCompleted": "Desafio concluído",
+    "ChallengeCompleted": "Concluído",
     "Bingo": "Bingo",
     "Curse": "Xingamento",
     "Boost": "Impulsionar",
