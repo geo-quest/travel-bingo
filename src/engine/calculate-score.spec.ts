@@ -718,7 +718,7 @@ describe('calculateScore', () => {
             event({ type: EventType.Finish, timestamp: '2024-08-12T13:00:00' }),
           ],
         }),
-        challenges({ useCurse: true }),
+        challenges({ curseChallenge1: true }),
         rules(),
       )
 
@@ -1020,7 +1020,7 @@ describe('calculateScore', () => {
             }),
           ],
         }),
-        challenges({ useBoost: true }),
+        challenges({ boostChallenge3: true }),
         rules(),
       )
 
@@ -1198,7 +1198,7 @@ describe('calculateScore', () => {
 
     it.todo('team-a solves a boost => team-a solves a curse ?')
 
-    it('a boost followed by another boost', () => {
+    it('two boosts in a row', () => {
       const r = calculateScore(
         runGameData({
           events: [
@@ -1226,7 +1226,7 @@ describe('calculateScore', () => {
             }),
           ],
         }),
-        challenges({ useBoost: true, useSecondBoost: true }),
+        challenges({ boostChallenge3: true, boostChallenge4: true }),
         rules(),
       )
 
@@ -1266,7 +1266,7 @@ describe('calculateScore', () => {
               completedChallenges: ['challenge-3', 'challenge-4'],
               places: ['place-a'],
               rank: 1,
-              score: 40, // 10
+              score: 40, // 10 from new-place, 30 from first-challenge
               team: 'team-a',
             },
             {
@@ -1289,7 +1289,7 @@ describe('calculateScore', () => {
         challenge: 'challenge-1',
         place: 'place-a',
         boostApplied: true,
-        boostMultiplier: 6, // 2 from challenge-3, 3 from challenge-4
+        boostMultiplier: 6, // 100 * 2 * 3
         points: 600, // 100 * 6
         state: {
           status: RunGameStatus.Started,
@@ -1309,6 +1309,92 @@ describe('calculateScore', () => {
               places: [],
               rank: 2,
               score: 0,
+              team: 'team-b',
+            },
+          ],
+        },
+      })
+    })
+
+    it('two curses in a row', () => {
+      const r = calculateScore(
+        runGameData({
+          events: [
+            event({ type: EventType.Start, timestamp: '2024-08-15T10:00' }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-15T11:00',
+              team: 'team-a',
+              challenge: 'challenge-1',
+              place: 'place-a',
+              cursedTeam: 'team-b',
+            }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-15T12:00',
+              team: 'team-a',
+              challenge: 'challenge-2',
+              place: 'place-a',
+              cursedTeam: 'team-b',
+            }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-15T13:00',
+              team: 'team-b',
+              challenge: 'challenge-3',
+              place: 'place-a',
+            }),
+          ],
+        }),
+        challenges({ curseChallenge1: true, curseChallenge2: true }),
+        rules(),
+      )
+
+      expect(r.length).toBe(11)
+
+      // validate sequence of events
+      expect(r.map(r => r.type)).toStrictEqual([
+        ResultEventType.Empty,
+        ResultEventType.Start,
+        ResultEventType.ChallengeCompleted, // challenge-1 by team-a
+        ResultEventType.FirstChallenge,
+        ResultEventType.NewPlace, // new place by team-a
+        ResultEventType.Curse,
+        ResultEventType.ChallengeCompleted, // challenge-2 by team-a
+        ResultEventType.Bingo, // bingo, row-1
+        ResultEventType.Curse,
+        ResultEventType.ChallengeCompleted, // challenge-3 by team-b
+        ResultEventType.NewPlace, // new place by team-b
+      ])
+
+      // challenge-3 by team-b must be cursed twice
+      expect(r[9]).toStrictEqual({
+        type: ResultEventType.ChallengeCompleted,
+        timestamp: '2024-08-15T13:00',
+        team: 'team-b',
+        challenge: 'challenge-3',
+        place: 'place-a',
+        points: 45, // 100 * 0.5 * 0.9
+        curseApplied: true,
+        curseMultiplier: 0.45,
+        state: {
+          status: RunGameStatus.Started,
+          firstChallengeCompleted: true,
+          teams: [
+            {
+              bingos: ['row-0'],
+              completedChallenges: ['challenge-1', 'challenge-2'],
+              places: ['place-a'],
+              rank: 1,
+              score: 60, // 30 from firstChallenge + 10 from new-place + 20 from bingo
+              team: 'team-a',
+            },
+            {
+              bingos: [],
+              completedChallenges: ['challenge-3'],
+              places: [],
+              rank: 2,
+              score: 45,
               team: 'team-b',
             },
           ],

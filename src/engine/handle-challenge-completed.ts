@@ -287,9 +287,11 @@ function createCurseEvent(
     ...teamState,
   }
 
-  const cursedTeamNewState: TeamState = {
-    ...state.teams.find(t => t.team === event.cursedTeam),
-    curseMultiplier: challenge.curseMultiplier,
+  let cursedTeamNewState = state.teams.find(t => t.team === event.cursedTeam)
+
+  cursedTeamNewState = {
+    ...cursedTeamNewState,
+    curseMultiplier: (cursedTeamNewState?.curseMultiplier ?? 1) * challenge.curseMultiplier,
   } as TeamState
 
   const curseEvent: ResultEvent = {

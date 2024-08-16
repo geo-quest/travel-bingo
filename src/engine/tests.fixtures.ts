@@ -28,41 +28,72 @@ export const event = (overrides?: Partial<Event>): Event => {
 }
 
 export const challenges = ({
-  useCurse = false,
-  useBoost = false,
-  useSecondBoost = false,
-}: { useCurse?: boolean; useBoost?: boolean; useSecondBoost?: boolean } = {}): Challenge[][] => {
+  curseChallenge1 = false,
+  curseChallenge2 = false,
+  boostChallenge3 = false,
+  boostChallenge4 = false,
+}: {
+  curseChallenge1?: boolean
+  curseChallenge2?: boolean
+  boostChallenge3?: boolean
+  boostChallenge4?: boolean
+} = {}): Challenge[][] => {
   return [
     [
-      {
-        key: 'challenge-1',
-        type: useCurse === true ? ChallengeType.Curse : ChallengeType.Normal,
-        curseMultiplier: useCurse === true ? 0.5 : undefined,
-        challenge: { en: 'Challenge 1' },
-        points: useCurse === true ? 0 : 100,
-      },
-      {
-        key: 'challenge-2',
-        type: ChallengeType.Normal,
-        challenge: { en: 'Challenge 2' },
-        points: 100,
-      },
+      curseChallenge1
+        ? {
+            key: 'challenge-1',
+            type: ChallengeType.Curse,
+            curseMultiplier: 0.5,
+            challenge: { en: 'Challenge 1' },
+          }
+        : {
+            key: 'challenge-1',
+            type: ChallengeType.Normal,
+            challenge: { en: 'Challenge 1' },
+            points: 100,
+          },
+      curseChallenge2
+        ? {
+            key: 'challenge-2',
+            type: ChallengeType.Curse,
+            curseMultiplier: 0.9,
+            challenge: { en: 'Challenge 2' },
+          }
+        : {
+            key: 'challenge-2',
+            type: ChallengeType.Normal,
+            challenge: { en: 'Challenge 2' },
+            points: 100,
+          },
     ],
     [
-      {
-        key: 'challenge-3',
-        type: useBoost === true ? ChallengeType.Boost : ChallengeType.Normal,
-        boostMultiplier: useBoost === true ? 2 : undefined,
-        challenge: { en: 'Challenge 3' },
-        points: useBoost === true ? 0 : 100,
-      },
-      {
-        key: 'challenge-4',
-        type: useSecondBoost === true ? ChallengeType.Boost : ChallengeType.Normal,
-        boostMultiplier: useSecondBoost === true ? 3 : undefined,
-        challenge: { en: 'Challenge 4' },
-        points: useSecondBoost === true ? 0 : 100,
-      },
+      boostChallenge3
+        ? {
+            key: 'challenge-3',
+            type: ChallengeType.Boost,
+            boostMultiplier: 2,
+            challenge: { en: 'Challenge 3' },
+          }
+        : {
+            key: 'challenge-3',
+            type: ChallengeType.Normal,
+            challenge: { en: 'Challenge 3' },
+            points: 100,
+          },
+      boostChallenge4
+        ? {
+            key: 'challenge-4',
+            type: ChallengeType.Boost,
+            boostMultiplier: 3,
+            challenge: { en: 'Challenge 4' },
+          }
+        : {
+            key: 'challenge-4',
+            type: ChallengeType.Normal,
+            challenge: { en: 'Challenge 4' },
+            points: 100,
+          },
     ],
   ] as Challenge[][]
 }
