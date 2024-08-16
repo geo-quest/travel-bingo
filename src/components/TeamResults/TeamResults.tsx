@@ -88,14 +88,11 @@ const TeamResults = ({ team, run, game }: Props) => {
       {teamState.curseMultiplier !== undefined && (
         <Row
           style={{
-            border: 'solid 1px red',
             backgroundColor: 'purple',
             borderRadius: '16px',
             paddingBottom: '8px',
             paddingTop: '8px',
             color: 'white',
-            textShadow: '0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000',
-            boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 0, 0, 0.7)',
           }}
         >
           <Col span={24} style={{ textAlign: 'center' }}>
