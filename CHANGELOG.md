@@ -1,3 +1,9 @@
+## [1.17.0](https://github.com/geo-quest/travel-bingo/compare/v1.16.0...v1.17.0) (2024-08-16)
+
+### Features
+
+* **timeline:** hidding places during the game ([#65](https://github.com/geo-quest/travel-bingo/issues/65)) ([7d5dc60](https://github.com/geo-quest/travel-bingo/commit/7d5dc60c0c3f2d37439bc18757596dc30b7bde66))
+
 ## [1.16.0](https://github.com/geo-quest/travel-bingo/compare/v1.15.0...v1.16.0) (2024-08-16)
 
 ### Features
