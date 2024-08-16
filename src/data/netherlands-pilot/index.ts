@@ -18,10 +18,10 @@ export default {
     bonusForFirstChallenge: 10,
   },
   shortDescription: {
-    en: 'Travel bingo game in the Netherlands with challenges to complete and earn points.',
-    nl: 'Reisbingospel in Nederland met uitdagingen om te voltooien en punten te verdienen.',
-    pt: 'Jogo de bingo de viagem na Holanda com desafios para completar e ganhar pontos.',
-    zh: '在荷兰的旅行宾果游戏，完成挑战并赚取积分。',
+    en: 'Embark on a thrilling adventure across the Netherlands, where strategy, exploration, and a touch of mischief are your keys to victory in this high-stakes travel bingo challenge.',
+    nl: 'Ga op een spannend avontuur door Nederland, waarbij strategie, verkenning en een vleugje ondeugendheid de sleutels tot de overwinning zijn in deze spannende reisbingo-uitdaging.',
+    pt: 'Embarque em uma aventura emocionante pela Holanda, onde estratégia, exploração e um toque de travessura são suas chaves para a vitória neste desafio de bingo de viagem de alto risco.',
+    zh: '踏上穿越荷兰的惊险冒险之旅，在这场高风险的旅行宾果挑战中，策略、探索和一点点恶作剧是取得胜利的关键。',
   },
   gamePlay: {
     en: `### Setup:
