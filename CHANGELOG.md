@@ -1,3 +1,9 @@
+## [1.19.1](https://github.com/geo-quest/travel-bingo/compare/v1.19.0...v1.19.1) (2024-08-16)
+
+### Bug Fixes
+
+* **team-timeline:** showing cursed events ([#69](https://github.com/geo-quest/travel-bingo/issues/69)) ([16795c5](https://github.com/geo-quest/travel-bingo/commit/16795c563d213ee1b5c61f73230afcdaf40c4938))
+
 ## [1.19.0](https://github.com/geo-quest/travel-bingo/compare/v1.18.0...v1.19.0) (2024-08-16)
 
 ### Features
