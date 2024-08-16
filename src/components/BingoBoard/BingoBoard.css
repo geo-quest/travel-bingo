@@ -99,28 +99,8 @@
 }
 
 @media (max-width: 600px) {
-  /* .board .header-card, */
   .board .cell {
     max-width: 55px !important;
     font-size: 0.7em;
   }
-  .board {
-    width: fit-content;
-  }
-
-  /* .ant-badge {
-    max-width: 20px;
-  }
-
-  .ant-badge-not-a-wrapper {
-    right: -14px;
-  }
-
-  .ant-badge span {
-    font-size: 8px;
-  }
-
-  .ant-badge sup {
-    font-size: 8px !important;
-  } */
 }
