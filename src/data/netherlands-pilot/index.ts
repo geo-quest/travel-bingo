@@ -1,5 +1,6 @@
 import { TravelBingoGameData } from '../interfaces'
 import { NetherlandsPilotChallenges } from './challenges'
+import runs from './runs'
 
 export default {
   title: {
@@ -8,9 +9,14 @@ export default {
     pt: 'Piloto na Holanda',
     zh: '荷兰试点',
   },
-  icon: 'StarOutlined',
-  color: '#FFD700',
-  backgroundColor: '#FFFFE0',
+  icon: 'FlagTwoTone',
+  color: '#1890ff',
+  backgroundColor: '#e6f7ff',
+  rules: {
+    bonusPointsPerBingo: 50,
+    bonusPointsPerPlace: 10,
+    bonusForFirstChallenge: 10,
+  },
   shortDescription: {
     en: 'Travel bingo game in the Netherlands with challenges to complete and earn points.',
     nl: 'Reisbingospel in Nederland met uitdagingen om te voltooien en punten te verdienen.',
@@ -20,7 +26,7 @@ export default {
   gamePlay: {
     en: `### Setup:
 
-- Each team gets a 6x6 bingo board filled with a mix of "Normal", "Curse", and "Boost" challenges.
+- Each team gets a 6x6 bingo board filled with a mix of **Normal**, **Curse**, and **Boost** challenges.
 - Every team has the same board, but how you play it is up to you!
 
 ### Objective:
@@ -35,6 +41,7 @@ export default {
 - **First Challenge Bonus**: The team that completes the first challenge gets a bonus point. (The early bird gets the worm!)
 - **Bingo Bonus**: Complete a row, column, or diagonal, and score a bonus point. (Bingo never felt so good!)
 - **Location Bonus**: Visit a new place and score a bonus point. (Exploration is key!)
+  - **City Rule**: A city is considered visited only if you get off at its train station. Make sure to step off the train and enjoy the sights!
 
 ### Submitting Challenges:
 
@@ -73,6 +80,7 @@ Good luck, adventurers! 🌍🎉
 - **Eerste uitdagingsbonus**: Het team dat de eerste uitdaging voltooit, krijgt een bonuspunt. (De vroege vogel vangt de worm!)
 - **Bingo-bonus**: Maak een rij, kolom of diagonaal compleet en scoor een bonuspunt. (Bingo voelde nog nooit zo goed!)
 - **Locatiebonus**: Bezoek een nieuwe plek en scoor een bonuspunt. (Verkenning is de sleutel!)
+  - **Stadsregel**: Een stad wordt alleen als bezocht beschouwd als je uitstapt bij het treinstation. Zorg ervoor dat je uit de trein stapt en geniet van de bezienswaardigheden!
 
 ### Uitdagingen indienen:
 
@@ -111,6 +119,7 @@ Veel succes, avonturiers! 🌍🎉
 - **Bônus do Primeiro Desafio**: A equipe que completar o primeiro desafio ganha um ponto bônus. (Quem chegar cedo ganha a minhoca!)
 - **Bônus do Bingo**: Complete uma linha, coluna ou diagonal e ganhe um ponto bônus. (Bingo nunca foi tão bom!)
 - **Bônus de localização**: Visite um novo lugar e ganhe um ponto de bônus. (Exploração é a chave!)
+  - **Regra da Cidade**: Uma cidade é considerada visitada somente se você descer na estação de trem dela. Não deixe de descer do trem e aproveitar as vistas!
 
 ### Enviando Desafios:
 
@@ -149,6 +158,7 @@ Boa sorte, aventureiros! 🌍🎉
 - **第一个挑战奖励**：完成第一个挑战的团队将获得奖励积分。（早起的鸟儿有虫吃！）
 - **宾果奖励**：完成一行、一列或对角线，并获得奖励积分。（宾果从未如此美妙！）
 - **地点奖励**：访问新地点并获得奖励积分。（探索是关键！）
+  - **城市规则**：只有在火车站下车，才算参观过该城市。一定要下车欣赏风景！
 
 ### 提交挑战：
 
@@ -177,7 +187,7 @@ Boa sorte, aventureiros! 🌍🎉
       NetherlandsPilotChallenges.WindmillWonder,
       NetherlandsPilotChallenges.StatueSelfie,
       NetherlandsPilotChallenges.Grachtenhuis,
-      NetherlandsPilotChallenges.Papparazzi,
+      NetherlandsPilotChallenges.Paparazzi,
       NetherlandsPilotChallenges.PetsAreTheBest,
       NetherlandsPilotChallenges.AlphabetCity,
     ],
@@ -222,10 +232,5 @@ Boa sorte, aventureiros! 🌍🎉
       NetherlandsPilotChallenges.RepurposedHistory,
     ],
   ],
-  rules: {
-    bonusPointsPerBingo: 50,
-    bonusPointsPerPlace: 20,
-    bonusForFirstChallenge: 10,
-  },
-  runs: {},
+  runs: runs,
 } as TravelBingoGameData

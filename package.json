@@ -28,7 +28,7 @@
   "scripts": {
     "prepare": "husky",
     "start:local": "PUBLIC_URL=/ HOST=0.0.0.0 npm start",
-    "start": "PUBLIC_URL=/ react-scripts start",
+    "start": "DEV_MODE=true PUBLIC_URL=/ react-scripts start",
     "build": "react-scripts build",
     "lint": "npx eslint src",
     "lint:fix": "npx eslint src --fix",

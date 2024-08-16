@@ -33,7 +33,7 @@ export enum NetherlandsPilotChallenge {
   Photobomb = 'Photobomb',
   GuessTheJob = 'GuessTheJob',
   DutchChat = 'DutchChat',
-  Papparazzi = 'Papparazzi',
+  Paparazzi = 'Paparazzi',
   RoyalConnection = 'RoyalConnection',
   PetsAreTheBest = 'PetsAreTheBest',
   CityOfBikes = 'CityOfBikes',
@@ -585,14 +585,14 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       zh: '与荷兰母语人士进行一分钟的荷兰语对话，不使用任何英语。',
     },
   },
-  [NetherlandsPilotChallenge.Papparazzi]: {
-    key: NetherlandsPilotChallenge.Papparazzi,
+  [NetherlandsPilotChallenge.Paparazzi]: {
+    key: NetherlandsPilotChallenge.Paparazzi,
     type: ChallengeType.Boost,
     boostMultiplier: 1.8,
     challenge: {
-      en: 'Papparazzi',
-      nl: 'Papparazzi',
-      pt: 'Papparazzi',
+      en: 'Paparazzi',
+      nl: 'Paparazzi',
+      pt: 'Paparazzi',
       zh: '狗仔队',
     },
     description: {
