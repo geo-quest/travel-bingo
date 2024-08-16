@@ -12,6 +12,7 @@ export interface Props {
   filterFunction: (events: ResultEvent) => boolean
   reverse?: boolean
   hidePlace?: boolean
+  teamInMatter?: string
 }
 
 interface TimelineEvent extends ResultEvent {
@@ -22,7 +23,15 @@ interface TimelineEvent extends ResultEvent {
   bingoEvents?: ResultEvent[]
 }
 
-export default ({ events, teamsData, challenges, filterFunction, reverse, hidePlace }: Props) => {
+export default ({
+  events,
+  teamsData,
+  challenges,
+  filterFunction,
+  reverse,
+  hidePlace,
+  teamInMatter,
+}: Props) => {
   const { t } = useTranslation()
 
   const getColorByEventType = (type: ResultEventType) => {
@@ -307,16 +316,20 @@ export default ({ events, teamsData, challenges, filterFunction, reverse, hidePl
     return timelineEvent
   }
 
+  const isRelevantEvent = (event: ResultEvent): boolean => {
+    return [ResultEventType.Start, ResultEventType.Finish, ResultEventType.FullBoard].includes(
+      event.type,
+    )
+  }
+
   const mergeItems = (events: ResultEvent[]): TimelineEvent[] => {
     const timelineEvents: TimelineEvent[] = []
 
     for (let i = 0; i < events.length; i++) {
       const event = events[i]
-      if (
-        [ResultEventType.Start, ResultEventType.Finish, ResultEventType.FullBoard].includes(
-          event.type,
-        )
-      )
+      if (isRelevantEvent(event)) timelineEvents.push(event)
+      // FIXME: please, find a better solution for this
+      else if (event.type === ResultEventType.Curse && event.cursedTeam === teamInMatter)
         timelineEvents.push(event)
       else if (event.type === ResultEventType.ChallengeCompleted) {
         timelineEvents.push(mergeCompletedChallenge(event, events, i))
