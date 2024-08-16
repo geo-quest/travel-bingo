@@ -389,6 +389,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       pt: 'Tire uma foto em grupo com uma casa de canal clássica holandesa ao fundo.',
       zh: '与背景中的经典荷兰运河房屋合影。',
     },
+    image:
+      'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWNuMmYycjI3dzVoMzJuOHhhbWVvNGh2OTF0eDBxdGs1MmtuZnlnaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SwZTQndLPNQZ5i6OKM/giphy.webp',
   },
   [NetherlandsPilotChallenge.DutchMasters]: {
     key: NetherlandsPilotChallenge.DutchMasters,
