@@ -1,3 +1,9 @@
+## [1.19.2](https://github.com/geo-quest/travel-bingo/compare/v1.19.1...v1.19.2) (2024-08-16)
+
+### Bug Fixes
+
+* **bingo-board:** adujsts for 6x6 boards ([#70](https://github.com/geo-quest/travel-bingo/issues/70)) ([b3f2563](https://github.com/geo-quest/travel-bingo/commit/b3f2563092a9aa502ed2f7de84c51101ac2d7f8c))
+
 ## [1.19.1](https://github.com/geo-quest/travel-bingo/compare/v1.19.0...v1.19.1) (2024-08-16)
 
 ### Bug Fixes
