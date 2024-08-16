@@ -1,7 +1,7 @@
 import { Col, Row, Space, Statistic, Tabs } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
-import Events from 'components/Events/Events'
 import FallingEmojis from 'components/FallingEmojis/FallingEmojis'
+import Timeline from 'components/Timeline/Timeline'
 import {
   KeyObject,
   ResultEvent,
@@ -39,7 +39,7 @@ const FinishedRun = ({ game, run, state, events }: Props) => {
       key: '2',
       label: t('run.timeline'),
       children: (
-        <Events
+        <Timeline
           events={events}
           teamsData={run.teams}
           challenges={game.challenges}

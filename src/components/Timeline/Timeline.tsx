@@ -10,6 +10,7 @@ export interface Props {
   teamsData: TeamsGameData
   challenges: Challenge[][]
   filterFunction: (events: ResultEvent) => boolean
+  reverse?: boolean
 }
 
 interface TimelineEvent extends ResultEvent {
@@ -20,7 +21,7 @@ interface TimelineEvent extends ResultEvent {
   bingoEvents?: ResultEvent[]
 }
 
-const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
+export default ({ events, teamsData, challenges, filterFunction, reverse }: Props) => {
   const { t } = useTranslation()
 
   const getColorByEventType = (type: ResultEventType) => {
@@ -323,8 +324,13 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
     return timelineEvents
   }
 
-  const timelineItems = mergeItems(events.filter(filterFunction)).map(
-    (event: TimelineEvent, index: number) => ({
+  const timelineItems = mergeItems(events.filter(filterFunction))
+    .sort(
+      (a, b) =>
+        (new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()) *
+        (reverse === true ? -1 : 1),
+    )
+    .map((event: TimelineEvent, index: number) => ({
       key: index,
       color: getColorByEventType(event.type),
       children: (
@@ -340,10 +346,7 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
           <div>{renderDetails(event)}</div>
         </div>
       ),
-    }),
-  )
+    }))
 
   return <Timeline items={timelineItems} />
 }
-
-export default Events
