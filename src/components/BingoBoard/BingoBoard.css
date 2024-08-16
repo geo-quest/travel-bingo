@@ -39,6 +39,17 @@
   cursor: pointer;
   transition: transform 0.2s ease;
   font-weight: 200;
+  /* display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 3;
+  max-width: 100px !important; */
+  overflow: visible;
+}
+
+.cell-container {
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -127,4 +138,11 @@
   .board .cell {
     max-width: 60px !important;
   }
+}
+
+.ant-badge-not-a-wrapper {
+  position: absolute;
+  top: -12px;
+  right: -16px;
+  z-index: 10;
 }

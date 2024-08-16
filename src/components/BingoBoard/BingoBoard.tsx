@@ -1,6 +1,6 @@
 import './BingoBoard.css'
 
-import { Card } from 'antd'
+import { Badge, Card } from 'antd'
 import { Challenge, ChallengeType } from 'data/interfaces'
 import t2 from 'utils/t2'
 
@@ -37,7 +37,14 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
               onClick={() => onClick(item)}
               style={{ width: `${100 / row.length}%` }}
             >
-              {t2(item.challenge)}
+              <div style={{ position: 'relative', overflow: 'visible' }}>
+                <Badge
+                  count={item.points || item.curseMultiplier || item.boostMultiplier}
+                  color={item.points ? 'green' : 'purple'}
+                  style={{ opacity: '0.9', zIndex: '10' }}
+                />
+                <div className="cell-container">{t2(item.challenge)}</div>
+              </div>
             </Card.Grid>
           ))}
         </div>
