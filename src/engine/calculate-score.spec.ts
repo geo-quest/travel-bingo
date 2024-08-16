@@ -1401,5 +1401,92 @@ describe('calculateScore', () => {
         },
       })
     })
+
+    it('boost and then curse', () => {
+      const r = calculateScore(
+        runGameData({
+          events: [
+            event({ type: EventType.Start, timestamp: '2024-08-15T10:00' }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-15T11:00',
+              team: 'team-a',
+              challenge: 'challenge-3',
+              place: 'place-a',
+            }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-15T12:00',
+              team: 'team-b',
+              challenge: 'challenge-2',
+              place: 'place-a',
+              cursedTeam: 'team-a',
+            }),
+            event({
+              type: EventType.ChallengeCompleted,
+              timestamp: '2024-08-15T13:00',
+              team: 'team-a',
+              challenge: 'challenge-1',
+              place: 'place-a',
+            }),
+          ],
+        }),
+        challenges({ curseChallenge2: true, boostChallenge3: true }),
+        rules(),
+      )
+
+      expect(r.length).toBe(11)
+
+      // validate sequence of events
+      expect(r.map(r => r.type)).toStrictEqual([
+        ResultEventType.Empty,
+        ResultEventType.Start,
+        ResultEventType.ChallengeCompleted, // challenge-3 by team-a
+        ResultEventType.FirstChallenge,
+        ResultEventType.NewPlace, // new place by team-a
+        ResultEventType.Boost,
+        ResultEventType.ChallengeCompleted, // challenge-2 by team-b
+        ResultEventType.NewPlace, // new place by team-b
+        ResultEventType.Curse,
+        ResultEventType.ChallengeCompleted, // challenge-1 by team-a
+        ResultEventType.Bingo, // bingo on main-diagonal by team-a
+      ])
+
+      // challenge-2 by team-a must be boosted and cursed
+      expect(r[9]).toStrictEqual({
+        type: ResultEventType.ChallengeCompleted,
+        timestamp: '2024-08-15T13:00',
+        team: 'team-a',
+        challenge: 'challenge-1',
+        place: 'place-a',
+        boostApplied: true,
+        boostMultiplier: 2,
+        curseApplied: true,
+        curseMultiplier: 0.9,
+        points: 180, // 100 * 2 * 0.9,
+        state: {
+          firstChallengeCompleted: true,
+          status: 1,
+          teams: [
+            {
+              bingos: [],
+              completedChallenges: ['challenge-3', 'challenge-1'],
+              places: ['place-a'],
+              rank: 1,
+              score: 220, // 180 from this challenge + 30 from first-challenge + 10 from new-place
+              team: 'team-a',
+            },
+            {
+              bingos: [],
+              completedChallenges: ['challenge-2'],
+              places: ['place-a'],
+              rank: 2,
+              score: 10, // 10 from new-place
+              team: 'team-b',
+            },
+          ],
+        },
+      })
+    })
   })
 })
