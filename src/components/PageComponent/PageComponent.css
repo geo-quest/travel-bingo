@@ -13,3 +13,10 @@
   margin: auto;
   max-width: max-content;
 }
+
+@media (max-width: 600px) {
+  .page-component-card > .ant-card-body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

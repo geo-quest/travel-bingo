@@ -268,6 +268,26 @@ export default {
         image:
           'https://images.squarespace-cdn.com/content/v1/5e386e245ec08c1b8eaa7c94/4dd6cf47-72c4-431a-bb96-9884507bf931/Cheese+Shop.jpg',
       },
+      {
+        key: 'Spot a cheese shop-2',
+        challenge: {
+          en: 'Spot a cheese shop',
+          pt: 'Encontre uma loja de queijos',
+          nl: 'Ontdek een kaaswinkel',
+          zh: '发现一家奶酪店',
+        },
+        description: {
+          en: 'Find a shop that sells cheese in the Netherlands',
+          pt: 'Encontre uma loja que venda queijo na Holanda',
+          nl: 'Zoek een winkel die kaas verkoopt in Nederland',
+          zh: '查找在荷兰出售奶酪的商店',
+        },
+        points: 0,
+        type: ChallengeType.Boost,
+        boostMultiplier: 2,
+        image:
+          'https://images.squarespace-cdn.com/content/v1/5e386e245ec08c1b8eaa7c94/4dd6cf47-72c4-431a-bb96-9884507bf931/Cheese+Shop.jpg',
+      },
     ],
     [
       {
@@ -347,6 +367,25 @@ export default {
       },
       {
         key: 'Spot a traditional dance performance',
+        challenge: {
+          en: 'Spot a traditional dance performance',
+          pt: 'Assista a uma apresentação de dança tradicional',
+          nl: 'Ontdek een traditionele dansvoorstelling',
+          zh: '观看传统舞蹈表演',
+        },
+        description: {
+          en: 'Watch and document a traditional dance in its country of origin',
+          pt: 'Assista e documente uma dança tradicional em seu país de origem',
+          nl: 'Bekijk en documenteer een traditionele dans in het land van herkomst',
+          zh: '观看并记录原产国的传统舞蹈',
+        },
+        points: 35,
+        type: ChallengeType.Normal,
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dutch_Folklore_Dance_Group_in_Holambra%2C_Brazil.jpg/1200px-Dutch_Folklore_Dance_Group_in_Holambra%2C_Brazil.jpg',
+      },
+      {
+        key: 'Spot a traditional dance performance-2',
         challenge: {
           en: 'Spot a traditional dance performance',
           pt: 'Assista a uma apresentação de dança tradicional',
@@ -461,6 +500,25 @@ export default {
         image:
           'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/0a/32/90/johnny-jordaanplein.jpg?w=500&h=500&s=1',
       },
+      {
+        key: 'Locate a famous statue-2',
+        challenge: {
+          en: 'Locate a famous statue',
+          pt: 'Localize uma estátua famosa',
+          nl: 'Zoek een beroemd standbeeld',
+          zh: '找到著名的雕像',
+        },
+        description: {
+          en: 'Find and take a picture of a renowned statue',
+          pt: 'Encontre e tire uma foto de uma estátua famosa',
+          nl: 'Zoek en maak een foto van een beroemd standbeeld',
+          zh: '找到著名雕像并拍照',
+        },
+        points: 30,
+        type: ChallengeType.Normal,
+        image:
+          'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/0a/32/90/johnny-jordaanplein.jpg?w=500&h=500&s=1',
+      },
     ],
     [
       {
@@ -539,6 +597,25 @@ export default {
       },
       {
         key: 'Spot a famous bridge',
+        challenge: {
+          en: 'Spot a famous bridge',
+          pt: 'Descubra uma ponte famosa',
+          nl: 'Ontdek een beroemde brug',
+          zh: '发现一座著名的桥梁',
+        },
+        description: {
+          en: 'Locate and photograph a world-famous bridge',
+          pt: 'Localize e fotografe uma ponte mundialmente famosa',
+          nl: 'Lokaliseer en fotografeer een wereldberoemde brug',
+          zh: '找到并拍摄一座世界著名的桥梁',
+        },
+        points: 30,
+        type: ChallengeType.Normal,
+        image:
+          'https://images.squarespace-cdn.com/content/569e766e69492e9dd5373ef6/1553525738625-IG5QYJ8WHIVWZMDWN1H7/amsterdam-photo-tour-009.jpg?format=1500w&content-type=image%2Fjpeg',
+      },
+      {
+        key: 'Spot a famous bridge-2',
         challenge: {
           en: 'Spot a famous bridge',
           pt: 'Descubra uma ponte famosa',
@@ -637,6 +714,145 @@ export default {
       },
       {
         key: 'Discover a natural hot spring',
+        challenge: {
+          en: 'Discover a natural hot spring',
+          pt: 'Descubra uma fonte termal natural',
+          nl: 'Ontdek een natuurlijke warmwaterbron',
+          zh: '探索天然温泉',
+        },
+        description: {
+          en: 'Find and photograph a natural hot spring',
+          pt: 'Encontre e fotografe uma fonte termal natural',
+          nl: 'Zoek en fotografeer een natuurlijke warmwaterbron',
+          zh: '寻找并拍摄天然温泉',
+        },
+        points: 0,
+        type: ChallengeType.Boost,
+        boostMultiplier: 2,
+        image:
+          'https://media.cntraveler.com/photos/5eb420d241269ff2d4f2ea8b/master/pass/Pamukkale-Denizli-Turkey-GettyImages-539479634.jpg',
+      },
+      {
+        key: 'Discover a natural hot spring-2',
+        challenge: {
+          en: 'Discover a natural hot spring',
+          pt: 'Descubra uma fonte termal natural',
+          nl: 'Ontdek een natuurlijke warmwaterbron',
+          zh: '探索天然温泉',
+        },
+        description: {
+          en: 'Find and photograph a natural hot spring',
+          pt: 'Encontre e fotografe uma fonte termal natural',
+          nl: 'Zoek en fotografeer een natuurlijke warmwaterbron',
+          zh: '寻找并拍摄天然温泉',
+        },
+        points: 0,
+        type: ChallengeType.Boost,
+        boostMultiplier: 2,
+        image:
+          'https://media.cntraveler.com/photos/5eb420d241269ff2d4f2ea8b/master/pass/Pamukkale-Denizli-Turkey-GettyImages-539479634.jpg',
+      },
+    ],
+    [
+      {
+        key: 'Discover a hidden gem-6',
+        challenge: {
+          en: 'Discover a hidden gem',
+          pt: 'Descubra uma joia escondida',
+          nl: 'Ontdek een verborgen juweeltje',
+          zh: '发现隐藏的宝石',
+        },
+        description: {
+          en: 'Find a lesser-known but stunning location and document it',
+          pt: 'Encontre um local menos conhecido, mas impressionante, e documente-o',
+          nl: 'Zoek een minder bekende maar prachtige locatie en documenteer deze',
+          zh: '找到一个鲜为人知但令人惊叹的地点并记录下来',
+        },
+        points: 0,
+        type: ChallengeType.Boost,
+        boostMultiplier: 2,
+        image:
+          'https://bymountainpeople.com/wp-content/uploads/2023/06/Discover-the-Hidden-Gem-of-Nepal-The-Shey-Phoksundo-Lake-Trek-By-Mountain-People.webp',
+      },
+      {
+        key: 'Capture a mountain peak-6',
+        challenge: {
+          en: 'Capture a mountain peak',
+          pt: 'Capture o pico de uma montanha',
+          nl: 'Leg een bergtop vast',
+          zh: '捕捉一座山峰',
+        },
+        description: {
+          en: 'Photograph the summit of a prominent mountain',
+          pt: 'Fotografe o cume de uma montanha proeminente',
+          nl: 'Fotografeer de top van een prominente berg',
+          zh: '拍摄一座著名山峰的顶峰',
+        },
+        points: 40,
+        type: ChallengeType.Normal,
+        image:
+          'https://www.ephotozine.com/resize/articles/15270/P9080276.jpg?RTUdGk5cXyJFCgsJVANtdxU+cVRdHxFYFw1Gewk0T1JYFEtzen5YdgthHHsvEVxR',
+      },
+      {
+        key: 'Visit a botanical garden-6',
+        challenge: {
+          en: 'Visit a botanical garden',
+          pt: 'Visite um jardim botânico',
+          nl: 'Bezoek een botanische tuin',
+          zh: '参观植物园',
+        },
+        description: {
+          en: "Explore and take photos of a botanical garden's diverse flora",
+          pt: 'Explore e tire fotos da flora diversificada de um jardim botânico',
+          nl: "Verken en maak foto's van de gevarieerde flora van een botanische tuin",
+          zh: '探索植物园的多样化植物并拍摄照片',
+        },
+        points: 20,
+        type: ChallengeType.Normal,
+        image:
+          'https://assets.cntraveller.in/photos/64199ada59df46f87e0a53ca/16:9/w_1024%2Cc_limit/GettyImages-470648565.jpg',
+      },
+      {
+        key: 'Find a local wildlife sanctuary-6',
+        challenge: {
+          en: 'Find a local wildlife sanctuary',
+          pt: 'Encontre um santuário de vida selvagem local',
+          nl: 'Zoek een plaatselijk natuurreservaat',
+          zh: '寻找当地的野生动物保护区',
+        },
+        description: {
+          en: 'Visit a wildlife sanctuary and capture the animals in their natural environment',
+          pt: 'Visite um santuário de vida selvagem e capture os animais em seu ambiente natural',
+          nl: 'Bezoek een natuurreservaat en leg de dieren vast in hun natuurlijke omgeving',
+          zh: '参观野生动物保护区并在自然环境中捕捉动物',
+        },
+        points: 45,
+        type: ChallengeType.Normal,
+        image:
+          'https://img.traveltriangle.com/blog/wp-content/uploads/2019/08/Wildlife-Sanctuaries-In-India.jpg',
+      },
+      {
+        key: 'Discover a natural hot spring-6',
+        challenge: {
+          en: 'Discover a natural hot spring',
+          pt: 'Descubra uma fonte termal natural',
+          nl: 'Ontdek een natuurlijke warmwaterbron',
+          zh: '探索天然温泉',
+        },
+        description: {
+          en: 'Find and photograph a natural hot spring',
+          pt: 'Encontre e fotografe uma fonte termal natural',
+          nl: 'Zoek en fotografeer een natuurlijke warmwaterbron',
+          zh: '寻找并拍摄天然温泉',
+        },
+        points: 0,
+        type: ChallengeType.Boost,
+        boostMultiplier: 2,
+        image:
+          'https://media.cntraveler.com/photos/5eb420d241269ff2d4f2ea8b/master/pass/Pamukkale-Denizli-Turkey-GettyImages-539479634.jpg',
+      },
+      {
+        key: 'Discover a natural hot spring-6-2',
         challenge: {
           en: 'Discover a natural hot spring',
           pt: 'Descubra uma fonte termal natural',
