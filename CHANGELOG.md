@@ -1,3 +1,9 @@
+## [1.12.0](https://github.com/geo-quest/travel-bingo/compare/v1.11.1...v1.12.0) (2024-08-16)
+
+### Features
+
+* bonus points for first completed challenge  ([#56](https://github.com/geo-quest/travel-bingo/issues/56)) ([545eb3f](https://github.com/geo-quest/travel-bingo/commit/545eb3f49f98d7b40361f19cfb485628ce7b37f9))
+
 ## [1.11.1](https://github.com/geo-quest/travel-bingo/compare/v1.11.0...v1.11.1) (2024-08-15)
 
 ## [1.11.0](https://github.com/geo-quest/travel-bingo/compare/v1.10.0...v1.11.0) (2024-08-15)
