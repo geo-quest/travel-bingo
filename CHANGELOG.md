@@ -1,3 +1,9 @@
+## [1.16.0](https://github.com/geo-quest/travel-bingo/compare/v1.15.0...v1.16.0) (2024-08-16)
+
+### Features
+
+* **timeline:** reversing timeline during the game ([#64](https://github.com/geo-quest/travel-bingo/issues/64)) ([a3bc9f6](https://github.com/geo-quest/travel-bingo/commit/a3bc9f65d9a42786da45c2f8dcd7af7eee603163))
+
 ## [1.15.0](https://github.com/geo-quest/travel-bingo/compare/v1.14.0...v1.15.0) (2024-08-16)
 
 ### Features
