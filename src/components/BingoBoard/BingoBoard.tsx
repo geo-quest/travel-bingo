@@ -26,16 +26,16 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
   }
 
   const getBadgeCount = (item: Challenge): number | undefined => {
-    if (item.points ?? 0 > 0) return item.points
-    if (item.curseMultiplier ?? 0 > 0) return item.curseMultiplier
-    if (item.boostMultiplier ?? 0 > 0) return item.boostMultiplier
+    if (item.points && item.points > 0) return item.points
+    if (item.curseMultiplier && item.curseMultiplier > 0) return item.curseMultiplier
+    if (item.boostMultiplier && item.boostMultiplier > 0) return item.boostMultiplier
     return undefined
   }
 
   const getBadgeColor = (item: Challenge): string | undefined => {
-    if (item.points ?? 0 > 0) return 'green'
-    if (item.curseMultiplier ?? 0 > 0) return 'purple'
-    if (item.boostMultiplier ?? 0 > 0) return 'blue'
+    if (item.points && item.points > 0) return 'green'
+    if (item.curseMultiplier && item.curseMultiplier > 0) return 'purple'
+    if (item.boostMultiplier && item.boostMultiplier > 0) return 'blue'
     return undefined
   }
 
