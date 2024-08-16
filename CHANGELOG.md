@@ -1,3 +1,9 @@
+## [1.14.0](https://github.com/geo-quest/travel-bingo/compare/v1.13.0...v1.14.0) (2024-08-16)
+
+### Features
+
+* add countdown ([#62](https://github.com/geo-quest/travel-bingo/issues/62)) ([c236971](https://github.com/geo-quest/travel-bingo/commit/c23697101646a1acb0a23366c52ca3ff55e5dee8))
+
 ## [1.13.0](https://github.com/geo-quest/travel-bingo/compare/v1.12.0...v1.13.0) (2024-08-16)
 
 ### Features
