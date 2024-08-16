@@ -10,6 +10,8 @@ export interface Props {
   teamsData: TeamsGameData
   challenges: Challenge[][]
   filterFunction: (events: ResultEvent) => boolean
+  reverse?: boolean
+  hidePlace?: boolean
 }
 
 interface TimelineEvent extends ResultEvent {
@@ -20,20 +22,20 @@ interface TimelineEvent extends ResultEvent {
   bingoEvents?: ResultEvent[]
 }
 
-const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
+export default ({ events, teamsData, challenges, filterFunction, reverse, hidePlace }: Props) => {
   const { t } = useTranslation()
 
   const getColorByEventType = (type: ResultEventType) => {
     const colorMap = new Map<ResultEventType, string>([
-      [ResultEventType.Start, 'blue'],
-      [ResultEventType.Finish, 'red'],
-      [ResultEventType.ChallengeCompleted, 'green'],
-      [ResultEventType.Bingo, '#ffd700'],
-      [ResultEventType.Curse, '#C060C0'],
-      [ResultEventType.Boost, '#00bfff'],
-      [ResultEventType.FullBoard, '#008000'],
-      [ResultEventType.NewPlace, '#ff4500'],
-      [ResultEventType.FirstChallenge, '#ffa500'],
+      [ResultEventType.Start, '#333333'], // Dark Gray - Starting point
+      [ResultEventType.Finish, '#C02942'], // Reddish Pink - Completion/End
+      [ResultEventType.ChallengeCompleted, '#4CAF50'], // Green - Success
+      [ResultEventType.Bingo, '#FFEB3B'], // Light Yellow - Winning Bingo
+      [ResultEventType.Curse, '#9C27B0'], // Deep Purple - Curse/Negative
+      [ResultEventType.Boost, '#2196F3'], // Blue - Positive/Boost
+      [ResultEventType.FullBoard, '#3F51B5'], // Dark Blue - Full Board
+      [ResultEventType.NewPlace, '#F44336'], // Red - New Place
+      [ResultEventType.FirstChallenge, '#FF9800'], // Orange - First Challenge
     ])
     return colorMap.get(type) ?? 'gray'
   }
@@ -85,7 +87,7 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
     }
     if (event.curseApplied === true) {
       tags.push(
-        <Tag key="cursed" color="purple" style={{ textTransform: 'capitalize' }}>
+        <Tag key="cursed" color="#9C27B0" style={{ textTransform: 'capitalize' }}>
           {t(`timeline.cursed`)}
         </Tag>,
       )
@@ -160,7 +162,7 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
             <Trans i18nKey={'timeline.visited-a-new-place'}>
               {{
                 points: event.newPlaceEvent.points,
-                newPlace: event.newPlaceEvent.newPlace,
+                newPlace: hidePlace ? '***' : event.newPlaceEvent.newPlace,
               }}
             </Trans>
           </li>
@@ -323,27 +325,33 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
     return timelineEvents
   }
 
-  const timelineItems = mergeItems(events.filter(filterFunction)).map(
-    (event: TimelineEvent, index: number) => ({
+  const renderChildren = (event: TimelineEvent) => {
+    return (
+      <div className="event-timeline-item">
+        <div style={{ paddingBottom: 8 }}>
+          <strong>
+            <FormattedDate date={event.timestamp} format="time" />
+          </strong>
+          {event.place && !hidePlace && <i style={{ paddingLeft: 8 }}>{event.place}</i>}
+          {renderMainTag(event)}
+        </div>
+        <div style={{ display: 'block' }}>{renderExtraTags(event)}</div>
+        <div>{renderDetails(event)}</div>
+      </div>
+    )
+  }
+
+  const timelineItems = mergeItems(events.filter(filterFunction))
+    .sort(
+      (a, b) =>
+        (new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()) *
+        (reverse === true ? -1 : 1),
+    )
+    .map((event: TimelineEvent, index: number) => ({
       key: index,
       color: getColorByEventType(event.type),
-      children: (
-        <div className="event-timeline-item">
-          <div style={{ paddingBottom: 8 }}>
-            <strong>
-              <FormattedDate date={event.timestamp} format="time" />
-            </strong>
-            {event.place && <i style={{ paddingLeft: 8 }}>{event.place}</i>}
-            {renderMainTag(event)}
-          </div>
-          <div style={{ display: 'block' }}>{renderExtraTags(event)}</div>
-          <div>{renderDetails(event)}</div>
-        </div>
-      ),
-    }),
-  )
+      children: renderChildren(event),
+    }))
 
   return <Timeline items={timelineItems} />
 }
-
-export default Events

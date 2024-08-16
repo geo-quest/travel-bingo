@@ -96,6 +96,8 @@
     "is-a-curse": "Deze uitdaging is een vloek.",
     "curse-multiplier": "Vloekstraf",
     "is-a-boost": "Deze uitdaging is een opsteker.",
-    "boost-multiplier": "Verhoog de vermenigvuldiger"
+    "boost-multiplier": "Verhoog de vermenigvuldiger",
+    "curse": "Vloek",
+    "boost": "boost"
   }
 }

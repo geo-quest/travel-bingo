@@ -1,7 +1,7 @@
 import { Col, Row, Space, Statistic, Tabs } from 'antd'
 import FormattedDate from 'components/Date/FormattedDate'
 import RelativeDate from 'components/Date/RelativeDate'
-import Events from 'components/Events/Events'
+import Timeline from 'components/Timeline/Timeline'
 import {
   KeyObject,
   ResultEvent,
@@ -38,11 +38,13 @@ const StartedRun = ({ run, events, game }: Props) => {
       key: '2',
       label: t('run.timeline'),
       children: (
-        <Events
+        <Timeline
           events={events}
           teamsData={run.teams}
           challenges={game.challenges}
           filterFunction={event => event.type !== ResultEventType.Empty}
+          reverse
+          hidePlace
         />
       ),
     },

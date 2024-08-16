@@ -33,9 +33,9 @@ const BingoBoard = ({ challenges, onClick, defineCardClass }: Props) => {
   }
 
   const getBadgeColor = (item: Challenge): string | undefined => {
-    if (item.points && item.points > 0) return '#87CEEB'
-    if (item.curseMultiplier && item.curseMultiplier > 0) return '#4B0082'
-    if (item.boostMultiplier && item.boostMultiplier > 0) return '#FFA500'
+    if (item.points && item.points > 0) return '#999999'
+    if (item.curseMultiplier && item.curseMultiplier > 0) return '#9C27B0'
+    if (item.boostMultiplier && item.boostMultiplier > 0) return '#2196F3'
     return undefined
   }
 
