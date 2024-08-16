@@ -44,6 +44,7 @@ const StartedRun = ({ run, events, game }: Props) => {
           challenges={game.challenges}
           filterFunction={event => event.type !== ResultEventType.Empty}
           reverse
+          hidePlace
         />
       ),
     },

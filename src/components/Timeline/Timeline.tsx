@@ -11,6 +11,7 @@ export interface Props {
   challenges: Challenge[][]
   filterFunction: (events: ResultEvent) => boolean
   reverse?: boolean
+  hidePlace?: boolean
 }
 
 interface TimelineEvent extends ResultEvent {
@@ -21,7 +22,7 @@ interface TimelineEvent extends ResultEvent {
   bingoEvents?: ResultEvent[]
 }
 
-export default ({ events, teamsData, challenges, filterFunction, reverse }: Props) => {
+export default ({ events, teamsData, challenges, filterFunction, reverse, hidePlace }: Props) => {
   const { t } = useTranslation()
 
   const getColorByEventType = (type: ResultEventType) => {
@@ -161,7 +162,7 @@ export default ({ events, teamsData, challenges, filterFunction, reverse }: Prop
             <Trans i18nKey={'timeline.visited-a-new-place'}>
               {{
                 points: event.newPlaceEvent.points,
-                newPlace: event.newPlaceEvent.newPlace,
+                newPlace: hidePlace ? '***' : event.newPlaceEvent.newPlace,
               }}
             </Trans>
           </li>
@@ -324,6 +325,24 @@ export default ({ events, teamsData, challenges, filterFunction, reverse }: Prop
     return timelineEvents
   }
 
+  const renderChildren = (event: TimelineEvent) => {
+    return (
+      <div className="event-timeline-item">
+        <div style={{ paddingBottom: 8 }}>
+          <strong>
+            <FormattedDate date={event.timestamp} format="time" />
+          </strong>
+          {event.place && !hidePlace && <i style={{ paddingLeft: 8 }}>{event.place}</i>}
+          {renderMainTag(event)}
+        </div>
+        <div style={{ display: 'block' }}>{renderExtraTags(event)}</div>
+        <div>{renderDetails(event)}</div>
+      </div>
+    )
+  }
+
+  console.log(hidePlace)
+
   const timelineItems = mergeItems(events.filter(filterFunction))
     .sort(
       (a, b) =>
@@ -333,19 +352,7 @@ export default ({ events, teamsData, challenges, filterFunction, reverse }: Prop
     .map((event: TimelineEvent, index: number) => ({
       key: index,
       color: getColorByEventType(event.type),
-      children: (
-        <div className="event-timeline-item">
-          <div style={{ paddingBottom: 8 }}>
-            <strong>
-              <FormattedDate date={event.timestamp} format="time" />
-            </strong>
-            {event.place && <i style={{ paddingLeft: 8 }}>{event.place}</i>}
-            {renderMainTag(event)}
-          </div>
-          <div style={{ display: 'block' }}>{renderExtraTags(event)}</div>
-          <div>{renderDetails(event)}</div>
-        </div>
-      ),
+      children: renderChildren(event),
     }))
 
   return <Timeline items={timelineItems} />
