@@ -1275,7 +1275,7 @@ describe('calculateScore', () => {
         },
       })
 
-      // challenge-1 must be boosted
+      // challenge-1 must be twice boosted
       expect(r[9]).toStrictEqual({
         type: ResultEventType.ChallengeCompleted,
         timestamp: '2024-08-15T13:00',
@@ -1368,9 +1368,9 @@ describe('calculateScore', () => {
         team: 'team-b',
         challenge: 'challenge-3',
         place: 'place-a',
-        points: 45, // 100 * 0.5 * 0.9
         curseApplied: true,
         curseMultiplier: 0.45,
+        points: 45, // 100 * 0.5 * 0.9
         state: {
           status: RunGameStatus.Started,
           firstChallengeCompleted: true,
