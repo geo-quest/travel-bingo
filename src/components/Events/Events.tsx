@@ -111,42 +111,6 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
   const renderChallengeCompleted = (event: TimelineEvent) => {
     return (
       <>
-        {/* <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.solved')}{' '}
-        <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
-        {event.points !== undefined && event.points > 0 && (
-          <>
-            {t('timeline.and-scored')} <strong>{event.points}</strong> {t('timeline.points')}
-          </>
-        )}
-        {event.curseApplied === true && (
-          <>
-            <p style={{ marginBottom: 0 }}>
-              <i>{t('timeline.a-curse-was-applied')}</i>
-            </p>
-            <p>
-              <i>
-                {t('timeline.curse-multiplier')}: <strong>{event.curseMultiplier}</strong>
-              </i>
-            </p>
-          </>
-        )}
-        {event.boostApplied === true && (
-          <>
-            <p style={{ marginBottom: 0 }}>
-              <i>{t('timeline.a-boost-was-applied')}</i>
-            </p>
-            <p>
-              <i>
-                {t('timeline.boost-multiplier')}: <strong>{event.boostMultiplier}</strong>
-              </i>
-            </p>
-          </>
-        )}
-        {event.firstChallengeEvent && <div>first challenge</div>}
-        {event.newPlaceEvent && <div>new place</div>}
-        {event.boostEvent && <div>boost</div>}
-        {event.curseEvent && <div>curse</div>}
-        {event.bingoEvents && <div>bingo</div>} */}
         <ul style={{ paddingLeft: 8 }}>
           {event.points !== undefined && event.points > 0 && event.team && event.challenge && (
             <li>
@@ -324,15 +288,15 @@ const Events = ({ events, teamsData, challenges, filterFunction }: Props) => {
     for (let i = 0; i < events.length; i++) {
       const event = events[i]
       if (
-        event.type === ResultEventType.Start ||
-        event.type === ResultEventType.Finish ||
-        event.type === ResultEventType.FullBoard
+        [ResultEventType.Start, ResultEventType.Finish, ResultEventType.FullBoard].includes(
+          event.type,
+        )
       )
         timelineEvents.push(event)
       else if (event.type === ResultEventType.ChallengeCompleted) {
         let j = i + 1
-        const timelineEvent: TimelineEvent = event
-        timelineEvent.bingoEvents = []
+        const timelineEvent: TimelineEvent = { ...event, bingoEvents: [] }
+
         while (
           j < events.length &&
           events[i].team === events[j].team &&
