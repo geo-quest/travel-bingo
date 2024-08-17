@@ -1,0 +1,103 @@
+{
+  "challenges": "Provocări",
+  "challenge": "Provocare",
+  "how-to-play": "Cum să joci",
+  "rank": "Clasament",
+  "team": "Echipă",
+  "score": "Scor",
+  "solved-at": "Rezolvat la",
+  "run": {
+    "run-date": "Data rundei",
+    "last-update": "Ultima actualizare",
+    "leaderboard": "Clasament",
+    "timeline": "Cronologie"
+  },
+  "podium": {
+    "1st": "Locul 1",
+    "2nd": "Locul 2",
+    "3rd": "Locul 3",
+    "pts": "pct"
+  },
+  "no-page": {
+    "oops": "Oops!",
+    "something-went-wrong": "Ceva a mers greșit",
+    "page-does-not-exist": "Pagina pe care o cauți nu există.",
+    "go-back-home-page": "Întoarce-te la pagina principală"
+  },
+  "planned-run": {
+    "game-not-started": "Acest joc nu a început încă!",
+    "expected-start-date": "Data de început estimată"
+  },
+  "timeline": {
+    "game-started": "Jocul a început",
+    "game-finished": "Jocul tocmai s-a terminat",
+    "solved": "rezolvat",
+    "and-scored": "și a obținut",
+    "points": "puncte",
+    "extra-points": "puncte suplimentare",
+    "scored-bingo": "a obținut bingo",
+    "and-made": "și a făcut",
+    "cursed": "blestemat",
+    "boosted": "boostat",
+    "solving": "rezolvând",
+    "a-curse-was-applied": "A fost aplicat un blestem!",
+    "is-boosted": "este boostat",
+    "a-boost-was-applied": "A fost aplicat un boost!",
+    "full-board": "a completat tabla! Impresionant!",
+    "curse-multiplier": "Multiplicator de blestem",
+    "boost-multiplier": "Multiplicator de boost",
+    "at": "la",
+    "completed-first-challenge": "a completat prima provocare a jocului",
+    "solved-and-made-points": "<strong>{{team}}</strong> a rezolvat <strong>{{challenge}}</strong> și a obținut <strong>{{points}}</strong> puncte.",
+    "solved-and-team-boosted": "<strong>{{team}}</strong> a rezolvat <strong>{{challenge}}</strong> și acum este boostată. <i>Următoarea provocare va valora {{boostMultiplier}} ori mai multe puncte.</i>",
+    "solved-and-cursed-another-team": "<strong>{{team}}</strong> a rezolvat <strong>{{challenge}}</strong> și a blestemat <strong>{{cursedTeam}}</strong>. <i>Următoarea provocare a echipei {{cursedTeam}} va avea o penalizare de {{curseMultiplier}} ori.</i>",
+    "solved-first-challenge": "<strong>{{points}}</strong> puncte suplimentare pentru rezolvarea primei provocări a jocului.",
+    "visited-a-new-place": "<strong>{{points}}</strong> puncte suplimentare pentru vizitarea noului loc <strong>{{newPlace}}</strong>.",
+    "curse-applied": "O penalizare de <strong>{{curseMultiplier}}</strong> datorită blestemului a fost aplicată.",
+    "boost-applied": "Un boost de <strong>{{boostMultiplier}}</strong> ori a fost aplicat.",
+    "made-a-bingo": "<strong>{{points}}</strong> puncte suplimentare pentru realizarea unui bingo la <strong>{{bingo}}</strong>."
+  },
+  "bingo": {
+    "row-0": "Prima linie",
+    "row-1": "A doua linie",
+    "row-2": "A treia linie",
+    "row-3": "A patra linie",
+    "row-4": "A cincea linie",
+    "row-5": "A șasea linie",
+    "row-7": "A șaptea linie",
+    "col-0": "Prima coloană",
+    "col-1": "A doua coloană",
+    "col-2": "A treia coloană",
+    "col-3": "A patra coloană",
+    "col-4": "A cincea coloană",
+    "col-5": "A șasea coloană",
+    "col-7": "A șaptea coloană",
+    "main-diagonal": "Diagonala principală",
+    "secondary-diagonal": "Diagonala secundară"
+  },
+  "resultEventType": {
+    "Start": "Start",
+    "Finish": "Final",
+    "ChallengeCompleted": "Completat",
+    "Bingo": "Bingo",
+    "Curse": "Blestem",
+    "Boost": "Boost",
+    "FullBoard": "Tablă completă",
+    "NewPlace": "Loc nou",
+    "FirstChallenge": "Prima provocare"
+  },
+  "team-results": {
+    "is-cursed": "este blestemat",
+    "is-boosted": " este boostat",
+    "visited-places": "Locuri vizitate",
+    "members": "Membri"
+  },
+  "challenge-modal": {
+    "is-a-curse": "Această provocare este un blestem.",
+    "curse-multiplier": "Penalizare blestem",
+    "is-a-boost": "Această provocare este un boost.",
+    "boost-multiplier": "Multiplicator boost",
+    "curse": "blestem",
+    "boost": "boost"
+  }
+}

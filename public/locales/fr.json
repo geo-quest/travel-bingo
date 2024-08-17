@@ -1,0 +1,103 @@
+{
+  "challenges": "Défis",
+  "challenge": "Défi",
+  "how-to-play": "Comment jouer",
+  "rank": "Classement",
+  "team": "Équipe",
+  "score": "Score",
+  "solved-at": "Résolu à",
+  "run": {
+    "run-date": "Date de l'événement",
+    "last-update": "Dernière mise à jour",
+    "leaderboard": "Tableau des leaders",
+    "timeline": "Chronologie"
+  },
+  "podium": {
+    "1st": "1er",
+    "2nd": "2ème",
+    "3rd": "3ème",
+    "pts": "pts"
+  },
+  "no-page": {
+    "oops": "Oups !",
+    "something-went-wrong": "Quelque chose a mal tourné",
+    "page-does-not-exist": "La page que vous recherchez n'existe pas.",
+    "go-back-home-page": "Retour à la page d'accueil"
+  },
+  "planned-run": {
+    "game-not-started": "Ce jeu n'a pas encore commencé !",
+    "expected-start-date": "Date de début prévue"
+  },
+  "timeline": {
+    "game-started": "Le jeu a commencé",
+    "game-finished": "Le jeu vient de se terminer",
+    "solved": "résolu",
+    "and-scored": "et a marqué",
+    "points": "points",
+    "extra-points": "points supplémentaires",
+    "scored-bingo": "a marqué un bingo",
+    "and-made": "et a réalisé",
+    "cursed": "maudit",
+    "boosted": "boosté",
+    "solving": "en train de résoudre",
+    "a-curse-was-applied": "Une malédiction a été appliquée !",
+    "is-boosted": " est boosté",
+    "a-boost-was-applied": "Un boost a été appliqué !",
+    "full-board": "a complété le tableau ! Impressionnant !",
+    "curse-multiplier": "Multiplicateur de malédiction",
+    "boost-multiplier": "Multiplicateur de boost",
+    "at": "à",
+    "completed-first-challenge": "a complété le premier défi du jeu",
+    "solved-and-made-points": "<strong>{{team}}</strong> a résolu <strong>{{challenge}}</strong> et a marqué <strong>{{points}}</strong> points.",
+    "solved-and-team-boosted": "<strong>{{team}}</strong> a résolu <strong>{{challenge}}</strong> et est maintenant boosté. <i>Le nouveau défi rapportera {{boostMultiplier}} fois plus de points.</i>",
+    "solved-and-cursed-another-team": "<strong>{{team}}</strong> a résolu <strong>{{challenge}}</strong> et a maudit <strong>{{cursedTeam}}</strong>. <i>Le nouveau défi de {{cursedTeam}} aura une pénalité de {{curseMultiplier}} fois.</i>",
+    "solved-first-challenge": "<strong>{{points}}</strong> points supplémentaires pour avoir résolu le premier défi du jeu.",
+    "visited-a-new-place": "<strong>{{points}}</strong> points supplémentaires pour avoir visité le nouvel endroit <strong>{{newPlace}}</strong>.",
+    "curse-applied": "Une pénalité de <strong>{{curseMultiplier}}</strong> due à la malédiction a été appliquée.",
+    "boost-applied": "Un boost de <strong>{{boostMultiplier}}</strong> fois a été appliqué.",
+    "made-a-bingo": "<strong>{{points}}</strong> points supplémentaires pour avoir réalisé un bingo à <strong>{{bingo}}</strong>."
+  },
+  "bingo": {
+    "row-0": "Première rangée",
+    "row-1": "Deuxième rangée",
+    "row-2": "Troisième rangée",
+    "row-3": "Quatrième rangée",
+    "row-4": "Cinquième rangée",
+    "row-5": "Sixième rangée",
+    "row-7": "Septième rangée",
+    "col-0": "Première colonne",
+    "col-1": "Deuxième colonne",
+    "col-2": "Troisième colonne",
+    "col-3": "Quatrième colonne",
+    "col-4": "Cinquième colonne",
+    "col-5": "Sixième colonne",
+    "col-7": "Septième colonne",
+    "main-diagonal": "Diagonale principale",
+    "secondary-diagonal": "Diagonale secondaire"
+  },
+  "resultEventType": {
+    "Start": "Début",
+    "Finish": "Fin",
+    "ChallengeCompleted": "Complété",
+    "Bingo": "Bingo",
+    "Curse": "Malédiction",
+    "Boost": "Boost",
+    "FullBoard": "Tableau complet",
+    "NewPlace": "Nouvel endroit",
+    "FirstChallenge": "Premier défi"
+  },
+  "team-results": {
+    "is-cursed": "est maudit",
+    "is-boosted": " est boosté",
+    "visited-places": "Lieux visités",
+    "members": "Membres"
+  },
+  "challenge-modal": {
+    "is-a-curse": "Ce défi est une malédiction.",
+    "curse-multiplier": "Pénalité de malédiction",
+    "is-a-boost": "Ce défi est un boost.",
+    "boost-multiplier": "Multiplicateur de boost",
+    "curse": "malédiction",
+    "boost": "boost"
+  }
+}
