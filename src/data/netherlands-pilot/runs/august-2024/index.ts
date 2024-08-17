@@ -44,7 +44,7 @@ export default {
     },
     {
       type: EventType.ChallengeCompleted,
-      timestamp: new Date('2024-08-17T08:10:00.000Z').toISOString(),
+      timestamp: new Date('2024-08-17T08:10:10.000Z').toISOString(),
       team: August2024Team.TeamB,
       challenge: NetherlandsPilotChallenge.DutchChat,
       place: 'Utrecht',
@@ -79,7 +79,7 @@ export default {
     },
     {
       type: EventType.ChallengeCompleted,
-      timestamp: new Date('2024-08-17T08:38:00.000Z').toISOString(),
+      timestamp: new Date('2024-08-17T08:38:10.000Z').toISOString(),
       team: August2024Team.TeamA,
       challenge: NetherlandsPilotChallenge.LocalFlavor,
       place: 'Utrecht',
@@ -156,7 +156,7 @@ export default {
     },
     {
       type: EventType.ChallengeCompleted,
-      timestamp: new Date('2024-08-17T09:05:00.000Z').toISOString(),
+      timestamp: new Date('2024-08-17T09:05:10.000Z').toISOString(),
       team: August2024Team.TeamA,
       challenge: NetherlandsPilotChallenge.StatuePose,
       place: 'Utrecht',
