@@ -128,7 +128,7 @@ export default ({
               {{
                 team: getTeamName(event.team, teamsData),
                 challenge: getChallengeTitle(event.challenge, challenges),
-                points: event.points,
+                points: event.points?.toFixed(0),
               }}
             </Trans>
           </li>
@@ -140,7 +140,7 @@ export default ({
               {{
                 team: getTeamName(event.team, teamsData),
                 challenge: getChallengeTitle(event.challenge, challenges),
-                boostMultiplier: event.boostEvent.boostMultiplier?.toFixed(0),
+                boostMultiplier: event.boostEvent.boostMultiplier?.toFixed(1),
               }}
             </Trans>
           </li>
@@ -152,7 +152,7 @@ export default ({
                 team: getTeamName(event.team, teamsData),
                 challenge: getChallengeTitle(event.challenge, challenges),
                 cursedTeam: getTeamName(event.cursedTeam, teamsData),
-                curseMultiplier: event.curseEvent.curseMultiplier?.toFixed(0),
+                curseMultiplier: event.curseEvent.curseMultiplier?.toFixed(1),
               }}
             </Trans>
           </li>
@@ -161,7 +161,7 @@ export default ({
           <li>
             <Trans i18nKey={'timeline.solved-first-challenge'}>
               {{
-                points: event.firstChallengeEvent.points,
+                points: event.firstChallengeEvent.points?.toFixed(0),
               }}
             </Trans>
           </li>
@@ -170,7 +170,7 @@ export default ({
           <li>
             <Trans i18nKey={'timeline.visited-a-new-place'}>
               {{
-                points: event.newPlaceEvent.points,
+                points: event.newPlaceEvent.points?.toFixed(0),
                 newPlace: hidePlace ? '***' : event.newPlaceEvent.newPlace,
               }}
             </Trans>
@@ -180,7 +180,7 @@ export default ({
           <li>
             <Trans i18nKey={'timeline.curse-applied'}>
               {{
-                curseMultiplier: event.curseMultiplier?.toFixed(0),
+                curseMultiplier: event.curseMultiplier?.toFixed(1),
               }}
             </Trans>
           </li>
@@ -189,7 +189,7 @@ export default ({
           <li>
             <Trans i18nKey={'timeline.boost-applied'}>
               {{
-                boostMultiplier: event.boostMultiplier?.toFixed(0),
+                boostMultiplier: event.boostMultiplier?.toFixed(1),
               }}
             </Trans>
           </li>
@@ -201,7 +201,7 @@ export default ({
               <Trans i18nKey={'timeline.made-a-bingo'}>
                 {{
                   bingo: t(`bingo.${bingo.newBingo}`),
-                  points: bingo.points,
+                  points: bingo.points?.toFixed(),
                 }}
               </Trans>
             </li>
@@ -215,7 +215,7 @@ export default ({
       <>
         <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.scored-bingo')} (
         <span>{t(`bingo.${event.newBingo}`)}</span>) {t('timeline.and-made')}{' '}
-        <strong>{event.points}</strong> {t('timeline.extra-points')}
+        <strong>{event.points?.toFixed()}</strong> {t('timeline.extra-points')}
       </>
     )
   }
@@ -228,7 +228,7 @@ export default ({
         <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
         <p>
           <i>
-            {t('timeline.curse-multiplier')}: <strong>{event.curseMultiplier?.toFixed(0)}</strong>
+            {t('timeline.curse-multiplier')}: <strong>{event.curseMultiplier?.toFixed(1)}</strong>
           </i>
         </p>
       </>
@@ -242,7 +242,7 @@ export default ({
         {t('timeline.solving')} <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
         <p>
           <i>
-            {t('timeline.boost-multiplier')}: <strong>{event.boostMultiplier?.toFixed(0)}</strong>
+            {t('timeline.boost-multiplier')}: <strong>{event.boostMultiplier?.toFixed(1)}</strong>
           </i>
         </p>
       </>
@@ -261,8 +261,8 @@ export default ({
     return (
       <>
         <strong>{getTeamName(event.team, teamsData)}</strong> {t('timeline.visited-a-new-place')}{' '}
-        <strong>{event.newPlace}</strong> {t('timeline.and-scored')} <strong>{event.points}</strong>{' '}
-        {t('timeline.points')}
+        <strong>{event.newPlace}</strong> {t('timeline.and-scored')}{' '}
+        <strong>{event.points?.toFixed()}</strong> {t('timeline.points')}
       </>
     )
   }
@@ -272,7 +272,7 @@ export default ({
       <>
         <strong>{getTeamName(event.team, teamsData)}</strong>{' '}
         {t('timeline.completed-first-challenge')} {t('timeline.and-scored')}{' '}
-        <strong>{event.points}</strong> {t('timeline.points')}
+        <strong>{event.points?.toFixed()}</strong> {t('timeline.points')}
       </>
     )
   }
