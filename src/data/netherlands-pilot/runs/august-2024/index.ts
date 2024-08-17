@@ -368,13 +368,6 @@ export default {
     },
     {
       type: EventType.ChallengeCompleted,
-      timestamp: new Date('2024-08-17T13:50:00.000Z').toISOString(),
-      team: August2024Team.TeamB,
-      challenge: NetherlandsPilotChallenge.AlphabetCity,
-      place: 'Amsterdam',
-    },
-    {
-      type: EventType.ChallengeCompleted,
       timestamp: new Date('2024-08-17T14:06:00.000Z').toISOString(),
       team: August2024Team.TeamB,
       challenge: NetherlandsPilotChallenge.VOCHeritage,
