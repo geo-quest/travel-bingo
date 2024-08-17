@@ -10,7 +10,7 @@ interface Props {
 const Score = ({ team, showBingos }: Props) => {
   return (
     <>
-      <span>{team.score}</span>
+      <span>{team.score.toFixed(0)}</span>
       {showBingos && team.bingos.length > 0 && (
         <span className="score-bingos">{team.bingos.length}</span>
       )}

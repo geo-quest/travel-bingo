@@ -77,7 +77,7 @@ const TeamResults = ({ team, run, game }: Props) => {
                 ? '-'
                 : teamState.places.map(place => (
                     <Tag color="#ff4500" key={place}>
-                      {place}
+                      {state.status === RunGameStatus.Started ? '***' : place}
                     </Tag>
                   ))
             }
