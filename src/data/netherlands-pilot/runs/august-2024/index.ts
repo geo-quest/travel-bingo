@@ -382,7 +382,7 @@ export default {
     },
     {
       type: EventType.ChallengeCompleted,
-      timestamp: new Date('2024-08-17T13:03:00.000Z').toISOString(),
+      timestamp: new Date('2024-08-17T15:03:00.000Z').toISOString(),
       team: August2024Team.TeamB,
       cursedTeam: August2024Team.TeamA,
       challenge: NetherlandsPilotChallenge.WindmillSpin,
@@ -390,7 +390,7 @@ export default {
     },
     {
       type: EventType.ChallengeCompleted,
-      timestamp: new Date('2024-08-17T13:08:00.000Z').toISOString(),
+      timestamp: new Date('2024-08-17T15:08:00.000Z').toISOString(),
       team: August2024Team.TeamB,
       cursedTeam: August2024Team.TeamA,
       challenge: NetherlandsPilotChallenge.SilentTrain,
