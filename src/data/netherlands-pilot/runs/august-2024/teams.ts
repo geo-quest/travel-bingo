@@ -11,7 +11,7 @@ export default {
     members: ['Matheus', 'Stan'],
   },
   [August2024Team.TeamB]: {
-    name: 'Team B',
+    name: 'The Neo Avengers',
     members: ['Maria', 'QingYing'],
   },
 } as Record<August2024Team, TeamGameData>
