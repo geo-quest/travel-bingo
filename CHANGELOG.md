@@ -1,3 +1,9 @@
+## [1.23.0](https://github.com/geo-quest/travel-bingo/compare/v1.22.0...v1.23.0) (2024-08-17)
+
+### Features
+
+* add challenge ([#75](https://github.com/geo-quest/travel-bingo/issues/75)) ([2ea68fd](https://github.com/geo-quest/travel-bingo/commit/2ea68fd77b6e1e324ab038d2559e552cd6c9ac4b))
+
 ## [1.22.0](https://github.com/geo-quest/travel-bingo/compare/v1.21.0...v1.22.0) (2024-08-17)
 
 ### Features
