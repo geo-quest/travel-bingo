@@ -7,7 +7,7 @@ export enum August2024Team {
 
 export default {
   [August2024Team.TeamA]: {
-    name: 'Team A',
+    name: 'NL questers',
     members: ['Matheus', 'Stan'],
   },
   [August2024Team.TeamB]: {
