@@ -234,6 +234,13 @@ export default {
     },
     {
       type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T11:27:00.000Z').toISOString(),
+      team: August2024Team.TeamA,
+      challenge: NetherlandsPilotChallenge.Photobomb,
+      place: 'Amsterdam',
+    },
+    {
+      type: EventType.ChallengeCompleted,
       timestamp: new Date('2024-08-17T11:39:00.000Z').toISOString(),
       team: August2024Team.TeamA,
       challenge: NetherlandsPilotChallenge.CheersToTheDutch,
