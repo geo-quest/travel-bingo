@@ -396,6 +396,48 @@ export default {
       challenge: NetherlandsPilotChallenge.SilentTrain,
       place: 'Amsterdam',
     },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:20:00.000Z').toISOString(),
+      team: August2024Team.TeamB,
+      challenge: NetherlandsPilotChallenge.ProgrammingBirthplace,
+      place: 'Den Haag',
+    },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:31:00.000Z').toISOString(),
+      team: August2024Team.TeamB,
+      challenge: NetherlandsPilotChallenge.JapaneseChristmas,
+      place: 'Den Haag',
+    },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:35:00.000Z').toISOString(),
+      team: August2024Team.TeamB,
+      challenge: NetherlandsPilotChallenge.BinnenhofBeauty,
+      place: 'Den Haag',
+    },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:38:00.000Z').toISOString(),
+      team: August2024Team.TeamB,
+      challenge: NetherlandsPilotChallenge.PetsAreTheBest,
+      place: 'Den Haag',
+    },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:52:00.000Z').toISOString(),
+      team: August2024Team.TeamB,
+      challenge: NetherlandsPilotChallenge.InternationalCourt,
+      place: 'Den Haag',
+    },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:55:00.000Z').toISOString(),
+      team: August2024Team.TeamB,
+      challenge: NetherlandsPilotChallenge.InsuranceLandmark,
+      place: 'Den Haag',
+    },
 
     /// team A
     {
@@ -421,5 +463,27 @@ export default {
       challenge: NetherlandsPilotChallenge.WindmillSpin,
       place: 'Den Haag',
     },
+    // {
+    //   type: EventType.ChallengeCompleted,
+    //   timestamp: new Date('2024-08-17T11:00:00.000Z').toISOString(),
+    //   team: August2024Team.TeamA,
+    //   challenge: NetherlandsPilotChallenge.BullishAdventure,
+    //   place: 'Den Haag',
+    // },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:11:00.000Z').toISOString(),
+      team: August2024Team.TeamA,
+      challenge: NetherlandsPilotChallenge.DutchChat,
+      place: 'Den Haag',
+    },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T15:13:00.000Z').toISOString(),
+      team: August2024Team.TeamA,
+      challenge: NetherlandsPilotChallenge.TwoCitiesOneName,
+      place: 'Den Haag',
+    },
+    { type: EventType.Finish, timestamp: new Date('2024-08-17T16:00:00.000Z').toISOString() },
   ],
 } as RunGameData
