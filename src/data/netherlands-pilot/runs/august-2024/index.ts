@@ -28,5 +28,12 @@ export default {
       challenge: NetherlandsPilotChallenge.PetsAreTheBest,
       place: 'Utrecht',
     },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T08:09:00.000Z').toISOString(),
+      team: August2024Team.TeamA,
+      challenge: NetherlandsPilotChallenge.StreetArtHunt,
+      place: 'Utrecht',
+    },
   ],
 } as RunGameData
