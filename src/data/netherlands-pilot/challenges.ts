@@ -329,6 +329,8 @@ export const NetherlandsPilotChallenges: Record<NetherlandsPilotChallenge, Chall
       ro: 'Recită toate provinciile Olandei în fața primăriei capitalei unei provincii.',
       fr: "Récitez toutes les provinces des Pays-Bas devant l'hôtel de ville de la capitale d'une des provinces.",
     },
+    image:
+      'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDZhMGllNWpxN3ppZml6amhndXV4YzE4aTczeDZxNzN5OGphYWVwOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9dFvgd4ID6ne0/giphy.webp',
   },
   [NetherlandsPilotChallenge.FindMiffy]: {
     key: NetherlandsPilotChallenge.FindMiffy,
