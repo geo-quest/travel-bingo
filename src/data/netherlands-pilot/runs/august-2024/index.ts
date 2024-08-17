@@ -1,6 +1,7 @@
 import { EventType, RunGameData } from 'data/interfaces'
+import { NetherlandsPilotChallenge } from 'data/netherlands-pilot/challenges'
 
-import august2024Teams from './teams'
+import august2024Teams, { August2024Team } from './teams'
 
 export default {
   name: {
@@ -13,5 +14,19 @@ export default {
   teams: august2024Teams,
   events: [
     { type: EventType.Start, timestamp: new Date('2024-08-17T08:00:00.000Z').toISOString() },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T08:01:00.000Z').toISOString(),
+      team: August2024Team.TeamB,
+      challenge: NetherlandsPilotChallenge.ComplimentALocal,
+      place: 'Utrecht',
+    },
+    {
+      type: EventType.ChallengeCompleted,
+      timestamp: new Date('2024-08-17T08:07:00.000Z').toISOString(),
+      team: August2024Team.TeamA,
+      challenge: NetherlandsPilotChallenge.PetsAreTheBest,
+      place: 'Utrecht',
+    },
   ],
 } as RunGameData
