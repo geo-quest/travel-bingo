@@ -12,8 +12,10 @@ const LanguageSelector = () => {
   return (
     <Select id="language-select" defaultValue={i18n.language} onChange={handleChange}>
       <Option value="en">English</Option>
-      <Option value="pt">Português</Option>
+      <Option value="fr">Français</Option>
       <Option value="nl">Nederlands</Option>
+      <Option value="pt">Português</Option>
+      <Option value="ro">Română</Option>
       <Option value="zh">中文</Option>
     </Select>
   )
