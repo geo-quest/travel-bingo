@@ -377,6 +377,7 @@ export default {
       type: EventType.ChallengeCompleted,
       timestamp: new Date('2024-08-17T14:06:00.000Z').toISOString(),
       team: August2024Team.TeamB,
+      cursedTeam: August2024Team.TeamA,
       challenge: NetherlandsPilotChallenge.StreetArtHunt,
       place: 'Amsterdam',
     },
