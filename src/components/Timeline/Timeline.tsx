@@ -140,7 +140,7 @@ export default ({
               {{
                 team: getTeamName(event.team, teamsData),
                 challenge: getChallengeTitle(event.challenge, challenges),
-                boostMultiplier: event.boostEvent.boostMultiplier,
+                boostMultiplier: event.boostEvent.boostMultiplier?.toFixed(0),
               }}
             </Trans>
           </li>
@@ -152,7 +152,7 @@ export default ({
                 team: getTeamName(event.team, teamsData),
                 challenge: getChallengeTitle(event.challenge, challenges),
                 cursedTeam: getTeamName(event.cursedTeam, teamsData),
-                curseMultiplier: event.curseEvent.curseMultiplier,
+                curseMultiplier: event.curseEvent.curseMultiplier?.toFixed(0),
               }}
             </Trans>
           </li>
@@ -180,7 +180,7 @@ export default ({
           <li>
             <Trans i18nKey={'timeline.curse-applied'}>
               {{
-                curseMultiplier: event.curseMultiplier,
+                curseMultiplier: event.curseMultiplier?.toFixed(0),
               }}
             </Trans>
           </li>
@@ -189,7 +189,7 @@ export default ({
           <li>
             <Trans i18nKey={'timeline.boost-applied'}>
               {{
-                boostMultiplier: event.boostMultiplier,
+                boostMultiplier: event.boostMultiplier?.toFixed(0),
               }}
             </Trans>
           </li>
@@ -228,7 +228,7 @@ export default ({
         <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
         <p>
           <i>
-            {t('timeline.curse-multiplier')}: <strong>{event.curseMultiplier}</strong>
+            {t('timeline.curse-multiplier')}: <strong>{event.curseMultiplier?.toFixed(0)}</strong>
           </i>
         </p>
       </>
@@ -242,7 +242,7 @@ export default ({
         {t('timeline.solving')} <strong>{getChallengeTitle(event.challenge, challenges)}</strong>{' '}
         <p>
           <i>
-            {t('timeline.boost-multiplier')}: <strong>{event.boostMultiplier}</strong>
+            {t('timeline.boost-multiplier')}: <strong>{event.boostMultiplier?.toFixed(0)}</strong>
           </i>
         </p>
       </>
