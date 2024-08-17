@@ -119,6 +119,20 @@ export default ({
     return <>{t('timeline.game-finished')}</>
   }
 
+  const getBoostMultiplier = (event: ResultEvent): string | undefined => {
+    if (!event.team) return undefined
+    const team = event.state.teams.find(t => t.team === event.team)
+    if (!team) return undefined
+    return team.boostMultiplier?.toFixed(1)
+  }
+
+  const getCurseMultiplier = (event: ResultEvent): string | undefined => {
+    if (!event.cursedTeam) return undefined
+    const team = event.state.teams.find(t => t.team === event.cursedTeam)
+    if (!team) return undefined
+    return team.curseMultiplier?.toFixed(1)
+  }
+
   const renderChallengeCompleted = (event: TimelineEvent) => {
     return (
       <ul style={{ paddingLeft: 8 }}>
@@ -140,7 +154,7 @@ export default ({
               {{
                 team: getTeamName(event.team, teamsData),
                 challenge: getChallengeTitle(event.challenge, challenges),
-                boostMultiplier: event.boostEvent.boostMultiplier?.toFixed(1),
+                boostMultiplier: getBoostMultiplier(event.boostEvent),
               }}
             </Trans>
           </li>
@@ -152,7 +166,7 @@ export default ({
                 team: getTeamName(event.team, teamsData),
                 challenge: getChallengeTitle(event.challenge, challenges),
                 cursedTeam: getTeamName(event.cursedTeam, teamsData),
-                curseMultiplier: event.curseEvent.curseMultiplier?.toFixed(1),
+                curseMultiplier: getCurseMultiplier(event.curseEvent),
               }}
             </Trans>
           </li>
