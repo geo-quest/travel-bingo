@@ -484,5 +484,6 @@ export default {
       challenge: NetherlandsPilotChallenge.TwoCitiesOneName,
       place: 'Den Haag',
     },
+    { type: EventType.Finish, timestamp: new Date('2024-08-17T16:00:00.000Z').toISOString() },
   ],
 } as RunGameData
