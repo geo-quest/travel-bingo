@@ -1,3 +1,9 @@
+## [1.23.2](https://github.com/geo-quest/travel-bingo/compare/v1.23.1...v1.23.2) (2024-08-17)
+
+### Bug Fixes
+
+* live fixes number 2 ([#76](https://github.com/geo-quest/travel-bingo/issues/76)) ([714a5f2](https://github.com/geo-quest/travel-bingo/commit/714a5f2d67720e6ab8aa6433ff0365889d5bc9d5))
+
 ## [1.23.1](https://github.com/geo-quest/travel-bingo/compare/v1.23.0...v1.23.1) (2024-08-17)
 
 ### Bug Fixes
