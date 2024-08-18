@@ -48,6 +48,7 @@ flowchart TD
 - at the end of the game, the backend must generate and store a static file with the game data to be used by the frontend
   - this file can be stored in the code, as today, or in a external service file storage
   - the same goes for the images submitted by the teams
+    - **point of attention**: the images will be stored only the players agree
 - **strapi**
   - the backend can be write using strapi, a headless cms in typescript
     - https://docs.strapi.io/
