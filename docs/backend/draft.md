@@ -48,15 +48,17 @@ flowchart TD
 - at the end of the game, the backend must generate and store a static file with the game data to be used by the frontend
   - this file can be stored in the code, as today, or in a external service file storage
   - the same goes for the images submitted by the teams
-    - **point of attention**: the images will be stored only the players agree
-- **strapi**
-  - the backend can be write using strapi, a headless cms in typescript
-    - https://docs.strapi.io/
-  - it provides a rest api (or a graphql api) that can be used by `players-frontend` and `judged-frontend`
-    - https://docs.strapi.io/dev-docs/api/rest
-    - https://docs.strapi.io/dev-docs/api/graphql
-  - it also provides a admin panel that can be the `admin-frontend`
-    - https://docs.strapi.io/user-docs/getting-started/setting-up-admin-panel
-  - the authentication can be easily solved as well:
-    - https://docs.strapi.io/dev-docs/plugins/users-permissions
-    - https://docs.strapi.io/dev-docs/configurations/sso
+    - **point of attention**: the images will be stored only if the players agree
+
+#### suggestion for the backend: strapi
+
+- the backend can be write using strapi, a headless cms in typescript
+  - https://docs.strapi.io/
+- it provides a rest api (or a graphql api) that can be used by `players-frontend` and `judged-frontend`
+  - https://docs.strapi.io/dev-docs/api/rest
+  - https://docs.strapi.io/dev-docs/api/graphql
+- it also provides a admin panel that can be the `admin-frontend`
+  - https://docs.strapi.io/user-docs/getting-started/setting-up-admin-panel
+- the authentication can be easily solved as well:
+  - https://docs.strapi.io/dev-docs/plugins/users-permissions
+  - https://docs.strapi.io/dev-docs/configurations/sso
