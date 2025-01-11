@@ -1,3 +1,4 @@
+import hogeVeluwe from './hoge-veluwe'
 import { TravelBingoGamesData } from './interfaces'
 import netherlandsPilot from './netherlands-pilot'
 import testGame from './test-game'
@@ -5,6 +6,7 @@ import testGame from './test-game'
 export default () => {
   return {
     'netherlands-pilot': netherlandsPilot,
+    'hoge-veluwe': hogeVeluwe,
     ...(process.env.DEV_MODE === 'true'
       ? {
           'test-game': testGame,
