@@ -1,3 +1,9 @@
+## [1.33.0](https://github.com/geo-quest/travel-bingo/compare/v1.32.0...v1.33.0) (2025-01-11)
+
+### Features
+
+* add hoge veluwe ([#94](https://github.com/geo-quest/travel-bingo/issues/94)) ([ffbd93f](https://github.com/geo-quest/travel-bingo/commit/ffbd93fbe73d58fa4e4bd4320a2d4cee32c41799))
+
 ## [1.32.0](https://github.com/geo-quest/travel-bingo/compare/v1.31.0...v1.32.0) (2024-08-17)
 
 ### Features

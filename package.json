@@ -1,7 +1,7 @@
 {
   "name": "travel-bingo",
   "homepage": "https://travel-bingo.netlify.app",
-  "version": "1.32.0",
+  "version": "1.33.0",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
